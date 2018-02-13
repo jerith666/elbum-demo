@@ -18531,146 +18531,6 @@ var _rtfeldman$elm_css$Html_Styled_Attributes$style = function (_p0) {
 		_elm_lang$virtual_dom$VirtualDom$style(_p0));
 };
 
-var _jerith666$elbum$AlbumStyles$opacityDuration = 1;
-var _jerith666$elbum$AlbumStyles$opacityAnimatedTo = function (opasity) {
-	return {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$opacity(
-			_rtfeldman$elm_css$Css$num(opasity)),
-		_1: {
-			ctor: '::',
-			_0: A2(_rtfeldman$elm_css$Css$property, 'transition-property', 'opacity'),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_rtfeldman$elm_css$Css$property,
-					'transition-duration',
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_elm_lang$core$Basics$toString(_jerith666$elbum$AlbumStyles$opacityDuration),
-						's')),
-				_1: {
-					ctor: '::',
-					_0: A2(_rtfeldman$elm_css$Css$property, 'transition-timing-function', 'ease-in-out'),
-					_1: {
-						ctor: '::',
-						_0: A2(_rtfeldman$elm_css$Css$property, 'transition-delay', '0s'),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		}
-	};
-};
-var _jerith666$elbum$AlbumStyles$opacityStyles = function (imgLoadedState) {
-	var _p0 = imgLoadedState;
-	switch (_p0.ctor) {
-		case 'Requested':
-			return {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$opacity(
-					_rtfeldman$elm_css$Css$num(0)),
-				_1: {ctor: '[]'}
-			};
-		case 'Partial':
-			return {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$opacity(
-					_rtfeldman$elm_css$Css$num(0)),
-				_1: {ctor: '[]'}
-			};
-		case 'Completed':
-			return _jerith666$elbum$AlbumStyles$opacityAnimatedTo(1);
-		case 'Shown':
-			return {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$opacity(
-					_rtfeldman$elm_css$Css$num(1)),
-				_1: {ctor: '[]'}
-			};
-		default:
-			return _jerith666$elbum$AlbumStyles$opacityAnimatedTo(0);
-	}
-};
-var _jerith666$elbum$AlbumStyles$rootPos = function (flags) {
-	return flags.scrollSupport ? _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed) : _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute);
-};
-var _jerith666$elbum$AlbumStyles$rootDivId = 'rootDiv';
-var _jerith666$elbum$AlbumStyles$styles = _rtfeldman$elm_css$Html_Styled_Attributes$css;
-var _jerith666$elbum$AlbumStyles$white = A3(_rtfeldman$elm_css$Css$rgb, 255, 255, 255);
-var _jerith666$elbum$AlbumStyles$black = A3(_rtfeldman$elm_css$Css$rgb, 0, 0, 0);
-var _jerith666$elbum$AlbumStyles$rootDiv = F2(
-	function (flags, extraStyles) {
-		return _rtfeldman$elm_css$Html_Styled$div(
-			{
-				ctor: '::',
-				_0: _jerith666$elbum$AlbumStyles$styles(
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						{
-							ctor: '::',
-							_0: _jerith666$elbum$AlbumStyles$rootPos(flags),
-							_1: {
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css$height(
-									_rtfeldman$elm_css$Css$vh(100)),
-								_1: {
-									ctor: '::',
-									_0: _rtfeldman$elm_css$Css$width(
-										_rtfeldman$elm_css$Css$vw(100)),
-									_1: {
-										ctor: '::',
-										_0: _rtfeldman$elm_css$Css$overflowX(_rtfeldman$elm_css$Css$hidden),
-										_1: {
-											ctor: '::',
-											_0: _rtfeldman$elm_css$Css$overflowY(_rtfeldman$elm_css$Css$auto),
-											_1: {
-												ctor: '::',
-												_0: _rtfeldman$elm_css$Css$backgroundColor(_jerith666$elbum$AlbumStyles$black),
-												_1: {ctor: '[]'}
-											}
-										}
-									}
-								}
-							}
-						},
-						extraStyles)),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled_Attributes$id(_jerith666$elbum$AlbumStyles$rootDivId),
-					_1: {ctor: '[]'}
-				}
-			});
-	});
-var _jerith666$elbum$AlbumStyles$rootDivFlex = F3(
-	function (flags, dir, extraStyles) {
-		return A2(
-			_jerith666$elbum$AlbumStyles$rootDiv,
-			flags,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$displayFlex,
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$flexDirection(dir),
-						_1: {ctor: '[]'}
-					}
-				},
-				extraStyles));
-	});
-var _jerith666$elbum$AlbumStyles$AlbumBootstrapFlags = function (a) {
-	return {scrollSupport: a};
-};
-var _jerith666$elbum$AlbumStyles$Disappearing = {ctor: 'Disappearing'};
-var _jerith666$elbum$AlbumStyles$Shown = {ctor: 'Shown'};
-var _jerith666$elbum$AlbumStyles$Completed = {ctor: 'Completed'};
-var _jerith666$elbum$AlbumStyles$Partial = function (a) {
-	return {ctor: 'Partial', _0: a};
-};
-var _jerith666$elbum$AlbumStyles$Requested = {ctor: 'Requested'};
-
 var _rtfeldman$elm_css$Html_Styled_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
 var _rtfeldman$elm_css$Html_Styled_Events$targetChecked = A2(
 	_elm_lang$core$Json_Decode$at,
@@ -18785,6 +18645,217 @@ var _rtfeldman$elm_css$Html_Styled_Events$Options = F2(
 	function (a, b) {
 		return {stopPropagation: a, preventDefault: b};
 	});
+
+var _jerith666$elbum$AlbumStyles$navEltSize = 50;
+var _jerith666$elbum$AlbumStyles$opacityDuration = 1;
+var _jerith666$elbum$AlbumStyles$opacityAnimatedTo = function (opasity) {
+	return {
+		ctor: '::',
+		_0: _rtfeldman$elm_css$Css$opacity(
+			_rtfeldman$elm_css$Css$num(opasity)),
+		_1: {
+			ctor: '::',
+			_0: A2(_rtfeldman$elm_css$Css$property, 'transition-property', 'opacity'),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_rtfeldman$elm_css$Css$property,
+					'transition-duration',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(_jerith666$elbum$AlbumStyles$opacityDuration),
+						's')),
+				_1: {
+					ctor: '::',
+					_0: A2(_rtfeldman$elm_css$Css$property, 'transition-timing-function', 'ease-in-out'),
+					_1: {
+						ctor: '::',
+						_0: A2(_rtfeldman$elm_css$Css$property, 'transition-delay', '0s'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	};
+};
+var _jerith666$elbum$AlbumStyles$opacityStyles = function (imgLoadedState) {
+	var _p0 = imgLoadedState;
+	switch (_p0.ctor) {
+		case 'Requested':
+			return {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$opacity(
+					_rtfeldman$elm_css$Css$num(0)),
+				_1: {ctor: '[]'}
+			};
+		case 'Partial':
+			return {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$opacity(
+					_rtfeldman$elm_css$Css$num(0)),
+				_1: {ctor: '[]'}
+			};
+		case 'Completed':
+			return _jerith666$elbum$AlbumStyles$opacityAnimatedTo(1);
+		case 'Shown':
+			return {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$opacity(
+					_rtfeldman$elm_css$Css$num(1)),
+				_1: {ctor: '[]'}
+			};
+		default:
+			return _jerith666$elbum$AlbumStyles$opacityAnimatedTo(0);
+	}
+};
+var _jerith666$elbum$AlbumStyles$rootPos = function (flags) {
+	return flags.scrollSupport ? _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed) : _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute);
+};
+var _jerith666$elbum$AlbumStyles$rootDivId = 'rootDiv';
+var _jerith666$elbum$AlbumStyles$styles = _rtfeldman$elm_css$Html_Styled_Attributes$css;
+var _jerith666$elbum$AlbumStyles$white = A3(_rtfeldman$elm_css$Css$rgb, 255, 255, 255);
+var _jerith666$elbum$AlbumStyles$navBoxStyles = {
+	ctor: '::',
+	_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute),
+	_1: {
+		ctor: '::',
+		_0: _rtfeldman$elm_css$Css$height(
+			_rtfeldman$elm_css$Css$px(_jerith666$elbum$AlbumStyles$navEltSize)),
+		_1: {
+			ctor: '::',
+			_0: _rtfeldman$elm_css$Css$width(
+				_rtfeldman$elm_css$Css$px(_jerith666$elbum$AlbumStyles$navEltSize)),
+			_1: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Css$lineHeight(
+					_rtfeldman$elm_css$Css$px(_jerith666$elbum$AlbumStyles$navEltSize)),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$textAlign(_rtfeldman$elm_css$Css$center),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$color(_jerith666$elbum$AlbumStyles$white),
+						_1: {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$backgroundColor(
+								A4(_rtfeldman$elm_css$Css$rgba, 40, 40, 40, 0.5)),
+							_1: {
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Css$borderRadius(
+									_rtfeldman$elm_css$Css$px(_jerith666$elbum$AlbumStyles$navEltSize / 2)),
+								_1: {
+									ctor: '::',
+									_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _jerith666$elbum$AlbumStyles$navElement = F3(
+	function (msg, label, side) {
+		return A2(
+			_rtfeldman$elm_css$Html_Styled$div,
+			{
+				ctor: '::',
+				_0: _jerith666$elbum$AlbumStyles$styles(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_jerith666$elbum$AlbumStyles$navBoxStyles,
+						{
+							ctor: '::',
+							_0: side(
+								_rtfeldman$elm_css$Css$px(0)),
+							_1: {ctor: '[]'}
+						})),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Html_Styled_Events$onClick(msg),
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Html_Styled$text(label),
+				_1: {ctor: '[]'}
+			});
+	});
+var _jerith666$elbum$AlbumStyles$black = A3(_rtfeldman$elm_css$Css$rgb, 0, 0, 0);
+var _jerith666$elbum$AlbumStyles$rootDiv = F2(
+	function (flags, extraStyles) {
+		return _rtfeldman$elm_css$Html_Styled$div(
+			{
+				ctor: '::',
+				_0: _jerith666$elbum$AlbumStyles$styles(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						{
+							ctor: '::',
+							_0: _jerith666$elbum$AlbumStyles$rootPos(flags),
+							_1: {
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Css$height(
+									_rtfeldman$elm_css$Css$vh(100)),
+								_1: {
+									ctor: '::',
+									_0: _rtfeldman$elm_css$Css$width(
+										_rtfeldman$elm_css$Css$vw(100)),
+									_1: {
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Css$overflowX(_rtfeldman$elm_css$Css$hidden),
+										_1: {
+											ctor: '::',
+											_0: _rtfeldman$elm_css$Css$overflowY(_rtfeldman$elm_css$Css$auto),
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$backgroundColor(_jerith666$elbum$AlbumStyles$black),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}
+							}
+						},
+						extraStyles)),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Html_Styled_Attributes$id(_jerith666$elbum$AlbumStyles$rootDivId),
+					_1: {ctor: '[]'}
+				}
+			});
+	});
+var _jerith666$elbum$AlbumStyles$rootDivFlex = F3(
+	function (flags, dir, extraStyles) {
+		return A2(
+			_jerith666$elbum$AlbumStyles$rootDiv,
+			flags,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$displayFlex,
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$flexDirection(dir),
+						_1: {ctor: '[]'}
+					}
+				},
+				extraStyles));
+	});
+var _jerith666$elbum$AlbumStyles$AlbumBootstrapFlags = function (a) {
+	return {scrollSupport: a};
+};
+var _jerith666$elbum$AlbumStyles$Disappearing = {ctor: 'Disappearing'};
+var _jerith666$elbum$AlbumStyles$Shown = {ctor: 'Shown'};
+var _jerith666$elbum$AlbumStyles$Completed = {ctor: 'Completed'};
+var _jerith666$elbum$AlbumStyles$Partial = function (a) {
+	return {ctor: 'Partial', _0: a};
+};
+var _jerith666$elbum$AlbumStyles$Requested = {ctor: 'Requested'};
 
 var _jerith666$elbum$ImageViews$encodeSrc = function (is) {
 	return A2(
@@ -25259,82 +25330,11 @@ var _jerith666$elbum$FullImagePage$fitImage = F3(
 				_elm_lang$core$Basics$toFloat(is.y) * scale)
 		};
 	});
-var _jerith666$elbum$FullImagePage$navEltSize = 50;
-var _jerith666$elbum$FullImagePage$navBoxStyles = {
-	ctor: '::',
-	_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$absolute),
-	_1: {
-		ctor: '::',
-		_0: _rtfeldman$elm_css$Css$height(
-			_rtfeldman$elm_css$Css$px(_jerith666$elbum$FullImagePage$navEltSize)),
-		_1: {
-			ctor: '::',
-			_0: _rtfeldman$elm_css$Css$width(
-				_rtfeldman$elm_css$Css$px(_jerith666$elbum$FullImagePage$navEltSize)),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Css$lineHeight(
-					_rtfeldman$elm_css$Css$px(_jerith666$elbum$FullImagePage$navEltSize)),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$textAlign(_rtfeldman$elm_css$Css$center),
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$color(_jerith666$elbum$AlbumStyles$white),
-						_1: {
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$backgroundColor(
-								A4(_rtfeldman$elm_css$Css$rgba, 40, 40, 40, 0.5)),
-							_1: {
-								ctor: '::',
-								_0: _rtfeldman$elm_css$Css$borderRadius(
-									_rtfeldman$elm_css$Css$px(_jerith666$elbum$FullImagePage$navEltSize / 2)),
-								_1: {
-									ctor: '::',
-									_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
-									_1: {ctor: '[]'}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-};
-var _jerith666$elbum$FullImagePage$navElement = F3(
-	function (msg, label, side) {
-		return A2(
-			_rtfeldman$elm_css$Html_Styled$div,
-			{
-				ctor: '::',
-				_0: _jerith666$elbum$AlbumStyles$styles(
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_jerith666$elbum$FullImagePage$navBoxStyles,
-						{
-							ctor: '::',
-							_0: side(
-								_rtfeldman$elm_css$Css$px(0)),
-							_1: {ctor: '[]'}
-						})),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled_Events$onClick(msg),
-					_1: {ctor: '[]'}
-				}
-			},
-			{
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Html_Styled$text(label),
-				_1: {ctor: '[]'}
-			});
-	});
 var _jerith666$elbum$FullImagePage$navEltIf = F4(
 	function (lst, navMsg, navTxt, navAlign) {
 		return _elm_lang$core$List$isEmpty(lst) ? {ctor: '[]'} : {
 			ctor: '::',
-			_0: A3(_jerith666$elbum$FullImagePage$navElement, navMsg, navTxt, navAlign),
+			_0: A3(_jerith666$elbum$AlbumStyles$navElement, navMsg, navTxt, navAlign),
 			_1: {ctor: '[]'}
 		};
 	});
@@ -25473,7 +25473,7 @@ var _jerith666$elbum$FullImagePage$view = F6(
 									_0: _jerith666$elbum$AlbumStyles$styles(
 										A2(
 											_elm_lang$core$Basics_ops['++'],
-											_jerith666$elbum$FullImagePage$navBoxStyles,
+											_jerith666$elbum$AlbumStyles$navBoxStyles,
 											{
 												ctor: '::',
 												_0: _rtfeldman$elm_css$Css$top(
@@ -25512,12 +25512,12 @@ var _jerith666$elbum$FullImagePage$TouchMsgs = F3(
 		return {touchStartMsg: a, touchContinueMsg: b, touchPrevNextMsg: c};
 	});
 
-var _jerith666$elbum$KeyboardUtils$onUpArrow = F2(
+var _jerith666$elbum$KeyboardUtils$onEscape = F2(
 	function (action, noop) {
 		return _elm_lang$keyboard$Keyboard$downs(
 			function (keycode) {
 				var _p0 = keycode;
-				if (_p0 === 38) {
+				if (_p0 === 27) {
 					return action;
 				} else {
 					return noop;
@@ -25781,7 +25781,7 @@ var _jerith666$elbum$AlbumPage$subscriptions = F3(
 		var _p34 = albumPage;
 		if (_p34.ctor === 'Thumbs') {
 			return A2(
-				_jerith666$elbum$KeyboardUtils$onUpArrow,
+				_jerith666$elbum$KeyboardUtils$onEscape,
 				showParent,
 				wrapper(_jerith666$elbum$AlbumPage$NoUpdate));
 		} else {
@@ -25808,7 +25808,7 @@ var _jerith666$elbum$AlbumPage$subscriptions = F3(
 											return _jerith666$elbum$AlbumPage$Next;
 										case 37:
 											return _jerith666$elbum$AlbumPage$Prev;
-										case 38:
+										case 27:
 											return _jerith666$elbum$AlbumPage$BackToThumbs;
 										default:
 											return _jerith666$elbum$AlbumPage$NoUpdate;
@@ -25934,6 +25934,16 @@ var _jerith666$elbum$LocationUtils$parseHref = function (href) {
 				_Bogdanp$elm_combine$Combine$end)));
 	return A2(_Bogdanp$elm_combine$Combine$parse, pathParser, href);
 };
+
+var _jerith666$elbum$ResultUtils$either = F3(
+	function (errMapper, okMapper, r) {
+		var _p0 = r;
+		if (_p0.ctor === 'Ok') {
+			return okMapper(_p0._0);
+		} else {
+			return errMapper(_p0._0);
+		}
+	});
 
 
 var _sporto$erl$Erl_Query$getValuesForKey = function (key) {
@@ -26764,18 +26774,78 @@ var _rgrempel$elm_route_url$RouteUrl$programWithFlags = function (_p23) {
 		_rgrempel$elm_route_url$RouteUrl$navigationAppWithFlags(_p23));
 };
 
+var _jerith666$elbum$Main$withHomeLink = F3(
+	function (home, flags, basePage) {
+		var _p0 = home;
+		if (_p0.ctor === 'Just') {
+			return A2(
+				_rtfeldman$elm_css$Html_Styled$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: basePage,
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_rtfeldman$elm_css$Html_Styled$a,
+							{
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Html_Styled_Attributes$href(_p0._0),
+								_1: {
+									ctor: '::',
+									_0: _jerith666$elbum$AlbumStyles$styles(
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											{
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$top(
+													_rtfeldman$elm_css$Css$px(0)),
+												_1: {
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$left(
+														_rtfeldman$elm_css$Css$px(0)),
+													_1: {
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$textDecoration(_rtfeldman$elm_css$Css$none),
+														_1: {ctor: '[]'}
+													}
+												}
+											},
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_jerith666$elbum$AlbumStyles$navBoxStyles,
+												{
+													ctor: '::',
+													_0: _jerith666$elbum$AlbumStyles$rootPos(flags),
+													_1: {ctor: '[]'}
+												}))),
+									_1: {ctor: '[]'}
+								}
+							},
+							{
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Html_Styled$text('⌂'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				});
+		} else {
+			return basePage;
+		}
+	});
 var _jerith666$elbum$Main$pageSize = function (albumPage) {
-	var _p0 = albumPage;
-	if (_p0.ctor === 'Thumbs') {
-		return _p0._1;
+	var _p1 = albumPage;
+	if (_p1.ctor === 'Thumbs') {
+		return _p1._1;
 	} else {
-		return _p0._3;
+		return _p1._3;
 	}
 };
 var _jerith666$elbum$Main$handleGetResponse = F2(
 	function (url, r) {
-		var _p1 = r.status.code;
-		if (_p1 === 200) {
+		var _p2 = r.status.code;
+		if (_p2 === 200) {
 			return _elm_lang$core$Result$Ok(url);
 		} else {
 			return _elm_lang$core$Result$Err(
@@ -26784,8 +26854,8 @@ var _jerith666$elbum$Main$handleGetResponse = F2(
 	});
 var _jerith666$elbum$Main$justLoadedReadyToDisplayNextState = F6(
 	function (album, size, justLoadedImages, readyToDisplayImages, url, result) {
-		var _p2 = result;
-		switch (_p2.ctor) {
+		var _p3 = result;
+		switch (_p3.ctor) {
 			case 'JustCompleted':
 				return A4(
 					_jerith666$elbum$AlbumPage$Thumbs,
@@ -26832,21 +26902,21 @@ var _jerith666$elbum$Main$hashFromAlbumPath = F3(
 var _jerith666$elbum$Main$hashForAlbum = F3(
 	function (model, albumPage, parents) {
 		var titles = function () {
-			var _p3 = albumPage;
-			if (_p3.ctor === 'Thumbs') {
+			var _p4 = albumPage;
+			if (_p4.ctor === 'Thumbs') {
 				return {
 					ctor: '::',
-					_0: _p3._0.title,
+					_0: _p4._0.title,
 					_1: {ctor: '[]'}
 				};
 			} else {
-				var _p4 = _p3._1;
+				var _p5 = _p4._1;
 				return {
 					ctor: '::',
-					_0: _p4.title,
+					_0: _p5.title,
 					_1: {
 						ctor: '::',
-						_0: _p4.imageFirst.altText,
+						_0: _p5.imageFirst.altText,
 						_1: {ctor: '[]'}
 					}
 				};
@@ -26855,10 +26925,10 @@ var _jerith666$elbum$Main$hashForAlbum = F3(
 		return A3(_jerith666$elbum$Main$hashFromAlbumPath, model, titles, parents);
 	});
 var _jerith666$elbum$Main$hashForList = F2(
-	function (model, _p5) {
-		var _p6 = _p5;
-		var _p7 = _p6._2;
-		return _elm_lang$core$List$isEmpty(_p7) ? A3(
+	function (model, _p6) {
+		var _p7 = _p6;
+		var _p8 = _p7._2;
+		return _elm_lang$core$List$isEmpty(_p8) ? A3(
 			_jerith666$elbum$Main$hashFromAlbumPath,
 			model,
 			{
@@ -26871,25 +26941,25 @@ var _jerith666$elbum$Main$hashForList = F2(
 			model,
 			{
 				ctor: '::',
-				_0: _p6._0.listTitle,
+				_0: _p7._0.listTitle,
 				_1: {ctor: '[]'}
 			},
-			_p7);
+			_p8);
 	});
 var _jerith666$elbum$Main$locFor = function (model) {
-	var _p8 = model;
-	switch (_p8.ctor) {
+	var _p9 = model;
+	switch (_p9.ctor) {
 		case 'LoadedAlbum':
 			return _elm_lang$core$Maybe$Just(
 				{
 					entry: _rgrempel$elm_route_url$RouteUrl$NewEntry,
-					url: A3(_jerith666$elbum$Main$hashForAlbum, model, _p8._0, _p8._1)
+					url: A3(_jerith666$elbum$Main$hashForAlbum, model, _p9._0, _p9._1)
 				});
 		case 'LoadedList':
 			return _elm_lang$core$Maybe$Just(
 				{
 					entry: _rgrempel$elm_route_url$RouteUrl$NewEntry,
-					url: A2(_jerith666$elbum$Main$hashForList, model, _p8._0)
+					url: A2(_jerith666$elbum$Main$hashForList, model, _p9._0)
 				});
 		default:
 			return _elm_lang$core$Maybe$Nothing;
@@ -26898,7 +26968,7 @@ var _jerith666$elbum$Main$locFor = function (model) {
 var _jerith666$elbum$Main$cmdOf = function (msg) {
 	return A2(
 		_elm_lang$core$Task$perform,
-		function (_p9) {
+		function (_p10) {
 			return msg;
 		},
 		_elm_lang$core$Task$succeed(
@@ -26907,11 +26977,11 @@ var _jerith666$elbum$Main$cmdOf = function (msg) {
 var _jerith666$elbum$Main$findChild = F2(
 	function (containingList, name) {
 		var f = function (albumOrList) {
-			var _p10 = albumOrList;
-			if (_p10.ctor === 'List') {
-				return _elm_lang$core$Native_Utils.eq(_p10._0.listTitle, name);
+			var _p11 = albumOrList;
+			if (_p11.ctor === 'List') {
+				return _elm_lang$core$Native_Utils.eq(_p11._0.listTitle, name);
 			} else {
-				return _elm_lang$core$Native_Utils.eq(_p10._0.title, name);
+				return _elm_lang$core$Native_Utils.eq(_p11._0.title, name);
 			}
 		};
 		return A2(
@@ -26931,11 +27001,11 @@ var _jerith666$elbum$Main$findImg = F3(
 				return _elm_lang$core$Maybe$Just(
 					{ctor: '_Tuple2', _0: prevs, _1: album});
 			} else {
-				var _p11 = album.imageRest;
-				if (_p11.ctor === '[]') {
+				var _p12 = album.imageRest;
+				if (_p12.ctor === '[]') {
 					return _elm_lang$core$Maybe$Nothing;
 				} else {
-					var _v8 = A2(
+					var _v9 = A2(
 						_elm_lang$core$Basics_ops['++'],
 						prevs,
 						{
@@ -26943,48 +27013,71 @@ var _jerith666$elbum$Main$findImg = F3(
 							_0: album.imageFirst,
 							_1: {ctor: '[]'}
 						}),
-						_v9 = _elm_lang$core$Native_Utils.update(
+						_v10 = _elm_lang$core$Native_Utils.update(
 						album,
-						{imageFirst: _p11._0, imageRest: _p11._1}),
-						_v10 = img;
-					prevs = _v8;
-					album = _v9;
-					img = _v10;
+						{imageFirst: _p12._0, imageRest: _p12._1}),
+						_v11 = img;
+					prevs = _v9;
+					album = _v10;
+					img = _v11;
 					continue findImg;
 				}
 			}
 		}
 	});
-var _jerith666$elbum$Main$flagsOf = function (model) {
-	var _p12 = model;
-	switch (_p12.ctor) {
+var _jerith666$elbum$Main$homeOf = function (model) {
+	var _p13 = model;
+	switch (_p13.ctor) {
 		case 'Sizing':
-			return _p12._0;
+			return _elm_lang$core$Maybe$Nothing;
+		case 'LoadingHomeLink':
+			return _elm_lang$core$Maybe$Nothing;
 		case 'Loading':
-			return _p12._1;
+			return _p13._2;
 		case 'LoadError':
-			return _p12._0;
+			return _elm_lang$core$Maybe$Nothing;
 		case 'LoadedList':
-			return _p12._1;
+			return _p13._2;
 		default:
-			return _p12._2;
+			return _p13._3;
 	}
 };
-var _jerith666$elbum$Main$LoadedAlbum = F4(
-	function (a, b, c, d) {
-		return {ctor: 'LoadedAlbum', _0: a, _1: b, _2: c, _3: d};
+var _jerith666$elbum$Main$flagsOf = function (model) {
+	var _p14 = model;
+	switch (_p14.ctor) {
+		case 'Sizing':
+			return _p14._0;
+		case 'LoadingHomeLink':
+			return _p14._1;
+		case 'Loading':
+			return _p14._1;
+		case 'LoadError':
+			return _p14._0;
+		case 'LoadedList':
+			return _p14._1;
+		default:
+			return _p14._2;
+	}
+};
+var _jerith666$elbum$Main$LoadedAlbum = F5(
+	function (a, b, c, d, e) {
+		return {ctor: 'LoadedAlbum', _0: a, _1: b, _2: c, _3: d, _4: e};
 	});
-var _jerith666$elbum$Main$LoadedList = F3(
-	function (a, b, c) {
-		return {ctor: 'LoadedList', _0: a, _1: b, _2: c};
+var _jerith666$elbum$Main$LoadedList = F4(
+	function (a, b, c, d) {
+		return {ctor: 'LoadedList', _0: a, _1: b, _2: c, _3: d};
 	});
 var _jerith666$elbum$Main$LoadError = F2(
 	function (a, b) {
 		return {ctor: 'LoadError', _0: a, _1: b};
 	});
-var _jerith666$elbum$Main$Loading = F3(
+var _jerith666$elbum$Main$Loading = F4(
+	function (a, b, c, d) {
+		return {ctor: 'Loading', _0: a, _1: b, _2: c, _3: d};
+	});
+var _jerith666$elbum$Main$LoadingHomeLink = F3(
 	function (a, b, c) {
-		return {ctor: 'Loading', _0: a, _1: b, _2: c};
+		return {ctor: 'LoadingHomeLink', _0: a, _1: b, _2: c};
 	});
 var _jerith666$elbum$Main$Sizing = F2(
 	function (a, b) {
@@ -26992,18 +27085,25 @@ var _jerith666$elbum$Main$Sizing = F2(
 	});
 var _jerith666$elbum$Main$withPaths = F2(
 	function (model, paths) {
-		var _p13 = model;
-		switch (_p13.ctor) {
+		var _p15 = model;
+		switch (_p15.ctor) {
 			case 'Sizing':
 				return A2(
 					_jerith666$elbum$Main$Sizing,
-					_p13._0,
+					_p15._0,
+					_elm_lang$core$Maybe$Just(paths));
+			case 'LoadingHomeLink':
+				return A3(
+					_jerith666$elbum$Main$LoadingHomeLink,
+					_p15._0,
+					_p15._1,
 					_elm_lang$core$Maybe$Just(paths));
 			case 'Loading':
-				return A3(
+				return A4(
 					_jerith666$elbum$Main$Loading,
-					_p13._0,
-					_p13._1,
+					_p15._0,
+					_p15._1,
+					_p15._2,
 					_elm_lang$core$Maybe$Just(paths));
 			case 'LoadError':
 				return model;
@@ -27028,13 +27128,13 @@ var _jerith666$elbum$Main$navToMsg = function (loc) {
 		_elm_lang$core$Debug$log,
 		'parsedHash',
 		_jerith666$elbum$LocationUtils$parseHref(loc.hash));
-	var _p14 = parsedHash;
-	if (_p14.ctor === 'Err') {
+	var _p16 = parsedHash;
+	if (_p16.ctor === 'Err') {
 		return {ctor: '[]'};
 	} else {
 		return {
 			ctor: '::',
-			_0: _jerith666$elbum$Main$Nav(_p14._0._2),
+			_0: _jerith666$elbum$Main$Nav(_p16._0._2),
 			_1: {ctor: '[]'}
 		};
 	}
@@ -27046,8 +27146,8 @@ var _jerith666$elbum$Main$ScrollSucceeded = {ctor: 'ScrollSucceeded'};
 var _jerith666$elbum$Main$scrollToTop = A2(
 	_elm_lang$core$Task$attempt,
 	function (result) {
-		var _p15 = result;
-		if (_p15.ctor === 'Ok') {
+		var _p17 = result;
+		if (_p17.ctor === 'Ok') {
 			return _jerith666$elbum$Main$ScrollSucceeded;
 		} else {
 			return _jerith666$elbum$Main$ScrollFailed(_jerith666$elbum$AlbumStyles$rootDivId);
@@ -27063,8 +27163,8 @@ var _jerith666$elbum$Main$ImageReadyToDisplay = function (a) {
 };
 var _jerith666$elbum$Main$urlNextState = F2(
 	function (url, result) {
-		var _p16 = result;
-		if (_p16.ctor === 'JustCompleted') {
+		var _p18 = result;
+		if (_p18.ctor === 'JustCompleted') {
 			return A3(
 				_andrewMacmurray$elm_delay$Delay$after,
 				100,
@@ -27079,11 +27179,11 @@ var _jerith666$elbum$Main$ImageLoaded = function (a) {
 };
 var _jerith666$elbum$Main$decodeUrlResult = F2(
 	function (origUrl, result) {
-		var _p17 = result;
-		if (_p17.ctor === 'Ok') {
-			return _jerith666$elbum$Main$ImageLoaded(_p17._0);
+		var _p19 = result;
+		if (_p19.ctor === 'Ok') {
+			return _jerith666$elbum$Main$ImageLoaded(_p19._0);
 		} else {
-			return A2(_jerith666$elbum$Main$ImageFailed, origUrl, _p17._0);
+			return A2(_jerith666$elbum$Main$ImageFailed, origUrl, _p19._0);
 		}
 	});
 var _jerith666$elbum$Main$getUrl = function (url) {
@@ -27118,20 +27218,21 @@ var _jerith666$elbum$Main$getUrls = F2(
 	});
 var _jerith666$elbum$Main$updateImageResult = F3(
 	function (model, url, result) {
-		var _p18 = model;
-		if (_p18.ctor === 'LoadedAlbum') {
-			var _p20 = _p18._3;
-			var _p19 = _p18._0;
-			if (_p19.ctor === 'Thumbs') {
-				var model = A6(_jerith666$elbum$Main$justLoadedReadyToDisplayNextState, _p19._0, _p19._1, _p19._2, _p19._3, url, result);
+		var _p20 = model;
+		if (_p20.ctor === 'LoadedAlbum') {
+			var _p22 = _p20._4;
+			var _p21 = _p20._0;
+			if (_p21.ctor === 'Thumbs') {
+				var model = A6(_jerith666$elbum$Main$justLoadedReadyToDisplayNextState, _p21._0, _p21._1, _p21._2, _p21._3, url, result);
 				var urls = _jerith666$elbum$AlbumPage$urlsToGet(model);
 				return {
 					ctor: '_Tuple2',
-					_0: A4(
+					_0: A5(
 						_jerith666$elbum$Main$LoadedAlbum,
 						model,
-						_p18._1,
-						_p18._2,
+						_p20._1,
+						_p20._2,
+						_p20._3,
 						A2(
 							_elm_lang$core$Dict$union,
 							_elm_lang$core$Dict$fromList(
@@ -27142,12 +27243,12 @@ var _jerith666$elbum$Main$updateImageResult = F3(
 								}),
 							A2(
 								_elm_lang$core$Dict$union,
-								_p20,
+								_p22,
 								A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested)))),
 					_1: _elm_lang$core$Platform_Cmd$batch(
 						{
 							ctor: '::',
-							_0: A2(_jerith666$elbum$Main$getUrls, _p20, urls),
+							_0: A2(_jerith666$elbum$Main$getUrls, _p22, urls),
 							_1: {
 								ctor: '::',
 								_0: A2(_jerith666$elbum$Main$urlNextState, url, result),
@@ -27174,36 +27275,36 @@ var _jerith666$elbum$Main$PageMsg = function (a) {
 };
 var _jerith666$elbum$Main$navForAlbum = F4(
 	function (size, album, ps, newParents) {
-		var _p21 = ps;
-		if (_p21.ctor === '[]') {
+		var _p23 = ps;
+		if (_p23.ctor === '[]') {
 			return _jerith666$elbum$Main$cmdOf(
 				A2(
 					_jerith666$elbum$Main$ViewAlbum,
 					A4(_jerith666$elbum$AlbumPage$Thumbs, album, size, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
 					newParents));
 		} else {
-			var _p22 = A3(
+			var _p24 = A3(
 				_jerith666$elbum$Main$findImg,
 				{ctor: '[]'},
 				album,
-				_p21._0);
-			if (_p22.ctor === 'Nothing') {
+				_p23._0);
+			if (_p24.ctor === 'Nothing') {
 				return _elm_lang$core$Platform_Cmd$none;
 			} else {
-				var _p25 = _p22._0._1;
-				var _p23 = A3(_jerith666$elbum$FullImagePage$fitImage, _p25.imageFirst.srcSetFirst, size.width, size.height);
-				var w = _p23._0;
-				var h = _p23._1;
-				var _p24 = A4(_jerith666$elbum$AlbumPage$progInit, size, _p25.imageFirst, w, h);
-				var progModel = _p24._0;
-				var progCmd = _p24._1;
+				var _p27 = _p24._0._1;
+				var _p25 = A3(_jerith666$elbum$FullImagePage$fitImage, _p27.imageFirst.srcSetFirst, size.width, size.height);
+				var w = _p25._0;
+				var h = _p25._1;
+				var _p26 = A4(_jerith666$elbum$AlbumPage$progInit, size, _p27.imageFirst, w, h);
+				var progModel = _p26._0;
+				var progCmd = _p26._1;
 				return _elm_lang$core$Platform_Cmd$batch(
 					{
 						ctor: '::',
 						_0: _jerith666$elbum$Main$cmdOf(
 							A2(
 								_jerith666$elbum$Main$ViewAlbum,
-								A5(_jerith666$elbum$AlbumPage$FullImage, _p22._0._0, _p25, progModel, size, _elm_lang$core$Maybe$Nothing),
+								A5(_jerith666$elbum$AlbumPage$FullImage, _p24._0._0, _p27, progModel, size, _elm_lang$core$Maybe$Nothing),
 								newParents)),
 						_1: {
 							ctor: '::',
@@ -27221,38 +27322,38 @@ var _jerith666$elbum$Main$navFrom = F5(
 	function (size, root, parents, paths, defcmd) {
 		navFrom:
 		while (true) {
-			var _p26 = paths;
-			if (_p26.ctor === '[]') {
+			var _p28 = paths;
+			if (_p28.ctor === '[]') {
 				return defcmd;
 			} else {
-				if ((_p26._0 === '#') && (_p26._1.ctor === '[]')) {
+				if ((_p28._0 === '#') && (_p28._1.ctor === '[]')) {
 					return defcmd;
 				} else {
-					var _p30 = _p26._1;
+					var _p32 = _p28._1;
 					var newParents = {ctor: '::', _0: root, _1: parents};
-					var mChild = A2(_jerith666$elbum$Main$findChild, root, _p26._0);
-					var _p27 = mChild;
-					if (_p27.ctor === 'Nothing') {
+					var mChild = A2(_jerith666$elbum$Main$findChild, root, _p28._0);
+					var _p29 = mChild;
+					if (_p29.ctor === 'Nothing') {
 						return defcmd;
 					} else {
-						var _p28 = _p27._0;
-						if (_p28.ctor === 'List') {
-							var _p29 = _p28._0;
-							var _v24 = size,
-								_v25 = _p29,
-								_v26 = newParents,
-								_v27 = _p30,
-								_v28 = _jerith666$elbum$Main$cmdOf(
+						var _p30 = _p29._0;
+						if (_p30.ctor === 'List') {
+							var _p31 = _p30._0;
+							var _v26 = size,
+								_v27 = _p31,
+								_v28 = newParents,
+								_v29 = _p32,
+								_v30 = _jerith666$elbum$Main$cmdOf(
 								_jerith666$elbum$Main$ViewList(
-									A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p29, size, newParents)));
-							size = _v24;
-							root = _v25;
-							parents = _v26;
-							paths = _v27;
-							defcmd = _v28;
+									A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p31, size, newParents)));
+							size = _v26;
+							root = _v27;
+							parents = _v28;
+							paths = _v29;
+							defcmd = _v30;
 							continue navFrom;
 						} else {
-							return A4(_jerith666$elbum$Main$navForAlbum, size, _p28._0, _p30, newParents);
+							return A4(_jerith666$elbum$Main$navForAlbum, size, _p30._0, _p32, newParents);
 						}
 					}
 				}
@@ -27266,36 +27367,38 @@ var _jerith666$elbum$Main$pathsToCmdImpl = F3(
 			'mRoot',
 			_elm_lang$core$List$head(
 				_elm_lang$core$List$reverse(parents)));
-		var _p31 = mRoot;
-		if (_p31.ctor === 'Nothing') {
+		var _p33 = mRoot;
+		if (_p33.ctor === 'Nothing') {
 			return _elm_lang$core$Platform_Cmd$none;
 		} else {
-			var _p32 = _p31._0;
+			var _p34 = _p33._0;
 			return A5(
 				_jerith666$elbum$Main$navFrom,
 				size,
-				_p32,
+				_p34,
 				{ctor: '[]'},
 				paths,
 				_jerith666$elbum$Main$cmdOf(
 					_jerith666$elbum$Main$ViewList(
 						A3(
 							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							_p32,
+							_p34,
 							size,
 							{ctor: '[]'}))));
 		}
 	});
 var _jerith666$elbum$Main$pathsToCmd = F2(
 	function (model, mPaths) {
-		var _p33 = mPaths;
-		if (_p33.ctor === 'Nothing') {
+		var _p35 = mPaths;
+		if (_p35.ctor === 'Nothing') {
 			return _elm_lang$core$Platform_Cmd$none;
 		} else {
-			var _p35 = _p33._0;
-			var _p34 = model;
-			switch (_p34.ctor) {
+			var _p37 = _p35._0;
+			var _p36 = model;
+			switch (_p36.ctor) {
 				case 'Sizing':
+					return _elm_lang$core$Platform_Cmd$none;
+				case 'LoadingHomeLink':
 					return _elm_lang$core$Platform_Cmd$none;
 				case 'Loading':
 					return _elm_lang$core$Platform_Cmd$none;
@@ -27304,23 +27407,25 @@ var _jerith666$elbum$Main$pathsToCmd = F2(
 				case 'LoadedList':
 					return A3(
 						_jerith666$elbum$Main$pathsToCmdImpl,
-						_p34._0._1,
-						{ctor: '::', _0: _p34._0._0, _1: _p34._0._2},
-						_p35);
+						_p36._0._1,
+						{ctor: '::', _0: _p36._0._0, _1: _p36._0._2},
+						_p37);
 				default:
 					return A3(
 						_jerith666$elbum$Main$pathsToCmdImpl,
-						_jerith666$elbum$Main$pageSize(_p34._0),
-						_p34._1,
-						_p35);
+						_jerith666$elbum$Main$pageSize(_p36._0),
+						_p36._1,
+						_p37);
 			}
 		}
 	});
 var _jerith666$elbum$Main$view = function (albumBootstrap) {
-	var _p36 = albumBootstrap;
-	switch (_p36.ctor) {
+	var _p38 = albumBootstrap;
+	switch (_p38.ctor) {
 		case 'Sizing':
 			return _rtfeldman$elm_css$Html_Styled$text('Album Starting');
+		case 'LoadingHomeLink':
+			return _rtfeldman$elm_css$Html_Styled$text('Home Loading ...');
 		case 'Loading':
 			return _rtfeldman$elm_css$Html_Styled$text('Album Loading ...');
 		case 'LoadError':
@@ -27328,49 +27433,59 @@ var _jerith666$elbum$Main$view = function (albumBootstrap) {
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					'Error Loading Album: ',
-					_elm_lang$core$Basics$toString(_p36._1)));
+					_elm_lang$core$Basics$toString(_p38._1)));
 		case 'LoadedAlbum':
-			var _p38 = _p36._1;
-			var _p37 = _p36._0;
-			return A5(
-				_jerith666$elbum$AlbumPage$view,
-				_p37,
-				function (list) {
-					return _jerith666$elbum$Main$ViewList(
-						A3(
-							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							list,
-							_jerith666$elbum$Main$pageSize(_p37),
-							A2(_jerith666$elbum$ListUtils$dropThrough, _p38, list)));
-				},
-				_jerith666$elbum$Main$PageMsg,
-				_p38,
-				_p36._2);
+			var _p41 = _p38._1;
+			var _p40 = _p38._2;
+			var _p39 = _p38._0;
+			return A3(
+				_jerith666$elbum$Main$withHomeLink,
+				_p38._3,
+				_p40,
+				A5(
+					_jerith666$elbum$AlbumPage$view,
+					_p39,
+					function (list) {
+						return _jerith666$elbum$Main$ViewList(
+							A3(
+								_jerith666$elbum$AlbumListPage$AlbumListPage,
+								list,
+								_jerith666$elbum$Main$pageSize(_p39),
+								A2(_jerith666$elbum$ListUtils$dropThrough, _p41, list)));
+					},
+					_jerith666$elbum$Main$PageMsg,
+					_p41,
+					_p40));
 		default:
-			var _p41 = _p36._0._1;
-			var _p40 = _p36._0._2;
-			var _p39 = _p36._0._0;
-			return A4(
-				_jerith666$elbum$AlbumListPage$view,
-				A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p39, _p41, _p40),
-				function (albumListChild) {
-					return _jerith666$elbum$Main$ViewList(
-						A3(
-							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							albumListChild,
-							_p41,
-							A2(
-								_jerith666$elbum$ListUtils$dropThrough,
-								{ctor: '::', _0: _p39, _1: _p40},
-								albumListChild)));
-				},
-				function (album) {
-					return A2(
-						_jerith666$elbum$Main$ViewAlbum,
-						A4(_jerith666$elbum$AlbumPage$Thumbs, album, _p41, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
-						{ctor: '::', _0: _p39, _1: _p40});
-				},
-				_p36._1);
+			var _p45 = _p38._0._1;
+			var _p44 = _p38._0._2;
+			var _p43 = _p38._1;
+			var _p42 = _p38._0._0;
+			return A3(
+				_jerith666$elbum$Main$withHomeLink,
+				_p38._2,
+				_p43,
+				A4(
+					_jerith666$elbum$AlbumListPage$view,
+					A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p42, _p45, _p44),
+					function (albumListChild) {
+						return _jerith666$elbum$Main$ViewList(
+							A3(
+								_jerith666$elbum$AlbumListPage$AlbumListPage,
+								albumListChild,
+								_p45,
+								A2(
+									_jerith666$elbum$ListUtils$dropThrough,
+									{ctor: '::', _0: _p42, _1: _p44},
+									albumListChild)));
+					},
+					function (album) {
+						return A2(
+							_jerith666$elbum$Main$ViewAlbum,
+							A4(_jerith666$elbum$AlbumPage$Thumbs, album, _p45, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
+							{ctor: '::', _0: _p42, _1: _p44});
+					},
+					_p43));
 	}
 };
 var _jerith666$elbum$Main$NoAlbum = function (a) {
@@ -27380,132 +27495,182 @@ var _jerith666$elbum$Main$YesAlbum = function (a) {
 	return {ctor: 'YesAlbum', _0: a};
 };
 var _jerith666$elbum$Main$decodeAlbumRequest = function (r) {
-	var _p42 = r;
-	if (_p42.ctor === 'Ok') {
-		return _jerith666$elbum$Main$YesAlbum(_p42._0);
+	var _p46 = r;
+	if (_p46.ctor === 'Ok') {
+		return _jerith666$elbum$Main$YesAlbum(_p46._0);
 	} else {
-		return _jerith666$elbum$Main$NoAlbum(_p42._0);
+		return _jerith666$elbum$Main$NoAlbum(_p46._0);
 	}
+};
+var _jerith666$elbum$Main$gotHome = F4(
+	function (size, flags, paths, home) {
+		return {
+			ctor: '_Tuple2',
+			_0: A4(_jerith666$elbum$Main$Loading, size, flags, home, paths),
+			_1: A2(
+				_elm_lang$core$Task$attempt,
+				_jerith666$elbum$Main$decodeAlbumRequest,
+				_elm_lang$http$Http$toTask(
+					A2(_elm_lang$http$Http$get, 'album.json', _jerith666$elbum$Album$jsonDecAlbumOrList)))
+		};
+	});
+var _jerith666$elbum$Main$NoHome = function (a) {
+	return {ctor: 'NoHome', _0: a};
+};
+var _jerith666$elbum$Main$YesHome = function (a) {
+	return {ctor: 'YesHome', _0: a};
 };
 var _jerith666$elbum$Main$update = F2(
 	function (msg, model) {
-		var _p43 = msg;
-		switch (_p43.ctor) {
+		var _p47 = msg;
+		switch (_p47.ctor) {
 			case 'Resize':
-				var _p49 = _p43._0;
-				var _p44 = model;
-				switch (_p44.ctor) {
+				var _p54 = _p47._0;
+				var _p48 = model;
+				switch (_p48.ctor) {
 					case 'Sizing':
 						return {
 							ctor: '_Tuple2',
 							_0: A3(
-								_jerith666$elbum$Main$Loading,
-								A2(_elm_lang$core$Debug$log, 'window size set', _p49),
-								_p44._0,
-								_p44._1),
+								_jerith666$elbum$Main$LoadingHomeLink,
+								A2(_elm_lang$core$Debug$log, 'window size set', _p54),
+								_p48._0,
+								_p48._1),
 							_1: A2(
-								_elm_lang$core$Task$attempt,
-								_jerith666$elbum$Main$decodeAlbumRequest,
-								_elm_lang$http$Http$toTask(
-									A2(_elm_lang$http$Http$get, 'album.json', _jerith666$elbum$Album$jsonDecAlbumOrList)))
+								_elm_lang$http$Http$send,
+								A2(_jerith666$elbum$ResultUtils$either, _jerith666$elbum$Main$NoHome, _jerith666$elbum$Main$YesHome),
+								_elm_lang$http$Http$getString('home'))
+						};
+					case 'LoadingHomeLink':
+						return {
+							ctor: '_Tuple2',
+							_0: A3(_jerith666$elbum$Main$LoadingHomeLink, _p54, _p48._1, _p48._2),
+							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'Loading':
 						return {
 							ctor: '_Tuple2',
-							_0: A3(
+							_0: A4(
 								_jerith666$elbum$Main$Loading,
-								A2(_elm_lang$core$Debug$log, 'window size updated during load', _p49),
-								_p44._1,
-								_p44._2),
+								A2(_elm_lang$core$Debug$log, 'window size updated during load', _p54),
+								_p48._1,
+								_p48._2,
+								_p48._3),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					case 'LoadError':
 						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					case 'LoadedAlbum':
-						var _p48 = _p44._3;
-						var _p47 = _p44._1;
-						var _p46 = _p44._2;
-						var _p45 = _p44._0;
-						if (_p45.ctor === 'Thumbs') {
+						var _p53 = _p48._4;
+						var _p52 = _p48._1;
+						var _p51 = _p48._3;
+						var _p50 = _p48._2;
+						var _p49 = _p48._0;
+						if (_p49.ctor === 'Thumbs') {
 							var model = A4(
 								_jerith666$elbum$AlbumPage$Thumbs,
-								_p45._0,
-								A2(_elm_lang$core$Debug$log, 'window size updated for thumbs', _p49),
-								_p45._2,
-								_p45._3);
+								_p49._0,
+								A2(_elm_lang$core$Debug$log, 'window size updated for thumbs', _p54),
+								_p49._2,
+								_p49._3);
 							var urls = _jerith666$elbum$AlbumPage$urlsToGet(model);
 							return {
 								ctor: '_Tuple2',
-								_0: A4(
+								_0: A5(
 									_jerith666$elbum$Main$LoadedAlbum,
 									model,
-									_p47,
-									_p46,
+									_p52,
+									_p50,
+									_p51,
 									A2(
 										_elm_lang$core$Dict$union,
-										_p48,
+										_p53,
 										A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested))),
-								_1: A2(_jerith666$elbum$Main$getUrls, _p48, urls)
+								_1: A2(_jerith666$elbum$Main$getUrls, _p53, urls)
 							};
 						} else {
 							return {
 								ctor: '_Tuple2',
-								_0: A4(
+								_0: A5(
 									_jerith666$elbum$Main$LoadedAlbum,
 									A5(
 										_jerith666$elbum$AlbumPage$FullImage,
-										_p45._0,
-										_p45._1,
-										_p45._2,
-										A2(_elm_lang$core$Debug$log, 'window size updated for full', _p49),
-										_p45._4),
-									_p47,
-									_p46,
-									_p48),
+										_p49._0,
+										_p49._1,
+										_p49._2,
+										A2(_elm_lang$core$Debug$log, 'window size updated for full', _p54),
+										_p49._4),
+									_p52,
+									_p50,
+									_p51,
+									_p53),
 								_1: _elm_lang$core$Platform_Cmd$none
 							};
 						}
 					default:
 						return {
 							ctor: '_Tuple2',
-							_0: A3(
+							_0: A4(
 								_jerith666$elbum$Main$LoadedList,
-								A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p44._0._0, _p49, _p44._0._2),
-								_p44._1,
-								_p44._2),
+								A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p48._0._0, _p54, _p48._0._2),
+								_p48._1,
+								_p48._2,
+								_p48._3),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 				}
+			case 'YesHome':
+				var _p55 = model;
+				if (_p55.ctor === 'LoadingHomeLink') {
+					return A4(
+						_jerith666$elbum$Main$gotHome,
+						_p55._0,
+						_p55._1,
+						_p55._2,
+						_elm_lang$core$Maybe$Just(_p47._0));
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'NoHome':
+				var _p56 = model;
+				if (_p56.ctor === 'LoadingHomeLink') {
+					return A4(_jerith666$elbum$Main$gotHome, _p56._0, _p56._1, _p56._2, _elm_lang$core$Maybe$Nothing);
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
 			case 'YesAlbum':
-				var _p50 = model;
-				if (_p50.ctor === 'Loading') {
-					var _p54 = _p50._0;
-					var _p53 = _p50._2;
-					var _p52 = _p50._1;
-					var _p51 = _p43._0;
-					if (_p51.ctor === 'List') {
-						var newModel = A3(
+				var _p57 = model;
+				if (_p57.ctor === 'Loading') {
+					var _p62 = _p57._0;
+					var _p61 = _p57._3;
+					var _p60 = _p57._2;
+					var _p59 = _p57._1;
+					var _p58 = _p47._0;
+					if (_p58.ctor === 'List') {
+						var newModel = A4(
 							_jerith666$elbum$Main$LoadedList,
 							A3(
 								_jerith666$elbum$AlbumListPage$AlbumListPage,
-								_p51._0,
-								_p54,
+								_p58._0,
+								_p62,
 								{ctor: '[]'}),
-							_p52,
+							_p59,
+							_p60,
 							_elm_lang$core$Dict$empty);
 						return {
 							ctor: '_Tuple2',
 							_0: newModel,
-							_1: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p53)
+							_1: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p61)
 						};
 					} else {
-						var albumPage = A4(_jerith666$elbum$AlbumPage$Thumbs, _p51._0, _p54, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty);
+						var albumPage = A4(_jerith666$elbum$AlbumPage$Thumbs, _p58._0, _p62, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty);
 						var urls = _jerith666$elbum$AlbumPage$urlsToGet(albumPage);
-						var newModel = A4(
+						var newModel = A5(
 							_jerith666$elbum$Main$LoadedAlbum,
 							albumPage,
 							{ctor: '[]'},
-							_p52,
+							_p59,
+							_p60,
 							A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested));
 						return {
 							ctor: '_Tuple2',
@@ -27513,7 +27678,7 @@ var _jerith666$elbum$Main$update = F2(
 							_1: _elm_lang$core$Platform_Cmd$batch(
 								{
 									ctor: '::',
-									_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p53),
+									_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p61),
 									_1: {
 										ctor: '::',
 										_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
@@ -27531,25 +27696,26 @@ var _jerith666$elbum$Main$update = F2(
 					_0: A2(
 						_jerith666$elbum$Main$LoadError,
 						_jerith666$elbum$Main$flagsOf(model),
-						_p43._0),
+						_p47._0),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'PageMsg':
-				var _p57 = _p43._0;
-				var _p55 = model;
-				if (_p55.ctor === 'LoadedAlbum') {
-					var newPendingUrls = _jerith666$elbum$AlbumPage$resetUrls(_p57) ? _elm_lang$core$Dict$empty : _p55._3;
-					var _p56 = A2(_jerith666$elbum$AlbumPage$update, _p57, _p55._0);
-					var newPage = _p56._0;
-					var newPageCmd = _p56._1;
+				var _p65 = _p47._0;
+				var _p63 = model;
+				if (_p63.ctor === 'LoadedAlbum') {
+					var newPendingUrls = _jerith666$elbum$AlbumPage$resetUrls(_p65) ? _elm_lang$core$Dict$empty : _p63._4;
+					var _p64 = A2(_jerith666$elbum$AlbumPage$update, _p65, _p63._0);
+					var newPage = _p64._0;
+					var newPageCmd = _p64._1;
 					var urls = _jerith666$elbum$AlbumPage$urlsToGet(newPage);
 					return {
 						ctor: '_Tuple2',
-						_0: A4(
+						_0: A5(
 							_jerith666$elbum$Main$LoadedAlbum,
 							newPage,
-							_p55._1,
-							_p55._2,
+							_p63._1,
+							_p63._2,
+							_p63._3,
 							A2(
 								_elm_lang$core$Dict$union,
 								newPendingUrls,
@@ -27569,30 +27735,32 @@ var _jerith666$elbum$Main$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'ImageLoaded':
-				return A3(_jerith666$elbum$Main$updateImageResult, model, _p43._0, _jerith666$elbum$Main$JustCompleted);
+				return A3(_jerith666$elbum$Main$updateImageResult, model, _p47._0, _jerith666$elbum$Main$JustCompleted);
 			case 'ImageReadyToDisplay':
-				return A3(_jerith666$elbum$Main$updateImageResult, model, _p43._0, _jerith666$elbum$Main$ReadyToDisplay);
+				return A3(_jerith666$elbum$Main$updateImageResult, model, _p47._0, _jerith666$elbum$Main$ReadyToDisplay);
 			case 'ImageFailed':
 				return A3(
 					_jerith666$elbum$Main$updateImageResult,
 					model,
-					_p43._0,
-					_jerith666$elbum$Main$Failed(_p43._1));
+					_p47._0,
+					_jerith666$elbum$Main$Failed(_p47._1));
 			case 'ViewList':
-				var newModel = A3(
+				var newModel = A4(
 					_jerith666$elbum$Main$LoadedList,
-					_p43._0,
+					_p47._0,
 					_jerith666$elbum$Main$flagsOf(model),
+					_jerith666$elbum$Main$homeOf(model),
 					_elm_lang$core$Dict$empty);
 				return {ctor: '_Tuple2', _0: newModel, _1: _jerith666$elbum$Main$scrollToTop};
 			case 'ViewAlbum':
-				var _p58 = _p43._0;
-				var urls = _jerith666$elbum$AlbumPage$urlsToGet(_p58);
-				var newModel = A4(
+				var _p66 = _p47._0;
+				var urls = _jerith666$elbum$AlbumPage$urlsToGet(_p66);
+				var newModel = A5(
 					_jerith666$elbum$Main$LoadedAlbum,
-					_p58,
-					_p43._1,
+					_p66,
+					_p47._1,
 					_jerith666$elbum$Main$flagsOf(model),
+					_jerith666$elbum$Main$homeOf(model),
 					A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested));
 				return {
 					ctor: '_Tuple2',
@@ -27613,14 +27781,14 @@ var _jerith666$elbum$Main$update = F2(
 			case 'ScrollFailed':
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 			case 'Nav':
-				var _p59 = _p43._0;
+				var _p67 = _p47._0;
 				return {
 					ctor: '_Tuple2',
-					_0: A2(_jerith666$elbum$Main$withPaths, model, _p59),
+					_0: A2(_jerith666$elbum$Main$withPaths, model, _p67),
 					_1: A2(
 						_jerith666$elbum$Main$pathsToCmd,
 						model,
-						_elm_lang$core$Maybe$Just(_p59))
+						_elm_lang$core$Maybe$Just(_p67))
 				};
 			default:
 				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
@@ -27637,27 +27805,27 @@ var _jerith666$elbum$Main$init = function (flags) {
 	};
 };
 var _jerith666$elbum$Main$subscriptions = function (model) {
-	var _p60 = model;
-	switch (_p60.ctor) {
+	var _p68 = model;
+	switch (_p68.ctor) {
 		case 'LoadedAlbum':
-			var _p62 = _p60._0;
+			var _p70 = _p68._0;
 			var showParent = function () {
-				var _p61 = _p60._1;
-				if (_p61.ctor === '[]') {
+				var _p69 = _p68._1;
+				if (_p69.ctor === '[]') {
 					return _jerith666$elbum$Main$NoBootstrap;
 				} else {
 					return _jerith666$elbum$Main$ViewList(
 						A3(
 							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							_p61._0,
-							_jerith666$elbum$Main$pageSize(_p62),
-							_p61._1));
+							_p69._0,
+							_jerith666$elbum$Main$pageSize(_p70),
+							_p69._1));
 				}
 			}();
 			return _elm_lang$core$Platform_Sub$batch(
 				{
 					ctor: '::',
-					_0: A3(_jerith666$elbum$AlbumPage$subscriptions, _p62, _jerith666$elbum$Main$PageMsg, showParent),
+					_0: A3(_jerith666$elbum$AlbumPage$subscriptions, _p70, _jerith666$elbum$Main$PageMsg, showParent),
 					_1: {
 						ctor: '::',
 						_0: _elm_lang$window$Window$resizes(_jerith666$elbum$Main$Resize),
@@ -27665,14 +27833,14 @@ var _jerith666$elbum$Main$subscriptions = function (model) {
 					}
 				});
 		case 'LoadedList':
-			var _p63 = _p60._0._2;
-			if (_p63.ctor === '[]') {
+			var _p71 = _p68._0._2;
+			if (_p71.ctor === '[]') {
 				return _elm_lang$window$Window$resizes(_jerith666$elbum$Main$Resize);
 			} else {
 				var upParent = A2(
-					_jerith666$elbum$KeyboardUtils$onUpArrow,
+					_jerith666$elbum$KeyboardUtils$onEscape,
 					_jerith666$elbum$Main$ViewList(
-						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p63._0, _p60._0._1, _p63._1)),
+						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p71._0, _p68._0._1, _p71._1)),
 					_jerith666$elbum$Main$NoBootstrap);
 				return _elm_lang$core$Platform_Sub$batch(
 					{
@@ -27692,13 +27860,13 @@ var _jerith666$elbum$Main$subscriptions = function (model) {
 var _jerith666$elbum$Main$main = _rgrempel$elm_route_url$RouteUrl$programWithFlags(
 	{
 		init: _jerith666$elbum$Main$init,
-		view: function (_p64) {
+		view: function (_p72) {
 			return _rtfeldman$elm_css$Html_Styled$toUnstyled(
-				_jerith666$elbum$Main$view(_p64));
+				_jerith666$elbum$Main$view(_p72));
 		},
 		update: _jerith666$elbum$Main$update,
 		subscriptions: _jerith666$elbum$Main$subscriptions,
-		delta2url: function (_p65) {
+		delta2url: function (_p73) {
 			return _jerith666$elbum$Main$locFor;
 		},
 		location2messages: _jerith666$elbum$Main$navToMsg
