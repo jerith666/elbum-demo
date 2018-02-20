@@ -25496,7 +25496,48 @@ var _jerith666$elbum$FullImagePage$view = F6(
 									_0: _rtfeldman$elm_css$Html_Styled$text('x'),
 									_1: {ctor: '[]'}
 								}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_rtfeldman$elm_css$Html_Styled$a,
+									{
+										ctor: '::',
+										_0: _jerith666$elbum$AlbumStyles$styles(
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_jerith666$elbum$AlbumStyles$navBoxStyles,
+												{
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$bottom(
+														_rtfeldman$elm_css$Css$px(5)),
+													_1: {
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$right(
+															_rtfeldman$elm_css$Css$px(5)),
+														_1: {
+															ctor: '::',
+															_0: _rtfeldman$elm_css$Css$textDecoration(_rtfeldman$elm_css$Css$none),
+															_1: {ctor: '[]'}
+														}
+													}
+												})),
+										_1: {
+											ctor: '::',
+											_0: _rtfeldman$elm_css$Html_Styled_Attributes$href(fullImagePageModel.album.imageFirst.srcSetFirst.url),
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Html_Styled_Attributes$target('_blank'),
+												_1: {ctor: '[]'}
+											}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Html_Styled$text('⤓'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}))));
 	});
 var _jerith666$elbum$FullImagePage$FullImagePageModel = F5(
