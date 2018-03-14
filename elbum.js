@@ -7658,37 +7658,47 @@ var _bartavelle$json_helpers$Json_Helpers$decodeSumNullaries = F2(
 			_elm_lang$core$Json_Decode$string);
 	});
 var _bartavelle$json_helpers$Json_Helpers$decodeSumUnaries = _bartavelle$json_helpers$Json_Helpers$decodeSumNullaries;
+var _bartavelle$json_helpers$Json_Helpers$encodeSumUntagged = F2(
+	function (mkkeyval, v) {
+		var _p5 = _elm_lang$core$Tuple$second(
+			mkkeyval(v));
+		if (_p5.ctor === 'EValue') {
+			return _p5._0;
+		} else {
+			return _elm_lang$core$Json_Encode$object(_p5._0);
+		}
+	});
 var _bartavelle$json_helpers$Json_Helpers$encodeSumTaggedObject = F4(
 	function (fieldname, contentname, mkkeyval, v) {
-		var _p5 = mkkeyval(v);
-		var key = _p5._0;
-		var $eval = _p5._1;
+		var _p6 = mkkeyval(v);
+		var key = _p6._0;
+		var $eval = _p6._1;
 		var kp = {
 			ctor: '_Tuple2',
 			_0: fieldname,
 			_1: _elm_lang$core$Json_Encode$string(key)
 		};
-		var _p6 = $eval;
-		if (_p6.ctor === 'EValue') {
+		var _p7 = $eval;
+		if (_p7.ctor === 'EValue') {
 			return _elm_lang$core$Json_Encode$object(
 				{
 					ctor: '::',
 					_0: kp,
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: contentname, _1: _p6._0},
+						_0: {ctor: '_Tuple2', _0: contentname, _1: _p7._0},
 						_1: {ctor: '[]'}
 					}
 				});
 		} else {
 			return _elm_lang$core$Json_Encode$object(
-				{ctor: '::', _0: kp, _1: _p6._0});
+				{ctor: '::', _0: kp, _1: _p7._0});
 		}
 	});
 var _bartavelle$json_helpers$Json_Helpers$decodeSumFinal = F4(
 	function (name, key, value, mapping) {
-		var _p7 = A2(_elm_lang$core$Dict$get, key, mapping);
-		if (_p7.ctor === 'Nothing') {
+		var _p8 = A2(_elm_lang$core$Dict$get, key, mapping);
+		if (_p8.ctor === 'Nothing') {
 			return _elm_lang$core$Result$Err(
 				A2(
 					_elm_lang$core$Basics_ops['++'],
@@ -7698,7 +7708,7 @@ var _bartavelle$json_helpers$Json_Helpers$decodeSumFinal = F4(
 						key,
 						A2(_elm_lang$core$Basics_ops['++'], ' for type ', name))));
 		} else {
-			return A2(_elm_lang$core$Json_Decode$decodeValue, _p7._0, value);
+			return A2(_elm_lang$core$Json_Decode$decodeValue, _p8._0, value);
 		}
 	});
 var _bartavelle$json_helpers$Json_Helpers$customDecoder = F2(
@@ -7706,11 +7716,11 @@ var _bartavelle$json_helpers$Json_Helpers$customDecoder = F2(
 		return A2(
 			_elm_lang$core$Json_Decode$andThen,
 			function (a) {
-				var _p8 = toResult(a);
-				if (_p8.ctor === 'Ok') {
-					return _elm_lang$core$Json_Decode$succeed(_p8._0);
+				var _p9 = toResult(a);
+				if (_p9.ctor === 'Ok') {
+					return _elm_lang$core$Json_Decode$succeed(_p9._0);
 				} else {
-					return _elm_lang$core$Json_Decode$fail(_p8._0);
+					return _elm_lang$core$Json_Decode$fail(_p9._0);
 				}
 			},
 			decoder);
@@ -7721,9 +7731,9 @@ var _bartavelle$json_helpers$Json_Helpers$decodeSumObjectWithSingleField = F2(
 			_bartavelle$json_helpers$Json_Helpers$customDecoder,
 			_elm_lang$core$Json_Decode$keyValuePairs(_elm_lang$core$Json_Decode$value),
 			function (lst) {
-				var _p9 = lst;
-				if (((_p9.ctor === '::') && (_p9._0.ctor === '_Tuple2')) && (_p9._1.ctor === '[]')) {
-					return A4(_bartavelle$json_helpers$Json_Helpers$decodeSumFinal, name, _p9._0._0, _p9._0._1, mapping);
+				var _p10 = lst;
+				if (((_p10.ctor === '::') && (_p10._0.ctor === '_Tuple2')) && (_p10._1.ctor === '[]')) {
+					return A4(_bartavelle$json_helpers$Json_Helpers$decodeSumFinal, name, _p10._0._0, _p10._0._1, mapping);
 				} else {
 					return _elm_lang$core$Result$Err(
 						A2(
@@ -7781,15 +7791,15 @@ var _bartavelle$json_helpers$Json_Helpers$decodeSumTwoElemArray = F2(
 					}),
 				_elm_lang$core$Json_Decode$string,
 				_elm_lang$core$Json_Decode$value),
-			function (_p10) {
-				var _p11 = _p10;
-				return A4(_bartavelle$json_helpers$Json_Helpers$decodeSumFinal, name, _p11._0, _p11._1, mapping);
+			function (_p11) {
+				var _p12 = _p11;
+				return A4(_bartavelle$json_helpers$Json_Helpers$decodeSumFinal, name, _p12._0, _p12._1, mapping);
 			});
 	});
 var _bartavelle$json_helpers$Json_Helpers$resmapM = F2(
 	function (f, lst) {
-		var _p12 = lst;
-		if (_p12.ctor === '[]') {
+		var _p13 = lst;
+		if (_p13.ctor === '[]') {
 			return _elm_lang$core$Result$Ok(
 				{ctor: '[]'});
 		} else {
@@ -7802,21 +7812,21 @@ var _bartavelle$json_helpers$Json_Helpers$resmapM = F2(
 							return _elm_lang$core$Result$Ok(
 								{ctor: '::', _0: nx, _1: nxs});
 						},
-						A2(_bartavelle$json_helpers$Json_Helpers$resmapM, f, _p12._1));
+						A2(_bartavelle$json_helpers$Json_Helpers$resmapM, f, _p13._1));
 				},
-				f(_p12._0));
+				f(_p13._0));
 		}
 	});
 var _bartavelle$json_helpers$Json_Helpers$decodeMap = F2(
 	function (decKey, decVal) {
-		var decodeKey = function (_p13) {
-			var _p14 = _p13;
+		var decodeKey = function (_p14) {
+			var _p15 = _p14;
 			return A2(
 				_elm_lang$core$Result$map,
 				function (nk) {
-					return {ctor: '_Tuple2', _0: nk, _1: _p14._1};
+					return {ctor: '_Tuple2', _0: nk, _1: _p15._1};
 				},
-				A2(_elm_lang$core$Json_Decode$decodeString, decKey, _p14._0));
+				A2(_elm_lang$core$Json_Decode$decodeString, decKey, _p15._0));
 		};
 		var decodeKeys = _bartavelle$json_helpers$Json_Helpers$resmapM(decodeKey);
 		return A2(
@@ -7830,26 +7840,26 @@ var _bartavelle$json_helpers$Json_Helpers$decodeMap = F2(
 var _bartavelle$json_helpers$Json_Helpers$jsonDecDict = _bartavelle$json_helpers$Json_Helpers$decodeMap;
 var _bartavelle$json_helpers$Json_Helpers$maybeEncode = F2(
 	function (e, v) {
-		var _p15 = v;
-		if (_p15.ctor === 'Nothing') {
+		var _p16 = v;
+		if (_p16.ctor === 'Nothing') {
 			return _elm_lang$core$Json_Encode$null;
 		} else {
-			return e(_p15._0);
+			return e(_p16._0);
 		}
 	});
 var _bartavelle$json_helpers$Json_Helpers$oeValue = function (x) {
-	var _p16 = x;
-	if (_p16.ctor === 'EObject') {
-		return _elm_lang$core$Json_Encode$object(_p16._0);
+	var _p17 = x;
+	if (_p17.ctor === 'EObject') {
+		return _elm_lang$core$Json_Encode$object(_p17._0);
 	} else {
-		return _p16._0;
+		return _p17._0;
 	}
 };
 var _bartavelle$json_helpers$Json_Helpers$encodeSumObjectWithSingleField = F2(
 	function (mkkeyval, v) {
-		var _p17 = mkkeyval(v);
-		var key = _p17._0;
-		var val = _p17._1;
+		var _p18 = mkkeyval(v);
+		var key = _p18._0;
+		var val = _p18._1;
 		return _elm_lang$core$Json_Encode$object(
 			{
 				ctor: '::',
@@ -7863,9 +7873,9 @@ var _bartavelle$json_helpers$Json_Helpers$encodeSumObjectWithSingleField = F2(
 	});
 var _bartavelle$json_helpers$Json_Helpers$encodeSumTwoElementArray = F2(
 	function (mkkeyval, v) {
-		var _p18 = mkkeyval(v);
-		var key = _p18._0;
-		var val = _p18._1;
+		var _p19 = mkkeyval(v);
+		var key = _p19._0;
+		var val = _p19._1;
 		return _elm_lang$core$Json_Encode$list(
 			{
 				ctor: '::',
@@ -12649,20 +12659,20 @@ var _jerith666$elbum$Album$jsonDecAlbumOrList = function () {
 			_0: {
 				ctor: '_Tuple2',
 				_0: 'List',
-				_1: A2(
-					_elm_lang$core$Json_Decode$map,
-					_jerith666$elbum$Album$List,
-					_elm_lang$core$Json_Decode$lazy(
-						function (_p4) {
-							return _jerith666$elbum$Album$jsonDecAlbumList;
-						}))
+				_1: _elm_lang$core$Json_Decode$lazy(
+					function (_p4) {
+						return A2(_elm_lang$core$Json_Decode$map, _jerith666$elbum$Album$List, _jerith666$elbum$Album$jsonDecAlbumList);
+					})
 			},
 			_1: {
 				ctor: '::',
 				_0: {
 					ctor: '_Tuple2',
 					_0: 'Leaf',
-					_1: A2(_elm_lang$core$Json_Decode$map, _jerith666$elbum$Album$Leaf, _jerith666$elbum$Album$jsonDecAlbum)
+					_1: _elm_lang$core$Json_Decode$lazy(
+						function (_p5) {
+							return A2(_elm_lang$core$Json_Decode$map, _jerith666$elbum$Album$Leaf, _jerith666$elbum$Album$jsonDecAlbum);
+						})
 				},
 				_1: {ctor: '[]'}
 			}
@@ -14743,14 +14753,14 @@ var _rtfeldman$elm_css$Css$inline = {value: 'inline', display: _rtfeldman$elm_cs
 var _rtfeldman$elm_css$Css$inlineFlex = {value: 'inline-flex', display: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$inlineBlock = {value: 'inline-block', display: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$block = {value: 'block', display: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toTopLeft = {value: 'top left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toLeft = {value: 'left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toBottomLeft = {value: 'bottom left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toBottom = {value: 'bottom', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toBottomRight = {value: 'bottom right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toRight = {value: 'right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toTopRight = {value: 'top right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$toTop = {value: 'top', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toTopLeft = {value: 'to top left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toLeft = {value: 'to left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toBottomLeft = {value: 'to bottom left', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toBottom = {value: 'to bottom', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toBottomRight = {value: 'to bottom right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toRight = {value: 'to right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toTopRight = {value: 'to top right', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$toTop = {value: 'to top', angleOrDirection: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$stop2 = F2(
 	function (c, len) {
 		return {
@@ -16118,7 +16128,7 @@ var _rtfeldman$elm_css$Css$linearGradient2 = F4(
 						function (x, y) {
 							return {ctor: '::', _0: x, _1: y};
 						}),
-					A2(_elm_lang$core$Basics_ops['++'], 'to ', dir.value),
+					dir.value,
 					_rtfeldman$elm_css$Css$collectStops(
 						A2(
 							_elm_lang$core$Basics_ops['++'],
@@ -18063,6 +18073,49 @@ var _rtfeldman$elm_css$Html_Styled_Internal$css = function (styles) {
 
 var _rtfeldman$elm_css$Html_Styled$fromUnstyled = _rtfeldman$elm_css$VirtualDom_Styled$unstyledNode;
 var _rtfeldman$elm_css$Html_Styled$toUnstyled = _rtfeldman$elm_css$VirtualDom_Styled$toUnstyled;
+var _rtfeldman$elm_css$Html_Styled$program = function (config) {
+	return _elm_lang$virtual_dom$VirtualDom$program(
+		_elm_lang$core$Native_Utils.update(
+			config,
+			{
+				view: function (_p0) {
+					return _rtfeldman$elm_css$Html_Styled$toUnstyled(
+						config.view(_p0));
+				}
+			}));
+};
+var _rtfeldman$elm_css$Html_Styled$beginnerProgram = function (_p1) {
+	var _p2 = _p1;
+	return _rtfeldman$elm_css$Html_Styled$program(
+		{
+			init: A2(
+				_elm_lang$core$Platform_Cmd_ops['!'],
+				_p2.model,
+				{ctor: '[]'}),
+			update: F2(
+				function (msg, model) {
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						A2(_p2.update, msg, model),
+						{ctor: '[]'});
+				}),
+			view: _p2.view,
+			subscriptions: function (_p3) {
+				return _elm_lang$core$Platform_Sub$none;
+			}
+		});
+};
+var _rtfeldman$elm_css$Html_Styled$programWithFlags = function (config) {
+	return _elm_lang$virtual_dom$VirtualDom$programWithFlags(
+		_elm_lang$core$Native_Utils.update(
+			config,
+			{
+				view: function (_p4) {
+					return _rtfeldman$elm_css$Html_Styled$toUnstyled(
+						config.view(_p4));
+				}
+			}));
+};
 var _rtfeldman$elm_css$Html_Styled$styled = F4(
 	function (fn, styles, attrs, children) {
 		return A2(
@@ -18857,133 +18910,6 @@ var _jerith666$elbum$AlbumStyles$Partial = function (a) {
 };
 var _jerith666$elbum$AlbumStyles$Requested = {ctor: 'Requested'};
 
-var _jerith666$elbum$ImageViews$encodeSrc = function (is) {
-	return A2(
-		_elm_lang$core$Basics_ops['++'],
-		is.url,
-		A2(
-			_elm_lang$core$Basics_ops['++'],
-			' ',
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(is.x),
-				'w')));
-};
-var _jerith666$elbum$ImageViews$encodeSrcSet = function (is) {
-	return A2(
-		_elm_lang$core$String$join,
-		', ',
-		A2(_elm_lang$core$List$map, _jerith666$elbum$ImageViews$encodeSrc, is));
-};
-var _jerith666$elbum$ImageViews$render = F5(
-	function (idefault, is, s, otherAttrs, msg) {
-		var clickAttr = function () {
-			var _p0 = msg;
-			if (_p0.ctor === 'Just') {
-				return {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled_Events$onClick(_p0._0),
-					_1: {ctor: '[]'}
-				};
-			} else {
-				return {ctor: '[]'};
-			}
-		}();
-		var baseAttrs = {
-			ctor: '::',
-			_0: _jerith666$elbum$AlbumStyles$styles(s),
-			_1: {
-				ctor: '::',
-				_0: _rtfeldman$elm_css$Html_Styled_Attributes$src(idefault.url),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled_Attributes$width(idefault.x),
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Html_Styled_Attributes$height(idefault.y),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		};
-		var srcset = function () {
-			var _p1 = is;
-			if (_p1.ctor === '[]') {
-				return {ctor: '[]'};
-			} else {
-				return {
-					ctor: '::',
-					_0: A2(
-						_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
-						'srcset',
-						_jerith666$elbum$ImageViews$encodeSrcSet(is)),
-					_1: {ctor: '[]'}
-				};
-			}
-		}();
-		return A2(
-			_rtfeldman$elm_css$Html_Styled$img,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				baseAttrs,
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					otherAttrs,
-					A2(_elm_lang$core$Basics_ops['++'], srcset, clickAttr))),
-			{ctor: '[]'});
-	});
-var _jerith666$elbum$ImageViews$smallestImageBiggerThan = F4(
-	function (w, h, i, iRest) {
-		var _p2 = _elm_lang$core$List$head(
-			A2(
-				_elm_lang$core$List$sortBy,
-				function (is) {
-					return is.x;
-				},
-				A2(
-					_elm_lang$core$List$filter,
-					function (is) {
-						return (_elm_lang$core$Native_Utils.cmp(is.x, w) > -1) && (_elm_lang$core$Native_Utils.cmp(is.y, h) > -1);
-					},
-					{ctor: '::', _0: i, _1: iRest})));
-		if (_p2.ctor === 'Nothing') {
-			return i;
-		} else {
-			return _p2._0;
-		}
-	});
-var _jerith666$elbum$ImageViews$renderPresized = F8(
-	function (margin, w, h, i, iRest, s, otherAttrs, msg) {
-		return A5(
-			_jerith666$elbum$ImageViews$render,
-			A4(_jerith666$elbum$ImageViews$smallestImageBiggerThan, w, h, i, iRest),
-			{ctor: '[]'},
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				s,
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$margin(
-						_rtfeldman$elm_css$Css$px(
-							_elm_lang$core$Basics$toFloat(margin))),
-					_1: {
-						ctor: '::',
-						_0: _rtfeldman$elm_css$Css$width(
-							_rtfeldman$elm_css$Css$px(
-								_elm_lang$core$Basics$toFloat(w - (2 * margin)))),
-						_1: {
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$height(
-								_rtfeldman$elm_css$Css$px(
-									_elm_lang$core$Basics$toFloat(h - (2 * margin)))),
-							_1: {ctor: '[]'}
-						}
-					}
-				}),
-			otherAttrs,
-			msg);
-	});
-
 var _jerith666$elbum$ListUtils$mapI = F3(
 	function (i, map, l) {
 		var ifmap = function (_p0) {
@@ -19100,6 +19026,143 @@ var _jerith666$elbum$ListUtils$dictWithValues = F2(
 					return {ctor: '_Tuple2', _0: key, _1: val};
 				},
 				_elm_lang$core$Set$toList(keys)));
+	});
+var _jerith666$elbum$ListUtils$encodePath = function (_p9) {
+	return A2(
+		_elm_lang$core$String$join,
+		'/',
+		A2(
+			_elm_lang$core$List$map,
+			_elm_lang$http$Http$encodeUri,
+			A2(_elm_lang$core$String$split, '/', _p9)));
+};
+
+var _jerith666$elbum$ImageViews$encodeSrc = function (is) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_jerith666$elbum$ListUtils$encodePath(is.url),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			' ',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(is.x),
+				'w')));
+};
+var _jerith666$elbum$ImageViews$encodeSrcSet = function (is) {
+	return A2(
+		_elm_lang$core$String$join,
+		', ',
+		A2(_elm_lang$core$List$map, _jerith666$elbum$ImageViews$encodeSrc, is));
+};
+var _jerith666$elbum$ImageViews$render = F5(
+	function (idefault, is, s, otherAttrs, msg) {
+		var clickAttr = function () {
+			var _p0 = msg;
+			if (_p0.ctor === 'Just') {
+				return {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Html_Styled_Events$onClick(_p0._0),
+					_1: {ctor: '[]'}
+				};
+			} else {
+				return {ctor: '[]'};
+			}
+		}();
+		var baseAttrs = {
+			ctor: '::',
+			_0: _jerith666$elbum$AlbumStyles$styles(s),
+			_1: {
+				ctor: '::',
+				_0: _rtfeldman$elm_css$Html_Styled_Attributes$src(
+					_jerith666$elbum$ListUtils$encodePath(idefault.url)),
+				_1: {
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Html_Styled_Attributes$width(idefault.x),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Html_Styled_Attributes$height(idefault.y),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		};
+		var srcset = function () {
+			var _p1 = is;
+			if (_p1.ctor === '[]') {
+				return {ctor: '[]'};
+			} else {
+				return {
+					ctor: '::',
+					_0: A2(
+						_rtfeldman$elm_css$Html_Styled_Attributes$attribute,
+						'srcset',
+						_jerith666$elbum$ImageViews$encodeSrcSet(is)),
+					_1: {ctor: '[]'}
+				};
+			}
+		}();
+		return A2(
+			_rtfeldman$elm_css$Html_Styled$img,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				baseAttrs,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					otherAttrs,
+					A2(_elm_lang$core$Basics_ops['++'], srcset, clickAttr))),
+			{ctor: '[]'});
+	});
+var _jerith666$elbum$ImageViews$smallestImageBiggerThan = F4(
+	function (w, h, i, iRest) {
+		var _p2 = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$sortBy,
+				function (is) {
+					return is.x;
+				},
+				A2(
+					_elm_lang$core$List$filter,
+					function (is) {
+						return (_elm_lang$core$Native_Utils.cmp(is.x, w) > -1) && (_elm_lang$core$Native_Utils.cmp(is.y, h) > -1);
+					},
+					{ctor: '::', _0: i, _1: iRest})));
+		if (_p2.ctor === 'Nothing') {
+			return i;
+		} else {
+			return _p2._0;
+		}
+	});
+var _jerith666$elbum$ImageViews$renderPresized = F8(
+	function (margin, w, h, i, iRest, s, otherAttrs, msg) {
+		return A5(
+			_jerith666$elbum$ImageViews$render,
+			A4(_jerith666$elbum$ImageViews$smallestImageBiggerThan, w, h, i, iRest),
+			{ctor: '[]'},
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				s,
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$margin(
+						_rtfeldman$elm_css$Css$px(
+							_elm_lang$core$Basics$toFloat(margin))),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$width(
+							_rtfeldman$elm_css$Css$px(
+								_elm_lang$core$Basics$toFloat(w - (2 * margin)))),
+						_1: {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$height(
+								_rtfeldman$elm_css$Css$px(
+									_elm_lang$core$Basics$toFloat(h - (2 * margin)))),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			otherAttrs,
+			msg);
 	});
 
 var _jerith666$elbum$WinSize$WinSize = F2(
@@ -24848,15 +24911,26 @@ var _jerith666$elbum$ProgressiveImage$ProgImgModel = F3(
 	function (a, b, c) {
 		return {ctor: 'ProgImgModel', _0: a, _1: b, _2: c};
 	});
+var _jerith666$elbum$ProgressiveImage$withWidthHeight = F3(
+	function (w, h, _p0) {
+		var _p1 = _p0;
+		return A3(
+			_jerith666$elbum$ProgressiveImage$ProgImgModel,
+			_elm_lang$core$Native_Utils.update(
+				_p1._0,
+				{width: w, height: h}),
+			_p1._1,
+			_p1._2);
+	});
 var _jerith666$elbum$ProgressiveImage$AnimateMain = function (a) {
 	return {ctor: 'AnimateMain', _0: a};
 };
 var _jerith666$elbum$ProgressiveImage$AnimatePlaceholder = function (a) {
 	return {ctor: 'AnimatePlaceholder', _0: a};
 };
-var _jerith666$elbum$ProgressiveImage$subscriptions = function (_p0) {
-	var _p1 = _p0;
-	var _p2 = _p1._2;
+var _jerith666$elbum$ProgressiveImage$subscriptions = function (_p2) {
+	var _p3 = _p2;
+	var _p4 = _p3._2;
 	return _elm_lang$core$Platform_Sub$batch(
 		{
 			ctor: '::',
@@ -24865,7 +24939,7 @@ var _jerith666$elbum$ProgressiveImage$subscriptions = function (_p0) {
 				_jerith666$elbum$ProgressiveImage$AnimatePlaceholder,
 				{
 					ctor: '::',
-					_0: _p2.placeholder,
+					_0: _p4.placeholder,
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -24875,7 +24949,7 @@ var _jerith666$elbum$ProgressiveImage$subscriptions = function (_p0) {
 					_jerith666$elbum$ProgressiveImage$AnimateMain,
 					{
 						ctor: '::',
-						_0: _p2.main,
+						_0: _p4.main,
 						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
@@ -24894,137 +24968,137 @@ var _jerith666$elbum$ProgressiveImage$showMsg = _mdgriffith$elm_style_animation$
 		}
 	});
 var _jerith666$elbum$ProgressiveImage$updateModel = F2(
-	function (msg, _p3) {
-		var _p4 = _p3;
-		var _p15 = _p4._1;
-		var _p14 = _p4;
-		var _p13 = _p4._0;
-		var _p12 = _p4._2;
-		var _p5 = msg;
-		switch (_p5.ctor) {
+	function (msg, _p5) {
+		var _p6 = _p5;
+		var _p17 = _p6._1;
+		var _p16 = _p6;
+		var _p15 = _p6._0;
+		var _p14 = _p6._2;
+		var _p7 = msg;
+		switch (_p7.ctor) {
 			case 'Loaded':
-				var _p8 = _p5._0;
-				var _p6 = _p15;
-				switch (_p6.ctor) {
+				var _p10 = _p7._0;
+				var _p8 = _p17;
+				switch (_p8.ctor) {
 					case 'TryingCached':
-						var _p7 = _p6._1;
-						return _elm_lang$core$Native_Utils.eq(_p8, _p7) ? A3(
+						var _p9 = _p8._1;
+						return _elm_lang$core$Native_Utils.eq(_p10, _p9) ? A3(
 							_jerith666$elbum$ProgressiveImage$ProgImgModel,
-							_p13,
-							_jerith666$elbum$ProgressiveImage$LoadingMain(_p7),
+							_p15,
+							_jerith666$elbum$ProgressiveImage$LoadingMain(_p9),
 							_elm_lang$core$Native_Utils.update(
-								_p12,
+								_p14,
 								{
-									placeholder: _jerith666$elbum$ProgressiveImage$show(_p12.placeholder)
-								})) : _p14;
+									placeholder: _jerith666$elbum$ProgressiveImage$show(_p14.placeholder)
+								})) : _p16;
 					case 'LoadingFallback':
-						return _elm_lang$core$Native_Utils.eq(_p8, _p13.fallback) ? A3(
+						return _elm_lang$core$Native_Utils.eq(_p10, _p15.fallback) ? A3(
 							_jerith666$elbum$ProgressiveImage$ProgImgModel,
-							_p13,
-							_jerith666$elbum$ProgressiveImage$LoadingMain(_p13.fallback),
+							_p15,
+							_jerith666$elbum$ProgressiveImage$LoadingMain(_p15.fallback),
 							_elm_lang$core$Native_Utils.update(
-								_p12,
+								_p14,
 								{
-									placeholder: _jerith666$elbum$ProgressiveImage$show(_p12.placeholder)
-								})) : _p14;
+									placeholder: _jerith666$elbum$ProgressiveImage$show(_p14.placeholder)
+								})) : _p16;
 					case 'LoadingMain':
-						return _elm_lang$core$Native_Utils.eq(_p8, _p13.mainImg) ? A3(
+						return _elm_lang$core$Native_Utils.eq(_p10, _p15.mainImg) ? A3(
 							_jerith666$elbum$ProgressiveImage$ProgImgModel,
-							_p13,
-							_jerith666$elbum$ProgressiveImage$MainLoaded(_p6._0),
+							_p15,
+							_jerith666$elbum$ProgressiveImage$MainLoaded(_p8._0),
 							_elm_lang$core$Native_Utils.update(
-								_p12,
+								_p14,
 								{
-									main: _jerith666$elbum$ProgressiveImage$showMsg(_p12.main)
-								})) : _p14;
+									main: _jerith666$elbum$ProgressiveImage$showMsg(_p14.main)
+								})) : _p16;
 					case 'MainLoaded':
-						return _p14;
+						return _p16;
 					default:
-						return _p14;
+						return _p16;
 				}
 			case 'Timeout':
-				var _p9 = _p15;
-				switch (_p9.ctor) {
+				var _p11 = _p17;
+				switch (_p11.ctor) {
 					case 'TryingCached':
-						var _p10 = _p9._2;
-						if (_p10.ctor === '[]') {
-							return A3(_jerith666$elbum$ProgressiveImage$ProgImgModel, _p13, _jerith666$elbum$ProgressiveImage$LoadingFallback, _p12);
+						var _p12 = _p11._2;
+						if (_p12.ctor === '[]') {
+							return A3(_jerith666$elbum$ProgressiveImage$ProgImgModel, _p15, _jerith666$elbum$ProgressiveImage$LoadingFallback, _p14);
 						} else {
 							return A3(
 								_jerith666$elbum$ProgressiveImage$ProgImgModel,
-								_p13,
+								_p15,
 								A3(
 									_jerith666$elbum$ProgressiveImage$TryingCached,
 									A2(
 										_elm_lang$core$Basics_ops['++'],
-										_p9._0,
+										_p11._0,
 										{
 											ctor: '::',
-											_0: _p9._1,
+											_0: _p11._1,
 											_1: {ctor: '[]'}
 										}),
-									_p10._0,
-									_p10._1),
-								_p12);
+									_p12._0,
+									_p12._1),
+								_p14);
 						}
 					case 'LoadingFallback':
-						return _p14;
+						return _p16;
 					case 'LoadingMain':
-						return _p14;
+						return _p16;
 					case 'MainLoaded':
-						return _p14;
+						return _p16;
 					default:
-						return _p14;
+						return _p16;
 				}
 			case 'MainFadeinComplete':
-				var _p11 = _p15;
-				switch (_p11.ctor) {
+				var _p13 = _p17;
+				switch (_p13.ctor) {
 					case 'MainLoaded':
 						return A3(
 							_jerith666$elbum$ProgressiveImage$ProgImgModel,
-							_p13,
+							_p15,
 							_jerith666$elbum$ProgressiveImage$MainOnly,
 							_elm_lang$core$Native_Utils.update(
-								_p12,
+								_p14,
 								{
-									placeholder: _jerith666$elbum$ProgressiveImage$hide(_p12.placeholder)
+									placeholder: _jerith666$elbum$ProgressiveImage$hide(_p14.placeholder)
 								}));
 					case 'TryingCached':
-						return _p14;
+						return _p16;
 					case 'LoadingFallback':
-						return _p14;
+						return _p16;
 					case 'LoadingMain':
-						return _p14;
+						return _p16;
 					default:
-						return _p14;
+						return _p16;
 				}
 			case 'AnimateMain':
-				return _p14;
+				return _p16;
 			default:
 				return A3(
 					_jerith666$elbum$ProgressiveImage$ProgImgModel,
-					_p13,
 					_p15,
+					_p17,
 					_elm_lang$core$Native_Utils.update(
-						_p12,
+						_p14,
 						{
-							placeholder: A2(_mdgriffith$elm_style_animation$Animation$update, _p5._0, _p12.placeholder)
+							placeholder: A2(_mdgriffith$elm_style_animation$Animation$update, _p7._0, _p14.placeholder)
 						}));
 		}
 	});
 var _jerith666$elbum$ProgressiveImage$Timeout = function (a) {
 	return {ctor: 'Timeout', _0: a};
 };
-var _jerith666$elbum$ProgressiveImage$updateCmd = function (_p16) {
-	var _p17 = _p16;
-	var _p18 = _p17._1;
-	switch (_p18.ctor) {
+var _jerith666$elbum$ProgressiveImage$updateCmd = function (_p18) {
+	var _p19 = _p18;
+	var _p20 = _p19._1;
+	switch (_p20.ctor) {
 		case 'TryingCached':
 			return A3(
 				_andrewMacmurray$elm_delay$Delay$after,
 				200,
 				_elm_lang$core$Time$millisecond,
-				_jerith666$elbum$ProgressiveImage$Timeout(_p18._1));
+				_jerith666$elbum$ProgressiveImage$Timeout(_p20._1));
 		case 'LoadingFallback':
 			return _elm_lang$core$Platform_Cmd$none;
 		case 'LoadingMain':
@@ -25041,8 +25115,8 @@ var _jerith666$elbum$ProgressiveImage$init = function (data) {
 		placeholder: _mdgriffith$elm_style_animation$Animation$style(_jerith666$elbum$ProgressiveImage$hidden)
 	};
 	var model = function () {
-		var _p19 = data.possiblyCached;
-		if (_p19.ctor === '[]') {
+		var _p21 = data.possiblyCached;
+		if (_p21.ctor === '[]') {
 			return A3(_jerith666$elbum$ProgressiveImage$ProgImgModel, data, _jerith666$elbum$ProgressiveImage$LoadingFallback, animState);
 		} else {
 			return A3(
@@ -25051,8 +25125,8 @@ var _jerith666$elbum$ProgressiveImage$init = function (data) {
 				A3(
 					_jerith666$elbum$ProgressiveImage$TryingCached,
 					{ctor: '[]'},
-					_p19._0,
-					_p19._1),
+					_p21._0,
+					_p21._1),
 				animState);
 		}
 	}();
@@ -25063,27 +25137,27 @@ var _jerith666$elbum$ProgressiveImage$init = function (data) {
 	};
 };
 var _jerith666$elbum$ProgressiveImage$update = F2(
-	function (msg, _p20) {
-		var _p21 = _p20;
-		var _p24 = _p21._2;
-		var _p22 = msg;
-		if (_p22.ctor === 'AnimateMain') {
-			var _p23 = A2(_mdgriffith$elm_style_animation$Animation_Messenger$update, _p22._0, _p24.main);
-			var newMainState = _p23._0;
-			var animCmd = _p23._1;
+	function (msg, _p22) {
+		var _p23 = _p22;
+		var _p26 = _p23._2;
+		var _p24 = msg;
+		if (_p24.ctor === 'AnimateMain') {
+			var _p25 = A2(_mdgriffith$elm_style_animation$Animation_Messenger$update, _p24._0, _p26.main);
+			var newMainState = _p25._0;
+			var animCmd = _p25._1;
 			return {
 				ctor: '_Tuple2',
 				_0: A3(
 					_jerith666$elbum$ProgressiveImage$ProgImgModel,
-					_p21._0,
-					_p21._1,
+					_p23._0,
+					_p23._1,
 					_elm_lang$core$Native_Utils.update(
-						_p24,
+						_p26,
 						{main: newMainState})),
 				_1: animCmd
 			};
 		} else {
-			var newModel = A2(_jerith666$elbum$ProgressiveImage$updateModel, msg, _p21);
+			var newModel = A2(_jerith666$elbum$ProgressiveImage$updateModel, msg, _p23);
 			return {
 				ctor: '_Tuple2',
 				_0: newModel,
@@ -25169,36 +25243,36 @@ var _jerith666$elbum$ProgressiveImage$viewLoadingMain = F4(
 				}
 			});
 	});
-var _jerith666$elbum$ProgressiveImage$view = function (_p25) {
-	var _p26 = _p25;
-	var _p29 = _p26._0;
-	var _p28 = _p26._2;
-	var _p27 = _p26._1;
-	switch (_p27.ctor) {
+var _jerith666$elbum$ProgressiveImage$view = function (_p27) {
+	var _p28 = _p27;
+	var _p31 = _p28._0;
+	var _p30 = _p28._2;
+	var _p29 = _p28._1;
+	switch (_p29.ctor) {
 		case 'TryingCached':
 			return A4(
 				_jerith666$elbum$ProgressiveImage$viewImg,
-				_p27._1,
-				_p29,
-				_jerith666$elbum$ProgressiveImage$styledAnimation(_p28.placeholder),
+				_p29._1,
+				_p31,
+				_jerith666$elbum$ProgressiveImage$styledAnimation(_p30.placeholder),
 				{ctor: '[]'});
 		case 'LoadingFallback':
 			return A4(
 				_jerith666$elbum$ProgressiveImage$viewImg,
-				_p29.fallback,
-				_p29,
-				_jerith666$elbum$ProgressiveImage$styledAnimation(_p28.placeholder),
+				_p31.fallback,
+				_p31,
+				_jerith666$elbum$ProgressiveImage$styledAnimation(_p30.placeholder),
 				{ctor: '[]'});
 		case 'LoadingMain':
-			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p29, _p27._0, _p28.placeholder, _p28.main);
+			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p31, _p29._0, _p30.placeholder, _p30.main);
 		case 'MainLoaded':
-			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p29, _p27._0, _p28.placeholder, _p28.main);
+			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p31, _p29._0, _p30.placeholder, _p30.main);
 		default:
 			return A4(
 				_jerith666$elbum$ProgressiveImage$viewImg,
-				_p29.mainImg,
-				_p29,
-				_jerith666$elbum$ProgressiveImage$styledMsgAnimation(_p28.main),
+				_p31.mainImg,
+				_p31,
+				_jerith666$elbum$ProgressiveImage$styledMsgAnimation(_p30.main),
 				{ctor: '[]'});
 	}
 };
@@ -25350,7 +25424,8 @@ var _jerith666$elbum$FullImagePage$viewImg = F4(
 				_0: A2(
 					_rtfeldman$elm_css$Html_Styled$map,
 					wrapProgMsg,
-					_jerith666$elbum$ProgressiveImage$view(fullImagePageModel.progImgModel)),
+					_jerith666$elbum$ProgressiveImage$view(
+						A3(_jerith666$elbum$ProgressiveImage$withWidthHeight, w, h, fullImagePageModel.progImgModel))),
 				_1: {ctor: '[]'}
 			});
 	});
@@ -25480,7 +25555,8 @@ var _jerith666$elbum$FullImagePage$view = F6(
 												})),
 										_1: {
 											ctor: '::',
-											_0: _rtfeldman$elm_css$Html_Styled_Attributes$href(fullImagePageModel.album.imageFirst.srcSetFirst.url),
+											_0: _rtfeldman$elm_css$Html_Styled_Attributes$href(
+												_jerith666$elbum$ListUtils$encodePath(fullImagePageModel.album.imageFirst.srcSetFirst.url)),
 											_1: {
 												ctor: '::',
 												_0: _rtfeldman$elm_css$Html_Styled_Attributes$target('_blank'),
@@ -27274,7 +27350,10 @@ var _jerith666$elbum$Main$getUrl = function (url) {
 				{
 					method: 'GET',
 					headers: {ctor: '[]'},
-					url: A2(_elm_lang$core$Debug$log, 'getUrl', url),
+					url: A2(
+						_elm_lang$core$Debug$log,
+						'getUrl',
+						_jerith666$elbum$ListUtils$encodePath(url)),
 					body: _elm_lang$http$Http$emptyBody,
 					expect: _elm_lang$http$Http$expectStringResponse(
 						_jerith666$elbum$Main$handleGetResponse(url)),
