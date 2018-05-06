@@ -18865,8 +18865,12 @@ var _jerith666$elbum$AlbumStyles$rootDiv = F2(
 											_0: _rtfeldman$elm_css$Css$overflowY(_rtfeldman$elm_css$Css$auto),
 											_1: {
 												ctor: '::',
-												_0: _rtfeldman$elm_css$Css$backgroundColor(_jerith666$elbum$AlbumStyles$black),
-												_1: {ctor: '[]'}
+												_0: A2(_rtfeldman$elm_css$Css$property, '-webkit-overflow-scrolling', 'touch'),
+												_1: {
+													ctor: '::',
+													_0: _rtfeldman$elm_css$Css$backgroundColor(_jerith666$elbum$AlbumStyles$black),
+													_1: {ctor: '[]'}
+												}
 											}
 										}
 									}
