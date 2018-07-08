@@ -13876,6 +13876,11 @@ var _rtfeldman$hex$Hex$fromString = function (str) {
 	}
 };
 
+var _rtfeldman$elm_css$Css$stroke = {value: 'stroke', pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$painted = {value: 'painted', pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$visibleStroke = {value: 'visibleStroke', pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$visibleFill = {value: 'visibleFill', pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$visiblePainted = {value: 'visiblePainted', pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$manipulation = {value: 'manipulation', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$pinchZoom = {value: 'pinch-zoom', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$panDown = {value: 'pan-down', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
@@ -13884,7 +13889,6 @@ var _rtfeldman$elm_css$Css$panY = {value: 'pan-y', touchAction: _rtfeldman$elm_c
 var _rtfeldman$elm_css$Css$panRight = {value: 'pan-right', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$panLeft = {value: 'pan-left', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$panX = {value: 'pan-x', touchAction: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$asPairsDEPRECATED = _rtfeldman$elm_css$Css_Preprocess$toPropertyPairs;
 var _rtfeldman$elm_css$Css$stringsToValue = function (list) {
 	return _elm_lang$core$List$isEmpty(list) ? {value: 'none'} : {
 		value: A2(
@@ -14044,6 +14048,8 @@ var _rtfeldman$elm_css$Css$propertyWithWarnings = F3(
 	});
 var _rtfeldman$elm_css$Css$property = _rtfeldman$elm_css$Css$propertyWithWarnings(
 	{ctor: '[]'});
+var _rtfeldman$elm_css$Css$pointerEventsFill = A2(_rtfeldman$elm_css$Css$property, 'pointer-events', 'fill');
+var _rtfeldman$elm_css$Css$pointerEventsAll = A2(_rtfeldman$elm_css$Css$property, 'pointer-events', 'all');
 var _rtfeldman$elm_css$Css$batch = _rtfeldman$elm_css$Css_Preprocess$ApplyStyles;
 var _rtfeldman$elm_css$Css$animationNames = function (identifiers) {
 	var value = A2(
@@ -14727,6 +14733,7 @@ var _rtfeldman$elm_css$Css$textDecorationStyle = _rtfeldman$elm_css$Css$prop1('t
 var _rtfeldman$elm_css$Css$zIndex = _rtfeldman$elm_css$Css$prop1('z-index');
 var _rtfeldman$elm_css$Css$touchAction = _rtfeldman$elm_css$Css$prop1('touch-action');
 var _rtfeldman$elm_css$Css$tableLayout = _rtfeldman$elm_css$Css$prop1('table-layout');
+var _rtfeldman$elm_css$Css$pointerEvents = _rtfeldman$elm_css$Css$prop1('pointer-events');
 var _rtfeldman$elm_css$Css$position = _rtfeldman$elm_css$Css$prop1('position');
 var _rtfeldman$elm_css$Css$textBottom = _rtfeldman$elm_css$Css$prop1('text-bottom');
 var _rtfeldman$elm_css$Css$textTop = _rtfeldman$elm_css$Css$prop1('text-top');
@@ -14735,8 +14742,8 @@ var _rtfeldman$elm_css$Css$sub = _rtfeldman$elm_css$Css$prop1('sub');
 var _rtfeldman$elm_css$Css$baseline = _rtfeldman$elm_css$Css$prop1('baseline');
 var _rtfeldman$elm_css$Css$middle = _rtfeldman$elm_css$Css$prop1('middle');
 var _rtfeldman$elm_css$Css$noWrap = {value: 'nowrap', whiteSpace: _rtfeldman$elm_css$Css_Structure$Compatible, flexWrap: _rtfeldman$elm_css$Css_Structure$Compatible, flexDirectionOrWrap: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$auto = {value: 'auto', cursor: _rtfeldman$elm_css$Css_Structure$Compatible, flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible, overflow: _rtfeldman$elm_css$Css_Structure$Compatible, textRendering: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, alignItemsOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible, justifyContentOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, intOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, touchAction: _rtfeldman$elm_css$Css_Structure$Compatible, tableLayout: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$none = {value: 'none', cursor: _rtfeldman$elm_css$Css_Structure$Compatible, none: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible, display: _rtfeldman$elm_css$Css_Structure$Compatible, outline: _rtfeldman$elm_css$Css_Structure$Compatible, resize: _rtfeldman$elm_css$Css_Structure$Compatible, transform: _rtfeldman$elm_css$Css_Structure$Compatible, borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible, textTransform: _rtfeldman$elm_css$Css_Structure$Compatible, touchAction: _rtfeldman$elm_css$Css_Structure$Compatible, updateFrequency: _rtfeldman$elm_css$Css_Structure$Compatible, blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, inlineAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, pointerDevice: _rtfeldman$elm_css$Css_Structure$Compatible, hoverCapability: _rtfeldman$elm_css$Css_Structure$Compatible, scriptingSupport: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$auto = {value: 'auto', cursor: _rtfeldman$elm_css$Css_Structure$Compatible, flexBasis: _rtfeldman$elm_css$Css_Structure$Compatible, overflow: _rtfeldman$elm_css$Css_Structure$Compatible, textRendering: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, alignItemsOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrAutoOrCoverOrContain: _rtfeldman$elm_css$Css_Structure$Compatible, justifyContentOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, intOrAuto: _rtfeldman$elm_css$Css_Structure$Compatible, pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible, touchAction: _rtfeldman$elm_css$Css_Structure$Compatible, tableLayout: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$none = {value: 'none', cursor: _rtfeldman$elm_css$Css_Structure$Compatible, none: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNone: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNoneOrMinMaxDimension: _rtfeldman$elm_css$Css_Structure$Compatible, lengthOrNumberOrAutoOrNoneOrContent: _rtfeldman$elm_css$Css_Structure$Compatible, textDecorationLine: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleType: _rtfeldman$elm_css$Css_Structure$Compatible, listStyleTypeOrPositionOrImage: _rtfeldman$elm_css$Css_Structure$Compatible, display: _rtfeldman$elm_css$Css_Structure$Compatible, outline: _rtfeldman$elm_css$Css_Structure$Compatible, pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible, resize: _rtfeldman$elm_css$Css_Structure$Compatible, transform: _rtfeldman$elm_css$Css_Structure$Compatible, borderStyle: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundImage: _rtfeldman$elm_css$Css_Structure$Compatible, textTransform: _rtfeldman$elm_css$Css_Structure$Compatible, touchAction: _rtfeldman$elm_css$Css_Structure$Compatible, updateFrequency: _rtfeldman$elm_css$Css_Structure$Compatible, blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, inlineAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, pointerDevice: _rtfeldman$elm_css$Css_Structure$Compatible, hoverCapability: _rtfeldman$elm_css$Css_Structure$Compatible, scriptingSupport: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$inlineListItem = {value: 'inline-list-item', display: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$listItem = {value: 'list-item', display: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$tableFooterGroup = {value: 'table-footer-group', display: _rtfeldman$elm_css$Css_Structure$Compatible};
@@ -15186,7 +15193,7 @@ var _rtfeldman$elm_css$Css$horizontal = {value: 'horizontal', resize: _rtfeldman
 var _rtfeldman$elm_css$Css$both = {value: 'both', resize: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$breakWord = {value: 'break-word', overflowWrap: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$scroll = {value: 'scroll', scroll: _rtfeldman$elm_css$Css_Structure$Compatible, overflow: _rtfeldman$elm_css$Css_Structure$Compatible, backgroundAttachment: _rtfeldman$elm_css$Css_Structure$Compatible, blockAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible, inlineAxisOverflow: _rtfeldman$elm_css$Css_Structure$Compatible};
-var _rtfeldman$elm_css$Css$visible = {value: 'visible', overflow: _rtfeldman$elm_css$Css_Structure$Compatible, visibility: _rtfeldman$elm_css$Css_Structure$Compatible};
+var _rtfeldman$elm_css$Css$visible = {value: 'visible', overflow: _rtfeldman$elm_css$Css_Structure$Compatible, visibility: _rtfeldman$elm_css$Css_Structure$Compatible, pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible};
 var _rtfeldman$elm_css$Css$currentColor = {
 	value: 'currentColor',
 	color: _rtfeldman$elm_css$Css_Structure$Compatible,
@@ -16262,7 +16269,9 @@ var _rtfeldman$elm_css$Css$BasicProperty = function (a) {
 																																																		return function (_25) {
 																																																			return function (_26) {
 																																																				return function (_27) {
-																																																					return {value: a, all: b, alignItems: c, borderStyle: d, boxSizing: e, color: f, cursor: g, display: h, flexBasis: i, flexWrap: j, flexDirection: k, flexDirectionOrWrap: l, justifyContent: m, none: n, number: o, outline: p, overflow: q, visibility: r, textDecorationLine: s, textRendering: t, textIndent: u, textDecorationStyle: v, textTransform: w, length: x, lengthOrAuto: y, lengthOrNone: z, lengthOrNumber: _1, lengthOrMinMaxDimension: _2, lengthOrNoneOrMinMaxDimension: _3, lengthOrNumberOrAutoOrNoneOrContent: _4, listStyleType: _5, listStylePosition: _6, listStyleTypeOrPositionOrImage: _7, fontFamily: _8, fontSize: _9, fontStyle: _10, fontWeight: _11, fontVariant: _12, units: _13, numericValue: _14, unitLabel: _15, warnings: _16, backgroundRepeat: _17, backgroundRepeatShorthand: _18, backgroundAttachment: _19, backgroundBlendMode: _20, backgroundOrigin: _21, backgroundImage: _22, lengthOrAutoOrCoverOrContain: _23, intOrAuto: _24, touchAction: _25, whiteSpace: _26, tableLayout: _27};
+																																																					return function (_28) {
+																																																						return {value: a, all: b, alignItems: c, borderStyle: d, boxSizing: e, color: f, cursor: g, display: h, flexBasis: i, flexWrap: j, flexDirection: k, flexDirectionOrWrap: l, justifyContent: m, none: n, number: o, outline: p, overflow: q, pointerEvents: r, visibility: s, textDecorationLine: t, textRendering: u, textIndent: v, textDecorationStyle: w, textTransform: x, length: y, lengthOrAuto: z, lengthOrNone: _1, lengthOrNumber: _2, lengthOrMinMaxDimension: _3, lengthOrNoneOrMinMaxDimension: _4, lengthOrNumberOrAutoOrNoneOrContent: _5, listStyleType: _6, listStylePosition: _7, listStyleTypeOrPositionOrImage: _8, fontFamily: _9, fontSize: _10, fontStyle: _11, fontWeight: _12, fontVariant: _13, units: _14, numericValue: _15, unitLabel: _16, warnings: _17, backgroundRepeat: _18, backgroundRepeatShorthand: _19, backgroundAttachment: _20, backgroundBlendMode: _21, backgroundOrigin: _22, backgroundImage: _23, lengthOrAutoOrCoverOrContain: _24, intOrAuto: _25, touchAction: _26, whiteSpace: _27, tableLayout: _28};
+																																																					};
 																																																				};
 																																																			};
 																																																		};
@@ -16421,6 +16430,7 @@ var _rtfeldman$elm_css$Css$initial = {
 	fontWeight: _rtfeldman$elm_css$Css_Structure$Compatible,
 	fontVariant: _rtfeldman$elm_css$Css_Structure$Compatible,
 	outline: _rtfeldman$elm_css$Css_Structure$Compatible,
+	pointerEvents: _rtfeldman$elm_css$Css_Structure$Compatible,
 	units: _rtfeldman$elm_css$Css$IncompatibleUnits,
 	numericValue: 0,
 	unitLabel: '',
@@ -16506,6 +16516,736 @@ var _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs = {ctor: 'Inten
 var _rtfeldman$elm_css$Css$thin = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
 var _rtfeldman$elm_css$Css$thick = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
 var _rtfeldman$elm_css$Css$blink = _rtfeldman$elm_css$Css$IntentionallyUnsupportedPleaseSeeDocs;
+
+var _rtfeldman$elm_css$Css_Transitions$timingFunctionToString = function (tf) {
+	var _p0 = tf;
+	switch (_p0.ctor) {
+		case 'Ease':
+			return 'ease';
+		case 'Linear':
+			return 'linear';
+		case 'EaseIn':
+			return 'ease-in';
+		case 'EaseOut':
+			return 'ease-out';
+		case 'EaseInOut':
+			return 'ease-in-out';
+		case 'StepStart':
+			return 'step-start';
+		case 'StepEnd':
+			return 'step-end';
+		default:
+			return A2(
+				_elm_lang$core$Basics_ops['++'],
+				'cubic-bezier(',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_p0._0),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						' , ',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_p0._1),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								' , ',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p0._2),
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										' , ',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(_p0._3),
+											')'))))))));
+	}
+};
+var _rtfeldman$elm_css$Css_Transitions$timeToString = function (time) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(time),
+		'ms');
+};
+var _rtfeldman$elm_css$Css_Transitions$propToString = function (prop) {
+	var _p1 = prop;
+	switch (_p1.ctor) {
+		case 'Background':
+			return 'background';
+		case 'BackgroundColor':
+			return 'background-color';
+		case 'BackgroundPosition':
+			return 'background-position';
+		case 'BackgroundSize':
+			return 'background-size';
+		case 'Border':
+			return 'border';
+		case 'BorderBottom':
+			return 'border-bottom';
+		case 'BorderBottomColor':
+			return 'border-bottom-color';
+		case 'BorderBottomLeftRadius':
+			return 'border-bottom-left-radius';
+		case 'BorderBottomRightRadius':
+			return 'border-bottom-right-radius';
+		case 'BorderBottomWidth':
+			return 'border-bottom-width';
+		case 'BorderColor':
+			return 'border-color';
+		case 'BorderLeft':
+			return 'border-left';
+		case 'BorderLeftColor':
+			return 'border-left-color';
+		case 'BorderLeftWidth':
+			return 'border-left-width';
+		case 'BorderRadius':
+			return 'border-radius';
+		case 'BorderRight':
+			return 'border-right';
+		case 'BorderRightColor':
+			return 'border-right-color';
+		case 'BorderRightWidth':
+			return 'border-right-width';
+		case 'BorderTop':
+			return 'border-top';
+		case 'BorderTopColor':
+			return 'border-top-color';
+		case 'BorderTopLeftRadius':
+			return 'border-top-left-radius';
+		case 'BorderTopRightRadius':
+			return 'border-top-right-radius';
+		case 'BorderTopWidth':
+			return 'border-top-width';
+		case 'BorderWidth':
+			return 'border-width';
+		case 'Bottom':
+			return 'bottom';
+		case 'BoxShadow':
+			return 'box-shadow';
+		case 'CaretColor':
+			return 'caret-color';
+		case 'Clip':
+			return 'clip';
+		case 'ClipPath':
+			return 'clip-path';
+		case 'Color':
+			return 'color';
+		case 'ColumnCount':
+			return 'column-count';
+		case 'ColumnGap':
+			return 'column-gap';
+		case 'ColumnRule':
+			return 'column-rule';
+		case 'ColumnRuleColor':
+			return 'column-rule-color';
+		case 'ColumnRuleWidth':
+			return 'column-rule-width';
+		case 'ColumnWidth':
+			return 'column-width';
+		case 'Columns':
+			return 'columns';
+		case 'Filter':
+			return 'filter';
+		case 'Flex':
+			return 'flex';
+		case 'FlexBasis':
+			return 'flex-basis';
+		case 'FlexGrow':
+			return 'flex-grow';
+		case 'FlexShrink':
+			return 'flex-shrink';
+		case 'Font':
+			return 'font';
+		case 'FontSize':
+			return 'font-size';
+		case 'FontSizeAdjust':
+			return 'font-size-adjust';
+		case 'FontStretch':
+			return 'font-stretch';
+		case 'FontVariationSettings':
+			return 'font-variation-settings';
+		case 'FontWeight':
+			return 'font-weight';
+		case 'GridColumnGap':
+			return 'grid-column-gap';
+		case 'GridGap':
+			return 'grid-gap';
+		case 'GridRowGap':
+			return 'grid-row-gap';
+		case 'Height':
+			return 'height';
+		case 'Left':
+			return 'left';
+		case 'LetterSpacing':
+			return 'letter-spacing';
+		case 'LineHeight':
+			return 'line-height';
+		case 'Margin':
+			return 'margin';
+		case 'MarginBottom':
+			return 'margin-bottom';
+		case 'MarginLeft':
+			return 'margin-left';
+		case 'MarginRight':
+			return 'margin-right';
+		case 'MarginTop':
+			return 'margin-top';
+		case 'Mask':
+			return 'mask';
+		case 'MaskPosition':
+			return 'mask-position';
+		case 'MaskSize':
+			return 'mask-size';
+		case 'MaxHeight':
+			return 'max-height';
+		case 'MaxWidth':
+			return 'max-width';
+		case 'MinHeight':
+			return 'min-height';
+		case 'MinWidth':
+			return 'min-width';
+		case 'ObjectPosition':
+			return 'object-position';
+		case 'Offset':
+			return 'offset';
+		case 'OffsetAnchor':
+			return 'offset-anchor';
+		case 'OffsetDistance':
+			return 'offset-distance';
+		case 'OffsetPath':
+			return 'offset-path';
+		case 'OffsetRotate':
+			return 'offset-rotate';
+		case 'Opacity':
+			return 'opacity';
+		case 'Order':
+			return 'order';
+		case 'Outline':
+			return 'outline';
+		case 'OutlineColor':
+			return 'outline-color';
+		case 'OutlineOffset':
+			return 'outline-offset';
+		case 'OutlineWidth':
+			return 'outline-width';
+		case 'Padding':
+			return 'padding';
+		case 'PaddingBottom':
+			return 'padding-bottom';
+		case 'PaddingLeft':
+			return 'padding-left';
+		case 'PaddingRight':
+			return 'padding-right';
+		case 'PaddingTop':
+			return 'padding-top';
+		case 'Right':
+			return 'right';
+		case 'TabSize':
+			return 'tab-size';
+		case 'TextIndent':
+			return 'text-indent';
+		case 'TextShadow':
+			return 'text-shadow';
+		case 'Top':
+			return 'top';
+		case 'Transform':
+			return 'transform';
+		case 'TransformOrigin':
+			return 'transform-origin';
+		case 'VerticalAlign':
+			return 'vertical-align';
+		case 'Visibility':
+			return 'visibility';
+		case 'Width':
+			return 'width';
+		case 'WordSpacing':
+			return 'word-spacing';
+		default:
+			return 'z-index';
+	}
+};
+var _rtfeldman$elm_css$Css_Transitions$transition = function (options) {
+	var v = A3(
+		_elm_lang$core$String$slice,
+		0,
+		-1,
+		A3(
+			_elm_lang$core$List$foldl,
+			F2(
+				function (_p2, s) {
+					var _p3 = _p2;
+					return A2(
+						_elm_lang$core$Basics_ops['++'],
+						s,
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							A2(
+								_elm_lang$core$String$join,
+								' ',
+								{
+									ctor: '::',
+									_0: _rtfeldman$elm_css$Css_Transitions$propToString(_p3._0.animation),
+									_1: {
+										ctor: '::',
+										_0: _rtfeldman$elm_css$Css_Transitions$timeToString(_p3._0.duration),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$core$Maybe$withDefault,
+												'',
+												A2(_elm_lang$core$Maybe$map, _rtfeldman$elm_css$Css_Transitions$timeToString, _p3._0.delay)),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$core$Maybe$withDefault,
+													'',
+													A2(_elm_lang$core$Maybe$map, _rtfeldman$elm_css$Css_Transitions$timingFunctionToString, _p3._0.timing)),
+												_1: {ctor: '[]'}
+											}
+										}
+									}
+								}),
+							','));
+				}),
+			'',
+			options));
+	return A2(_rtfeldman$elm_css$Css$property, 'transition', v);
+};
+var _rtfeldman$elm_css$Css_Transitions$CubicBezier = F4(
+	function (a, b, c, d) {
+		return {ctor: 'CubicBezier', _0: a, _1: b, _2: c, _3: d};
+	});
+var _rtfeldman$elm_css$Css_Transitions$cubicBezier = F4(
+	function (f1, f2, f3, f4) {
+		return A4(_rtfeldman$elm_css$Css_Transitions$CubicBezier, f1, f2, f3, f4);
+	});
+var _rtfeldman$elm_css$Css_Transitions$StepEnd = {ctor: 'StepEnd'};
+var _rtfeldman$elm_css$Css_Transitions$stepEnd = _rtfeldman$elm_css$Css_Transitions$StepEnd;
+var _rtfeldman$elm_css$Css_Transitions$StepStart = {ctor: 'StepStart'};
+var _rtfeldman$elm_css$Css_Transitions$stepStart = _rtfeldman$elm_css$Css_Transitions$StepStart;
+var _rtfeldman$elm_css$Css_Transitions$EaseInOut = {ctor: 'EaseInOut'};
+var _rtfeldman$elm_css$Css_Transitions$easeInOut = _rtfeldman$elm_css$Css_Transitions$EaseInOut;
+var _rtfeldman$elm_css$Css_Transitions$EaseOut = {ctor: 'EaseOut'};
+var _rtfeldman$elm_css$Css_Transitions$easeOut = _rtfeldman$elm_css$Css_Transitions$EaseOut;
+var _rtfeldman$elm_css$Css_Transitions$EaseIn = {ctor: 'EaseIn'};
+var _rtfeldman$elm_css$Css_Transitions$easeIn = _rtfeldman$elm_css$Css_Transitions$EaseIn;
+var _rtfeldman$elm_css$Css_Transitions$Linear = {ctor: 'Linear'};
+var _rtfeldman$elm_css$Css_Transitions$linear = _rtfeldman$elm_css$Css_Transitions$Linear;
+var _rtfeldman$elm_css$Css_Transitions$Ease = {ctor: 'Ease'};
+var _rtfeldman$elm_css$Css_Transitions$ease = _rtfeldman$elm_css$Css_Transitions$Ease;
+var _rtfeldman$elm_css$Css_Transitions$Transition = function (a) {
+	return {ctor: 'Transition', _0: a};
+};
+var _rtfeldman$elm_css$Css_Transitions$fullTransition = F4(
+	function (animation, duration, delay, timing) {
+		return _rtfeldman$elm_css$Css_Transitions$Transition(
+			{
+				animation: animation,
+				duration: duration,
+				delay: _elm_lang$core$Maybe$Just(delay),
+				timing: _elm_lang$core$Maybe$Just(timing)
+			});
+	});
+var _rtfeldman$elm_css$Css_Transitions$durationDelayTransition = F3(
+	function (animation, duration, delay) {
+		return _rtfeldman$elm_css$Css_Transitions$Transition(
+			{
+				animation: animation,
+				duration: duration,
+				delay: _elm_lang$core$Maybe$Just(delay),
+				timing: _elm_lang$core$Maybe$Nothing
+			});
+	});
+var _rtfeldman$elm_css$Css_Transitions$durationTransition = F2(
+	function (animation, duration) {
+		return _rtfeldman$elm_css$Css_Transitions$Transition(
+			{animation: animation, duration: duration, delay: _elm_lang$core$Maybe$Nothing, timing: _elm_lang$core$Maybe$Nothing});
+	});
+var _rtfeldman$elm_css$Css_Transitions$ZIndex = {ctor: 'ZIndex'};
+var _rtfeldman$elm_css$Css_Transitions$zIndex3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ZIndex);
+var _rtfeldman$elm_css$Css_Transitions$zIndex2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ZIndex);
+var _rtfeldman$elm_css$Css_Transitions$zIndex = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ZIndex);
+var _rtfeldman$elm_css$Css_Transitions$WordSpacing = {ctor: 'WordSpacing'};
+var _rtfeldman$elm_css$Css_Transitions$wordSpacing3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$WordSpacing);
+var _rtfeldman$elm_css$Css_Transitions$wordSpacing2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$WordSpacing);
+var _rtfeldman$elm_css$Css_Transitions$wordSpacing = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$WordSpacing);
+var _rtfeldman$elm_css$Css_Transitions$Width = {ctor: 'Width'};
+var _rtfeldman$elm_css$Css_Transitions$width3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Width);
+var _rtfeldman$elm_css$Css_Transitions$width2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Width);
+var _rtfeldman$elm_css$Css_Transitions$width = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Width);
+var _rtfeldman$elm_css$Css_Transitions$Visibility = {ctor: 'Visibility'};
+var _rtfeldman$elm_css$Css_Transitions$visibility3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Visibility);
+var _rtfeldman$elm_css$Css_Transitions$visibility2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Visibility);
+var _rtfeldman$elm_css$Css_Transitions$visibility = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Visibility);
+var _rtfeldman$elm_css$Css_Transitions$VerticalAlign = {ctor: 'VerticalAlign'};
+var _rtfeldman$elm_css$Css_Transitions$verticalAlign3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$VerticalAlign);
+var _rtfeldman$elm_css$Css_Transitions$verticalAlign2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$VerticalAlign);
+var _rtfeldman$elm_css$Css_Transitions$verticalAlign = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$VerticalAlign);
+var _rtfeldman$elm_css$Css_Transitions$TransformOrigin = {ctor: 'TransformOrigin'};
+var _rtfeldman$elm_css$Css_Transitions$transformOrigin3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$TransformOrigin);
+var _rtfeldman$elm_css$Css_Transitions$transformOrigin2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$TransformOrigin);
+var _rtfeldman$elm_css$Css_Transitions$transformOrigin = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$TransformOrigin);
+var _rtfeldman$elm_css$Css_Transitions$Transform = {ctor: 'Transform'};
+var _rtfeldman$elm_css$Css_Transitions$transform3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Transform);
+var _rtfeldman$elm_css$Css_Transitions$transform2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Transform);
+var _rtfeldman$elm_css$Css_Transitions$transform = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Transform);
+var _rtfeldman$elm_css$Css_Transitions$Top = {ctor: 'Top'};
+var _rtfeldman$elm_css$Css_Transitions$top3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Top);
+var _rtfeldman$elm_css$Css_Transitions$top2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Top);
+var _rtfeldman$elm_css$Css_Transitions$top = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Top);
+var _rtfeldman$elm_css$Css_Transitions$TextShadow = {ctor: 'TextShadow'};
+var _rtfeldman$elm_css$Css_Transitions$textShadow3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$TextShadow);
+var _rtfeldman$elm_css$Css_Transitions$textShadow2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$TextShadow);
+var _rtfeldman$elm_css$Css_Transitions$textShadow = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$TextShadow);
+var _rtfeldman$elm_css$Css_Transitions$TextIndent = {ctor: 'TextIndent'};
+var _rtfeldman$elm_css$Css_Transitions$textIndent3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$TextIndent);
+var _rtfeldman$elm_css$Css_Transitions$textIndent2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$TextIndent);
+var _rtfeldman$elm_css$Css_Transitions$textIndent = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$TextIndent);
+var _rtfeldman$elm_css$Css_Transitions$TabSize = {ctor: 'TabSize'};
+var _rtfeldman$elm_css$Css_Transitions$tabSize3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$TabSize);
+var _rtfeldman$elm_css$Css_Transitions$tabSize2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$TabSize);
+var _rtfeldman$elm_css$Css_Transitions$tabSize = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$TabSize);
+var _rtfeldman$elm_css$Css_Transitions$Right = {ctor: 'Right'};
+var _rtfeldman$elm_css$Css_Transitions$right3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Right);
+var _rtfeldman$elm_css$Css_Transitions$right2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Right);
+var _rtfeldman$elm_css$Css_Transitions$right = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Right);
+var _rtfeldman$elm_css$Css_Transitions$PaddingTop = {ctor: 'PaddingTop'};
+var _rtfeldman$elm_css$Css_Transitions$paddingTop3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$PaddingTop);
+var _rtfeldman$elm_css$Css_Transitions$paddingTop2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$PaddingTop);
+var _rtfeldman$elm_css$Css_Transitions$paddingTop = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$PaddingTop);
+var _rtfeldman$elm_css$Css_Transitions$PaddingRight = {ctor: 'PaddingRight'};
+var _rtfeldman$elm_css$Css_Transitions$paddingRight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$PaddingRight);
+var _rtfeldman$elm_css$Css_Transitions$paddingRight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$PaddingRight);
+var _rtfeldman$elm_css$Css_Transitions$paddingRight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$PaddingRight);
+var _rtfeldman$elm_css$Css_Transitions$PaddingLeft = {ctor: 'PaddingLeft'};
+var _rtfeldman$elm_css$Css_Transitions$paddingLeft3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$PaddingLeft);
+var _rtfeldman$elm_css$Css_Transitions$paddingLeft2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$PaddingLeft);
+var _rtfeldman$elm_css$Css_Transitions$paddingLeft = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$PaddingLeft);
+var _rtfeldman$elm_css$Css_Transitions$PaddingBottom = {ctor: 'PaddingBottom'};
+var _rtfeldman$elm_css$Css_Transitions$paddingBottom3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$PaddingBottom);
+var _rtfeldman$elm_css$Css_Transitions$paddingBottom2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$PaddingBottom);
+var _rtfeldman$elm_css$Css_Transitions$paddingBottom = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$PaddingBottom);
+var _rtfeldman$elm_css$Css_Transitions$Padding = {ctor: 'Padding'};
+var _rtfeldman$elm_css$Css_Transitions$padding3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Padding);
+var _rtfeldman$elm_css$Css_Transitions$padding2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Padding);
+var _rtfeldman$elm_css$Css_Transitions$padding = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Padding);
+var _rtfeldman$elm_css$Css_Transitions$OutlineWidth = {ctor: 'OutlineWidth'};
+var _rtfeldman$elm_css$Css_Transitions$outlineWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OutlineWidth);
+var _rtfeldman$elm_css$Css_Transitions$outlineWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OutlineWidth);
+var _rtfeldman$elm_css$Css_Transitions$outlineWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OutlineWidth);
+var _rtfeldman$elm_css$Css_Transitions$OutlineOffset = {ctor: 'OutlineOffset'};
+var _rtfeldman$elm_css$Css_Transitions$outlineOffset3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OutlineOffset);
+var _rtfeldman$elm_css$Css_Transitions$outlineOffset2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OutlineOffset);
+var _rtfeldman$elm_css$Css_Transitions$outlineOffset = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OutlineOffset);
+var _rtfeldman$elm_css$Css_Transitions$OutlineColor = {ctor: 'OutlineColor'};
+var _rtfeldman$elm_css$Css_Transitions$outlineColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OutlineColor);
+var _rtfeldman$elm_css$Css_Transitions$outlineColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OutlineColor);
+var _rtfeldman$elm_css$Css_Transitions$outlineColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OutlineColor);
+var _rtfeldman$elm_css$Css_Transitions$Outline = {ctor: 'Outline'};
+var _rtfeldman$elm_css$Css_Transitions$outline3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Outline);
+var _rtfeldman$elm_css$Css_Transitions$outline2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Outline);
+var _rtfeldman$elm_css$Css_Transitions$outline = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Outline);
+var _rtfeldman$elm_css$Css_Transitions$Order = {ctor: 'Order'};
+var _rtfeldman$elm_css$Css_Transitions$order3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Order);
+var _rtfeldman$elm_css$Css_Transitions$order2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Order);
+var _rtfeldman$elm_css$Css_Transitions$order = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Order);
+var _rtfeldman$elm_css$Css_Transitions$Opacity = {ctor: 'Opacity'};
+var _rtfeldman$elm_css$Css_Transitions$opacity3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Opacity);
+var _rtfeldman$elm_css$Css_Transitions$opacity2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Opacity);
+var _rtfeldman$elm_css$Css_Transitions$opacity = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Opacity);
+var _rtfeldman$elm_css$Css_Transitions$OffsetRotate = {ctor: 'OffsetRotate'};
+var _rtfeldman$elm_css$Css_Transitions$offsetRotate3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OffsetRotate);
+var _rtfeldman$elm_css$Css_Transitions$offsetRotate2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OffsetRotate);
+var _rtfeldman$elm_css$Css_Transitions$offsetRotate = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OffsetRotate);
+var _rtfeldman$elm_css$Css_Transitions$OffsetPath = {ctor: 'OffsetPath'};
+var _rtfeldman$elm_css$Css_Transitions$offsetPath3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OffsetPath);
+var _rtfeldman$elm_css$Css_Transitions$offsetPath2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OffsetPath);
+var _rtfeldman$elm_css$Css_Transitions$offsetPath = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OffsetPath);
+var _rtfeldman$elm_css$Css_Transitions$OffsetDistance = {ctor: 'OffsetDistance'};
+var _rtfeldman$elm_css$Css_Transitions$offsetDistance3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OffsetDistance);
+var _rtfeldman$elm_css$Css_Transitions$offsetDistance2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OffsetDistance);
+var _rtfeldman$elm_css$Css_Transitions$offsetDistance = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OffsetDistance);
+var _rtfeldman$elm_css$Css_Transitions$OffsetAnchor = {ctor: 'OffsetAnchor'};
+var _rtfeldman$elm_css$Css_Transitions$offsetAnchor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$OffsetAnchor);
+var _rtfeldman$elm_css$Css_Transitions$offsetAnchor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$OffsetAnchor);
+var _rtfeldman$elm_css$Css_Transitions$offsetAnchor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$OffsetAnchor);
+var _rtfeldman$elm_css$Css_Transitions$Offset = {ctor: 'Offset'};
+var _rtfeldman$elm_css$Css_Transitions$offset3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Offset);
+var _rtfeldman$elm_css$Css_Transitions$offset2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Offset);
+var _rtfeldman$elm_css$Css_Transitions$offset = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Offset);
+var _rtfeldman$elm_css$Css_Transitions$ObjectPosition = {ctor: 'ObjectPosition'};
+var _rtfeldman$elm_css$Css_Transitions$objectPosition3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ObjectPosition);
+var _rtfeldman$elm_css$Css_Transitions$objectPosition2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ObjectPosition);
+var _rtfeldman$elm_css$Css_Transitions$objectPosition = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ObjectPosition);
+var _rtfeldman$elm_css$Css_Transitions$MinWidth = {ctor: 'MinWidth'};
+var _rtfeldman$elm_css$Css_Transitions$minWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MinWidth);
+var _rtfeldman$elm_css$Css_Transitions$minWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MinWidth);
+var _rtfeldman$elm_css$Css_Transitions$minWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MinWidth);
+var _rtfeldman$elm_css$Css_Transitions$MinHeight = {ctor: 'MinHeight'};
+var _rtfeldman$elm_css$Css_Transitions$minHeight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MinHeight);
+var _rtfeldman$elm_css$Css_Transitions$minHeight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MinHeight);
+var _rtfeldman$elm_css$Css_Transitions$minHeight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MinHeight);
+var _rtfeldman$elm_css$Css_Transitions$MaxWidth = {ctor: 'MaxWidth'};
+var _rtfeldman$elm_css$Css_Transitions$maxWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MaxWidth);
+var _rtfeldman$elm_css$Css_Transitions$maxWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MaxWidth);
+var _rtfeldman$elm_css$Css_Transitions$maxWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MaxWidth);
+var _rtfeldman$elm_css$Css_Transitions$MaxHeight = {ctor: 'MaxHeight'};
+var _rtfeldman$elm_css$Css_Transitions$maxHeight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MaxHeight);
+var _rtfeldman$elm_css$Css_Transitions$maxHeight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MaxHeight);
+var _rtfeldman$elm_css$Css_Transitions$maxHeight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MaxHeight);
+var _rtfeldman$elm_css$Css_Transitions$MaskSize = {ctor: 'MaskSize'};
+var _rtfeldman$elm_css$Css_Transitions$maskSize3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MaskSize);
+var _rtfeldman$elm_css$Css_Transitions$maskSize2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MaskSize);
+var _rtfeldman$elm_css$Css_Transitions$maskSize = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MaskSize);
+var _rtfeldman$elm_css$Css_Transitions$MaskPosition = {ctor: 'MaskPosition'};
+var _rtfeldman$elm_css$Css_Transitions$maskPosition3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MaskPosition);
+var _rtfeldman$elm_css$Css_Transitions$maskPosition2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MaskPosition);
+var _rtfeldman$elm_css$Css_Transitions$maskPosition = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MaskPosition);
+var _rtfeldman$elm_css$Css_Transitions$Mask = {ctor: 'Mask'};
+var _rtfeldman$elm_css$Css_Transitions$mask3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Mask);
+var _rtfeldman$elm_css$Css_Transitions$mask2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Mask);
+var _rtfeldman$elm_css$Css_Transitions$mask = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Mask);
+var _rtfeldman$elm_css$Css_Transitions$MarginTop = {ctor: 'MarginTop'};
+var _rtfeldman$elm_css$Css_Transitions$marginTop3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MarginTop);
+var _rtfeldman$elm_css$Css_Transitions$marginTop2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MarginTop);
+var _rtfeldman$elm_css$Css_Transitions$marginTop = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MarginTop);
+var _rtfeldman$elm_css$Css_Transitions$MarginRight = {ctor: 'MarginRight'};
+var _rtfeldman$elm_css$Css_Transitions$marginRight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MarginRight);
+var _rtfeldman$elm_css$Css_Transitions$marginRight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MarginRight);
+var _rtfeldman$elm_css$Css_Transitions$marginRight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MarginRight);
+var _rtfeldman$elm_css$Css_Transitions$MarginLeft = {ctor: 'MarginLeft'};
+var _rtfeldman$elm_css$Css_Transitions$marginLeft3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MarginLeft);
+var _rtfeldman$elm_css$Css_Transitions$marginLeft2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MarginLeft);
+var _rtfeldman$elm_css$Css_Transitions$marginLeft = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MarginLeft);
+var _rtfeldman$elm_css$Css_Transitions$MarginBottom = {ctor: 'MarginBottom'};
+var _rtfeldman$elm_css$Css_Transitions$marginBottom3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$MarginBottom);
+var _rtfeldman$elm_css$Css_Transitions$marginBottom2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$MarginBottom);
+var _rtfeldman$elm_css$Css_Transitions$marginBottom = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$MarginBottom);
+var _rtfeldman$elm_css$Css_Transitions$Margin = {ctor: 'Margin'};
+var _rtfeldman$elm_css$Css_Transitions$margin3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Margin);
+var _rtfeldman$elm_css$Css_Transitions$margin2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Margin);
+var _rtfeldman$elm_css$Css_Transitions$margin = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Margin);
+var _rtfeldman$elm_css$Css_Transitions$LineHeight = {ctor: 'LineHeight'};
+var _rtfeldman$elm_css$Css_Transitions$lineHeight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$LineHeight);
+var _rtfeldman$elm_css$Css_Transitions$lineHeight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$LineHeight);
+var _rtfeldman$elm_css$Css_Transitions$lineHeight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$LineHeight);
+var _rtfeldman$elm_css$Css_Transitions$LetterSpacing = {ctor: 'LetterSpacing'};
+var _rtfeldman$elm_css$Css_Transitions$letterSpacing3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$LetterSpacing);
+var _rtfeldman$elm_css$Css_Transitions$letterSpacing2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$LetterSpacing);
+var _rtfeldman$elm_css$Css_Transitions$letterSpacing = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$LetterSpacing);
+var _rtfeldman$elm_css$Css_Transitions$Left = {ctor: 'Left'};
+var _rtfeldman$elm_css$Css_Transitions$left3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Left);
+var _rtfeldman$elm_css$Css_Transitions$left2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Left);
+var _rtfeldman$elm_css$Css_Transitions$left = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Left);
+var _rtfeldman$elm_css$Css_Transitions$Height = {ctor: 'Height'};
+var _rtfeldman$elm_css$Css_Transitions$height3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Height);
+var _rtfeldman$elm_css$Css_Transitions$height2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Height);
+var _rtfeldman$elm_css$Css_Transitions$height = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Height);
+var _rtfeldman$elm_css$Css_Transitions$GridRowGap = {ctor: 'GridRowGap'};
+var _rtfeldman$elm_css$Css_Transitions$gridRowGap3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$GridRowGap);
+var _rtfeldman$elm_css$Css_Transitions$gridRowGap2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$GridRowGap);
+var _rtfeldman$elm_css$Css_Transitions$gridRowGap = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$GridRowGap);
+var _rtfeldman$elm_css$Css_Transitions$GridGap = {ctor: 'GridGap'};
+var _rtfeldman$elm_css$Css_Transitions$gridGap3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$GridGap);
+var _rtfeldman$elm_css$Css_Transitions$gridGap2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$GridGap);
+var _rtfeldman$elm_css$Css_Transitions$gridGap = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$GridGap);
+var _rtfeldman$elm_css$Css_Transitions$GridColumnGap = {ctor: 'GridColumnGap'};
+var _rtfeldman$elm_css$Css_Transitions$gridColumnGap3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$GridColumnGap);
+var _rtfeldman$elm_css$Css_Transitions$gridColumnGap2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$GridColumnGap);
+var _rtfeldman$elm_css$Css_Transitions$gridColumnGap = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$GridColumnGap);
+var _rtfeldman$elm_css$Css_Transitions$FontWeight = {ctor: 'FontWeight'};
+var _rtfeldman$elm_css$Css_Transitions$fontWeight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FontWeight);
+var _rtfeldman$elm_css$Css_Transitions$fontWeight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FontWeight);
+var _rtfeldman$elm_css$Css_Transitions$fontWeight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FontWeight);
+var _rtfeldman$elm_css$Css_Transitions$FontVariationSettings = {ctor: 'FontVariationSettings'};
+var _rtfeldman$elm_css$Css_Transitions$fontVariationSettings3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FontVariationSettings);
+var _rtfeldman$elm_css$Css_Transitions$fontVariationSettings2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FontVariationSettings);
+var _rtfeldman$elm_css$Css_Transitions$fontVariationSettings = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FontVariationSettings);
+var _rtfeldman$elm_css$Css_Transitions$FontStretch = {ctor: 'FontStretch'};
+var _rtfeldman$elm_css$Css_Transitions$fontStretch3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FontStretch);
+var _rtfeldman$elm_css$Css_Transitions$fontStretch2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FontStretch);
+var _rtfeldman$elm_css$Css_Transitions$fontStretch = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FontStretch);
+var _rtfeldman$elm_css$Css_Transitions$FontSizeAdjust = {ctor: 'FontSizeAdjust'};
+var _rtfeldman$elm_css$Css_Transitions$fontSizeAdjust3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FontSizeAdjust);
+var _rtfeldman$elm_css$Css_Transitions$fontSizeAdjust2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FontSizeAdjust);
+var _rtfeldman$elm_css$Css_Transitions$fontSizeAdjust = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FontSizeAdjust);
+var _rtfeldman$elm_css$Css_Transitions$FontSize = {ctor: 'FontSize'};
+var _rtfeldman$elm_css$Css_Transitions$fontSize3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FontSize);
+var _rtfeldman$elm_css$Css_Transitions$fontSize2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FontSize);
+var _rtfeldman$elm_css$Css_Transitions$fontSize = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FontSize);
+var _rtfeldman$elm_css$Css_Transitions$Font = {ctor: 'Font'};
+var _rtfeldman$elm_css$Css_Transitions$font3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Font);
+var _rtfeldman$elm_css$Css_Transitions$font2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Font);
+var _rtfeldman$elm_css$Css_Transitions$font = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Font);
+var _rtfeldman$elm_css$Css_Transitions$FlexShrink = {ctor: 'FlexShrink'};
+var _rtfeldman$elm_css$Css_Transitions$flexShrink3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FlexShrink);
+var _rtfeldman$elm_css$Css_Transitions$flexShrink2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FlexShrink);
+var _rtfeldman$elm_css$Css_Transitions$flexShrink = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FlexShrink);
+var _rtfeldman$elm_css$Css_Transitions$FlexGrow = {ctor: 'FlexGrow'};
+var _rtfeldman$elm_css$Css_Transitions$flexGrow3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FlexGrow);
+var _rtfeldman$elm_css$Css_Transitions$flexGrow2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FlexGrow);
+var _rtfeldman$elm_css$Css_Transitions$flexGrow = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FlexGrow);
+var _rtfeldman$elm_css$Css_Transitions$FlexBasis = {ctor: 'FlexBasis'};
+var _rtfeldman$elm_css$Css_Transitions$flexBasis3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$FlexBasis);
+var _rtfeldman$elm_css$Css_Transitions$flexBasis2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$FlexBasis);
+var _rtfeldman$elm_css$Css_Transitions$flexBasis = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$FlexBasis);
+var _rtfeldman$elm_css$Css_Transitions$Flex = {ctor: 'Flex'};
+var _rtfeldman$elm_css$Css_Transitions$flex3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Flex);
+var _rtfeldman$elm_css$Css_Transitions$flex2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Flex);
+var _rtfeldman$elm_css$Css_Transitions$flex = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Flex);
+var _rtfeldman$elm_css$Css_Transitions$Filter = {ctor: 'Filter'};
+var _rtfeldman$elm_css$Css_Transitions$filter3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Filter);
+var _rtfeldman$elm_css$Css_Transitions$filter2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Filter);
+var _rtfeldman$elm_css$Css_Transitions$filter = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Filter);
+var _rtfeldman$elm_css$Css_Transitions$Columns = {ctor: 'Columns'};
+var _rtfeldman$elm_css$Css_Transitions$columns3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Columns);
+var _rtfeldman$elm_css$Css_Transitions$columns2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Columns);
+var _rtfeldman$elm_css$Css_Transitions$columns = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Columns);
+var _rtfeldman$elm_css$Css_Transitions$ColumnWidth = {ctor: 'ColumnWidth'};
+var _rtfeldman$elm_css$Css_Transitions$columnWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ColumnWidth);
+var _rtfeldman$elm_css$Css_Transitions$columnWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ColumnWidth);
+var _rtfeldman$elm_css$Css_Transitions$columnWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ColumnWidth);
+var _rtfeldman$elm_css$Css_Transitions$ColumnRuleWidth = {ctor: 'ColumnRuleWidth'};
+var _rtfeldman$elm_css$Css_Transitions$columnRuleWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRuleWidth);
+var _rtfeldman$elm_css$Css_Transitions$columnRuleWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRuleWidth);
+var _rtfeldman$elm_css$Css_Transitions$columnRuleWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRuleWidth);
+var _rtfeldman$elm_css$Css_Transitions$ColumnRuleColor = {ctor: 'ColumnRuleColor'};
+var _rtfeldman$elm_css$Css_Transitions$columnRuleColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRuleColor);
+var _rtfeldman$elm_css$Css_Transitions$columnRuleColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRuleColor);
+var _rtfeldman$elm_css$Css_Transitions$columnRuleColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRuleColor);
+var _rtfeldman$elm_css$Css_Transitions$ColumnRule = {ctor: 'ColumnRule'};
+var _rtfeldman$elm_css$Css_Transitions$columnRule3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRule);
+var _rtfeldman$elm_css$Css_Transitions$columnRule2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRule);
+var _rtfeldman$elm_css$Css_Transitions$columnRule = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ColumnRule);
+var _rtfeldman$elm_css$Css_Transitions$ColumnGap = {ctor: 'ColumnGap'};
+var _rtfeldman$elm_css$Css_Transitions$columnGap3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ColumnGap);
+var _rtfeldman$elm_css$Css_Transitions$columnGap2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ColumnGap);
+var _rtfeldman$elm_css$Css_Transitions$columnGap = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ColumnGap);
+var _rtfeldman$elm_css$Css_Transitions$ColumnCount = {ctor: 'ColumnCount'};
+var _rtfeldman$elm_css$Css_Transitions$columnCount3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ColumnCount);
+var _rtfeldman$elm_css$Css_Transitions$columnCount2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ColumnCount);
+var _rtfeldman$elm_css$Css_Transitions$columnCount = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ColumnCount);
+var _rtfeldman$elm_css$Css_Transitions$Color = {ctor: 'Color'};
+var _rtfeldman$elm_css$Css_Transitions$color3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Color);
+var _rtfeldman$elm_css$Css_Transitions$color2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Color);
+var _rtfeldman$elm_css$Css_Transitions$color = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Color);
+var _rtfeldman$elm_css$Css_Transitions$ClipPath = {ctor: 'ClipPath'};
+var _rtfeldman$elm_css$Css_Transitions$clipPath3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$ClipPath);
+var _rtfeldman$elm_css$Css_Transitions$clipPath2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$ClipPath);
+var _rtfeldman$elm_css$Css_Transitions$clipPath = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$ClipPath);
+var _rtfeldman$elm_css$Css_Transitions$Clip = {ctor: 'Clip'};
+var _rtfeldman$elm_css$Css_Transitions$clip3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Clip);
+var _rtfeldman$elm_css$Css_Transitions$clip2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Clip);
+var _rtfeldman$elm_css$Css_Transitions$clip = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Clip);
+var _rtfeldman$elm_css$Css_Transitions$CaretColor = {ctor: 'CaretColor'};
+var _rtfeldman$elm_css$Css_Transitions$caretColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$CaretColor);
+var _rtfeldman$elm_css$Css_Transitions$caretColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$CaretColor);
+var _rtfeldman$elm_css$Css_Transitions$caretColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$CaretColor);
+var _rtfeldman$elm_css$Css_Transitions$BoxShadow = {ctor: 'BoxShadow'};
+var _rtfeldman$elm_css$Css_Transitions$boxShadow3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BoxShadow);
+var _rtfeldman$elm_css$Css_Transitions$boxShadow2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BoxShadow);
+var _rtfeldman$elm_css$Css_Transitions$boxShadow = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BoxShadow);
+var _rtfeldman$elm_css$Css_Transitions$Bottom = {ctor: 'Bottom'};
+var _rtfeldman$elm_css$Css_Transitions$bottom3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Bottom);
+var _rtfeldman$elm_css$Css_Transitions$bottom2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Bottom);
+var _rtfeldman$elm_css$Css_Transitions$bottom = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Bottom);
+var _rtfeldman$elm_css$Css_Transitions$BorderWidth = {ctor: 'BorderWidth'};
+var _rtfeldman$elm_css$Css_Transitions$borderWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderWidth);
+var _rtfeldman$elm_css$Css_Transitions$BorderTopWidth = {ctor: 'BorderTopWidth'};
+var _rtfeldman$elm_css$Css_Transitions$borderTopWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderTopWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderTopWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopWidth);
+var _rtfeldman$elm_css$Css_Transitions$BorderTopRightRadius = {ctor: 'BorderTopRightRadius'};
+var _rtfeldman$elm_css$Css_Transitions$borderTopRightRadius3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopRightRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderTopRightRadius2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopRightRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderTopRightRadius = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopRightRadius);
+var _rtfeldman$elm_css$Css_Transitions$BorderTopLeftRadius = {ctor: 'BorderTopLeftRadius'};
+var _rtfeldman$elm_css$Css_Transitions$borderTopLeftRadius3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopLeftRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderTopLeftRadius2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopLeftRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderTopLeftRadius = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopLeftRadius);
+var _rtfeldman$elm_css$Css_Transitions$BorderTopColor = {ctor: 'BorderTopColor'};
+var _rtfeldman$elm_css$Css_Transitions$borderTopColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopColor);
+var _rtfeldman$elm_css$Css_Transitions$borderTopColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopColor);
+var _rtfeldman$elm_css$Css_Transitions$borderTopColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderTopColor);
+var _rtfeldman$elm_css$Css_Transitions$BorderTop = {ctor: 'BorderTop'};
+var _rtfeldman$elm_css$Css_Transitions$borderTop3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderTop);
+var _rtfeldman$elm_css$Css_Transitions$borderTop2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderTop);
+var _rtfeldman$elm_css$Css_Transitions$borderTop = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderTop);
+var _rtfeldman$elm_css$Css_Transitions$BorderRightWidth = {ctor: 'BorderRightWidth'};
+var _rtfeldman$elm_css$Css_Transitions$borderRightWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderRightWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderRightWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderRightWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderRightWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderRightWidth);
+var _rtfeldman$elm_css$Css_Transitions$BorderRightColor = {ctor: 'BorderRightColor'};
+var _rtfeldman$elm_css$Css_Transitions$borderRightColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderRightColor);
+var _rtfeldman$elm_css$Css_Transitions$borderRightColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderRightColor);
+var _rtfeldman$elm_css$Css_Transitions$borderRightColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderRightColor);
+var _rtfeldman$elm_css$Css_Transitions$BorderRight = {ctor: 'BorderRight'};
+var _rtfeldman$elm_css$Css_Transitions$borderRight3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderRight);
+var _rtfeldman$elm_css$Css_Transitions$borderRight2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderRight);
+var _rtfeldman$elm_css$Css_Transitions$borderRight = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderRight);
+var _rtfeldman$elm_css$Css_Transitions$BorderRadius = {ctor: 'BorderRadius'};
+var _rtfeldman$elm_css$Css_Transitions$borderRadius3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderRadius2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderRadius = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderRadius);
+var _rtfeldman$elm_css$Css_Transitions$BorderLeftWidth = {ctor: 'BorderLeftWidth'};
+var _rtfeldman$elm_css$Css_Transitions$borderLeftWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeftWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderLeftWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeftWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderLeftWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeftWidth);
+var _rtfeldman$elm_css$Css_Transitions$BorderLeftColor = {ctor: 'BorderLeftColor'};
+var _rtfeldman$elm_css$Css_Transitions$borderLeftColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeftColor);
+var _rtfeldman$elm_css$Css_Transitions$borderLeftColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeftColor);
+var _rtfeldman$elm_css$Css_Transitions$borderLeftColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeftColor);
+var _rtfeldman$elm_css$Css_Transitions$BorderLeft = {ctor: 'BorderLeft'};
+var _rtfeldman$elm_css$Css_Transitions$borderLeft3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeft);
+var _rtfeldman$elm_css$Css_Transitions$borderLeft2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeft);
+var _rtfeldman$elm_css$Css_Transitions$borderLeft = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderLeft);
+var _rtfeldman$elm_css$Css_Transitions$BorderColor = {ctor: 'BorderColor'};
+var _rtfeldman$elm_css$Css_Transitions$borderColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderColor);
+var _rtfeldman$elm_css$Css_Transitions$borderColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderColor);
+var _rtfeldman$elm_css$Css_Transitions$borderColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderColor);
+var _rtfeldman$elm_css$Css_Transitions$BorderBottomWidth = {ctor: 'BorderBottomWidth'};
+var _rtfeldman$elm_css$Css_Transitions$borderBottomWidth3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomWidth2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomWidth);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomWidth = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomWidth);
+var _rtfeldman$elm_css$Css_Transitions$BorderBottomRightRadius = {ctor: 'BorderBottomRightRadius'};
+var _rtfeldman$elm_css$Css_Transitions$borderBottomRightRadius3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomRightRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomRightRadius2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomRightRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomRightRadius = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomRightRadius);
+var _rtfeldman$elm_css$Css_Transitions$BorderBottomLeftRadius = {ctor: 'BorderBottomLeftRadius'};
+var _rtfeldman$elm_css$Css_Transitions$borderBottomLeftRadius3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomLeftRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomLeftRadius2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomLeftRadius);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomLeftRadius = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomLeftRadius);
+var _rtfeldman$elm_css$Css_Transitions$BorderBottomColor = {ctor: 'BorderBottomColor'};
+var _rtfeldman$elm_css$Css_Transitions$borderBottomColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomColor);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomColor);
+var _rtfeldman$elm_css$Css_Transitions$borderBottomColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottomColor);
+var _rtfeldman$elm_css$Css_Transitions$BorderBottom = {ctor: 'BorderBottom'};
+var _rtfeldman$elm_css$Css_Transitions$borderBottom3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottom);
+var _rtfeldman$elm_css$Css_Transitions$borderBottom2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottom);
+var _rtfeldman$elm_css$Css_Transitions$borderBottom = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BorderBottom);
+var _rtfeldman$elm_css$Css_Transitions$Border = {ctor: 'Border'};
+var _rtfeldman$elm_css$Css_Transitions$border3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Border);
+var _rtfeldman$elm_css$Css_Transitions$border2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Border);
+var _rtfeldman$elm_css$Css_Transitions$border = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Border);
+var _rtfeldman$elm_css$Css_Transitions$BackgroundSize = {ctor: 'BackgroundSize'};
+var _rtfeldman$elm_css$Css_Transitions$backgroundSize3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundSize);
+var _rtfeldman$elm_css$Css_Transitions$backgroundSize2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundSize);
+var _rtfeldman$elm_css$Css_Transitions$backgroundSize = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundSize);
+var _rtfeldman$elm_css$Css_Transitions$BackgroundPosition = {ctor: 'BackgroundPosition'};
+var _rtfeldman$elm_css$Css_Transitions$backgroundPosition3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundPosition);
+var _rtfeldman$elm_css$Css_Transitions$backgroundPosition2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundPosition);
+var _rtfeldman$elm_css$Css_Transitions$backgroundPosition = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundPosition);
+var _rtfeldman$elm_css$Css_Transitions$BackgroundColor = {ctor: 'BackgroundColor'};
+var _rtfeldman$elm_css$Css_Transitions$backgroundColor3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundColor);
+var _rtfeldman$elm_css$Css_Transitions$backgroundColor2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundColor);
+var _rtfeldman$elm_css$Css_Transitions$backgroundColor = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$BackgroundColor);
+var _rtfeldman$elm_css$Css_Transitions$Background = {ctor: 'Background'};
+var _rtfeldman$elm_css$Css_Transitions$background3 = _rtfeldman$elm_css$Css_Transitions$fullTransition(_rtfeldman$elm_css$Css_Transitions$Background);
+var _rtfeldman$elm_css$Css_Transitions$background2 = _rtfeldman$elm_css$Css_Transitions$durationDelayTransition(_rtfeldman$elm_css$Css_Transitions$Background);
+var _rtfeldman$elm_css$Css_Transitions$background = _rtfeldman$elm_css$Css_Transitions$durationTransition(_rtfeldman$elm_css$Css_Transitions$Background);
 
 var _rtfeldman$elm_css$Css_Structure_Output$noIndent = '';
 var _rtfeldman$elm_css$Css_Structure_Output$spaceIndent = '    ';
@@ -18708,26 +19448,13 @@ var _jerith666$elbum$AlbumStyles$opacityAnimatedTo = function (opasity) {
 			_rtfeldman$elm_css$Css$num(opasity)),
 		_1: {
 			ctor: '::',
-			_0: A2(_rtfeldman$elm_css$Css$property, 'transition-property', 'opacity'),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_rtfeldman$elm_css$Css$property,
-					'transition-duration',
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_elm_lang$core$Basics$toString(_jerith666$elbum$AlbumStyles$opacityDuration),
-						's')),
-				_1: {
+			_0: _rtfeldman$elm_css$Css_Transitions$transition(
+				{
 					ctor: '::',
-					_0: A2(_rtfeldman$elm_css$Css$property, 'transition-timing-function', 'ease-in-out'),
-					_1: {
-						ctor: '::',
-						_0: A2(_rtfeldman$elm_css$Css$property, 'transition-delay', '0s'),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
+					_0: A3(_rtfeldman$elm_css$Css_Transitions$opacity3, _jerith666$elbum$AlbumStyles$opacityDuration * _elm_lang$core$Time$second, 0, _rtfeldman$elm_css$Css_Transitions$easeInOut),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
 		}
 	};
 };
@@ -18932,30 +19659,39 @@ var _jerith666$elbum$ListUtils$mapI = F3(
 					}),
 				l));
 	});
-var _jerith666$elbum$ListUtils$dropThrough = F2(
-	function (elems, elem) {
-		dropThrough:
+var _jerith666$elbum$ListUtils$dropThroughPred = F2(
+	function (pred, elems) {
+		dropThroughPred:
 		while (true) {
 			var _p3 = elems;
 			if (_p3.ctor === '[]') {
 				return {ctor: '[]'};
 			} else {
 				var _p4 = _p3._1;
-				if (_elm_lang$core$Native_Utils.eq(elem, _p3._0)) {
+				if (pred(_p3._0)) {
 					return _p4;
 				} else {
-					if (A2(_elm_lang$core$List$member, elem, elems)) {
-						var _v2 = _p4,
-							_v3 = elem;
-						elems = _v2;
-						elem = _v3;
-						continue dropThrough;
+					if (A2(_elm_lang$core$List$any, pred, elems)) {
+						var _v2 = pred,
+							_v3 = _p4;
+						pred = _v2;
+						elems = _v3;
+						continue dropThroughPred;
 					} else {
 						return elems;
 					}
 				}
 			}
 		}
+	});
+var _jerith666$elbum$ListUtils$dropThrough = F2(
+	function (elem, elems) {
+		return A2(
+			_jerith666$elbum$ListUtils$dropThroughPred,
+			function (e) {
+				return _elm_lang$core$Native_Utils.eq(e, elem);
+			},
+			elems);
 	});
 var _jerith666$elbum$ListUtils$shiftLeft = F3(
 	function (xLefts, x, xRights) {
@@ -19145,7 +19881,6 @@ var _jerith666$elbum$ImageViews$renderPresized = F8(
 			{ctor: '[]'},
 			A2(
 				_elm_lang$core$Basics_ops['++'],
-				s,
 				{
 					ctor: '::',
 					_0: _rtfeldman$elm_css$Css$margin(
@@ -19164,7 +19899,8 @@ var _jerith666$elbum$ImageViews$renderPresized = F8(
 							_1: {ctor: '[]'}
 						}
 					}
-				}),
+				},
+				s),
 			otherAttrs,
 			msg);
 	});
@@ -19174,16 +19910,47 @@ var _jerith666$elbum$WinSize$WinSize = F2(
 		return {width: a, height: b};
 	});
 
-var _jerith666$elbum$ThumbPage$sizeForWidth = F2(
-	function (width, img) {
+var _jerith666$elbum$ThumbPage$sizeForScaler = F2(
+	function (scaler, img) {
 		var is1 = img.srcSetFirst;
-		var scale = _elm_lang$core$Basics$toFloat(width) / _elm_lang$core$Basics$toFloat(is1.x);
+		var scale = scaler(is1);
 		var xScaled = _elm_lang$core$Basics$round(
 			scale * _elm_lang$core$Basics$toFloat(is1.x));
 		var yScaled = _elm_lang$core$Basics$round(
 			scale * _elm_lang$core$Basics$toFloat(is1.y));
 		return {ctor: '_Tuple2', _0: xScaled, _1: yScaled};
 	});
+var _jerith666$elbum$ThumbPage$sizeForHeight = function (height) {
+	return _jerith666$elbum$ThumbPage$sizeForScaler(
+		function (is1) {
+			return _elm_lang$core$Basics$toFloat(height) / _elm_lang$core$Basics$toFloat(is1.y);
+		});
+};
+var _jerith666$elbum$ThumbPage$sizeForWidth = function (width) {
+	return _jerith666$elbum$ThumbPage$sizeForScaler(
+		function (is1) {
+			return _elm_lang$core$Basics$toFloat(width) / _elm_lang$core$Basics$toFloat(is1.x);
+		});
+};
+var _jerith666$elbum$ThumbPage$thumbStyles = {
+	ctor: '::',
+	_0: _rtfeldman$elm_css$Css$borderRadius(
+		_rtfeldman$elm_css$Css$px(5)),
+	_1: {
+		ctor: '::',
+		_0: A4(
+			_rtfeldman$elm_css$Css$boxShadow4,
+			_rtfeldman$elm_css$Css$px(1),
+			_rtfeldman$elm_css$Css$px(1),
+			_rtfeldman$elm_css$Css$px(2),
+			A3(_rtfeldman$elm_css$Css$rgb, 80, 80, 80)),
+		_1: {
+			ctor: '::',
+			_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
+			_1: {ctor: '[]'}
+		}
+	}
+};
 var _jerith666$elbum$ThumbPage$viewThumb = F5(
 	function (width, opasity, extraStyles, selectedMsg, img) {
 		var _p0 = A2(_jerith666$elbum$ThumbPage$sizeForWidth, width, img);
@@ -19198,25 +19965,7 @@ var _jerith666$elbum$ThumbPage$viewThumb = F5(
 			img.srcSetRest,
 			A2(
 				_elm_lang$core$Basics_ops['++'],
-				{
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Css$borderRadius(
-						_rtfeldman$elm_css$Css$px(5)),
-					_1: {
-						ctor: '::',
-						_0: A4(
-							_rtfeldman$elm_css$Css$boxShadow4,
-							_rtfeldman$elm_css$Css$px(1),
-							_rtfeldman$elm_css$Css$px(1),
-							_rtfeldman$elm_css$Css$px(2),
-							A3(_rtfeldman$elm_css$Css$rgb, 80, 80, 80)),
-						_1: {
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$cursor(_rtfeldman$elm_css$Css$pointer),
-							_1: {ctor: '[]'}
-						}
-					}
-				},
+				_jerith666$elbum$ThumbPage$thumbStyles,
 				A2(
 					_elm_lang$core$Basics_ops['++'],
 					_jerith666$elbum$AlbumStyles$opacityStyles(opasity),
@@ -19398,8 +20147,8 @@ var _jerith666$elbum$ThumbPage$convertImgChosenMsgr = F4(
 			A2(_elm_lang$core$List$take, i, images));
 		return A3(prevCurRestImgChosenMsgr, prev, cur, next);
 	});
-var _jerith666$elbum$ThumbPage$albumParent = F2(
-	function (showList, albumList) {
+var _jerith666$elbum$ThumbPage$albumParent = F3(
+	function (getTitle, showList, albumList) {
 		return A2(
 			_rtfeldman$elm_css$Html_Styled$span,
 			{ctor: '[]'},
@@ -19428,7 +20177,8 @@ var _jerith666$elbum$ThumbPage$albumParent = F2(
 					},
 					{
 						ctor: '::',
-						_0: _rtfeldman$elm_css$Html_Styled$text(albumList.listTitle),
+						_0: _rtfeldman$elm_css$Html_Styled$text(
+							getTitle(albumList)),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
@@ -19457,8 +20207,11 @@ var _jerith666$elbum$ThumbPage$albumParent = F2(
 				}
 			});
 	});
-var _jerith666$elbum$ThumbPage$albumTitle = F4(
-	function (title, parents, showList, extraStyles) {
+var _jerith666$elbum$ThumbPage$getAlbumListTitle = function (a) {
+	return a.listTitle;
+};
+var _jerith666$elbum$ThumbPage$albumTitle = F5(
+	function (title, parents, showList, extraHtml, extraStyles) {
 		return A2(
 			_rtfeldman$elm_css$Html_Styled$div,
 			{
@@ -19497,20 +20250,23 @@ var _jerith666$elbum$ThumbPage$albumTitle = F4(
 				_elm_lang$core$Basics_ops['++'],
 				A2(
 					_elm_lang$core$List$map,
-					_jerith666$elbum$ThumbPage$albumParent(showList),
+					A2(_jerith666$elbum$ThumbPage$albumParent, _jerith666$elbum$ThumbPage$getAlbumListTitle, showList),
 					_elm_lang$core$List$reverse(parents)),
-				{
-					ctor: '::',
-					_0: A2(
-						_rtfeldman$elm_css$Html_Styled$span,
-						{ctor: '[]'},
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Html_Styled$text(title),
-							_1: {ctor: '[]'}
-						}),
-					_1: {ctor: '[]'}
-				}));
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					extraHtml,
+					{
+						ctor: '::',
+						_0: A2(
+							_rtfeldman$elm_css$Html_Styled$span,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _rtfeldman$elm_css$Html_Styled$text(title),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					})));
 	});
 var _jerith666$elbum$ThumbPage$grey = A3(_rtfeldman$elm_css$Css$rgb, 128, 128, 128);
 var _jerith666$elbum$ThumbPage$stubThumb = F2(
@@ -19714,11 +20470,12 @@ var _jerith666$elbum$ThumbPage$view = F4(
 			},
 			{
 				ctor: '::',
-				_0: A4(
+				_0: A5(
 					_jerith666$elbum$ThumbPage$albumTitle,
 					thumbPageModel.album.title,
 					thumbPageModel.parents,
 					showList,
+					{ctor: '[]'},
 					{
 						ctor: '::',
 						_0: _rtfeldman$elm_css$Css$position(_rtfeldman$elm_css$Css$fixed),
@@ -19726,11 +20483,12 @@ var _jerith666$elbum$ThumbPage$view = F4(
 					}),
 				_1: {
 					ctor: '::',
-					_0: A4(
+					_0: A5(
 						_jerith666$elbum$ThumbPage$albumTitle,
 						thumbPageModel.album.title,
 						thumbPageModel.parents,
 						showList,
+						{ctor: '[]'},
 						{
 							ctor: '::',
 							_0: A2(_rtfeldman$elm_css$Css$property, 'visibility', 'hidden'),
@@ -19749,7 +20507,12 @@ var _jerith666$elbum$ThumbPage$view = F4(
 										_1: {
 											ctor: '::',
 											_0: _rtfeldman$elm_css$Css$flexDirection(_rtfeldman$elm_css$Css$row),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: _rtfeldman$elm_css$Css$flexShrink(
+													_rtfeldman$elm_css$Css$num(0)),
+												_1: {ctor: '[]'}
+											}
 										}
 									}),
 								_1: {ctor: '[]'}
@@ -19765,6 +20528,43 @@ var _jerith666$elbum$ThumbPage$ThumbPageModel = F5(
 		return {album: a, parents: b, winSize: c, justLoadedImages: d, readyToDisplayImages: e};
 	});
 
+var _jerith666$elbum$AlbumListPage$renderListImage = F2(
+	function (selectedMsg, img) {
+		var _p0 = (_elm_lang$core$Native_Utils.cmp(img.srcSetFirst.x, img.srcSetFirst.y) > 0) ? A2(_jerith666$elbum$ThumbPage$sizeForWidth, 200, img) : A2(_jerith666$elbum$ThumbPage$sizeForHeight, 200, img);
+		var xScaled = _p0._0;
+		var yScaled = _p0._1;
+		var sideMargin = 10 + A2(
+			_elm_lang$core$Basics$max,
+			0,
+			_elm_lang$core$Basics$toFloat(yScaled - xScaled) / 2);
+		return A8(
+			_jerith666$elbum$ImageViews$renderPresized,
+			10,
+			xScaled,
+			yScaled,
+			img.srcSetFirst,
+			img.srcSetRest,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_jerith666$elbum$ThumbPage$thumbStyles,
+				{
+					ctor: '::',
+					_0: _rtfeldman$elm_css$Css$verticalAlign(_rtfeldman$elm_css$Css$middle),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Css$marginLeft(
+							_rtfeldman$elm_css$Css$px(sideMargin)),
+						_1: {
+							ctor: '::',
+							_0: _rtfeldman$elm_css$Css$marginRight(
+								_rtfeldman$elm_css$Css$px(sideMargin)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			{ctor: '[]'},
+			_elm_lang$core$Maybe$Just(selectedMsg));
+	});
 var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 	function (viewList, viewAlbum, albumOrList) {
 		var childStyles = _jerith666$elbum$AlbumStyles$styles(
@@ -19773,9 +20573,9 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 				_0: _rtfeldman$elm_css$Css$color(_jerith666$elbum$AlbumStyles$white),
 				_1: {ctor: '[]'}
 			});
-		var _p0 = albumOrList;
-		if (_p0.ctor === 'List') {
-			var _p1 = _p0._0;
+		var _p1 = albumOrList;
+		if (_p1.ctor === 'List') {
+			var _p2 = _p1._0;
 			return A2(
 				_rtfeldman$elm_css$Html_Styled$div,
 				{
@@ -19784,23 +20584,16 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 					_1: {
 						ctor: '::',
 						_0: _rtfeldman$elm_css$Html_Styled_Events$onClick(
-							viewList(_p1)),
+							viewList(_p2)),
 						_1: {ctor: '[]'}
 					}
 				},
 				{
 					ctor: '::',
-					_0: A5(
-						_jerith666$elbum$ThumbPage$viewThumb,
-						200,
-						_jerith666$elbum$AlbumStyles$Completed,
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$verticalAlign(_rtfeldman$elm_css$Css$middle),
-							_1: {ctor: '[]'}
-						},
-						viewList(_p1),
-						_p1.listThumbnail),
+					_0: A2(
+						_jerith666$elbum$AlbumListPage$renderListImage,
+						viewList(_p2),
+						_p2.listThumbnail),
 					_1: {
 						ctor: '::',
 						_0: A2(
@@ -19808,14 +20601,14 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled$text(_p1.listTitle),
+								_0: _rtfeldman$elm_css$Html_Styled$text(_p2.listTitle),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
 					}
 				});
 		} else {
-			var _p2 = _p0._0;
+			var _p3 = _p1._0;
 			return A2(
 				_rtfeldman$elm_css$Html_Styled$div,
 				{
@@ -19824,23 +20617,16 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 					_1: {
 						ctor: '::',
 						_0: _rtfeldman$elm_css$Html_Styled_Events$onClick(
-							viewAlbum(_p2)),
+							viewAlbum(_p3)),
 						_1: {ctor: '[]'}
 					}
 				},
 				{
 					ctor: '::',
-					_0: A5(
-						_jerith666$elbum$ThumbPage$viewThumb,
-						200,
-						_jerith666$elbum$AlbumStyles$Completed,
-						{
-							ctor: '::',
-							_0: _rtfeldman$elm_css$Css$verticalAlign(_rtfeldman$elm_css$Css$middle),
-							_1: {ctor: '[]'}
-						},
-						viewAlbum(_p2),
-						_p2.thumbnail),
+					_0: A2(
+						_jerith666$elbum$AlbumListPage$renderListImage,
+						viewAlbum(_p3),
+						_p3.thumbnail),
 					_1: {
 						ctor: '::',
 						_0: A2(
@@ -19848,7 +20634,7 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 							{ctor: '[]'},
 							{
 								ctor: '::',
-								_0: _rtfeldman$elm_css$Html_Styled$text(_p2.title),
+								_0: _rtfeldman$elm_css$Html_Styled$text(_p3.title),
 								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
@@ -19857,9 +20643,9 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 		}
 	});
 var _jerith666$elbum$AlbumListPage$view = F4(
-	function (_p3, viewList, viewAlbum, flags) {
-		var _p4 = _p3;
-		var _p5 = _p4._0;
+	function (_p4, viewList, viewAlbum, flags) {
+		var _p5 = _p4;
+		var _p6 = _p5._0;
 		return A4(
 			_jerith666$elbum$AlbumStyles$rootDivFlex,
 			flags,
@@ -19869,11 +20655,12 @@ var _jerith666$elbum$AlbumListPage$view = F4(
 				_elm_lang$core$Basics_ops['++'],
 				{
 					ctor: '::',
-					_0: A4(
+					_0: A5(
 						_jerith666$elbum$ThumbPage$albumTitle,
-						_p5.listTitle,
-						_p4._2,
+						_p6.listTitle,
+						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p5._2),
 						viewList,
+						{ctor: '[]'},
 						{ctor: '[]'}),
 					_1: {ctor: '[]'}
 				},
@@ -19882,13 +20669,13 @@ var _jerith666$elbum$AlbumListPage$view = F4(
 						_elm_lang$core$Basics_ops['++'],
 						{
 							ctor: '::',
-							_0: A3(_jerith666$elbum$AlbumListPage$viewAlbumOrList, viewList, viewAlbum, _p5.childFirst),
+							_0: A3(_jerith666$elbum$AlbumListPage$viewAlbumOrList, viewList, viewAlbum, _p6.childFirst),
 							_1: {ctor: '[]'}
 						},
 						A2(
 							_elm_lang$core$List$map,
 							A2(_jerith666$elbum$AlbumListPage$viewAlbumOrList, viewList, viewAlbum),
-							_p5.childRest)))));
+							_p6.childRest)))));
 	});
 var _jerith666$elbum$AlbumListPage$AlbumListPage = F3(
 	function (a, b, c) {
@@ -25373,6 +26160,9 @@ var _jerith666$elbum$FullImagePage$navEltIf = F4(
 			_1: {ctor: '[]'}
 		};
 	});
+var _jerith666$elbum$FullImagePage$getAlbumTitle = function (a) {
+	return a.title;
+};
 var _jerith666$elbum$FullImagePage$imgTitleHeight = 5;
 var _jerith666$elbum$FullImagePage$viewImg = F4(
 	function (clickMsg, touchMsgs, wrapProgMsg, fullImagePageModel) {
@@ -25433,8 +26223,8 @@ var _jerith666$elbum$FullImagePage$viewImg = F4(
 				_1: {ctor: '[]'}
 			});
 	});
-var _jerith666$elbum$FullImagePage$view = F6(
-	function (navMsgs, touchMsgs, noOpMsg, wrapProgMsg, fullImagePageModel, flags) {
+var _jerith666$elbum$FullImagePage$view = F7(
+	function (navMsgs, touchMsgs, noOpMsg, wrapProgMsg, fullImagePageModel, parents, flags) {
 		return A4(
 			_jerith666$elbum$AlbumStyles$rootDivFlex,
 			flags,
@@ -25485,7 +26275,23 @@ var _jerith666$elbum$FullImagePage$view = F6(
 						},
 						{
 							ctor: '::',
-							_0: _rtfeldman$elm_css$Html_Styled$text(fullImagePageModel.album.imageFirst.altText),
+							_0: A5(
+								_jerith666$elbum$ThumbPage$albumTitle,
+								fullImagePageModel.album.imageFirst.altText,
+								parents,
+								navMsgs.showList,
+								{
+									ctor: '::',
+									_0: A3(
+										_jerith666$elbum$ThumbPage$albumParent,
+										_jerith666$elbum$FullImagePage$getAlbumTitle,
+										function (_p1) {
+											return navMsgs.backToThumbsMsg;
+										},
+										fullImagePageModel.album),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'}),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
@@ -25581,9 +26387,9 @@ var _jerith666$elbum$FullImagePage$FullImagePageModel = F5(
 	function (a, b, c, d, e) {
 		return {prevImgs: a, album: b, winSize: c, progImgModel: d, offset: e};
 	});
-var _jerith666$elbum$FullImagePage$NavMsgs = F3(
-	function (a, b, c) {
-		return {prevMsg: a, nextMsg: b, backToThumbsMsg: c};
+var _jerith666$elbum$FullImagePage$NavMsgs = F4(
+	function (a, b, c, d) {
+		return {prevMsg: a, nextMsg: b, backToThumbsMsg: c, showList: d};
 	});
 var _jerith666$elbum$FullImagePage$TouchMsgs = F3(
 	function (a, b, c) {
@@ -25614,24 +26420,35 @@ var _jerith666$elbum$AlbumPage$offsetFor = function (dragInfo) {
 	}
 };
 var _jerith666$elbum$AlbumPage$minDragLen = 75;
-var _jerith666$elbum$AlbumPage$urlsToGet = function (albumPage) {
+var _jerith666$elbum$AlbumPage$titleOf = function (albumPage) {
 	var _p3 = albumPage;
-	if (_p3.ctor === 'Thumbs') {
+	switch (_p3.ctor) {
+		case 'Thumbs':
+			return _p3._0.title;
+		case 'GettingScroll':
+			return _p3._0.title;
+		default:
+			return _p3._1.imageFirst.altText;
+	}
+};
+var _jerith666$elbum$AlbumPage$urlsToGet = function (albumPage) {
+	var _p4 = albumPage;
+	if (_p4.ctor === 'Thumbs') {
 		return _jerith666$elbum$ThumbPage$urlsToGet(
 			{
-				album: _p3._0,
+				album: _p4._0,
 				parents: {ctor: '[]'},
-				winSize: _p3._1,
-				justLoadedImages: _p3._2,
-				readyToDisplayImages: _p3._3
+				winSize: _p4._1,
+				justLoadedImages: _p4._2,
+				readyToDisplayImages: _p4._3
 			});
 	} else {
 		return _elm_lang$core$Set$empty;
 	}
 };
 var _jerith666$elbum$AlbumPage$resetUrls = function (msg) {
-	var _p4 = msg;
-	switch (_p4.ctor) {
+	var _p5 = msg;
+	switch (_p5.ctor) {
 		case 'BackToThumbs':
 			return true;
 		case 'View':
@@ -25646,8 +26463,8 @@ var _jerith666$elbum$AlbumPage$progInit = F4(
 			function (w, h) {
 				return A4(_jerith666$elbum$ImageViews$smallestImageBiggerThan, w, h, i.srcSetFirst, i.srcSetRest);
 			});
-		var _p5 = _jerith666$elbum$ThumbPage$colsWidth(winSize);
-		var thumbWidth = _p5._1;
+		var _p6 = _jerith666$elbum$ThumbPage$colsWidth(winSize);
+		var thumbWidth = _p6._1;
 		return _jerith666$elbum$ProgressiveImage$init(
 			{
 				mainImg: A2(smBiggerThan, w, h),
@@ -25679,35 +26496,35 @@ var _jerith666$elbum$AlbumPage$FullMsg = function (a) {
 };
 var _jerith666$elbum$AlbumPage$updatePrevNext = F2(
 	function (model, shifter) {
-		var _p6 = model;
-		if (_p6.ctor === 'FullImage') {
-			var _p11 = _p6._3;
-			var _p10 = _p6._1;
-			var _p7 = A3(shifter, _p6._0, _p10.imageFirst, _p10.imageRest);
-			var newPrev = _p7._0;
-			var newCur = _p7._1;
-			var newRest = _p7._2;
-			var _p8 = function () {
-				if (_elm_lang$core$Native_Utils.eq(_p10.imageFirst, newCur)) {
-					return {ctor: '_Tuple2', _0: _p6._2, _1: _elm_lang$core$Platform_Cmd$none};
+		var _p7 = model;
+		if (_p7.ctor === 'FullImage') {
+			var _p12 = _p7._3;
+			var _p11 = _p7._1;
+			var _p8 = A3(shifter, _p7._0, _p11.imageFirst, _p11.imageRest);
+			var newPrev = _p8._0;
+			var newCur = _p8._1;
+			var newRest = _p8._2;
+			var _p9 = function () {
+				if (_elm_lang$core$Native_Utils.eq(_p11.imageFirst, newCur)) {
+					return {ctor: '_Tuple2', _0: _p7._2, _1: _elm_lang$core$Platform_Cmd$none};
 				} else {
-					var _p9 = A3(_jerith666$elbum$FullImagePage$fitImage, newCur.srcSetFirst, _p11.width, _p11.height);
-					var w = _p9._0;
-					var h = _p9._1;
-					return A4(_jerith666$elbum$AlbumPage$progInit, _p11, newCur, w, h);
+					var _p10 = A3(_jerith666$elbum$FullImagePage$fitImage, newCur.srcSetFirst, _p12.width, _p12.height);
+					var w = _p10._0;
+					var h = _p10._1;
+					return A4(_jerith666$elbum$AlbumPage$progInit, _p12, newCur, w, h);
 				}
 			}();
-			var newProgModel = _p8._0;
-			var newCmd = _p8._1;
+			var newProgModel = _p9._0;
+			var newCmd = _p9._1;
 			return {
 				ctor: '_Tuple2',
 				_0: A6(
 					_jerith666$elbum$AlbumPage$FullImage,
 					newPrev,
-					{title: _p10.title, imageFirst: newCur, imageRest: newRest, thumbnail: _p10.thumbnail},
+					{title: _p11.title, imageFirst: newCur, imageRest: newRest, thumbnail: _p11.thumbnail},
 					newProgModel,
-					_p11,
-					_p6._4,
+					_p12,
+					_p7._4,
 					_elm_lang$core$Maybe$Nothing),
 				_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, newCmd)
 			};
@@ -25722,15 +26539,15 @@ var _jerith666$elbum$AlbumPage$subscriptions = F3(
 	function (albumPage, wrapper, showParent) {
 		subscriptions:
 		while (true) {
-			var _p12 = albumPage;
-			switch (_p12.ctor) {
+			var _p13 = albumPage;
+			switch (_p13.ctor) {
 				case 'GettingScroll':
-					var _v5 = _p12._5,
-						_v6 = wrapper,
-						_v7 = showParent;
-					albumPage = _v5;
-					wrapper = _v6;
-					showParent = _v7;
+					var _v6 = _p13._5,
+						_v7 = wrapper,
+						_v8 = showParent;
+					albumPage = _v6;
+					wrapper = _v7;
+					showParent = _v8;
 					continue subscriptions;
 				case 'Thumbs':
 					return A2(
@@ -25747,7 +26564,7 @@ var _jerith666$elbum$AlbumPage$subscriptions = F3(
 								A2(
 									_elm_lang$core$Platform_Sub$map,
 									_jerith666$elbum$AlbumPage$FullMsg,
-									_jerith666$elbum$ProgressiveImage$subscriptions(_p12._2))),
+									_jerith666$elbum$ProgressiveImage$subscriptions(_p13._2))),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -25755,8 +26572,8 @@ var _jerith666$elbum$AlbumPage$subscriptions = F3(
 									wrapper,
 									_elm_lang$keyboard$Keyboard$downs(
 										function (keycode) {
-											var _p13 = keycode;
-											switch (_p13) {
+											var _p14 = keycode;
+											switch (_p14) {
 												case 39:
 													return _jerith666$elbum$AlbumPage$Next;
 												case 37:
@@ -25776,16 +26593,16 @@ var _jerith666$elbum$AlbumPage$subscriptions = F3(
 var _jerith666$elbum$AlbumPage$TouchDragAbandon = {ctor: 'TouchDragAbandon'};
 var _jerith666$elbum$AlbumPage$touchPrevNext = F2(
 	function (dragInfo, touch) {
-		var _p14 = dragInfo;
-		if (_p14.ctor === 'Nothing') {
+		var _p15 = dragInfo;
+		if (_p15.ctor === 'Nothing') {
 			return _jerith666$elbum$AlbumPage$NoUpdate;
 		} else {
-			var _p16 = _p14._0._0;
+			var _p17 = _p15._0._0;
 			if (_elm_lang$core$Native_Utils.cmp(
-				_elm_lang$core$Basics$abs(_p16.clientX - touch.clientX),
+				_elm_lang$core$Basics$abs(_p17.clientX - touch.clientX),
 				_jerith666$elbum$AlbumPage$minDragLen) > 0) {
-				var _p15 = A2(_knledg$touch_events$TouchEvents$getDirectionX, _p16.clientX, touch.clientX);
-				switch (_p15.ctor) {
+				var _p16 = A2(_knledg$touch_events$TouchEvents$getDirectionX, _p17.clientX, touch.clientX);
+				switch (_p16.ctor) {
 					case 'Left':
 						return _jerith666$elbum$AlbumPage$Next;
 					case 'Right':
@@ -25809,19 +26626,19 @@ var _jerith666$elbum$AlbumPage$GotScroll = function (a) {
 };
 var _jerith666$elbum$AlbumPage$update = F2(
 	function (msg, model) {
-		var _p17 = msg;
-		switch (_p17.ctor) {
+		var _p18 = msg;
+		switch (_p18.ctor) {
 			case 'View':
-				var _p18 = model;
-				if (_p18.ctor === 'Thumbs') {
+				var _p19 = model;
+				if (_p19.ctor === 'Thumbs') {
 					return {
 						ctor: '_Tuple2',
-						_0: A6(_jerith666$elbum$AlbumPage$GettingScroll, _p18._0, _p17._0, _p17._1, _p17._2, _p18._1, model),
+						_0: A6(_jerith666$elbum$AlbumPage$GettingScroll, _p19._0, _p18._0, _p18._1, _p18._2, _p19._1, model),
 						_1: A2(
 							_elm_lang$core$Task$attempt,
-							function (_p19) {
+							function (_p20) {
 								return _jerith666$elbum$AlbumPage$GotScroll(
-									_elm_lang$core$Result$toMaybe(_p19));
+									_elm_lang$core$Result$toMaybe(_p20));
 							},
 							_elm_lang$dom$Dom_Scroll$y(_jerith666$elbum$AlbumStyles$rootDivId))
 					};
@@ -25829,26 +26646,26 @@ var _jerith666$elbum$AlbumPage$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'GotScroll':
-				var _p20 = model;
-				if (_p20.ctor === 'GettingScroll') {
-					var _p25 = _p20._4;
-					var _p24 = _p20._2;
-					var _p23 = _p20._0;
-					var _p21 = A3(_jerith666$elbum$FullImagePage$fitImage, _p24.srcSetFirst, _p25.width, _p25.height);
-					var w = _p21._0;
-					var h = _p21._1;
-					var _p22 = A4(_jerith666$elbum$AlbumPage$progInit, _p25, _p24, w, h);
-					var progModel = _p22._0;
-					var progCmd = _p22._1;
+				var _p21 = model;
+				if (_p21.ctor === 'GettingScroll') {
+					var _p26 = _p21._4;
+					var _p25 = _p21._2;
+					var _p24 = _p21._0;
+					var _p22 = A3(_jerith666$elbum$FullImagePage$fitImage, _p25.srcSetFirst, _p26.width, _p26.height);
+					var w = _p22._0;
+					var h = _p22._1;
+					var _p23 = A4(_jerith666$elbum$AlbumPage$progInit, _p26, _p25, w, h);
+					var progModel = _p23._0;
+					var progCmd = _p23._1;
 					return {
 						ctor: '_Tuple2',
 						_0: A6(
 							_jerith666$elbum$AlbumPage$FullImage,
-							_p20._1,
-							{title: _p23.title, imageFirst: _p24, imageRest: _p20._3, thumbnail: _p23.thumbnail},
+							_p21._1,
+							{title: _p24.title, imageFirst: _p25, imageRest: _p21._3, thumbnail: _p24.thumbnail},
 							progModel,
-							_p25,
-							_p17._0,
+							_p26,
+							_p18._0,
 							_elm_lang$core$Maybe$Nothing),
 						_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, progCmd)
 					};
@@ -25860,31 +26677,31 @@ var _jerith666$elbum$AlbumPage$update = F2(
 			case 'Next':
 				return A2(_jerith666$elbum$AlbumPage$updatePrevNext, model, _jerith666$elbum$ListUtils$shiftRight);
 			case 'BackToThumbs':
-				var _p26 = model;
-				if (_p26.ctor === 'FullImage') {
-					var _p30 = _p26._1;
+				var _p27 = model;
+				if (_p27.ctor === 'FullImage') {
+					var _p31 = _p27._1;
 					var scrollCmd = function () {
-						var _p27 = _p26._4;
-						if (_p27.ctor === 'Nothing') {
+						var _p28 = _p27._4;
+						if (_p28.ctor === 'Nothing') {
 							return _elm_lang$core$Platform_Cmd$none;
 						} else {
 							return A2(
 								_elm_lang$core$Task$attempt,
-								function (_p28) {
+								function (_p29) {
 									return _jerith666$elbum$AlbumPage$NoUpdate;
 								},
-								A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p27._0));
+								A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p28._0));
 						}
 					}();
-					var _p29 = A3(_jerith666$elbum$ListUtils$shiftToBeginning, _p26._0, _p30.imageFirst, _p30.imageRest);
-					var newFirst = _p29._0;
-					var newRest = _p29._1;
+					var _p30 = A3(_jerith666$elbum$ListUtils$shiftToBeginning, _p27._0, _p31.imageFirst, _p31.imageRest);
+					var newFirst = _p30._0;
+					var newRest = _p30._1;
 					return {
 						ctor: '_Tuple2',
 						_0: A4(
 							_jerith666$elbum$AlbumPage$Thumbs,
-							{title: _p30.title, imageFirst: newFirst, imageRest: newRest, thumbnail: _p30.thumbnail},
-							_p26._3,
+							{title: _p31.title, imageFirst: newFirst, imageRest: newRest, thumbnail: _p31.thumbnail},
+							_p27._3,
 							_elm_lang$core$Set$empty,
 							_elm_lang$core$Set$empty),
 						_1: scrollCmd
@@ -25893,47 +26710,47 @@ var _jerith666$elbum$AlbumPage$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'TouchDragStart':
-				var _p32 = _p17._0;
-				var _p31 = model;
-				if (_p31.ctor === 'FullImage') {
+				var _p33 = _p18._0;
+				var _p32 = model;
+				if (_p32.ctor === 'FullImage') {
 					return {
 						ctor: '_Tuple2',
 						_0: A6(
 							_jerith666$elbum$AlbumPage$FullImage,
-							_p31._0,
-							_p31._1,
-							_p31._2,
-							_p31._3,
-							_p31._4,
+							_p32._0,
+							_p32._1,
+							_p32._2,
+							_p32._3,
+							_p32._4,
 							_elm_lang$core$Maybe$Just(
-								{ctor: '_Tuple2', _0: _p32, _1: _p32})),
+								{ctor: '_Tuple2', _0: _p33, _1: _p33})),
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
 				} else {
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'TouchDragContinue':
-				var _p40 = _p17._0;
-				var _p33 = model;
-				if (_p33.ctor === 'FullImage') {
-					var _p39 = _p33._3;
-					var _p38 = _p33._4;
-					var _p37 = _p33._2;
-					var _p36 = _p33._0;
-					var _p35 = _p33._1;
-					var _p34 = _p33._5;
-					if (_p34.ctor === 'Nothing') {
+				var _p41 = _p18._0;
+				var _p34 = model;
+				if (_p34.ctor === 'FullImage') {
+					var _p40 = _p34._3;
+					var _p39 = _p34._4;
+					var _p38 = _p34._2;
+					var _p37 = _p34._0;
+					var _p36 = _p34._1;
+					var _p35 = _p34._5;
+					if (_p35.ctor === 'Nothing') {
 						return {
 							ctor: '_Tuple2',
 							_0: A6(
 								_jerith666$elbum$AlbumPage$FullImage,
-								_p36,
-								_p35,
 								_p37,
-								_p39,
+								_p36,
 								_p38,
+								_p40,
+								_p39,
 								_elm_lang$core$Maybe$Just(
-									{ctor: '_Tuple2', _0: _p40, _1: _p40})),
+									{ctor: '_Tuple2', _0: _p41, _1: _p41})),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					} else {
@@ -25941,13 +26758,13 @@ var _jerith666$elbum$AlbumPage$update = F2(
 							ctor: '_Tuple2',
 							_0: A6(
 								_jerith666$elbum$AlbumPage$FullImage,
-								_p36,
-								_p35,
 								_p37,
-								_p39,
+								_p36,
 								_p38,
+								_p40,
+								_p39,
 								_elm_lang$core$Maybe$Just(
-									{ctor: '_Tuple2', _0: _p34._0._0, _1: _p40})),
+									{ctor: '_Tuple2', _0: _p35._0._0, _1: _p41})),
 							_1: _elm_lang$core$Platform_Cmd$none
 						};
 					}
@@ -25955,25 +26772,25 @@ var _jerith666$elbum$AlbumPage$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'TouchDragAbandon':
-				var _p41 = model;
-				if (_p41.ctor === 'FullImage') {
+				var _p42 = model;
+				if (_p42.ctor === 'FullImage') {
 					return {
 						ctor: '_Tuple2',
-						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p41._0, _p41._1, _p41._2, _p41._3, _p41._4, _elm_lang$core$Maybe$Nothing),
+						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p42._0, _p42._1, _p42._2, _p42._3, _p42._4, _elm_lang$core$Maybe$Nothing),
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
 				} else {
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'FullMsg':
-				var _p42 = model;
-				if (_p42.ctor === 'FullImage') {
-					var _p43 = A2(_jerith666$elbum$ProgressiveImage$update, _p17._0, _p42._2);
-					var newProgModel = _p43._0;
-					var newProgCmd = _p43._1;
+				var _p43 = model;
+				if (_p43.ctor === 'FullImage') {
+					var _p44 = A2(_jerith666$elbum$ProgressiveImage$update, _p18._0, _p43._2);
+					var newProgModel = _p44._0;
+					var newProgCmd = _p44._1;
 					return {
 						ctor: '_Tuple2',
-						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p42._0, _p42._1, newProgModel, _p42._3, _p42._4, _p42._5),
+						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p43._0, _p43._1, newProgModel, _p43._3, _p43._4, _p43._5),
 						_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, newProgCmd)
 					};
 				} else {
@@ -25991,19 +26808,19 @@ var _jerith666$elbum$AlbumPage$view = F5(
 	function (albumPage, showList, wrapMsg, parents, flags) {
 		view:
 		while (true) {
-			var _p44 = albumPage;
-			switch (_p44.ctor) {
+			var _p45 = albumPage;
+			switch (_p45.ctor) {
 				case 'GettingScroll':
-					var _v22 = _p44._5,
-						_v23 = showList,
-						_v24 = wrapMsg,
-						_v25 = parents,
-						_v26 = flags;
-					albumPage = _v22;
-					showList = _v23;
-					wrapMsg = _v24;
-					parents = _v25;
-					flags = _v26;
+					var _v23 = _p45._5,
+						_v24 = showList,
+						_v25 = wrapMsg,
+						_v26 = parents,
+						_v27 = flags;
+					albumPage = _v23;
+					showList = _v24;
+					wrapMsg = _v25;
+					parents = _v26;
+					flags = _v27;
 					continue view;
 				case 'Thumbs':
 					return A4(
@@ -26014,31 +26831,46 @@ var _jerith666$elbum$AlbumPage$view = F5(
 									A3(_jerith666$elbum$AlbumPage$View, x, y, z));
 							}),
 						showList,
-						{album: _p44._0, parents: parents, winSize: _p44._1, justLoadedImages: _p44._2, readyToDisplayImages: _p44._3},
+						{album: _p45._0, parents: parents, winSize: _p45._1, justLoadedImages: _p45._2, readyToDisplayImages: _p45._3},
 						flags);
 				default:
-					var _p45 = _p44._5;
-					return A2(
-						_rtfeldman$elm_css$Html_Styled$map,
-						wrapMsg,
-						A6(
-							_jerith666$elbum$FullImagePage$view,
-							{prevMsg: _jerith666$elbum$AlbumPage$Prev, nextMsg: _jerith666$elbum$AlbumPage$Next, backToThumbsMsg: _jerith666$elbum$AlbumPage$BackToThumbs},
-							{
-								touchStartMsg: _jerith666$elbum$AlbumPage$TouchDragStart,
-								touchContinueMsg: _jerith666$elbum$AlbumPage$TouchDragContinue,
-								touchPrevNextMsg: _jerith666$elbum$AlbumPage$touchPrevNext(_p45)
+					var _p50 = _p45._5;
+					return A7(
+						_jerith666$elbum$FullImagePage$view,
+						{
+							prevMsg: wrapMsg(_jerith666$elbum$AlbumPage$Prev),
+							nextMsg: wrapMsg(_jerith666$elbum$AlbumPage$Next),
+							backToThumbsMsg: wrapMsg(_jerith666$elbum$AlbumPage$BackToThumbs),
+							showList: showList
+						},
+						{
+							touchStartMsg: function (_p46) {
+								return wrapMsg(
+									_jerith666$elbum$AlbumPage$TouchDragStart(_p46));
 							},
-							_jerith666$elbum$AlbumPage$NoUpdate,
-							_jerith666$elbum$AlbumPage$FullMsg,
-							{
-								prevImgs: _p44._0,
-								album: _p44._1,
-								winSize: _p44._3,
-								progImgModel: _p44._2,
-								offset: _jerith666$elbum$AlbumPage$offsetFor(_p45)
+							touchContinueMsg: function (_p47) {
+								return wrapMsg(
+									_jerith666$elbum$AlbumPage$TouchDragContinue(_p47));
 							},
-							flags));
+							touchPrevNextMsg: function (_p48) {
+								return wrapMsg(
+									A2(_jerith666$elbum$AlbumPage$touchPrevNext, _p50, _p48));
+							}
+						},
+						wrapMsg(_jerith666$elbum$AlbumPage$NoUpdate),
+						function (_p49) {
+							return wrapMsg(
+								_jerith666$elbum$AlbumPage$FullMsg(_p49));
+						},
+						{
+							prevImgs: _p45._0,
+							album: _p45._1,
+							winSize: _p45._3,
+							progImgModel: _p45._2,
+							offset: _jerith666$elbum$AlbumPage$offsetFor(_p50)
+						},
+						parents,
+						flags);
 			}
 		}
 	});
@@ -26923,6 +27755,12 @@ var _rgrempel$elm_route_url$RouteUrl$programWithFlags = function (_p23) {
 		_rgrempel$elm_route_url$RouteUrl$navigationAppWithFlags(_p23));
 };
 
+var _jerith666$elbum$Title$setTitle = _elm_lang$core$Native_Platform.outgoingPort(
+	'setTitle',
+	function (v) {
+		return v;
+	});
+
 var _jerith666$elbum$Main$withHomeLink = F3(
 	function (home, flags, basePage) {
 		var _p0 = home;
@@ -27103,7 +27941,7 @@ var _jerith666$elbum$Main$hashForList = F2(
 				_0: _p7._0.listTitle,
 				_1: {ctor: '[]'}
 			},
-			_p8);
+			A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p8));
 	});
 var _jerith666$elbum$Main$locFor = function (model) {
 	var _p9 = model;
@@ -27112,7 +27950,11 @@ var _jerith666$elbum$Main$locFor = function (model) {
 			return _elm_lang$core$Maybe$Just(
 				{
 					entry: _rgrempel$elm_route_url$RouteUrl$NewEntry,
-					url: A3(_jerith666$elbum$Main$hashForAlbum, model, _p9._0, _p9._1)
+					url: A3(
+						_jerith666$elbum$Main$hashForAlbum,
+						model,
+						_p9._0,
+						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p9._1))
 				});
 		case 'LoadedList':
 			return _elm_lang$core$Maybe$Just(
@@ -27185,39 +28027,57 @@ var _jerith666$elbum$Main$findImg = F3(
 		}
 	});
 var _jerith666$elbum$Main$homeOf = function (model) {
-	var _p13 = model;
-	switch (_p13.ctor) {
-		case 'Sizing':
-			return _elm_lang$core$Maybe$Nothing;
-		case 'LoadingHomeLink':
-			return _elm_lang$core$Maybe$Nothing;
-		case 'Loading':
-			return _p13._2;
-		case 'LoadError':
-			return _elm_lang$core$Maybe$Nothing;
-		case 'LoadedList':
-			return _p13._2;
-		default:
-			return _p13._3;
+	homeOf:
+	while (true) {
+		var _p13 = model;
+		switch (_p13.ctor) {
+			case 'Sizing':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'LoadingHomeLink':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'Loading':
+				return _p13._2;
+			case 'LoadError':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'GettingScrollBootstrap':
+				var _v13 = _p13._0;
+				model = _v13;
+				continue homeOf;
+			case 'LoadedList':
+				return _p13._2;
+			default:
+				return _p13._3;
+		}
 	}
 };
 var _jerith666$elbum$Main$flagsOf = function (model) {
-	var _p14 = model;
-	switch (_p14.ctor) {
-		case 'Sizing':
-			return _p14._0;
-		case 'LoadingHomeLink':
-			return _p14._1;
-		case 'Loading':
-			return _p14._1;
-		case 'LoadError':
-			return _p14._0;
-		case 'LoadedList':
-			return _p14._1;
-		default:
-			return _p14._2;
+	flagsOf:
+	while (true) {
+		var _p14 = model;
+		switch (_p14.ctor) {
+			case 'Sizing':
+				return _p14._0;
+			case 'LoadingHomeLink':
+				return _p14._1;
+			case 'Loading':
+				return _p14._1;
+			case 'LoadError':
+				return _p14._0;
+			case 'GettingScrollBootstrap':
+				var _v15 = _p14._0;
+				model = _v15;
+				continue flagsOf;
+			case 'LoadedList':
+				return _p14._1;
+			default:
+				return _p14._2;
+		}
 	}
 };
+var _jerith666$elbum$Main$GettingScrollBootstrap = F2(
+	function (a, b) {
+		return {ctor: 'GettingScrollBootstrap', _0: a, _1: b};
+	});
 var _jerith666$elbum$Main$LoadedAlbum = F5(
 	function (a, b, c, d, e) {
 		return {ctor: 'LoadedAlbum', _0: a, _1: b, _2: c, _3: d, _4: e};
@@ -27266,6 +28126,8 @@ var _jerith666$elbum$Main$withPaths = F2(
 					_elm_lang$core$Maybe$Just(paths));
 			case 'LoadError':
 				return model;
+			case 'GettingScrollBootstrap':
+				return model;
 			case 'LoadedList':
 				return model;
 			default:
@@ -27313,6 +28175,13 @@ var _jerith666$elbum$Main$scrollToTop = A2(
 		}
 	},
 	_elm_lang$dom$Dom_Scroll$toTop(_jerith666$elbum$AlbumStyles$rootDivId));
+var _jerith666$elbum$Main$GotScroll = function (a) {
+	return {ctor: 'GotScroll', _0: a};
+};
+var _jerith666$elbum$Main$GetScroll = F2(
+	function (a, b) {
+		return {ctor: 'GetScroll', _0: a, _1: b};
+	});
 var _jerith666$elbum$Main$ImageFailed = F2(
 	function (a, b) {
 		return {ctor: 'ImageFailed', _0: a, _1: b};
@@ -27429,45 +28298,104 @@ var _jerith666$elbum$Main$ViewAlbum = F2(
 	function (a, b) {
 		return {ctor: 'ViewAlbum', _0: a, _1: b};
 	});
-var _jerith666$elbum$Main$ViewList = function (a) {
-	return {ctor: 'ViewList', _0: a};
-};
+var _jerith666$elbum$Main$ViewList = F2(
+	function (a, b) {
+		return {ctor: 'ViewList', _0: a, _1: b};
+	});
+var _jerith666$elbum$Main$viewList = F4(
+	function (oldModel, winSize, makeParents, list) {
+		return A2(
+			_jerith666$elbum$Main$GetScroll,
+			oldModel,
+			F2(
+				function (maybeScroll, oldModel2) {
+					return {
+						ctor: '_Tuple2',
+						_0: oldModel2,
+						_1: A2(
+							_jerith666$elbum$Main$ViewList,
+							A3(
+								_jerith666$elbum$AlbumListPage$AlbumListPage,
+								list,
+								winSize,
+								A2(
+									_jerith666$elbum$ListUtils$dropThroughPred,
+									function (_p23) {
+										var _p24 = _p23;
+										return _elm_lang$core$Native_Utils.eq(_p24._0, list);
+									},
+									makeParents(maybeScroll))),
+							function () {
+								if (A2(
+									_elm_lang$core$List$member,
+									list,
+									A2(
+										_elm_lang$core$List$map,
+										_elm_lang$core$Tuple$first,
+										makeParents(maybeScroll)))) {
+									var _p25 = _elm_lang$core$List$head(
+										A2(
+											_elm_lang$core$List$filter,
+											function (e) {
+												return _elm_lang$core$Native_Utils.eq(
+													list,
+													_elm_lang$core$Tuple$first(e));
+											},
+											makeParents(maybeScroll)));
+									if (_p25.ctor === 'Just') {
+										return _elm_lang$core$Tuple$second(_p25._0);
+									} else {
+										return _elm_lang$core$Maybe$Nothing;
+									}
+								} else {
+									return _elm_lang$core$Maybe$Nothing;
+								}
+							}())
+					};
+				}));
+	});
 var _jerith666$elbum$Main$PageMsg = function (a) {
 	return {ctor: 'PageMsg', _0: a};
 };
 var _jerith666$elbum$Main$navForAlbum = F4(
 	function (size, album, ps, newParents) {
-		var _p23 = ps;
-		if (_p23.ctor === '[]') {
+		var parentsNoScroll = A2(
+			_elm_lang$core$List$map,
+			function (p) {
+				return {ctor: '_Tuple2', _0: p, _1: _elm_lang$core$Maybe$Nothing};
+			},
+			newParents);
+		var _p26 = ps;
+		if (_p26.ctor === '[]') {
 			return _jerith666$elbum$Main$cmdOf(
 				A2(
 					_jerith666$elbum$Main$ViewAlbum,
 					A4(_jerith666$elbum$AlbumPage$Thumbs, album, size, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
-					newParents));
+					parentsNoScroll));
 		} else {
-			var _p24 = A3(
+			var _p27 = A3(
 				_jerith666$elbum$Main$findImg,
 				{ctor: '[]'},
 				album,
-				_p23._0);
-			if (_p24.ctor === 'Nothing') {
+				_p26._0);
+			if (_p27.ctor === 'Nothing') {
 				return _elm_lang$core$Platform_Cmd$none;
 			} else {
-				var _p27 = _p24._0._1;
-				var _p25 = A3(_jerith666$elbum$FullImagePage$fitImage, _p27.imageFirst.srcSetFirst, size.width, size.height);
-				var w = _p25._0;
-				var h = _p25._1;
-				var _p26 = A4(_jerith666$elbum$AlbumPage$progInit, size, _p27.imageFirst, w, h);
-				var progModel = _p26._0;
-				var progCmd = _p26._1;
+				var _p30 = _p27._0._1;
+				var _p28 = A3(_jerith666$elbum$FullImagePage$fitImage, _p30.imageFirst.srcSetFirst, size.width, size.height);
+				var w = _p28._0;
+				var h = _p28._1;
+				var _p29 = A4(_jerith666$elbum$AlbumPage$progInit, size, _p30.imageFirst, w, h);
+				var progModel = _p29._0;
+				var progCmd = _p29._1;
 				return _elm_lang$core$Platform_Cmd$batch(
 					{
 						ctor: '::',
 						_0: _jerith666$elbum$Main$cmdOf(
 							A2(
 								_jerith666$elbum$Main$ViewAlbum,
-								A6(_jerith666$elbum$AlbumPage$FullImage, _p24._0._0, _p27, progModel, size, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing),
-								newParents)),
+								A6(_jerith666$elbum$AlbumPage$FullImage, _p27._0._0, _p30, progModel, size, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing),
+								parentsNoScroll)),
 						_1: {
 							ctor: '::',
 							_0: A2(
@@ -27484,38 +28412,49 @@ var _jerith666$elbum$Main$navFrom = F5(
 	function (size, root, parents, paths, defcmd) {
 		navFrom:
 		while (true) {
-			var _p28 = paths;
-			if (_p28.ctor === '[]') {
+			var _p31 = paths;
+			if (_p31.ctor === '[]') {
 				return defcmd;
 			} else {
-				if ((_p28._0 === '#') && (_p28._1.ctor === '[]')) {
+				if ((_p31._0 === '#') && (_p31._1.ctor === '[]')) {
 					return defcmd;
 				} else {
-					var _p32 = _p28._1;
+					var _p35 = _p31._1;
 					var newParents = {ctor: '::', _0: root, _1: parents};
-					var mChild = A2(_jerith666$elbum$Main$findChild, root, _p28._0);
-					var _p29 = mChild;
-					if (_p29.ctor === 'Nothing') {
+					var mChild = A2(_jerith666$elbum$Main$findChild, root, _p31._0);
+					var _p32 = mChild;
+					if (_p32.ctor === 'Nothing') {
 						return defcmd;
 					} else {
-						var _p30 = _p29._0;
-						if (_p30.ctor === 'List') {
-							var _p31 = _p30._0;
-							var _v26 = size,
-								_v27 = _p31,
-								_v28 = newParents,
-								_v29 = _p32,
-								_v30 = _jerith666$elbum$Main$cmdOf(
-								_jerith666$elbum$Main$ViewList(
-									A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p31, size, newParents)));
-							size = _v26;
-							root = _v27;
-							parents = _v28;
-							paths = _v29;
-							defcmd = _v30;
+						var _p33 = _p32._0;
+						if (_p33.ctor === 'List') {
+							var _p34 = _p33._0;
+							var _v30 = size,
+								_v31 = _p34,
+								_v32 = newParents,
+								_v33 = _p35,
+								_v34 = _jerith666$elbum$Main$cmdOf(
+								A2(
+									_jerith666$elbum$Main$ViewList,
+									A3(
+										_jerith666$elbum$AlbumListPage$AlbumListPage,
+										_p34,
+										size,
+										A2(
+											_elm_lang$core$List$map,
+											function (p) {
+												return {ctor: '_Tuple2', _0: p, _1: _elm_lang$core$Maybe$Nothing};
+											},
+											newParents)),
+									_elm_lang$core$Maybe$Nothing));
+							size = _v30;
+							root = _v31;
+							parents = _v32;
+							paths = _v33;
+							defcmd = _v34;
 							continue navFrom;
 						} else {
-							return A4(_jerith666$elbum$Main$navForAlbum, size, _p30._0, _p32, newParents);
+							return A4(_jerith666$elbum$Main$navForAlbum, size, _p33._0, _p35, newParents);
 						}
 					}
 				}
@@ -27529,35 +28468,37 @@ var _jerith666$elbum$Main$pathsToCmdImpl = F3(
 			'mRoot',
 			_elm_lang$core$List$head(
 				_elm_lang$core$List$reverse(parents)));
-		var _p33 = mRoot;
-		if (_p33.ctor === 'Nothing') {
+		var _p36 = mRoot;
+		if (_p36.ctor === 'Nothing') {
 			return _elm_lang$core$Platform_Cmd$none;
 		} else {
-			var _p34 = _p33._0;
+			var _p37 = _p36._0;
 			return A5(
 				_jerith666$elbum$Main$navFrom,
 				size,
-				_p34,
+				_p37,
 				{ctor: '[]'},
 				paths,
 				_jerith666$elbum$Main$cmdOf(
-					_jerith666$elbum$Main$ViewList(
+					A2(
+						_jerith666$elbum$Main$ViewList,
 						A3(
 							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							_p34,
+							_p37,
 							size,
-							{ctor: '[]'}))));
+							{ctor: '[]'}),
+						_elm_lang$core$Maybe$Nothing)));
 		}
 	});
 var _jerith666$elbum$Main$pathsToCmd = F2(
 	function (model, mPaths) {
-		var _p35 = mPaths;
-		if (_p35.ctor === 'Nothing') {
+		var _p38 = mPaths;
+		if (_p38.ctor === 'Nothing') {
 			return _elm_lang$core$Platform_Cmd$none;
 		} else {
-			var _p37 = _p35._0;
-			var _p36 = model;
-			switch (_p36.ctor) {
+			var _p40 = _p38._0;
+			var _p39 = model;
+			switch (_p39.ctor) {
 				case 'Sizing':
 					return _elm_lang$core$Platform_Cmd$none;
 				case 'LoadingHomeLink':
@@ -27566,88 +28507,114 @@ var _jerith666$elbum$Main$pathsToCmd = F2(
 					return _elm_lang$core$Platform_Cmd$none;
 				case 'LoadError':
 					return A2(_elm_lang$core$Debug$log, 'pathsToCmd LoadError, ignore', _elm_lang$core$Platform_Cmd$none);
+				case 'GettingScrollBootstrap':
+					return A2(_elm_lang$core$Debug$log, 'pathsToCmd GettingScrollBootstrap, ignore', _elm_lang$core$Platform_Cmd$none);
 				case 'LoadedList':
 					return A3(
 						_jerith666$elbum$Main$pathsToCmdImpl,
-						_p36._0._1,
-						{ctor: '::', _0: _p36._0._0, _1: _p36._0._2},
-						_p37);
+						_p39._0._1,
+						{
+							ctor: '::',
+							_0: _p39._0._0,
+							_1: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p39._0._2)
+						},
+						_p40);
 				default:
 					return A3(
 						_jerith666$elbum$Main$pathsToCmdImpl,
-						_jerith666$elbum$Main$pageSize(_p36._0),
-						_p36._1,
-						_p37);
+						_jerith666$elbum$Main$pageSize(_p39._0),
+						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p39._1),
+						_p40);
 			}
 		}
 	});
 var _jerith666$elbum$Main$view = function (albumBootstrap) {
-	var _p38 = albumBootstrap;
-	switch (_p38.ctor) {
-		case 'Sizing':
-			return _rtfeldman$elm_css$Html_Styled$text('Album Starting');
-		case 'LoadingHomeLink':
-			return _rtfeldman$elm_css$Html_Styled$text('Home Loading ...');
-		case 'Loading':
-			return _rtfeldman$elm_css$Html_Styled$text('Album Loading ...');
-		case 'LoadError':
-			return _rtfeldman$elm_css$Html_Styled$text(
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					'Error Loading Album: ',
-					_elm_lang$core$Basics$toString(_p38._1)));
-		case 'LoadedAlbum':
-			var _p41 = _p38._1;
-			var _p40 = _p38._2;
-			var _p39 = _p38._0;
-			return A3(
-				_jerith666$elbum$Main$withHomeLink,
-				_p38._3,
-				_p40,
-				A5(
-					_jerith666$elbum$AlbumPage$view,
-					_p39,
-					function (list) {
-						return _jerith666$elbum$Main$ViewList(
-							A3(
-								_jerith666$elbum$AlbumListPage$AlbumListPage,
-								list,
-								_jerith666$elbum$Main$pageSize(_p39),
-								A2(_jerith666$elbum$ListUtils$dropThrough, _p41, list)));
-					},
-					_jerith666$elbum$Main$PageMsg,
-					_p41,
-					_p40));
-		default:
-			var _p45 = _p38._0._1;
-			var _p44 = _p38._0._2;
-			var _p43 = _p38._1;
-			var _p42 = _p38._0._0;
-			return A3(
-				_jerith666$elbum$Main$withHomeLink,
-				_p38._2,
-				_p43,
-				A4(
-					_jerith666$elbum$AlbumListPage$view,
-					A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p42, _p45, _p44),
-					function (albumListChild) {
-						return _jerith666$elbum$Main$ViewList(
-							A3(
-								_jerith666$elbum$AlbumListPage$AlbumListPage,
-								albumListChild,
-								_p45,
-								A2(
-									_jerith666$elbum$ListUtils$dropThrough,
-									{ctor: '::', _0: _p42, _1: _p44},
-									albumListChild)));
-					},
-					function (album) {
-						return A2(
-							_jerith666$elbum$Main$ViewAlbum,
-							A4(_jerith666$elbum$AlbumPage$Thumbs, album, _p45, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
-							{ctor: '::', _0: _p42, _1: _p44});
-					},
-					_p43));
+	view:
+	while (true) {
+		var _p41 = albumBootstrap;
+		switch (_p41.ctor) {
+			case 'Sizing':
+				return _rtfeldman$elm_css$Html_Styled$text('Album Starting');
+			case 'LoadingHomeLink':
+				return _rtfeldman$elm_css$Html_Styled$text('Home Loading ...');
+			case 'Loading':
+				return _rtfeldman$elm_css$Html_Styled$text('Album Loading ...');
+			case 'LoadError':
+				return _rtfeldman$elm_css$Html_Styled$text(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'Error Loading Album: ',
+						_elm_lang$core$Basics$toString(_p41._1)));
+			case 'GettingScrollBootstrap':
+				var _v39 = _p41._0;
+				albumBootstrap = _v39;
+				continue view;
+			case 'LoadedAlbum':
+				var _p45 = _p41._1;
+				var _p44 = _p41._2;
+				var _p43 = _p41._0;
+				return A3(
+					_jerith666$elbum$Main$withHomeLink,
+					_p41._3,
+					_p44,
+					A5(
+						_jerith666$elbum$AlbumPage$view,
+						_p43,
+						A3(
+							_jerith666$elbum$Main$viewList,
+							albumBootstrap,
+							_jerith666$elbum$Main$pageSize(_p43),
+							function (_p42) {
+								return _p45;
+							}),
+						_jerith666$elbum$Main$PageMsg,
+						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p45),
+						_p44));
+			default:
+				var _p49 = _p41._0._1;
+				var _p48 = _p41._0._2;
+				var _p47 = _p41._1;
+				var _p46 = _p41._0._0;
+				return A3(
+					_jerith666$elbum$Main$withHomeLink,
+					_p41._2,
+					_p47,
+					A4(
+						_jerith666$elbum$AlbumListPage$view,
+						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p46, _p49, _p48),
+						A3(
+							_jerith666$elbum$Main$viewList,
+							albumBootstrap,
+							_p49,
+							function (maybeScroll) {
+								return {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: _p46, _1: maybeScroll},
+									_1: _p48
+								};
+							}),
+						function (album) {
+							return A2(
+								_jerith666$elbum$Main$GetScroll,
+								albumBootstrap,
+								F2(
+									function (maybeScroll, oldModel) {
+										return {
+											ctor: '_Tuple2',
+											_0: oldModel,
+											_1: A2(
+												_jerith666$elbum$Main$ViewAlbum,
+												A4(_jerith666$elbum$AlbumPage$Thumbs, album, _p49, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
+												{
+													ctor: '::',
+													_0: {ctor: '_Tuple2', _0: _p46, _1: maybeScroll},
+													_1: _p48
+												})
+										};
+									}));
+						},
+						_p47));
+		}
 	}
 };
 var _jerith666$elbum$Main$NoAlbum = function (a) {
@@ -27657,11 +28624,11 @@ var _jerith666$elbum$Main$YesAlbum = function (a) {
 	return {ctor: 'YesAlbum', _0: a};
 };
 var _jerith666$elbum$Main$decodeAlbumRequest = function (r) {
-	var _p46 = r;
-	if (_p46.ctor === 'Ok') {
-		return _jerith666$elbum$Main$YesAlbum(_p46._0);
+	var _p50 = r;
+	if (_p50.ctor === 'Ok') {
+		return _jerith666$elbum$Main$YesAlbum(_p50._0);
 	} else {
-		return _jerith666$elbum$Main$NoAlbum(_p46._0);
+		return _jerith666$elbum$Main$NoAlbum(_p50._0);
 	}
 };
 var _jerith666$elbum$Main$gotHome = F4(
@@ -27686,20 +28653,20 @@ var _jerith666$elbum$Main$update = F2(
 	function (msg, model) {
 		update:
 		while (true) {
-			var _p47 = msg;
-			switch (_p47.ctor) {
+			var _p51 = msg;
+			switch (_p51.ctor) {
 				case 'Resize':
-					var _p54 = _p47._0;
-					var _p48 = model;
-					switch (_p48.ctor) {
+					var _p59 = _p51._0;
+					var _p52 = model;
+					switch (_p52.ctor) {
 						case 'Sizing':
 							return {
 								ctor: '_Tuple2',
 								_0: A3(
 									_jerith666$elbum$Main$LoadingHomeLink,
-									A2(_elm_lang$core$Debug$log, 'window size set', _p54),
-									_p48._0,
-									_p48._1),
+									A2(_elm_lang$core$Debug$log, 'window size set', _p59),
+									_p52._0,
+									_p52._1),
 								_1: A2(
 									_elm_lang$http$Http$send,
 									A2(_jerith666$elbum$ResultUtils$either, _jerith666$elbum$Main$NoHome, _jerith666$elbum$Main$YesHome),
@@ -27708,7 +28675,7 @@ var _jerith666$elbum$Main$update = F2(
 						case 'LoadingHomeLink':
 							return {
 								ctor: '_Tuple2',
-								_0: A3(_jerith666$elbum$Main$LoadingHomeLink, _p54, _p48._1, _p48._2),
+								_0: A3(_jerith666$elbum$Main$LoadingHomeLink, _p59, _p52._1, _p52._2),
 								_1: _elm_lang$core$Platform_Cmd$none
 							};
 						case 'Loading':
@@ -27716,48 +28683,56 @@ var _jerith666$elbum$Main$update = F2(
 								ctor: '_Tuple2',
 								_0: A4(
 									_jerith666$elbum$Main$Loading,
-									A2(_elm_lang$core$Debug$log, 'window size updated during load', _p54),
-									_p48._1,
-									_p48._2,
-									_p48._3),
+									A2(_elm_lang$core$Debug$log, 'window size updated during load', _p59),
+									_p52._1,
+									_p52._2,
+									_p52._3),
 								_1: _elm_lang$core$Platform_Cmd$none
 							};
 						case 'LoadError':
 							return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+						case 'GettingScrollBootstrap':
+							var _p53 = A2(_jerith666$elbum$Main$update, msg, _p52._0);
+							var newPrevModel = _p53._0;
+							return {
+								ctor: '_Tuple2',
+								_0: A2(_jerith666$elbum$Main$GettingScrollBootstrap, newPrevModel, _p52._1),
+								_1: _elm_lang$core$Platform_Cmd$none
+							};
 						case 'LoadedAlbum':
-							var _p53 = _p48._4;
-							var _p52 = _p48._1;
-							var _p51 = _p48._3;
-							var _p50 = _p48._2;
-							var _p49 = _p48._0;
-							switch (_p49.ctor) {
+							var _p58 = _p52._4;
+							var _p57 = _p52._1;
+							var _p56 = _p52._3;
+							var _p55 = _p52._2;
+							var _p54 = _p52._0;
+							switch (_p54.ctor) {
 								case 'GettingScroll':
-									var _v39 = msg,
-										_v40 = A5(_jerith666$elbum$Main$LoadedAlbum, _p49._5, _p52, _p50, _p51, _p53);
-									msg = _v39;
-									model = _v40;
+									var _v44 = msg,
+										_v45 = A5(_jerith666$elbum$Main$LoadedAlbum, _p54._5, _p57, _p55, _p56, _p58);
+									msg = _v44;
+									model = _v45;
 									continue update;
 								case 'Thumbs':
 									var model = A4(
 										_jerith666$elbum$AlbumPage$Thumbs,
-										_p49._0,
-										A2(_elm_lang$core$Debug$log, 'window size updated for thumbs', _p54),
-										_p49._2,
-										_p49._3);
+										_p54._0,
+										A2(_elm_lang$core$Debug$log, 'window size updated for thumbs', _p59),
+										_p54._2,
+										_p54._3);
 									var urls = _jerith666$elbum$AlbumPage$urlsToGet(model);
 									return {
 										ctor: '_Tuple2',
 										_0: A5(
 											_jerith666$elbum$Main$LoadedAlbum,
 											model,
-											_p52,
-											_p50,
-											_p51,
+											_p57,
+											_p55,
+											_p56,
 											A2(
 												_elm_lang$core$Dict$union,
-												_p53,
+												_p58,
 												A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested))),
-										_1: A2(_jerith666$elbum$Main$getUrls, _p53, urls)
+										_1: A2(_jerith666$elbum$Main$getUrls, _p58, urls)
 									};
 								default:
 									return {
@@ -27766,16 +28741,16 @@ var _jerith666$elbum$Main$update = F2(
 											_jerith666$elbum$Main$LoadedAlbum,
 											A6(
 												_jerith666$elbum$AlbumPage$FullImage,
-												_p49._0,
-												_p49._1,
-												_p49._2,
-												A2(_elm_lang$core$Debug$log, 'window size updated for full', _p54),
-												_p49._4,
-												_p49._5),
-											_p52,
-											_p50,
-											_p51,
-											_p53),
+												_p54._0,
+												_p54._1,
+												_p54._2,
+												A2(_elm_lang$core$Debug$log, 'window size updated for full', _p59),
+												_p54._4,
+												_p54._5),
+											_p57,
+											_p55,
+											_p56,
+											_p58),
 										_1: _elm_lang$core$Platform_Cmd$none
 									};
 							}
@@ -27784,65 +28759,76 @@ var _jerith666$elbum$Main$update = F2(
 								ctor: '_Tuple2',
 								_0: A4(
 									_jerith666$elbum$Main$LoadedList,
-									A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p48._0._0, _p54, _p48._0._2),
-									_p48._1,
-									_p48._2,
-									_p48._3),
+									A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p52._0._0, _p59, _p52._0._2),
+									_p52._1,
+									_p52._2,
+									_p52._3),
 								_1: _elm_lang$core$Platform_Cmd$none
 							};
 					}
 				case 'YesHome':
-					var _p55 = model;
-					if (_p55.ctor === 'LoadingHomeLink') {
+					var _p60 = model;
+					if (_p60.ctor === 'LoadingHomeLink') {
 						return A4(
 							_jerith666$elbum$Main$gotHome,
-							_p55._0,
-							_p55._1,
-							_p55._2,
-							_elm_lang$core$Maybe$Just(_p47._0));
+							_p60._0,
+							_p60._1,
+							_p60._2,
+							_elm_lang$core$Maybe$Just(_p51._0));
 					} else {
 						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					}
 				case 'NoHome':
-					var _p56 = model;
-					if (_p56.ctor === 'LoadingHomeLink') {
-						return A4(_jerith666$elbum$Main$gotHome, _p56._0, _p56._1, _p56._2, _elm_lang$core$Maybe$Nothing);
+					var _p61 = model;
+					if (_p61.ctor === 'LoadingHomeLink') {
+						return A4(_jerith666$elbum$Main$gotHome, _p61._0, _p61._1, _p61._2, _elm_lang$core$Maybe$Nothing);
 					} else {
 						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					}
 				case 'YesAlbum':
-					var _p57 = model;
-					if (_p57.ctor === 'Loading') {
-						var _p62 = _p57._0;
-						var _p61 = _p57._3;
-						var _p60 = _p57._2;
-						var _p59 = _p57._1;
-						var _p58 = _p47._0;
-						if (_p58.ctor === 'List') {
+					var _p62 = model;
+					if (_p62.ctor === 'Loading') {
+						var _p69 = _p62._0;
+						var _p68 = _p62._3;
+						var _p67 = _p62._2;
+						var _p66 = _p62._1;
+						var _p63 = _p51._0;
+						if (_p63.ctor === 'List') {
+							var _p64 = _p63._0;
 							var newModel = A4(
 								_jerith666$elbum$Main$LoadedList,
 								A3(
 									_jerith666$elbum$AlbumListPage$AlbumListPage,
-									_p58._0,
-									_p62,
+									_p64,
+									_p69,
 									{ctor: '[]'}),
-								_p59,
-								_p60,
+								_p66,
+								_p67,
 								_elm_lang$core$Dict$empty);
 							return {
 								ctor: '_Tuple2',
 								_0: newModel,
-								_1: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p61)
+								_1: _elm_lang$core$Platform_Cmd$batch(
+									{
+										ctor: '::',
+										_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p68),
+										_1: {
+											ctor: '::',
+											_0: _jerith666$elbum$Title$setTitle(_p64.listTitle),
+											_1: {ctor: '[]'}
+										}
+									})
 							};
 						} else {
-							var albumPage = A4(_jerith666$elbum$AlbumPage$Thumbs, _p58._0, _p62, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty);
+							var _p65 = _p63._0;
+							var albumPage = A4(_jerith666$elbum$AlbumPage$Thumbs, _p65, _p69, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty);
 							var urls = _jerith666$elbum$AlbumPage$urlsToGet(albumPage);
 							var newModel = A5(
 								_jerith666$elbum$Main$LoadedAlbum,
 								albumPage,
 								{ctor: '[]'},
-								_p59,
-								_p60,
+								_p66,
+								_p67,
 								A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested));
 							return {
 								ctor: '_Tuple2',
@@ -27850,11 +28836,15 @@ var _jerith666$elbum$Main$update = F2(
 								_1: _elm_lang$core$Platform_Cmd$batch(
 									{
 										ctor: '::',
-										_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p61),
+										_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p68),
 										_1: {
 											ctor: '::',
 											_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
-											_1: {ctor: '[]'}
+											_1: {
+												ctor: '::',
+												_0: _jerith666$elbum$Title$setTitle(_p65.title),
+												_1: {ctor: '[]'}
+											}
 										}
 									})
 							};
@@ -27868,26 +28858,26 @@ var _jerith666$elbum$Main$update = F2(
 						_0: A2(
 							_jerith666$elbum$Main$LoadError,
 							_jerith666$elbum$Main$flagsOf(model),
-							_p47._0),
+							_p51._0),
 						_1: _elm_lang$core$Platform_Cmd$none
 					};
 				case 'PageMsg':
-					var _p65 = _p47._0;
-					var _p63 = model;
-					if (_p63.ctor === 'LoadedAlbum') {
-						var newPendingUrls = _jerith666$elbum$AlbumPage$resetUrls(_p65) ? _elm_lang$core$Dict$empty : _p63._4;
-						var _p64 = A2(_jerith666$elbum$AlbumPage$update, _p65, _p63._0);
-						var newPage = _p64._0;
-						var newPageCmd = _p64._1;
+					var _p72 = _p51._0;
+					var _p70 = model;
+					if (_p70.ctor === 'LoadedAlbum') {
+						var newPendingUrls = _jerith666$elbum$AlbumPage$resetUrls(_p72) ? _elm_lang$core$Dict$empty : _p70._4;
+						var _p71 = A2(_jerith666$elbum$AlbumPage$update, _p72, _p70._0);
+						var newPage = _p71._0;
+						var newPageCmd = _p71._1;
 						var urls = _jerith666$elbum$AlbumPage$urlsToGet(newPage);
 						return {
 							ctor: '_Tuple2',
 							_0: A5(
 								_jerith666$elbum$Main$LoadedAlbum,
 								newPage,
-								_p63._1,
-								_p63._2,
-								_p63._3,
+								_p70._1,
+								_p70._2,
+								_p70._3,
 								A2(
 									_elm_lang$core$Dict$union,
 									newPendingUrls,
@@ -27899,7 +28889,12 @@ var _jerith666$elbum$Main$update = F2(
 									_1: {
 										ctor: '::',
 										_0: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$Main$PageMsg, newPageCmd),
-										_1: {ctor: '[]'}
+										_1: {
+											ctor: '::',
+											_0: _jerith666$elbum$Title$setTitle(
+												_jerith666$elbum$AlbumPage$titleOf(newPage)),
+											_1: {ctor: '[]'}
+										}
 									}
 								})
 						};
@@ -27907,30 +28902,61 @@ var _jerith666$elbum$Main$update = F2(
 						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					}
 				case 'ImageLoaded':
-					return A3(_jerith666$elbum$Main$updateImageResult, model, _p47._0, _jerith666$elbum$Main$JustCompleted);
+					return A3(_jerith666$elbum$Main$updateImageResult, model, _p51._0, _jerith666$elbum$Main$JustCompleted);
 				case 'ImageReadyToDisplay':
-					return A3(_jerith666$elbum$Main$updateImageResult, model, _p47._0, _jerith666$elbum$Main$ReadyToDisplay);
+					return A3(_jerith666$elbum$Main$updateImageResult, model, _p51._0, _jerith666$elbum$Main$ReadyToDisplay);
 				case 'ImageFailed':
 					return A3(
 						_jerith666$elbum$Main$updateImageResult,
 						model,
-						_p47._0,
-						_jerith666$elbum$Main$Failed(_p47._1));
+						_p51._0,
+						_jerith666$elbum$Main$Failed(_p51._1));
 				case 'ViewList':
+					var _p76 = _p51._0;
+					var title = function () {
+						var _p73 = _p76;
+						return _p73._0.listTitle;
+					}();
+					var scrollCmd = function () {
+						var _p74 = _p51._1;
+						if (_p74.ctor === 'Just') {
+							return A2(
+								_elm_lang$core$Task$attempt,
+								function (_p75) {
+									return _jerith666$elbum$Main$NoBootstrap;
+								},
+								A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p74._0));
+						} else {
+							return _jerith666$elbum$Main$scrollToTop;
+						}
+					}();
 					var newModel = A4(
 						_jerith666$elbum$Main$LoadedList,
-						_p47._0,
+						_p76,
 						_jerith666$elbum$Main$flagsOf(model),
 						_jerith666$elbum$Main$homeOf(model),
 						_elm_lang$core$Dict$empty);
-					return {ctor: '_Tuple2', _0: newModel, _1: _jerith666$elbum$Main$scrollToTop};
+					return {
+						ctor: '_Tuple2',
+						_0: newModel,
+						_1: _elm_lang$core$Platform_Cmd$batch(
+							{
+								ctor: '::',
+								_0: scrollCmd,
+								_1: {
+									ctor: '::',
+									_0: _jerith666$elbum$Title$setTitle(title),
+									_1: {ctor: '[]'}
+								}
+							})
+					};
 				case 'ViewAlbum':
-					var _p66 = _p47._0;
-					var urls = _jerith666$elbum$AlbumPage$urlsToGet(_p66);
+					var _p77 = _p51._0;
+					var urls = _jerith666$elbum$AlbumPage$urlsToGet(_p77);
 					var newModel = A5(
 						_jerith666$elbum$Main$LoadedAlbum,
-						_p66,
-						_p47._1,
+						_p77,
+						_p51._1,
 						_jerith666$elbum$Main$flagsOf(model),
 						_jerith666$elbum$Main$homeOf(model),
 						A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested));
@@ -27944,23 +28970,54 @@ var _jerith666$elbum$Main$update = F2(
 								_1: {
 									ctor: '::',
 									_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: _jerith666$elbum$Title$setTitle(
+											_jerith666$elbum$AlbumPage$titleOf(_p77)),
+										_1: {ctor: '[]'}
+									}
 								}
 							})
 					};
+				case 'GetScroll':
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_jerith666$elbum$Main$GettingScrollBootstrap, _p51._0, _p51._1),
+						_1: A2(
+							_elm_lang$core$Task$attempt,
+							function (_p78) {
+								return _jerith666$elbum$Main$GotScroll(
+									_elm_lang$core$Result$toMaybe(_p78));
+							},
+							_elm_lang$dom$Dom_Scroll$y(_jerith666$elbum$AlbumStyles$rootDivId))
+					};
+				case 'GotScroll':
+					var _p79 = model;
+					if (_p79.ctor === 'GettingScrollBootstrap') {
+						var _p80 = A2(_p79._1, _p51._0, _p79._0);
+						var model = _p80._0;
+						var msg = _p80._1;
+						return {
+							ctor: '_Tuple2',
+							_0: model,
+							_1: _jerith666$elbum$Main$cmdOf(msg)
+						};
+					} else {
+						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+					}
 				case 'ScrollSucceeded':
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				case 'ScrollFailed':
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				case 'Nav':
-					var _p67 = _p47._0;
+					var _p81 = _p51._0;
 					return {
 						ctor: '_Tuple2',
-						_0: A2(_jerith666$elbum$Main$withPaths, model, _p67),
+						_0: A2(_jerith666$elbum$Main$withPaths, model, _p81),
 						_1: A2(
 							_jerith666$elbum$Main$pathsToCmd,
 							model,
-							_elm_lang$core$Maybe$Just(_p67))
+							_elm_lang$core$Maybe$Just(_p81))
 					};
 				default:
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
@@ -27978,27 +29035,29 @@ var _jerith666$elbum$Main$init = function (flags) {
 	};
 };
 var _jerith666$elbum$Main$subscriptions = function (model) {
-	var _p68 = model;
-	switch (_p68.ctor) {
+	var _p82 = model;
+	switch (_p82.ctor) {
 		case 'LoadedAlbum':
-			var _p70 = _p68._0;
+			var _p84 = _p82._0;
 			var showParent = function () {
-				var _p69 = _p68._1;
-				if (_p69.ctor === '[]') {
+				var _p83 = _p82._1;
+				if (_p83.ctor === '[]') {
 					return _jerith666$elbum$Main$NoBootstrap;
 				} else {
-					return _jerith666$elbum$Main$ViewList(
+					return A2(
+						_jerith666$elbum$Main$ViewList,
 						A3(
 							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							_p69._0,
-							_jerith666$elbum$Main$pageSize(_p70),
-							_p69._1));
+							_p83._0._0,
+							_jerith666$elbum$Main$pageSize(_p84),
+							_p83._1),
+						_p83._0._1);
 				}
 			}();
 			return _elm_lang$core$Platform_Sub$batch(
 				{
 					ctor: '::',
-					_0: A3(_jerith666$elbum$AlbumPage$subscriptions, _p70, _jerith666$elbum$Main$PageMsg, showParent),
+					_0: A3(_jerith666$elbum$AlbumPage$subscriptions, _p84, _jerith666$elbum$Main$PageMsg, showParent),
 					_1: {
 						ctor: '::',
 						_0: _elm_lang$window$Window$resizes(_jerith666$elbum$Main$Resize),
@@ -28006,14 +29065,16 @@ var _jerith666$elbum$Main$subscriptions = function (model) {
 					}
 				});
 		case 'LoadedList':
-			var _p71 = _p68._0._2;
-			if (_p71.ctor === '[]') {
+			var _p85 = _p82._0._2;
+			if (_p85.ctor === '[]') {
 				return _elm_lang$window$Window$resizes(_jerith666$elbum$Main$Resize);
 			} else {
 				var upParent = A2(
 					_jerith666$elbum$KeyboardUtils$onEscape,
-					_jerith666$elbum$Main$ViewList(
-						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p71._0, _p68._0._1, _p71._1)),
+					A2(
+						_jerith666$elbum$Main$ViewList,
+						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p85._0._0, _p82._0._1, _p85._1),
+						_p85._0._1),
 					_jerith666$elbum$Main$NoBootstrap);
 				return _elm_lang$core$Platform_Sub$batch(
 					{
@@ -28033,13 +29094,13 @@ var _jerith666$elbum$Main$subscriptions = function (model) {
 var _jerith666$elbum$Main$main = _rgrempel$elm_route_url$RouteUrl$programWithFlags(
 	{
 		init: _jerith666$elbum$Main$init,
-		view: function (_p72) {
+		view: function (_p86) {
 			return _rtfeldman$elm_css$Html_Styled$toUnstyled(
-				_jerith666$elbum$Main$view(_p72));
+				_jerith666$elbum$Main$view(_p86));
 		},
 		update: _jerith666$elbum$Main$update,
 		subscriptions: _jerith666$elbum$Main$subscriptions,
-		delta2url: function (_p73) {
+		delta2url: function (_p87) {
 			return _jerith666$elbum$Main$locFor;
 		},
 		location2messages: _jerith666$elbum$Main$navToMsg
