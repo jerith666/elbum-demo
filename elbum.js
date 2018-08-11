@@ -19565,58 +19565,90 @@ var _jerith666$elbum$AlbumStyles$navElement = F3(
 			});
 	});
 var _jerith666$elbum$AlbumStyles$black = A3(_rtfeldman$elm_css$Css$rgb, 0, 0, 0);
-var _jerith666$elbum$AlbumStyles$rootDiv = F2(
-	function (flags, extraStyles) {
+var _jerith666$elbum$AlbumStyles$rootDiv = F3(
+	function (flags, scrollMsgMaker, extraStyles) {
 		return _rtfeldman$elm_css$Html_Styled$div(
-			{
-				ctor: '::',
-				_0: _jerith666$elbum$AlbumStyles$styles(
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						{
-							ctor: '::',
-							_0: _jerith666$elbum$AlbumStyles$rootPos(flags),
-							_1: {
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				{
+					ctor: '::',
+					_0: _jerith666$elbum$AlbumStyles$styles(
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							{
 								ctor: '::',
-								_0: _rtfeldman$elm_css$Css$height(
-									_rtfeldman$elm_css$Css$vh(100)),
+								_0: _jerith666$elbum$AlbumStyles$rootPos(flags),
 								_1: {
 									ctor: '::',
-									_0: _rtfeldman$elm_css$Css$width(
-										_rtfeldman$elm_css$Css$vw(100)),
+									_0: _rtfeldman$elm_css$Css$height(
+										_rtfeldman$elm_css$Css$vh(100)),
 									_1: {
 										ctor: '::',
-										_0: _rtfeldman$elm_css$Css$overflowX(_rtfeldman$elm_css$Css$hidden),
+										_0: _rtfeldman$elm_css$Css$width(
+											_rtfeldman$elm_css$Css$vw(100)),
 										_1: {
 											ctor: '::',
-											_0: _rtfeldman$elm_css$Css$overflowY(_rtfeldman$elm_css$Css$auto),
+											_0: _rtfeldman$elm_css$Css$overflowX(_rtfeldman$elm_css$Css$hidden),
 											_1: {
 												ctor: '::',
-												_0: A2(_rtfeldman$elm_css$Css$property, '-webkit-overflow-scrolling', 'touch'),
+												_0: _rtfeldman$elm_css$Css$overflowY(_rtfeldman$elm_css$Css$auto),
 												_1: {
 													ctor: '::',
-													_0: _rtfeldman$elm_css$Css$backgroundColor(_jerith666$elbum$AlbumStyles$black),
-													_1: {ctor: '[]'}
+													_0: A2(_rtfeldman$elm_css$Css$property, '-webkit-overflow-scrolling', 'touch'),
+													_1: {
+														ctor: '::',
+														_0: _rtfeldman$elm_css$Css$backgroundColor(_jerith666$elbum$AlbumStyles$black),
+														_1: {ctor: '[]'}
+													}
 												}
 											}
 										}
 									}
 								}
-							}
-						},
-						extraStyles)),
-				_1: {
-					ctor: '::',
-					_0: _rtfeldman$elm_css$Html_Styled_Attributes$id(_jerith666$elbum$AlbumStyles$rootDivId),
-					_1: {ctor: '[]'}
-				}
-			});
+							},
+							extraStyles)),
+					_1: {
+						ctor: '::',
+						_0: _rtfeldman$elm_css$Html_Styled_Attributes$id(_jerith666$elbum$AlbumStyles$rootDivId),
+						_1: {ctor: '[]'}
+					}
+				},
+				function () {
+					var _p1 = scrollMsgMaker;
+					if (_p1.ctor === 'Nothing') {
+						return {ctor: '[]'};
+					} else {
+						return {
+							ctor: '::',
+							_0: A2(
+								_rtfeldman$elm_css$Html_Styled_Events$on,
+								'scroll',
+								A2(
+									_elm_lang$core$Json_Decode$map,
+									_p1._0,
+									A2(
+										_elm_lang$core$Json_Decode$at,
+										{
+											ctor: '::',
+											_0: 'target',
+											_1: {
+												ctor: '::',
+												_0: 'scrollTop',
+												_1: {ctor: '[]'}
+											}
+										},
+										_elm_lang$core$Json_Decode$float))),
+							_1: {ctor: '[]'}
+						};
+					}
+				}()));
 	});
-var _jerith666$elbum$AlbumStyles$rootDivFlex = F3(
-	function (flags, dir, extraStyles) {
-		return A2(
+var _jerith666$elbum$AlbumStyles$rootDivFlex = F4(
+	function (flags, dir, scrollMsgMaker, extraStyles) {
+		return A3(
 			_jerith666$elbum$AlbumStyles$rootDiv,
 			flags,
+			scrollMsgMaker,
 			A2(
 				_elm_lang$core$Basics_ops['++'],
 				{
@@ -19641,12 +19673,24 @@ var _jerith666$elbum$AlbumStyles$Partial = function (a) {
 };
 var _jerith666$elbum$AlbumStyles$Requested = {ctor: 'Requested'};
 
+var _jerith666$elbum$ListUtils$fromMaybe = function (m) {
+	var _p0 = m;
+	if (_p0.ctor === 'Nothing') {
+		return {ctor: '[]'};
+	} else {
+		return {
+			ctor: '::',
+			_0: _p0._0,
+			_1: {ctor: '[]'}
+		};
+	}
+};
 var _jerith666$elbum$ListUtils$mapI = F3(
 	function (i, map, l) {
-		var ifmap = function (_p0) {
-			var _p1 = _p0;
-			var _p2 = _p1._1;
-			return _elm_lang$core$Native_Utils.eq(i, _p1._0) ? map(_p2) : _p2;
+		var ifmap = function (_p1) {
+			var _p2 = _p1;
+			var _p3 = _p2._1;
+			return _elm_lang$core$Native_Utils.eq(i, _p2._0) ? map(_p3) : _p3;
 		};
 		return A2(
 			_elm_lang$core$List$map,
@@ -19663,19 +19707,19 @@ var _jerith666$elbum$ListUtils$dropThroughPred = F2(
 	function (pred, elems) {
 		dropThroughPred:
 		while (true) {
-			var _p3 = elems;
-			if (_p3.ctor === '[]') {
+			var _p4 = elems;
+			if (_p4.ctor === '[]') {
 				return {ctor: '[]'};
 			} else {
-				var _p4 = _p3._1;
-				if (pred(_p3._0)) {
-					return _p4;
+				var _p5 = _p4._1;
+				if (pred(_p4._0)) {
+					return _p5;
 				} else {
 					if (A2(_elm_lang$core$List$any, pred, elems)) {
-						var _v2 = pred,
-							_v3 = _p4;
-						pred = _v2;
-						elems = _v3;
+						var _v3 = pred,
+							_v4 = _p5;
+						pred = _v3;
+						elems = _v4;
 						continue dropThroughPred;
 					} else {
 						return elems;
@@ -19695,25 +19739,25 @@ var _jerith666$elbum$ListUtils$dropThrough = F2(
 	});
 var _jerith666$elbum$ListUtils$shiftLeft = F3(
 	function (xLefts, x, xRights) {
-		var _p5 = xLefts;
-		if (_p5.ctor === '[]') {
+		var _p6 = xLefts;
+		if (_p6.ctor === '[]') {
 			return {ctor: '_Tuple3', _0: xLefts, _1: x, _2: xRights};
 		} else {
-			if (_p5._1.ctor === '[]') {
+			if (_p6._1.ctor === '[]') {
 				return {
 					ctor: '_Tuple3',
 					_0: {ctor: '[]'},
-					_1: _p5._0,
+					_1: _p6._0,
 					_2: {ctor: '::', _0: x, _1: xRights}
 				};
 			} else {
-				var _p6 = A3(_jerith666$elbum$ListUtils$shiftLeft, _p5._1, x, xRights);
-				var xLRss = _p6._0;
-				var xss = _p6._1;
-				var xRss = _p6._2;
+				var _p7 = A3(_jerith666$elbum$ListUtils$shiftLeft, _p6._1, x, xRights);
+				var xLRss = _p7._0;
+				var xss = _p7._1;
+				var xRss = _p7._2;
 				return {
 					ctor: '_Tuple3',
-					_0: {ctor: '::', _0: _p5._0, _1: xLRss},
+					_0: {ctor: '::', _0: _p6._0, _1: xLRss},
 					_1: xss,
 					_2: xRss
 				};
@@ -19722,8 +19766,8 @@ var _jerith666$elbum$ListUtils$shiftLeft = F3(
 	});
 var _jerith666$elbum$ListUtils$shiftRight = F3(
 	function (xLefts, x, xRights) {
-		var _p7 = xRights;
-		if (_p7.ctor === '[]') {
+		var _p8 = xRights;
+		if (_p8.ctor === '[]') {
 			return {ctor: '_Tuple3', _0: xLefts, _1: x, _2: xRights};
 		} else {
 			return {
@@ -19736,23 +19780,23 @@ var _jerith666$elbum$ListUtils$shiftRight = F3(
 						_0: x,
 						_1: {ctor: '[]'}
 					}),
-				_1: _p7._0,
-				_2: _p7._1
+				_1: _p8._0,
+				_2: _p8._1
 			};
 		}
 	});
 var _jerith666$elbum$ListUtils$shiftToBeginning = F3(
 	function (prevImgs, img, restImgs) {
-		var _p8 = prevImgs;
-		if (_p8.ctor === '[]') {
+		var _p9 = prevImgs;
+		if (_p9.ctor === '[]') {
 			return {ctor: '_Tuple2', _0: img, _1: restImgs};
 		} else {
 			return {
 				ctor: '_Tuple2',
-				_0: _p8._0,
+				_0: _p9._0,
 				_1: A2(
 					_elm_lang$core$Basics_ops['++'],
-					_p8._1,
+					_p9._1,
 					{ctor: '::', _0: img, _1: restImgs})
 			};
 		}
@@ -19767,14 +19811,14 @@ var _jerith666$elbum$ListUtils$dictWithValues = F2(
 				},
 				_elm_lang$core$Set$toList(keys)));
 	});
-var _jerith666$elbum$ListUtils$encodePath = function (_p9) {
+var _jerith666$elbum$ListUtils$encodePath = function (_p10) {
 	return A2(
 		_elm_lang$core$String$join,
 		'/',
 		A2(
 			_elm_lang$core$List$map,
 			_elm_lang$http$Http$encodeUri,
-			A2(_elm_lang$core$String$split, '/', _p9)));
+			A2(_elm_lang$core$String$split, '/', _p10)));
 };
 
 var _jerith666$elbum$ImageViews$encodeSrc = function (is) {
@@ -20000,27 +20044,24 @@ var _jerith666$elbum$ThumbPage$findShortest = function (imageLists) {
 		_jerith666$elbum$ThumbPage$shorter,
 		_jerith666$elbum$ThumbPage$shorterBaseCase,
 		A2(
-			_elm_lang$core$Debug$log,
-			'heights',
+			_elm_lang$core$List$indexedMap,
+			F2(
+				function (v0, v1) {
+					return {ctor: '_Tuple2', _0: v0, _1: v1};
+				}),
 			A2(
-				_elm_lang$core$List$indexedMap,
-				F2(
-					function (v0, v1) {
-						return {ctor: '_Tuple2', _0: v0, _1: v1};
-					}),
-				A2(
-					_elm_lang$core$List$map,
-					function (_p8) {
-						return _elm_lang$core$List$sum(
-							A2(
-								_elm_lang$core$List$map,
-								function (_p9) {
-									return _jerith666$elbum$ThumbPage$imgHeight(
-										_elm_lang$core$Tuple$first(_p9));
-								},
-								_p8));
-					},
-					imageLists))));
+				_elm_lang$core$List$map,
+				function (_p8) {
+					return _elm_lang$core$List$sum(
+						A2(
+							_elm_lang$core$List$map,
+							function (_p9) {
+								return _jerith666$elbum$ThumbPage$imgHeight(
+									_elm_lang$core$Tuple$first(_p9));
+							},
+							_p8));
+				},
+				imageLists)));
 };
 var _jerith666$elbum$ThumbPage$insertImage = F4(
 	function (maxCols, i, nextImg, alreadySpreadImages) {
@@ -20034,40 +20075,14 @@ var _jerith666$elbum$ThumbPage$insertImage = F4(
 					ctor: '::',
 					_0: {
 						ctor: '::',
-						_0: {
-							ctor: '_Tuple2',
-							_0: A2(
-								_elm_lang$core$Debug$log,
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									'start column ',
-									A2(
-										_elm_lang$core$Basics_ops['++'],
-										_elm_lang$core$Basics$toString(
-											_elm_lang$core$List$length(alreadySpreadImages)),
-										A2(
-											_elm_lang$core$Basics_ops['++'],
-											' with image ',
-											_elm_lang$core$Basics$toString(i)))),
-								nextImg),
-							_1: i
-						},
+						_0: {ctor: '_Tuple2', _0: nextImg, _1: i},
 						_1: {ctor: '[]'}
 					},
 					_1: {ctor: '[]'}
 				});
 		} else {
 			var is = _jerith666$elbum$ThumbPage$findShortest(alreadySpreadImages);
-			var iShortest = A2(
-				_elm_lang$core$Debug$log,
-				A2(
-					_elm_lang$core$Basics_ops['++'],
-					'image ',
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						_elm_lang$core$Basics$toString(i),
-						' goes in (col,height) ')),
-				is);
+			var iShortest = is;
 			return A3(
 				_jerith666$elbum$ListUtils$mapI,
 				_elm_lang$core$Tuple$first(iShortest),
@@ -20110,41 +20125,17 @@ var _jerith666$elbum$ThumbPage$spreadThumbs = F3(
 	});
 var _jerith666$elbum$ThumbPage$convertImgChosenMsgr = F4(
 	function (image1, images, prevCurRestImgChosenMsgr, i) {
-		var next = A2(
-			_elm_lang$core$Debug$log,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'next i=',
-				_elm_lang$core$Basics$toString(i)),
-			A2(_elm_lang$core$List$drop, i + 1, images));
+		var next = A2(_elm_lang$core$List$drop, i + 1, images);
 		var cur = function () {
 			var _p11 = _elm_lang$core$List$head(
 				A2(_elm_lang$core$List$drop, i, images));
 			if (_p11.ctor === 'Just') {
-				return A2(
-					_elm_lang$core$Debug$log,
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						'cur i=',
-						_elm_lang$core$Basics$toString(i)),
-					_p11._0);
+				return _p11._0;
 			} else {
-				return A2(
-					_elm_lang$core$Debug$log,
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						'cur NOTHING!!! i=',
-						_elm_lang$core$Basics$toString(i)),
-					image1);
+				return image1;
 			}
 		}();
-		var prev = A2(
-			_elm_lang$core$Debug$log,
-			A2(
-				_elm_lang$core$Basics_ops['++'],
-				'prev i=',
-				_elm_lang$core$Basics$toString(i)),
-			A2(_elm_lang$core$List$take, i, images));
+		var prev = A2(_elm_lang$core$List$take, i, images);
 		return A3(prevCurRestImgChosenMsgr, prev, cur, next);
 	});
 var _jerith666$elbum$ThumbPage$albumParent = F3(
@@ -20401,11 +20392,8 @@ var _jerith666$elbum$ThumbPage$viewThumbColumn = F5(
 var _jerith666$elbum$ThumbPage$scrollPad = 20;
 var _jerith666$elbum$ThumbPage$maxThumbWidth = 300;
 var _jerith666$elbum$ThumbPage$colsWidth = function (winSize) {
-	var maxCols = A2(
-		_elm_lang$core$Debug$log,
-		'maxCols',
-		A2(_elm_lang$core$Basics$max, (winSize.width / _jerith666$elbum$ThumbPage$maxThumbWidth) | 0, 2));
-	var thumbWidth = A2(_elm_lang$core$Debug$log, 'thumbWidth', ((winSize.width - _jerith666$elbum$ThumbPage$scrollPad) / maxCols) | 0);
+	var maxCols = A2(_elm_lang$core$Basics$max, (winSize.width / _jerith666$elbum$ThumbPage$maxThumbWidth) | 0, 2);
+	var thumbWidth = ((winSize.width - _jerith666$elbum$ThumbPage$scrollPad) / maxCols) | 0;
 	return {ctor: '_Tuple2', _0: maxCols, _1: thumbWidth};
 };
 var _jerith666$elbum$ThumbPage$urlsToGet = function (thumbPageModel) {
@@ -20415,27 +20403,24 @@ var _jerith666$elbum$ThumbPage$urlsToGet = function (thumbPageModel) {
 		_elm_lang$core$List$map,
 		_jerith666$elbum$ThumbPage$srcForWidth(thumbWidth),
 		{ctor: '::', _0: thumbPageModel.album.imageFirst, _1: thumbPageModel.album.imageRest});
-	return A2(
-		_elm_lang$core$Debug$log,
-		'urlsToGet',
-		_elm_lang$core$Set$fromList(
+	return _elm_lang$core$Set$fromList(
+		A2(
+			_elm_lang$core$List$take,
+			5,
 			A2(
-				_elm_lang$core$List$take,
-				5,
+				_elm_lang$core$List$filter,
+				function (url) {
+					return !A2(
+						_elm_lang$core$Set$member,
+						url,
+						A2(_elm_lang$core$Set$union, thumbPageModel.justLoadedImages, thumbPageModel.readyToDisplayImages));
+				},
 				A2(
-					_elm_lang$core$List$filter,
-					function (url) {
-						return !A2(
-							_elm_lang$core$Set$member,
-							url,
-							A2(_elm_lang$core$Set$union, thumbPageModel.justLoadedImages, thumbPageModel.readyToDisplayImages));
+					_elm_lang$core$List$map,
+					function (i) {
+						return i.url;
 					},
-					A2(
-						_elm_lang$core$List$map,
-						function (i) {
-							return i.url;
-						},
-						srcs)))));
+					srcs))));
 };
 var _jerith666$elbum$ThumbPage$viewThumbs = F2(
 	function (imgChosenMsgr, thumbPageModel) {
@@ -20457,12 +20442,13 @@ var _jerith666$elbum$ThumbPage$viewThumbs = F2(
 				imgs,
 				{ctor: '[]'}));
 	});
-var _jerith666$elbum$ThumbPage$view = F4(
-	function (imgChosenMsgr, showList, thumbPageModel, flags) {
-		return A4(
+var _jerith666$elbum$ThumbPage$view = F5(
+	function (scrollMsgMaker, imgChosenMsgr, showList, thumbPageModel, flags) {
+		return A5(
 			_jerith666$elbum$AlbumStyles$rootDivFlex,
 			flags,
 			_rtfeldman$elm_css$Css$column,
+			_elm_lang$core$Maybe$Just(scrollMsgMaker),
 			{
 				ctor: '::',
 				_0: _rtfeldman$elm_css$Css$overflowX(_rtfeldman$elm_css$Css$hidden),
@@ -20491,7 +20477,7 @@ var _jerith666$elbum$ThumbPage$view = F4(
 						{ctor: '[]'},
 						{
 							ctor: '::',
-							_0: A2(_rtfeldman$elm_css$Css$property, 'visibility', 'hidden'),
+							_0: _rtfeldman$elm_css$Css$visibility(_rtfeldman$elm_css$Css$hidden),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
@@ -20642,14 +20628,15 @@ var _jerith666$elbum$AlbumListPage$viewAlbumOrList = F3(
 				});
 		}
 	});
-var _jerith666$elbum$AlbumListPage$view = F4(
-	function (_p4, viewList, viewAlbum, flags) {
+var _jerith666$elbum$AlbumListPage$view = F5(
+	function (_p4, viewList, viewAlbum, scrollMsgMaker, flags) {
 		var _p5 = _p4;
 		var _p6 = _p5._0;
-		return A4(
+		return A5(
 			_jerith666$elbum$AlbumStyles$rootDivFlex,
 			flags,
 			_rtfeldman$elm_css$Css$column,
+			_elm_lang$core$Maybe$Just(scrollMsgMaker),
 			{ctor: '[]'},
 			A2(
 				_elm_lang$core$Basics_ops['++'],
@@ -25644,6 +25631,22 @@ var _mdgriffith$elm_style_animation$Animation_Messenger$update = F2(
 		return A2(_mdgriffith$elm_style_animation$Animation_Model$updateAnimation, tick, animation);
 	});
 
+var _jerith666$elbum$ResultUtils$toCmd = function (m) {
+	return A2(
+		_elm_lang$core$Task$perform,
+		_elm_lang$core$Basics$identity,
+		_elm_lang$core$Task$succeed(m));
+};
+var _jerith666$elbum$ResultUtils$either = F3(
+	function (errMapper, okMapper, r) {
+		var _p0 = r;
+		if (_p0.ctor === 'Ok') {
+			return okMapper(_p0._0);
+		} else {
+			return errMapper(_p0._0);
+		}
+	});
+
 var _jerith666$elbum$ProgressiveImage$styledMsgAnimation = function (animState) {
 	return A2(
 		_elm_lang$core$List$map,
@@ -25841,6 +25844,8 @@ var _jerith666$elbum$ProgressiveImage$updateModel = F2(
 					default:
 						return _p16;
 				}
+			case 'ScheduleTimeout':
+				return _p16;
 			case 'MainFadeinComplete':
 				var _p13 = _p17;
 				switch (_p13.ctor) {
@@ -25880,24 +25885,25 @@ var _jerith666$elbum$ProgressiveImage$updateModel = F2(
 var _jerith666$elbum$ProgressiveImage$Timeout = function (a) {
 	return {ctor: 'Timeout', _0: a};
 };
+var _jerith666$elbum$ProgressiveImage$ScheduleTimeout = F3(
+	function (a, b, c) {
+		return {ctor: 'ScheduleTimeout', _0: a, _1: b, _2: c};
+	});
 var _jerith666$elbum$ProgressiveImage$updateCmd = function (_p18) {
 	var _p19 = _p18;
 	var _p20 = _p19._1;
 	switch (_p20.ctor) {
 		case 'TryingCached':
-			return A3(
-				_andrewMacmurray$elm_delay$Delay$after,
-				200,
-				_elm_lang$core$Time$millisecond,
-				_jerith666$elbum$ProgressiveImage$Timeout(_p20._1));
+			return _elm_lang$core$Maybe$Just(
+				A3(_jerith666$elbum$ProgressiveImage$ScheduleTimeout, 200, _elm_lang$core$Time$millisecond, _p20._1));
 		case 'LoadingFallback':
-			return _elm_lang$core$Platform_Cmd$none;
+			return _elm_lang$core$Maybe$Nothing;
 		case 'LoadingMain':
-			return _elm_lang$core$Platform_Cmd$none;
+			return _elm_lang$core$Maybe$Nothing;
 		case 'MainLoaded':
-			return _elm_lang$core$Platform_Cmd$none;
+			return _elm_lang$core$Maybe$Nothing;
 		default:
-			return _elm_lang$core$Platform_Cmd$none;
+			return _elm_lang$core$Maybe$Nothing;
 	}
 };
 var _jerith666$elbum$ProgressiveImage$init = function (data) {
@@ -25930,30 +25936,48 @@ var _jerith666$elbum$ProgressiveImage$init = function (data) {
 var _jerith666$elbum$ProgressiveImage$update = F2(
 	function (msg, _p22) {
 		var _p23 = _p22;
+		var _p27 = _p23;
 		var _p26 = _p23._2;
 		var _p24 = msg;
-		if (_p24.ctor === 'AnimateMain') {
-			var _p25 = A2(_mdgriffith$elm_style_animation$Animation_Messenger$update, _p24._0, _p26.main);
-			var newMainState = _p25._0;
-			var animCmd = _p25._1;
-			return {
-				ctor: '_Tuple2',
-				_0: A3(
-					_jerith666$elbum$ProgressiveImage$ProgImgModel,
-					_p23._0,
-					_p23._1,
-					_elm_lang$core$Native_Utils.update(
-						_p26,
-						{main: newMainState})),
-				_1: animCmd
-			};
-		} else {
-			var newModel = A2(_jerith666$elbum$ProgressiveImage$updateModel, msg, _p23);
-			return {
-				ctor: '_Tuple2',
-				_0: newModel,
-				_1: _jerith666$elbum$ProgressiveImage$updateCmd(newModel)
-			};
+		switch (_p24.ctor) {
+			case 'AnimateMain':
+				var _p25 = A2(_mdgriffith$elm_style_animation$Animation_Messenger$update, _p24._0, _p26.main);
+				var newMainState = _p25._0;
+				var animCmd = _p25._1;
+				return {
+					ctor: '_Tuple2',
+					_0: A3(
+						_jerith666$elbum$ProgressiveImage$ProgImgModel,
+						_p23._0,
+						_p23._1,
+						_elm_lang$core$Native_Utils.update(
+							_p26,
+							{main: newMainState})),
+					_1: animCmd
+				};
+			case 'ScheduleTimeout':
+				return {
+					ctor: '_Tuple2',
+					_0: _p27,
+					_1: A3(
+						_andrewMacmurray$elm_delay$Delay$after,
+						_p24._0,
+						_p24._1,
+						_jerith666$elbum$ProgressiveImage$Timeout(_p24._2))
+				};
+			default:
+				var newModel = A2(_jerith666$elbum$ProgressiveImage$updateModel, msg, _p27);
+				return {
+					ctor: '_Tuple2',
+					_0: newModel,
+					_1: A2(
+						_elm_lang$core$Maybe$withDefault,
+						_elm_lang$core$Platform_Cmd$none,
+						A2(
+							_elm_lang$core$Maybe$map,
+							_jerith666$elbum$ResultUtils$toCmd,
+							_jerith666$elbum$ProgressiveImage$updateCmd(newModel)))
+				};
 		}
 	});
 var _jerith666$elbum$ProgressiveImage$Loaded = function (a) {
@@ -26034,36 +26058,36 @@ var _jerith666$elbum$ProgressiveImage$viewLoadingMain = F4(
 				}
 			});
 	});
-var _jerith666$elbum$ProgressiveImage$view = function (_p27) {
-	var _p28 = _p27;
-	var _p31 = _p28._0;
-	var _p30 = _p28._2;
-	var _p29 = _p28._1;
-	switch (_p29.ctor) {
+var _jerith666$elbum$ProgressiveImage$view = function (_p28) {
+	var _p29 = _p28;
+	var _p32 = _p29._0;
+	var _p31 = _p29._2;
+	var _p30 = _p29._1;
+	switch (_p30.ctor) {
 		case 'TryingCached':
 			return A4(
 				_jerith666$elbum$ProgressiveImage$viewImg,
-				_p29._1,
-				_p31,
-				_jerith666$elbum$ProgressiveImage$styledAnimation(_p30.placeholder),
+				_p30._1,
+				_p32,
+				_jerith666$elbum$ProgressiveImage$styledAnimation(_p31.placeholder),
 				{ctor: '[]'});
 		case 'LoadingFallback':
 			return A4(
 				_jerith666$elbum$ProgressiveImage$viewImg,
-				_p31.fallback,
-				_p31,
-				_jerith666$elbum$ProgressiveImage$styledAnimation(_p30.placeholder),
+				_p32.fallback,
+				_p32,
+				_jerith666$elbum$ProgressiveImage$styledAnimation(_p31.placeholder),
 				{ctor: '[]'});
 		case 'LoadingMain':
-			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p31, _p29._0, _p30.placeholder, _p30.main);
+			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p32, _p30._0, _p31.placeholder, _p31.main);
 		case 'MainLoaded':
-			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p31, _p29._0, _p30.placeholder, _p30.main);
+			return A4(_jerith666$elbum$ProgressiveImage$viewLoadingMain, _p32, _p30._0, _p31.placeholder, _p31.main);
 		default:
 			return A4(
 				_jerith666$elbum$ProgressiveImage$viewImg,
-				_p31.mainImg,
-				_p31,
-				_jerith666$elbum$ProgressiveImage$styledMsgAnimation(_p30.main),
+				_p32.mainImg,
+				_p32,
+				_jerith666$elbum$ProgressiveImage$styledMsgAnimation(_p31.main),
 				{ctor: '[]'});
 	}
 };
@@ -26225,10 +26249,11 @@ var _jerith666$elbum$FullImagePage$viewImg = F4(
 	});
 var _jerith666$elbum$FullImagePage$view = F7(
 	function (navMsgs, touchMsgs, noOpMsg, wrapProgMsg, fullImagePageModel, parents, flags) {
-		return A4(
+		return A5(
 			_jerith666$elbum$AlbumStyles$rootDivFlex,
 			flags,
 			_rtfeldman$elm_css$Css$column,
+			_elm_lang$core$Maybe$Nothing,
 			{
 				ctor: '::',
 				_0: _rtfeldman$elm_css$Css$overflow(_rtfeldman$elm_css$Css$hidden),
@@ -26422,13 +26447,10 @@ var _jerith666$elbum$AlbumPage$offsetFor = function (dragInfo) {
 var _jerith666$elbum$AlbumPage$minDragLen = 75;
 var _jerith666$elbum$AlbumPage$titleOf = function (albumPage) {
 	var _p3 = albumPage;
-	switch (_p3.ctor) {
-		case 'Thumbs':
-			return _p3._0.title;
-		case 'GettingScroll':
-			return _p3._0.title;
-		default:
-			return _p3._1.imageFirst.altText;
+	if (_p3.ctor === 'Thumbs') {
+		return _p3._0.title;
+	} else {
+		return _p3._1.imageFirst.altText;
 	}
 };
 var _jerith666$elbum$AlbumPage$urlsToGet = function (albumPage) {
@@ -26482,10 +26504,6 @@ var _jerith666$elbum$AlbumPage$FullImage = F6(
 	function (a, b, c, d, e, f) {
 		return {ctor: 'FullImage', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f};
 	});
-var _jerith666$elbum$AlbumPage$GettingScroll = F6(
-	function (a, b, c, d, e, f) {
-		return {ctor: 'GettingScroll', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f};
-	});
 var _jerith666$elbum$AlbumPage$Thumbs = F4(
 	function (a, b, c, d) {
 		return {ctor: 'Thumbs', _0: a, _1: b, _2: c, _3: d};
@@ -26506,7 +26524,7 @@ var _jerith666$elbum$AlbumPage$updatePrevNext = F2(
 			var newRest = _p8._2;
 			var _p9 = function () {
 				if (_elm_lang$core$Native_Utils.eq(_p11.imageFirst, newCur)) {
-					return {ctor: '_Tuple2', _0: _p7._2, _1: _elm_lang$core$Platform_Cmd$none};
+					return {ctor: '_Tuple2', _0: _p7._2, _1: _elm_lang$core$Maybe$Nothing};
 				} else {
 					var _p10 = A3(_jerith666$elbum$FullImagePage$fitImage, newCur.srcSetFirst, _p12.width, _p12.height);
 					var w = _p10._0;
@@ -26526,10 +26544,181 @@ var _jerith666$elbum$AlbumPage$updatePrevNext = F2(
 					_p12,
 					_p7._4,
 					_elm_lang$core$Maybe$Nothing),
-				_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, newCmd)
+				_1: A2(
+					_elm_lang$core$Platform_Cmd$map,
+					_jerith666$elbum$AlbumPage$FullMsg,
+					A2(
+						_elm_lang$core$Maybe$withDefault,
+						_elm_lang$core$Platform_Cmd$none,
+						A2(_elm_lang$core$Maybe$map, _jerith666$elbum$ResultUtils$toCmd, newCmd)))
 			};
 		} else {
 			return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+		}
+	});
+var _jerith666$elbum$AlbumPage$update = F3(
+	function (msg, model, scroll) {
+		var _p13 = msg;
+		switch (_p13.ctor) {
+			case 'View':
+				var _p19 = _p13._1;
+				var _p14 = model;
+				if (_p14.ctor === 'Thumbs') {
+					var _p18 = _p14._1;
+					var _p17 = _p14._0;
+					var _p15 = A3(_jerith666$elbum$FullImagePage$fitImage, _p19.srcSetFirst, _p18.width, _p18.height);
+					var w = _p15._0;
+					var h = _p15._1;
+					var _p16 = A4(_jerith666$elbum$AlbumPage$progInit, _p18, _p19, w, h);
+					var progModel = _p16._0;
+					var progCmd = _p16._1;
+					return {
+						ctor: '_Tuple2',
+						_0: A6(
+							_jerith666$elbum$AlbumPage$FullImage,
+							_p13._0,
+							{title: _p17.title, imageFirst: _p19, imageRest: _p13._2, thumbnail: _p17.thumbnail},
+							progModel,
+							_p18,
+							scroll,
+							_elm_lang$core$Maybe$Nothing),
+						_1: A2(
+							_elm_lang$core$Platform_Cmd$map,
+							_jerith666$elbum$AlbumPage$FullMsg,
+							A2(
+								_elm_lang$core$Maybe$withDefault,
+								_elm_lang$core$Platform_Cmd$none,
+								A2(_elm_lang$core$Maybe$map, _jerith666$elbum$ResultUtils$toCmd, progCmd)))
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'Prev':
+				return A2(_jerith666$elbum$AlbumPage$updatePrevNext, model, _jerith666$elbum$ListUtils$shiftLeft);
+			case 'Next':
+				return A2(_jerith666$elbum$AlbumPage$updatePrevNext, model, _jerith666$elbum$ListUtils$shiftRight);
+			case 'BackToThumbs':
+				var _p20 = model;
+				if (_p20.ctor === 'FullImage') {
+					var _p24 = _p20._1;
+					var scrollCmd = function () {
+						var _p21 = _p20._4;
+						if (_p21.ctor === 'Nothing') {
+							return _elm_lang$core$Platform_Cmd$none;
+						} else {
+							return A2(
+								_elm_lang$core$Task$attempt,
+								function (_p22) {
+									return _jerith666$elbum$AlbumPage$NoUpdate;
+								},
+								A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p21._0));
+						}
+					}();
+					var _p23 = A3(_jerith666$elbum$ListUtils$shiftToBeginning, _p20._0, _p24.imageFirst, _p24.imageRest);
+					var newFirst = _p23._0;
+					var newRest = _p23._1;
+					return {
+						ctor: '_Tuple2',
+						_0: A4(
+							_jerith666$elbum$AlbumPage$Thumbs,
+							{title: _p24.title, imageFirst: newFirst, imageRest: newRest, thumbnail: _p24.thumbnail},
+							_p20._3,
+							_elm_lang$core$Set$empty,
+							_elm_lang$core$Set$empty),
+						_1: scrollCmd
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'TouchDragStart':
+				var _p26 = _p13._0;
+				var _p25 = model;
+				if (_p25.ctor === 'FullImage') {
+					return {
+						ctor: '_Tuple2',
+						_0: A6(
+							_jerith666$elbum$AlbumPage$FullImage,
+							_p25._0,
+							_p25._1,
+							_p25._2,
+							_p25._3,
+							_p25._4,
+							_elm_lang$core$Maybe$Just(
+								{ctor: '_Tuple2', _0: _p26, _1: _p26})),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'TouchDragContinue':
+				var _p34 = _p13._0;
+				var _p27 = model;
+				if (_p27.ctor === 'FullImage') {
+					var _p33 = _p27._3;
+					var _p32 = _p27._4;
+					var _p31 = _p27._2;
+					var _p30 = _p27._0;
+					var _p29 = _p27._1;
+					var _p28 = _p27._5;
+					if (_p28.ctor === 'Nothing') {
+						return {
+							ctor: '_Tuple2',
+							_0: A6(
+								_jerith666$elbum$AlbumPage$FullImage,
+								_p30,
+								_p29,
+								_p31,
+								_p33,
+								_p32,
+								_elm_lang$core$Maybe$Just(
+									{ctor: '_Tuple2', _0: _p34, _1: _p34})),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					} else {
+						return {
+							ctor: '_Tuple2',
+							_0: A6(
+								_jerith666$elbum$AlbumPage$FullImage,
+								_p30,
+								_p29,
+								_p31,
+								_p33,
+								_p32,
+								_elm_lang$core$Maybe$Just(
+									{ctor: '_Tuple2', _0: _p28._0._0, _1: _p34})),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					}
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'TouchDragAbandon':
+				var _p35 = model;
+				if (_p35.ctor === 'FullImage') {
+					return {
+						ctor: '_Tuple2',
+						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p35._0, _p35._1, _p35._2, _p35._3, _p35._4, _elm_lang$core$Maybe$Nothing),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'FullMsg':
+				var _p36 = model;
+				if (_p36.ctor === 'FullImage') {
+					var _p37 = A2(_jerith666$elbum$ProgressiveImage$update, _p13._0, _p36._2);
+					var newProgModel = _p37._0;
+					var newProgCmd = _p37._1;
+					return {
+						ctor: '_Tuple2',
+						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p36._0, _p36._1, newProgModel, _p36._3, _p36._4, _p36._5),
+						_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, newProgCmd)
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
 var _jerith666$elbum$AlbumPage$BackToThumbs = {ctor: 'BackToThumbs'};
@@ -26537,72 +26726,60 @@ var _jerith666$elbum$AlbumPage$Next = {ctor: 'Next'};
 var _jerith666$elbum$AlbumPage$Prev = {ctor: 'Prev'};
 var _jerith666$elbum$AlbumPage$subscriptions = F3(
 	function (albumPage, wrapper, showParent) {
-		subscriptions:
-		while (true) {
-			var _p13 = albumPage;
-			switch (_p13.ctor) {
-				case 'GettingScroll':
-					var _v6 = _p13._5,
-						_v7 = wrapper,
-						_v8 = showParent;
-					albumPage = _v6;
-					wrapper = _v7;
-					showParent = _v8;
-					continue subscriptions;
-				case 'Thumbs':
-					return A2(
-						_jerith666$elbum$KeyboardUtils$onEscape,
-						showParent,
-						wrapper(_jerith666$elbum$AlbumPage$NoUpdate));
-				default:
-					return _elm_lang$core$Platform_Sub$batch(
-						{
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Platform_Sub$map,
-								wrapper,
-								A2(
-									_elm_lang$core$Platform_Sub$map,
-									_jerith666$elbum$AlbumPage$FullMsg,
-									_jerith666$elbum$ProgressiveImage$subscriptions(_p13._2))),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_elm_lang$core$Platform_Sub$map,
-									wrapper,
-									_elm_lang$keyboard$Keyboard$downs(
-										function (keycode) {
-											var _p14 = keycode;
-											switch (_p14) {
-												case 39:
-													return _jerith666$elbum$AlbumPage$Next;
-												case 37:
-													return _jerith666$elbum$AlbumPage$Prev;
-												case 27:
-													return _jerith666$elbum$AlbumPage$BackToThumbs;
-												default:
-													return _jerith666$elbum$AlbumPage$NoUpdate;
-											}
-										})),
-								_1: {ctor: '[]'}
-							}
-						});
-			}
+		var _p38 = albumPage;
+		if (_p38.ctor === 'Thumbs') {
+			return A2(
+				_jerith666$elbum$KeyboardUtils$onEscape,
+				showParent,
+				wrapper(_jerith666$elbum$AlbumPage$NoUpdate));
+		} else {
+			return _elm_lang$core$Platform_Sub$batch(
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$core$Platform_Sub$map,
+						wrapper,
+						A2(
+							_elm_lang$core$Platform_Sub$map,
+							_jerith666$elbum$AlbumPage$FullMsg,
+							_jerith666$elbum$ProgressiveImage$subscriptions(_p38._2))),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$core$Platform_Sub$map,
+							wrapper,
+							_elm_lang$keyboard$Keyboard$downs(
+								function (keycode) {
+									var _p39 = keycode;
+									switch (_p39) {
+										case 39:
+											return _jerith666$elbum$AlbumPage$Next;
+										case 37:
+											return _jerith666$elbum$AlbumPage$Prev;
+										case 27:
+											return _jerith666$elbum$AlbumPage$BackToThumbs;
+										default:
+											return _jerith666$elbum$AlbumPage$NoUpdate;
+									}
+								})),
+						_1: {ctor: '[]'}
+					}
+				});
 		}
 	});
 var _jerith666$elbum$AlbumPage$TouchDragAbandon = {ctor: 'TouchDragAbandon'};
 var _jerith666$elbum$AlbumPage$touchPrevNext = F2(
 	function (dragInfo, touch) {
-		var _p15 = dragInfo;
-		if (_p15.ctor === 'Nothing') {
+		var _p40 = dragInfo;
+		if (_p40.ctor === 'Nothing') {
 			return _jerith666$elbum$AlbumPage$NoUpdate;
 		} else {
-			var _p17 = _p15._0._0;
+			var _p42 = _p40._0._0;
 			if (_elm_lang$core$Native_Utils.cmp(
-				_elm_lang$core$Basics$abs(_p17.clientX - touch.clientX),
+				_elm_lang$core$Basics$abs(_p42.clientX - touch.clientX),
 				_jerith666$elbum$AlbumPage$minDragLen) > 0) {
-				var _p16 = A2(_knledg$touch_events$TouchEvents$getDirectionX, _p17.clientX, touch.clientX);
-				switch (_p16.ctor) {
+				var _p41 = A2(_knledg$touch_events$TouchEvents$getDirectionX, _p42.clientX, touch.clientX);
+				switch (_p41.ctor) {
 					case 'Left':
 						return _jerith666$elbum$AlbumPage$Next;
 					case 'Right':
@@ -26621,257 +26798,63 @@ var _jerith666$elbum$AlbumPage$TouchDragContinue = function (a) {
 var _jerith666$elbum$AlbumPage$TouchDragStart = function (a) {
 	return {ctor: 'TouchDragStart', _0: a};
 };
-var _jerith666$elbum$AlbumPage$GotScroll = function (a) {
-	return {ctor: 'GotScroll', _0: a};
-};
-var _jerith666$elbum$AlbumPage$update = F2(
-	function (msg, model) {
-		var _p18 = msg;
-		switch (_p18.ctor) {
-			case 'View':
-				var _p19 = model;
-				if (_p19.ctor === 'Thumbs') {
-					return {
-						ctor: '_Tuple2',
-						_0: A6(_jerith666$elbum$AlbumPage$GettingScroll, _p19._0, _p18._0, _p18._1, _p18._2, _p19._1, model),
-						_1: A2(
-							_elm_lang$core$Task$attempt,
-							function (_p20) {
-								return _jerith666$elbum$AlbumPage$GotScroll(
-									_elm_lang$core$Result$toMaybe(_p20));
-							},
-							_elm_lang$dom$Dom_Scroll$y(_jerith666$elbum$AlbumStyles$rootDivId))
-					};
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'GotScroll':
-				var _p21 = model;
-				if (_p21.ctor === 'GettingScroll') {
-					var _p26 = _p21._4;
-					var _p25 = _p21._2;
-					var _p24 = _p21._0;
-					var _p22 = A3(_jerith666$elbum$FullImagePage$fitImage, _p25.srcSetFirst, _p26.width, _p26.height);
-					var w = _p22._0;
-					var h = _p22._1;
-					var _p23 = A4(_jerith666$elbum$AlbumPage$progInit, _p26, _p25, w, h);
-					var progModel = _p23._0;
-					var progCmd = _p23._1;
-					return {
-						ctor: '_Tuple2',
-						_0: A6(
-							_jerith666$elbum$AlbumPage$FullImage,
-							_p21._1,
-							{title: _p24.title, imageFirst: _p25, imageRest: _p21._3, thumbnail: _p24.thumbnail},
-							progModel,
-							_p26,
-							_p18._0,
-							_elm_lang$core$Maybe$Nothing),
-						_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, progCmd)
-					};
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'Prev':
-				return A2(_jerith666$elbum$AlbumPage$updatePrevNext, model, _jerith666$elbum$ListUtils$shiftLeft);
-			case 'Next':
-				return A2(_jerith666$elbum$AlbumPage$updatePrevNext, model, _jerith666$elbum$ListUtils$shiftRight);
-			case 'BackToThumbs':
-				var _p27 = model;
-				if (_p27.ctor === 'FullImage') {
-					var _p31 = _p27._1;
-					var scrollCmd = function () {
-						var _p28 = _p27._4;
-						if (_p28.ctor === 'Nothing') {
-							return _elm_lang$core$Platform_Cmd$none;
-						} else {
-							return A2(
-								_elm_lang$core$Task$attempt,
-								function (_p29) {
-									return _jerith666$elbum$AlbumPage$NoUpdate;
-								},
-								A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p28._0));
-						}
-					}();
-					var _p30 = A3(_jerith666$elbum$ListUtils$shiftToBeginning, _p27._0, _p31.imageFirst, _p31.imageRest);
-					var newFirst = _p30._0;
-					var newRest = _p30._1;
-					return {
-						ctor: '_Tuple2',
-						_0: A4(
-							_jerith666$elbum$AlbumPage$Thumbs,
-							{title: _p31.title, imageFirst: newFirst, imageRest: newRest, thumbnail: _p31.thumbnail},
-							_p27._3,
-							_elm_lang$core$Set$empty,
-							_elm_lang$core$Set$empty),
-						_1: scrollCmd
-					};
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'TouchDragStart':
-				var _p33 = _p18._0;
-				var _p32 = model;
-				if (_p32.ctor === 'FullImage') {
-					return {
-						ctor: '_Tuple2',
-						_0: A6(
-							_jerith666$elbum$AlbumPage$FullImage,
-							_p32._0,
-							_p32._1,
-							_p32._2,
-							_p32._3,
-							_p32._4,
-							_elm_lang$core$Maybe$Just(
-								{ctor: '_Tuple2', _0: _p33, _1: _p33})),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'TouchDragContinue':
-				var _p41 = _p18._0;
-				var _p34 = model;
-				if (_p34.ctor === 'FullImage') {
-					var _p40 = _p34._3;
-					var _p39 = _p34._4;
-					var _p38 = _p34._2;
-					var _p37 = _p34._0;
-					var _p36 = _p34._1;
-					var _p35 = _p34._5;
-					if (_p35.ctor === 'Nothing') {
-						return {
-							ctor: '_Tuple2',
-							_0: A6(
-								_jerith666$elbum$AlbumPage$FullImage,
-								_p37,
-								_p36,
-								_p38,
-								_p40,
-								_p39,
-								_elm_lang$core$Maybe$Just(
-									{ctor: '_Tuple2', _0: _p41, _1: _p41})),
-							_1: _elm_lang$core$Platform_Cmd$none
-						};
-					} else {
-						return {
-							ctor: '_Tuple2',
-							_0: A6(
-								_jerith666$elbum$AlbumPage$FullImage,
-								_p37,
-								_p36,
-								_p38,
-								_p40,
-								_p39,
-								_elm_lang$core$Maybe$Just(
-									{ctor: '_Tuple2', _0: _p35._0._0, _1: _p41})),
-							_1: _elm_lang$core$Platform_Cmd$none
-						};
-					}
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'TouchDragAbandon':
-				var _p42 = model;
-				if (_p42.ctor === 'FullImage') {
-					return {
-						ctor: '_Tuple2',
-						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p42._0, _p42._1, _p42._2, _p42._3, _p42._4, _elm_lang$core$Maybe$Nothing),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			case 'FullMsg':
-				var _p43 = model;
-				if (_p43.ctor === 'FullImage') {
-					var _p44 = A2(_jerith666$elbum$ProgressiveImage$update, _p18._0, _p43._2);
-					var newProgModel = _p44._0;
-					var newProgCmd = _p44._1;
-					return {
-						ctor: '_Tuple2',
-						_0: A6(_jerith666$elbum$AlbumPage$FullImage, _p43._0, _p43._1, newProgModel, _p43._3, _p43._4, _p43._5),
-						_1: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, newProgCmd)
-					};
-				} else {
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				}
-			default:
-				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-		}
-	});
 var _jerith666$elbum$AlbumPage$View = F3(
 	function (a, b, c) {
 		return {ctor: 'View', _0: a, _1: b, _2: c};
 	});
-var _jerith666$elbum$AlbumPage$view = F5(
-	function (albumPage, showList, wrapMsg, parents, flags) {
-		view:
-		while (true) {
-			var _p45 = albumPage;
-			switch (_p45.ctor) {
-				case 'GettingScroll':
-					var _v23 = _p45._5,
-						_v24 = showList,
-						_v25 = wrapMsg,
-						_v26 = parents,
-						_v27 = flags;
-					albumPage = _v23;
-					showList = _v24;
-					wrapMsg = _v25;
-					parents = _v26;
-					flags = _v27;
-					continue view;
-				case 'Thumbs':
-					return A4(
-						_jerith666$elbum$ThumbPage$view,
-						F3(
-							function (x, y, z) {
-								return wrapMsg(
-									A3(_jerith666$elbum$AlbumPage$View, x, y, z));
-							}),
-						showList,
-						{album: _p45._0, parents: parents, winSize: _p45._1, justLoadedImages: _p45._2, readyToDisplayImages: _p45._3},
-						flags);
-				default:
-					var _p50 = _p45._5;
-					return A7(
-						_jerith666$elbum$FullImagePage$view,
-						{
-							prevMsg: wrapMsg(_jerith666$elbum$AlbumPage$Prev),
-							nextMsg: wrapMsg(_jerith666$elbum$AlbumPage$Next),
-							backToThumbsMsg: wrapMsg(_jerith666$elbum$AlbumPage$BackToThumbs),
-							showList: showList
-						},
-						{
-							touchStartMsg: function (_p46) {
-								return wrapMsg(
-									_jerith666$elbum$AlbumPage$TouchDragStart(_p46));
-							},
-							touchContinueMsg: function (_p47) {
-								return wrapMsg(
-									_jerith666$elbum$AlbumPage$TouchDragContinue(_p47));
-							},
-							touchPrevNextMsg: function (_p48) {
-								return wrapMsg(
-									A2(_jerith666$elbum$AlbumPage$touchPrevNext, _p50, _p48));
-							}
-						},
-						wrapMsg(_jerith666$elbum$AlbumPage$NoUpdate),
-						function (_p49) {
-							return wrapMsg(
-								_jerith666$elbum$AlbumPage$FullMsg(_p49));
-						},
-						{
-							prevImgs: _p45._0,
-							album: _p45._1,
-							winSize: _p45._3,
-							progImgModel: _p45._2,
-							offset: _jerith666$elbum$AlbumPage$offsetFor(_p50)
-						},
-						parents,
-						flags);
-			}
+var _jerith666$elbum$AlbumPage$view = F6(
+	function (albumPage, scrollMsgMaker, showList, wrapMsg, parents, flags) {
+		var _p43 = albumPage;
+		if (_p43.ctor === 'Thumbs') {
+			return A5(
+				_jerith666$elbum$ThumbPage$view,
+				scrollMsgMaker,
+				F3(
+					function (x, y, z) {
+						return wrapMsg(
+							A3(_jerith666$elbum$AlbumPage$View, x, y, z));
+					}),
+				showList,
+				{album: _p43._0, parents: parents, winSize: _p43._1, justLoadedImages: _p43._2, readyToDisplayImages: _p43._3},
+				flags);
+		} else {
+			var _p48 = _p43._5;
+			return A7(
+				_jerith666$elbum$FullImagePage$view,
+				{
+					prevMsg: wrapMsg(_jerith666$elbum$AlbumPage$Prev),
+					nextMsg: wrapMsg(_jerith666$elbum$AlbumPage$Next),
+					backToThumbsMsg: wrapMsg(_jerith666$elbum$AlbumPage$BackToThumbs),
+					showList: showList
+				},
+				{
+					touchStartMsg: function (_p44) {
+						return wrapMsg(
+							_jerith666$elbum$AlbumPage$TouchDragStart(_p44));
+					},
+					touchContinueMsg: function (_p45) {
+						return wrapMsg(
+							_jerith666$elbum$AlbumPage$TouchDragContinue(_p45));
+					},
+					touchPrevNextMsg: function (_p46) {
+						return wrapMsg(
+							A2(_jerith666$elbum$AlbumPage$touchPrevNext, _p48, _p46));
+					}
+				},
+				wrapMsg(_jerith666$elbum$AlbumPage$NoUpdate),
+				function (_p47) {
+					return wrapMsg(
+						_jerith666$elbum$AlbumPage$FullMsg(_p47));
+				},
+				{
+					prevImgs: _p43._0,
+					album: _p43._1,
+					winSize: _p43._3,
+					progImgModel: _p43._2,
+					offset: _jerith666$elbum$AlbumPage$offsetFor(_p48)
+				},
+				parents,
+				flags);
 		}
 	});
 
@@ -26889,6 +26872,26 @@ var _jerith666$elbum$LocationUtils$locToString = function (loc) {
 					_elm_lang$core$Basics_ops['++'],
 					loc.pathname,
 					A2(_elm_lang$core$Basics_ops['++'], loc.search, loc.hash)))));
+};
+var _jerith666$elbum$LocationUtils$parseQuery = function (query) {
+	var rest = A2(
+		_Bogdanp$elm_combine$Combine_ops['<*'],
+		_Bogdanp$elm_combine$Combine$while(
+			function (_p0) {
+				return true;
+			}),
+		_Bogdanp$elm_combine$Combine$end);
+	var qParser = A2(
+		_Bogdanp$elm_combine$Combine$or,
+		A2(_Bogdanp$elm_combine$Combine_ops['$>'], _Bogdanp$elm_combine$Combine$end, _elm_lang$core$Maybe$Nothing),
+		A2(
+			_Bogdanp$elm_combine$Combine$map,
+			_elm_lang$core$Maybe$Just,
+			A2(
+				_Bogdanp$elm_combine$Combine_ops['*>'],
+				_Bogdanp$elm_combine$Combine$string('?s='),
+				rest)));
+	return A2(_Bogdanp$elm_combine$Combine$parse, qParser, query);
 };
 var _jerith666$elbum$LocationUtils$parseHref = function (href) {
 	var pathParser = A2(
@@ -26915,16 +26918,6 @@ var _jerith666$elbum$LocationUtils$parseHref = function (href) {
 				_Bogdanp$elm_combine$Combine$end)));
 	return A2(_Bogdanp$elm_combine$Combine$parse, pathParser, href);
 };
-
-var _jerith666$elbum$ResultUtils$either = F3(
-	function (errMapper, okMapper, r) {
-		var _p0 = r;
-		if (_p0.ctor === 'Ok') {
-			return okMapper(_p0._0);
-		} else {
-			return errMapper(_p0._0);
-		}
-	});
 
 
 var _sporto$erl$Erl_Query$getValuesForKey = function (key) {
@@ -27823,13 +27816,10 @@ var _jerith666$elbum$Main$withHomeLink = F3(
 	});
 var _jerith666$elbum$Main$pageSize = function (albumPage) {
 	var _p1 = albumPage;
-	switch (_p1.ctor) {
-		case 'GettingScroll':
-			return _p1._4;
-		case 'Thumbs':
-			return _p1._1;
-		default:
-			return _p1._3;
+	if (_p1.ctor === 'Thumbs') {
+		return _p1._1;
+	} else {
+		return _p1._3;
 	}
 };
 var _jerith666$elbum$Main$handleGetResponse = F2(
@@ -27893,30 +27883,23 @@ var _jerith666$elbum$Main$hashForAlbum = F3(
 	function (model, albumPage, parents) {
 		var titles = function () {
 			var _p4 = albumPage;
-			switch (_p4.ctor) {
-				case 'GettingScroll':
-					return {
+			if (_p4.ctor === 'Thumbs') {
+				return {
+					ctor: '::',
+					_0: _p4._0.title,
+					_1: {ctor: '[]'}
+				};
+			} else {
+				var _p5 = _p4._1;
+				return {
+					ctor: '::',
+					_0: _p5.title,
+					_1: {
 						ctor: '::',
-						_0: _p4._0.title,
+						_0: _p5.imageFirst.altText,
 						_1: {ctor: '[]'}
-					};
-				case 'Thumbs':
-					return {
-						ctor: '::',
-						_0: _p4._0.title,
-						_1: {ctor: '[]'}
-					};
-				default:
-					var _p5 = _p4._1;
-					return {
-						ctor: '::',
-						_0: _p5.title,
-						_1: {
-							ctor: '::',
-							_0: _p5.imageFirst.altText,
-							_1: {ctor: '[]'}
-						}
-					};
+					}
+				};
 			}
 		}();
 		return A3(_jerith666$elbum$Main$hashFromAlbumPath, model, titles, parents);
@@ -27943,56 +27926,134 @@ var _jerith666$elbum$Main$hashForList = F2(
 			},
 			A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p8));
 	});
-var _jerith666$elbum$Main$locFor = function (model) {
+var _jerith666$elbum$Main$queryFor = function (model) {
+	var queryForPos = function (pos) {
+		return A2(
+			_elm_lang$core$Maybe$withDefault,
+			'',
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (p) {
+					return A2(
+						_elm_lang$core$Basics_ops['++'],
+						'?s=',
+						_elm_lang$core$Basics$toString(p));
+				},
+				pos));
+	};
 	var _p9 = model;
 	switch (_p9.ctor) {
+		case 'Sizing':
+			return '';
+		case 'LoadingHomeLink':
+			return '';
+		case 'Loading':
+			return '';
+		case 'LoadError':
+			return '';
 		case 'LoadedAlbum':
-			return _elm_lang$core$Maybe$Just(
-				{
-					entry: _rgrempel$elm_route_url$RouteUrl$NewEntry,
-					url: A3(
-						_jerith666$elbum$Main$hashForAlbum,
-						model,
-						_p9._0,
-						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p9._1))
-				});
-		case 'LoadedList':
-			return _elm_lang$core$Maybe$Just(
-				{
-					entry: _rgrempel$elm_route_url$RouteUrl$NewEntry,
-					url: A2(_jerith666$elbum$Main$hashForList, model, _p9._0)
-				});
+			return queryForPos(_p9._5);
 		default:
-			return _elm_lang$core$Maybe$Nothing;
+			return queryForPos(_p9._4);
 	}
 };
-var _jerith666$elbum$Main$cmdOf = function (msg) {
-	return A2(
-		_elm_lang$core$Task$perform,
-		function (_p10) {
-			return msg;
-		},
-		_elm_lang$core$Task$succeed(
-			{ctor: '_Tuple0'}));
-};
+var _jerith666$elbum$Main$locFor = F2(
+	function (oldModel, newModel) {
+		var checkNavState = F2(
+			function (state, nav) {
+				var _p10 = state;
+				if (_p10.ctor === 'NavInProgress') {
+					return _elm_lang$core$Maybe$Nothing;
+				} else {
+					return nav;
+				}
+			});
+		var entry = function () {
+			var _p11 = oldModel;
+			switch (_p11.ctor) {
+				case 'LoadedList':
+					var _p12 = newModel;
+					if (_p12.ctor === 'LoadedList') {
+						var _p13 = _elm_lang$core$Native_Utils.eq(_p11._0, _p12._0);
+						if (_p13 === true) {
+							return _rgrempel$elm_route_url$RouteUrl$ModifyEntry;
+						} else {
+							return _rgrempel$elm_route_url$RouteUrl$NewEntry;
+						}
+					} else {
+						return _rgrempel$elm_route_url$RouteUrl$NewEntry;
+					}
+				case 'LoadedAlbum':
+					var _p14 = newModel;
+					if (_p14.ctor === 'LoadedAlbum') {
+						var _p15 = _elm_lang$core$Native_Utils.eq(_p11._0, _p14._0) && _elm_lang$core$Native_Utils.eq(_p11._1, _p14._1);
+						if (_p15 === true) {
+							return _rgrempel$elm_route_url$RouteUrl$ModifyEntry;
+						} else {
+							return _rgrempel$elm_route_url$RouteUrl$NewEntry;
+						}
+					} else {
+						return _rgrempel$elm_route_url$RouteUrl$NewEntry;
+					}
+				default:
+					return _rgrempel$elm_route_url$RouteUrl$NewEntry;
+			}
+		}();
+		var model = newModel;
+		return A2(
+			_elm_lang$core$Debug$log,
+			'locFor',
+			function () {
+				var _p16 = model;
+				switch (_p16.ctor) {
+					case 'LoadedAlbum':
+						return A2(
+							checkNavState,
+							_p16._6,
+							_elm_lang$core$Maybe$Just(
+								{
+									entry: entry,
+									url: A2(
+										_elm_lang$core$Basics_ops['++'],
+										_jerith666$elbum$Main$queryFor(model),
+										A3(
+											_jerith666$elbum$Main$hashForAlbum,
+											model,
+											_p16._0,
+											A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p16._1)))
+								}));
+					case 'LoadedList':
+						return A2(
+							checkNavState,
+							_p16._5,
+							_elm_lang$core$Maybe$Just(
+								{
+									entry: entry,
+									url: A2(
+										_elm_lang$core$Basics_ops['++'],
+										_jerith666$elbum$Main$queryFor(model),
+										A2(_jerith666$elbum$Main$hashForList, model, _p16._0))
+								}));
+					default:
+						return _elm_lang$core$Maybe$Nothing;
+				}
+			}());
+	});
 var _jerith666$elbum$Main$findChild = F2(
 	function (containingList, name) {
 		var f = function (albumOrList) {
-			var _p11 = albumOrList;
-			if (_p11.ctor === 'List') {
-				return _elm_lang$core$Native_Utils.eq(_p11._0.listTitle, name);
+			var _p17 = albumOrList;
+			if (_p17.ctor === 'List') {
+				return _elm_lang$core$Native_Utils.eq(_p17._0.listTitle, name);
 			} else {
-				return _elm_lang$core$Native_Utils.eq(_p11._0.title, name);
+				return _elm_lang$core$Native_Utils.eq(_p17._0.title, name);
 			}
 		};
-		return A2(
-			_elm_lang$core$Debug$log,
-			A2(_elm_lang$core$Basics_ops['++'], 'looking for ', name),
-			_elm_lang$core$List$head(
-				A2(
-					_elm_lang$core$List$filter,
-					f,
-					{ctor: '::', _0: containingList.childFirst, _1: containingList.childRest})));
+		return _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				f,
+				{ctor: '::', _0: containingList.childFirst, _1: containingList.childRest}));
 	});
 var _jerith666$elbum$Main$findImg = F3(
 	function (prevs, album, img) {
@@ -28002,11 +28063,11 @@ var _jerith666$elbum$Main$findImg = F3(
 				return _elm_lang$core$Maybe$Just(
 					{ctor: '_Tuple2', _0: prevs, _1: album});
 			} else {
-				var _p12 = album.imageRest;
-				if (_p12.ctor === '[]') {
+				var _p18 = album.imageRest;
+				if (_p18.ctor === '[]') {
 					return _elm_lang$core$Maybe$Nothing;
 				} else {
-					var _v9 = A2(
+					var _v16 = A2(
 						_elm_lang$core$Basics_ops['++'],
 						prevs,
 						{
@@ -28014,124 +28075,175 @@ var _jerith666$elbum$Main$findImg = F3(
 							_0: album.imageFirst,
 							_1: {ctor: '[]'}
 						}),
-						_v10 = _elm_lang$core$Native_Utils.update(
+						_v17 = _elm_lang$core$Native_Utils.update(
 						album,
-						{imageFirst: _p12._0, imageRest: _p12._1}),
-						_v11 = img;
-					prevs = _v9;
-					album = _v10;
-					img = _v11;
+						{imageFirst: _p18._0, imageRest: _p18._1}),
+						_v18 = img;
+					prevs = _v16;
+					album = _v17;
+					img = _v18;
 					continue findImg;
 				}
 			}
 		}
 	});
 var _jerith666$elbum$Main$homeOf = function (model) {
-	homeOf:
-	while (true) {
-		var _p13 = model;
-		switch (_p13.ctor) {
-			case 'Sizing':
-				return _elm_lang$core$Maybe$Nothing;
-			case 'LoadingHomeLink':
-				return _elm_lang$core$Maybe$Nothing;
-			case 'Loading':
-				return _p13._2;
-			case 'LoadError':
-				return _elm_lang$core$Maybe$Nothing;
-			case 'GettingScrollBootstrap':
-				var _v13 = _p13._0;
-				model = _v13;
-				continue homeOf;
-			case 'LoadedList':
-				return _p13._2;
-			default:
-				return _p13._3;
-		}
+	var _p19 = model;
+	switch (_p19.ctor) {
+		case 'Sizing':
+			return _elm_lang$core$Maybe$Nothing;
+		case 'LoadingHomeLink':
+			return _elm_lang$core$Maybe$Nothing;
+		case 'Loading':
+			return _p19._2;
+		case 'LoadError':
+			return _elm_lang$core$Maybe$Nothing;
+		case 'LoadedList':
+			return _p19._2;
+		default:
+			return _p19._3;
 	}
 };
 var _jerith666$elbum$Main$flagsOf = function (model) {
-	flagsOf:
-	while (true) {
-		var _p14 = model;
-		switch (_p14.ctor) {
-			case 'Sizing':
-				return _p14._0;
-			case 'LoadingHomeLink':
-				return _p14._1;
-			case 'Loading':
-				return _p14._1;
-			case 'LoadError':
-				return _p14._0;
-			case 'GettingScrollBootstrap':
-				var _v15 = _p14._0;
-				model = _v15;
-				continue flagsOf;
-			case 'LoadedList':
-				return _p14._1;
-			default:
-				return _p14._2;
-		}
+	var _p20 = model;
+	switch (_p20.ctor) {
+		case 'Sizing':
+			return _p20._0;
+		case 'LoadingHomeLink':
+			return _p20._1;
+		case 'Loading':
+			return _p20._1;
+		case 'LoadError':
+			return _p20._0;
+		case 'LoadedList':
+			return _p20._1;
+		default:
+			return _p20._2;
 	}
 };
-var _jerith666$elbum$Main$GettingScrollBootstrap = F2(
-	function (a, b) {
-		return {ctor: 'GettingScrollBootstrap', _0: a, _1: b};
+var _jerith666$elbum$Main$LoadedAlbum = F7(
+	function (a, b, c, d, e, f, g) {
+		return {ctor: 'LoadedAlbum', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f, _6: g};
 	});
-var _jerith666$elbum$Main$LoadedAlbum = F5(
-	function (a, b, c, d, e) {
-		return {ctor: 'LoadedAlbum', _0: a, _1: b, _2: c, _3: d, _4: e};
+var _jerith666$elbum$Main$LoadedList = F6(
+	function (a, b, c, d, e, f) {
+		return {ctor: 'LoadedList', _0: a, _1: b, _2: c, _3: d, _4: e, _5: f};
 	});
-var _jerith666$elbum$Main$LoadedList = F4(
-	function (a, b, c, d) {
-		return {ctor: 'LoadedList', _0: a, _1: b, _2: c, _3: d};
+var _jerith666$elbum$Main$withScrollPos = F2(
+	function (pos, model) {
+		var _p21 = model;
+		switch (_p21.ctor) {
+			case 'Sizing':
+				return model;
+			case 'LoadingHomeLink':
+				return model;
+			case 'Loading':
+				return model;
+			case 'LoadError':
+				return model;
+			case 'LoadedAlbum':
+				return A7(
+					_jerith666$elbum$Main$LoadedAlbum,
+					_p21._0,
+					_p21._1,
+					_p21._2,
+					_p21._3,
+					_p21._4,
+					_elm_lang$core$Maybe$Just(pos),
+					_p21._6);
+			default:
+				return A6(
+					_jerith666$elbum$Main$LoadedList,
+					A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p21._0._0, _p21._0._1, _p21._0._2),
+					_p21._1,
+					_p21._2,
+					_p21._3,
+					_elm_lang$core$Maybe$Just(pos),
+					_p21._5);
+		}
 	});
 var _jerith666$elbum$Main$LoadError = F2(
 	function (a, b) {
 		return {ctor: 'LoadError', _0: a, _1: b};
 	});
-var _jerith666$elbum$Main$Loading = F4(
+var _jerith666$elbum$Main$Loading = F5(
+	function (a, b, c, d, e) {
+		return {ctor: 'Loading', _0: a, _1: b, _2: c, _3: d, _4: e};
+	});
+var _jerith666$elbum$Main$LoadingHomeLink = F4(
 	function (a, b, c, d) {
-		return {ctor: 'Loading', _0: a, _1: b, _2: c, _3: d};
+		return {ctor: 'LoadingHomeLink', _0: a, _1: b, _2: c, _3: d};
 	});
-var _jerith666$elbum$Main$LoadingHomeLink = F3(
+var _jerith666$elbum$Main$Sizing = F3(
 	function (a, b, c) {
-		return {ctor: 'LoadingHomeLink', _0: a, _1: b, _2: c};
+		return {ctor: 'Sizing', _0: a, _1: b, _2: c};
 	});
-var _jerith666$elbum$Main$Sizing = F2(
-	function (a, b) {
-		return {ctor: 'Sizing', _0: a, _1: b};
-	});
-var _jerith666$elbum$Main$withPaths = F2(
-	function (model, paths) {
-		var _p15 = model;
-		switch (_p15.ctor) {
+var _jerith666$elbum$Main$withScroll = F2(
+	function (model, scroll) {
+		var _p22 = model;
+		switch (_p22.ctor) {
 			case 'Sizing':
-				return A2(
-					_jerith666$elbum$Main$Sizing,
-					_p15._0,
-					_elm_lang$core$Maybe$Just(paths));
-			case 'LoadingHomeLink':
 				return A3(
-					_jerith666$elbum$Main$LoadingHomeLink,
-					_p15._0,
-					_p15._1,
-					_elm_lang$core$Maybe$Just(paths));
-			case 'Loading':
+					_jerith666$elbum$Main$Sizing,
+					_p22._0,
+					_p22._1,
+					_elm_lang$core$Maybe$Just(scroll));
+			case 'LoadingHomeLink':
 				return A4(
+					_jerith666$elbum$Main$LoadingHomeLink,
+					_p22._0,
+					_p22._1,
+					_p22._2,
+					_elm_lang$core$Maybe$Just(scroll));
+			case 'Loading':
+				return A5(
 					_jerith666$elbum$Main$Loading,
-					_p15._0,
-					_p15._1,
-					_p15._2,
-					_elm_lang$core$Maybe$Just(paths));
+					_p22._0,
+					_p22._1,
+					_p22._2,
+					_p22._3,
+					_elm_lang$core$Maybe$Just(scroll));
 			case 'LoadError':
-				return model;
-			case 'GettingScrollBootstrap':
 				return model;
 			case 'LoadedList':
 				return model;
 			default:
 				return model;
+		}
+	});
+var _jerith666$elbum$Main$NavInactive = {ctor: 'NavInactive'};
+var _jerith666$elbum$Main$NavInProgress = {ctor: 'NavInProgress'};
+var _jerith666$elbum$Main$withPaths = F2(
+	function (model, paths) {
+		var _p23 = model;
+		switch (_p23.ctor) {
+			case 'Sizing':
+				return A3(
+					_jerith666$elbum$Main$Sizing,
+					_p23._0,
+					_elm_lang$core$Maybe$Just(paths),
+					_p23._2);
+			case 'LoadingHomeLink':
+				return A4(
+					_jerith666$elbum$Main$LoadingHomeLink,
+					_p23._0,
+					_p23._1,
+					_elm_lang$core$Maybe$Just(paths),
+					_p23._3);
+			case 'Loading':
+				return A5(
+					_jerith666$elbum$Main$Loading,
+					_p23._0,
+					_p23._1,
+					_p23._2,
+					_elm_lang$core$Maybe$Just(paths),
+					_p23._4);
+			case 'LoadError':
+				return model;
+			case 'LoadedList':
+				return A6(_jerith666$elbum$Main$LoadedList, _p23._0, _p23._1, _p23._2, _p23._3, _p23._4, _jerith666$elbum$Main$NavInProgress);
+			default:
+				return A7(_jerith666$elbum$Main$LoadedAlbum, _p23._0, _p23._1, _p23._2, _p23._3, _p23._4, _p23._5, _jerith666$elbum$Main$NavInProgress);
 		}
 	});
 var _jerith666$elbum$Main$Failed = function (a) {
@@ -28141,23 +28253,106 @@ var _jerith666$elbum$Main$ReadyToDisplay = {ctor: 'ReadyToDisplay'};
 var _jerith666$elbum$Main$JustCompleted = {ctor: 'JustCompleted'};
 var _jerith666$elbum$Main$UrlRequested = {ctor: 'UrlRequested'};
 var _jerith666$elbum$Main$NoBootstrap = {ctor: 'NoBootstrap'};
+var _jerith666$elbum$Main$SequenceCmd = F2(
+	function (a, b) {
+		return {ctor: 'SequenceCmd', _0: a, _1: b};
+	});
+var _jerith666$elbum$Main$Sequence = F2(
+	function (a, b) {
+		return {ctor: 'Sequence', _0: a, _1: b};
+	});
+var _jerith666$elbum$Main$sequence = F2(
+	function (mm1, ms) {
+		sequence:
+		while (true) {
+			var _p24 = mm1;
+			if (_p24.ctor === 'Nothing') {
+				var _p25 = _elm_lang$core$List$tail(ms);
+				if (_p25.ctor === 'Nothing') {
+					var _p26 = _elm_lang$core$List$head(ms);
+					if (_p26.ctor === 'Nothing') {
+						return _jerith666$elbum$Main$NoBootstrap;
+					} else {
+						return _p26._0;
+					}
+				} else {
+					var _v27 = _elm_lang$core$List$head(ms),
+						_v28 = _p25._0;
+					mm1 = _v27;
+					ms = _v28;
+					continue sequence;
+				}
+			} else {
+				return A2(_jerith666$elbum$Main$Sequence, _p24._0, ms);
+			}
+		}
+	});
+var _jerith666$elbum$Main$Scroll = function (a) {
+	return {ctor: 'Scroll', _0: a};
+};
 var _jerith666$elbum$Main$Nav = function (a) {
 	return {ctor: 'Nav', _0: a};
 };
 var _jerith666$elbum$Main$navToMsg = function (loc) {
+	var parsedQuery = A2(
+		_elm_lang$core$Debug$log,
+		'parsedQuery',
+		_jerith666$elbum$LocationUtils$parseQuery(loc.search));
+	var queryMsgs = function () {
+		var _p27 = parsedQuery;
+		if (_p27.ctor === 'Err') {
+			return {ctor: '[]'};
+		} else {
+			return {
+				ctor: '::',
+				_0: _jerith666$elbum$Main$NoBootstrap,
+				_1: _jerith666$elbum$ListUtils$fromMaybe(
+					A2(
+						_elm_lang$core$Maybe$map,
+						_jerith666$elbum$Main$Scroll,
+						A2(
+							_elm_lang$core$Maybe$andThen,
+							function (_p28) {
+								return _elm_lang$core$Result$toMaybe(
+									_elm_lang$core$String$toFloat(_p28));
+							},
+							_p27._0._2)))
+			};
+		}
+	}();
 	var parsedHash = A2(
 		_elm_lang$core$Debug$log,
 		'parsedHash',
 		_jerith666$elbum$LocationUtils$parseHref(loc.hash));
-	var _p16 = parsedHash;
-	if (_p16.ctor === 'Err') {
+	var hashMsgs = function () {
+		var _p29 = parsedHash;
+		if (_p29.ctor === 'Err') {
+			return {ctor: '[]'};
+		} else {
+			return {
+				ctor: '::',
+				_0: _jerith666$elbum$Main$Nav(_p29._0._2),
+				_1: {ctor: '[]'}
+			};
+		}
+	}();
+	var _p30 = A2(_elm_lang$core$Basics_ops['++'], hashMsgs, queryMsgs);
+	if (_p30.ctor === '[]') {
 		return {ctor: '[]'};
 	} else {
-		return {
-			ctor: '::',
-			_0: _jerith666$elbum$Main$Nav(_p16._0._2),
-			_1: {ctor: '[]'}
-		};
+		if (_p30._1.ctor === '[]') {
+			return {
+				ctor: '::',
+				_0: _p30._0,
+				_1: {ctor: '[]'}
+			};
+		} else {
+			return {
+				ctor: '::',
+				_0: A2(_jerith666$elbum$Main$Sequence, _p30._0, _p30._1),
+				_1: {ctor: '[]'}
+			};
+		}
 	}
 };
 var _jerith666$elbum$Main$ScrollFailed = function (a) {
@@ -28167,20 +28362,39 @@ var _jerith666$elbum$Main$ScrollSucceeded = {ctor: 'ScrollSucceeded'};
 var _jerith666$elbum$Main$scrollToTop = A2(
 	_elm_lang$core$Task$attempt,
 	function (result) {
-		var _p17 = result;
-		if (_p17.ctor === 'Ok') {
+		var _p31 = result;
+		if (_p31.ctor === 'Ok') {
 			return _jerith666$elbum$Main$ScrollSucceeded;
 		} else {
 			return _jerith666$elbum$Main$ScrollFailed(_jerith666$elbum$AlbumStyles$rootDivId);
 		}
 	},
 	_elm_lang$dom$Dom_Scroll$toTop(_jerith666$elbum$AlbumStyles$rootDivId));
-var _jerith666$elbum$Main$GotScroll = function (a) {
-	return {ctor: 'GotScroll', _0: a};
+var _jerith666$elbum$Main$ScrolledTo = function (a) {
+	return {ctor: 'ScrolledTo', _0: a};
 };
-var _jerith666$elbum$Main$GetScroll = F2(
-	function (a, b) {
-		return {ctor: 'GetScroll', _0: a, _1: b};
+var _jerith666$elbum$Main$ScheduleScroll = function (a) {
+	return {ctor: 'ScheduleScroll', _0: a};
+};
+var _jerith666$elbum$Main$scrollToCmd = F2(
+	function (model, scroll) {
+		var scrollCmd = _elm_lang$core$Maybe$Just(
+			_jerith666$elbum$Main$ScheduleScroll(scroll));
+		var _p32 = model;
+		switch (_p32.ctor) {
+			case 'Sizing':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'LoadingHomeLink':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'Loading':
+				return _elm_lang$core$Maybe$Nothing;
+			case 'LoadError':
+				return A2(_elm_lang$core$Debug$log, 'scrollToCmd LoadError, ignore', _elm_lang$core$Maybe$Nothing);
+			case 'LoadedList':
+				return scrollCmd;
+			default:
+				return scrollCmd;
+		}
 	});
 var _jerith666$elbum$Main$ImageFailed = F2(
 	function (a, b) {
@@ -28191,8 +28405,8 @@ var _jerith666$elbum$Main$ImageReadyToDisplay = function (a) {
 };
 var _jerith666$elbum$Main$urlNextState = F2(
 	function (url, result) {
-		var _p18 = result;
-		if (_p18.ctor === 'JustCompleted') {
+		var _p33 = result;
+		if (_p33.ctor === 'JustCompleted') {
 			return A3(
 				_andrewMacmurray$elm_delay$Delay$after,
 				100,
@@ -28207,11 +28421,11 @@ var _jerith666$elbum$Main$ImageLoaded = function (a) {
 };
 var _jerith666$elbum$Main$decodeUrlResult = F2(
 	function (origUrl, result) {
-		var _p19 = result;
-		if (_p19.ctor === 'Ok') {
-			return _jerith666$elbum$Main$ImageLoaded(_p19._0);
+		var _p34 = result;
+		if (_p34.ctor === 'Ok') {
+			return _jerith666$elbum$Main$ImageLoaded(_p34._0);
 		} else {
-			return A2(_jerith666$elbum$Main$ImageFailed, origUrl, _p19._0);
+			return A2(_jerith666$elbum$Main$ImageFailed, origUrl, _p34._0);
 		}
 	});
 var _jerith666$elbum$Main$getUrl = function (url) {
@@ -28223,10 +28437,7 @@ var _jerith666$elbum$Main$getUrl = function (url) {
 				{
 					method: 'GET',
 					headers: {ctor: '[]'},
-					url: A2(
-						_elm_lang$core$Debug$log,
-						'getUrl',
-						_jerith666$elbum$ListUtils$encodePath(url)),
+					url: _jerith666$elbum$ListUtils$encodePath(url),
 					body: _elm_lang$http$Http$emptyBody,
 					expect: _elm_lang$http$Http$expectStringResponse(
 						_jerith666$elbum$Main$handleGetResponse(url)),
@@ -28249,21 +28460,21 @@ var _jerith666$elbum$Main$getUrls = F2(
 	});
 var _jerith666$elbum$Main$updateImageResult = F3(
 	function (model, url, result) {
-		var _p20 = model;
-		if (_p20.ctor === 'LoadedAlbum') {
-			var _p22 = _p20._4;
-			var _p21 = _p20._0;
-			if (_p21.ctor === 'Thumbs') {
-				var model = A6(_jerith666$elbum$Main$justLoadedReadyToDisplayNextState, _p21._0, _p21._1, _p21._2, _p21._3, url, result);
+		var _p35 = model;
+		if (_p35.ctor === 'LoadedAlbum') {
+			var _p37 = _p35._4;
+			var _p36 = _p35._0;
+			if (_p36.ctor === 'Thumbs') {
+				var model = A6(_jerith666$elbum$Main$justLoadedReadyToDisplayNextState, _p36._0, _p36._1, _p36._2, _p36._3, url, result);
 				var urls = _jerith666$elbum$AlbumPage$urlsToGet(model);
 				return {
 					ctor: '_Tuple2',
-					_0: A5(
+					_0: A7(
 						_jerith666$elbum$Main$LoadedAlbum,
 						model,
-						_p20._1,
-						_p20._2,
-						_p20._3,
+						_p35._1,
+						_p35._2,
+						_p35._3,
 						A2(
 							_elm_lang$core$Dict$union,
 							_elm_lang$core$Dict$fromList(
@@ -28274,12 +28485,14 @@ var _jerith666$elbum$Main$updateImageResult = F3(
 								}),
 							A2(
 								_elm_lang$core$Dict$union,
-								_p22,
-								A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested)))),
+								_p37,
+								A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested))),
+						_p35._5,
+						_p35._6),
 					_1: _elm_lang$core$Platform_Cmd$batch(
 						{
 							ctor: '::',
-							_0: A2(_jerith666$elbum$Main$getUrls, _p22, urls),
+							_0: A2(_jerith666$elbum$Main$getUrls, _p37, urls),
 							_1: {
 								ctor: '::',
 								_0: A2(_jerith666$elbum$Main$urlNextState, url, result),
@@ -28303,56 +28516,43 @@ var _jerith666$elbum$Main$ViewList = F2(
 		return {ctor: 'ViewList', _0: a, _1: b};
 	});
 var _jerith666$elbum$Main$viewList = F4(
-	function (oldModel, winSize, makeParents, list) {
+	function (oldModel, winSize, parents, list) {
 		return A2(
-			_jerith666$elbum$Main$GetScroll,
-			oldModel,
-			F2(
-				function (maybeScroll, oldModel2) {
-					return {
-						ctor: '_Tuple2',
-						_0: oldModel2,
-						_1: A2(
-							_jerith666$elbum$Main$ViewList,
-							A3(
-								_jerith666$elbum$AlbumListPage$AlbumListPage,
-								list,
-								winSize,
-								A2(
-									_jerith666$elbum$ListUtils$dropThroughPred,
-									function (_p23) {
-										var _p24 = _p23;
-										return _elm_lang$core$Native_Utils.eq(_p24._0, list);
-									},
-									makeParents(maybeScroll))),
-							function () {
-								if (A2(
-									_elm_lang$core$List$member,
+			_jerith666$elbum$Main$ViewList,
+			A3(
+				_jerith666$elbum$AlbumListPage$AlbumListPage,
+				list,
+				winSize,
+				A2(
+					_jerith666$elbum$ListUtils$dropThroughPred,
+					function (_p38) {
+						var _p39 = _p38;
+						return _elm_lang$core$Native_Utils.eq(_p39._0, list);
+					},
+					parents)),
+			function () {
+				if (A2(
+					_elm_lang$core$List$member,
+					list,
+					A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, parents))) {
+					var _p40 = _elm_lang$core$List$head(
+						A2(
+							_elm_lang$core$List$filter,
+							function (e) {
+								return _elm_lang$core$Native_Utils.eq(
 									list,
-									A2(
-										_elm_lang$core$List$map,
-										_elm_lang$core$Tuple$first,
-										makeParents(maybeScroll)))) {
-									var _p25 = _elm_lang$core$List$head(
-										A2(
-											_elm_lang$core$List$filter,
-											function (e) {
-												return _elm_lang$core$Native_Utils.eq(
-													list,
-													_elm_lang$core$Tuple$first(e));
-											},
-											makeParents(maybeScroll)));
-									if (_p25.ctor === 'Just') {
-										return _elm_lang$core$Tuple$second(_p25._0);
-									} else {
-										return _elm_lang$core$Maybe$Nothing;
-									}
-								} else {
-									return _elm_lang$core$Maybe$Nothing;
-								}
-							}())
-					};
-				}));
+									_elm_lang$core$Tuple$first(e));
+							},
+							parents));
+					if (_p40.ctor === 'Just') {
+						return _elm_lang$core$Tuple$second(_p40._0);
+					} else {
+						return _elm_lang$core$Maybe$Nothing;
+					}
+				} else {
+					return _elm_lang$core$Maybe$Nothing;
+				}
+			}());
 	});
 var _jerith666$elbum$Main$PageMsg = function (a) {
 	return {ctor: 'PageMsg', _0: a};
@@ -28365,46 +28565,44 @@ var _jerith666$elbum$Main$navForAlbum = F4(
 				return {ctor: '_Tuple2', _0: p, _1: _elm_lang$core$Maybe$Nothing};
 			},
 			newParents);
-		var _p26 = ps;
-		if (_p26.ctor === '[]') {
-			return _jerith666$elbum$Main$cmdOf(
+		var _p41 = ps;
+		if (_p41.ctor === '[]') {
+			return _elm_lang$core$Maybe$Just(
 				A2(
 					_jerith666$elbum$Main$ViewAlbum,
 					A4(_jerith666$elbum$AlbumPage$Thumbs, album, size, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
 					parentsNoScroll));
 		} else {
-			var _p27 = A3(
+			var _p42 = A3(
 				_jerith666$elbum$Main$findImg,
 				{ctor: '[]'},
 				album,
-				_p26._0);
-			if (_p27.ctor === 'Nothing') {
-				return _elm_lang$core$Platform_Cmd$none;
+				_p41._0);
+			if (_p42.ctor === 'Nothing') {
+				return _elm_lang$core$Maybe$Nothing;
 			} else {
-				var _p30 = _p27._0._1;
-				var _p28 = A3(_jerith666$elbum$FullImagePage$fitImage, _p30.imageFirst.srcSetFirst, size.width, size.height);
-				var w = _p28._0;
-				var h = _p28._1;
-				var _p29 = A4(_jerith666$elbum$AlbumPage$progInit, size, _p30.imageFirst, w, h);
-				var progModel = _p29._0;
-				var progCmd = _p29._1;
-				return _elm_lang$core$Platform_Cmd$batch(
-					{
-						ctor: '::',
-						_0: _jerith666$elbum$Main$cmdOf(
+				var _p46 = _p42._0._1;
+				var _p43 = A3(_jerith666$elbum$FullImagePage$fitImage, _p46.imageFirst.srcSetFirst, size.width, size.height);
+				var w = _p43._0;
+				var h = _p43._1;
+				var _p44 = A4(_jerith666$elbum$AlbumPage$progInit, size, _p46.imageFirst, w, h);
+				var progModel = _p44._0;
+				var progCmd = _p44._1;
+				return _elm_lang$core$Maybe$Just(
+					A2(
+						_jerith666$elbum$Main$Sequence,
+						A2(
+							_jerith666$elbum$Main$ViewAlbum,
+							A6(_jerith666$elbum$AlbumPage$FullImage, _p42._0._0, _p46, progModel, size, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing),
+							parentsNoScroll),
+						_jerith666$elbum$ListUtils$fromMaybe(
 							A2(
-								_jerith666$elbum$Main$ViewAlbum,
-								A6(_jerith666$elbum$AlbumPage$FullImage, _p27._0._0, _p30, progModel, size, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing),
-								parentsNoScroll)),
-						_1: {
-							ctor: '::',
-							_0: A2(
-								_elm_lang$core$Platform_Cmd$map,
-								_jerith666$elbum$Main$PageMsg,
-								A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$AlbumPage$FullMsg, progCmd)),
-							_1: {ctor: '[]'}
-						}
-					});
+								_elm_lang$core$Maybe$map,
+								function (_p45) {
+									return _jerith666$elbum$Main$PageMsg(
+										_jerith666$elbum$AlbumPage$FullMsg(_p45));
+								},
+								progCmd))));
 			}
 		}
 	});
@@ -28412,33 +28610,33 @@ var _jerith666$elbum$Main$navFrom = F5(
 	function (size, root, parents, paths, defcmd) {
 		navFrom:
 		while (true) {
-			var _p31 = paths;
-			if (_p31.ctor === '[]') {
+			var _p47 = paths;
+			if (_p47.ctor === '[]') {
 				return defcmd;
 			} else {
-				if ((_p31._0 === '#') && (_p31._1.ctor === '[]')) {
+				if ((_p47._0 === '#') && (_p47._1.ctor === '[]')) {
 					return defcmd;
 				} else {
-					var _p35 = _p31._1;
+					var _p51 = _p47._1;
 					var newParents = {ctor: '::', _0: root, _1: parents};
-					var mChild = A2(_jerith666$elbum$Main$findChild, root, _p31._0);
-					var _p32 = mChild;
-					if (_p32.ctor === 'Nothing') {
+					var mChild = A2(_jerith666$elbum$Main$findChild, root, _p47._0);
+					var _p48 = mChild;
+					if (_p48.ctor === 'Nothing') {
 						return defcmd;
 					} else {
-						var _p33 = _p32._0;
-						if (_p33.ctor === 'List') {
-							var _p34 = _p33._0;
-							var _v30 = size,
-								_v31 = _p34,
-								_v32 = newParents,
-								_v33 = _p35,
-								_v34 = _jerith666$elbum$Main$cmdOf(
+						var _p49 = _p48._0;
+						if (_p49.ctor === 'List') {
+							var _p50 = _p49._0;
+							var _v45 = size,
+								_v46 = _p50,
+								_v47 = newParents,
+								_v48 = _p51,
+								_v49 = _elm_lang$core$Maybe$Just(
 								A2(
 									_jerith666$elbum$Main$ViewList,
 									A3(
 										_jerith666$elbum$AlbumListPage$AlbumListPage,
-										_p34,
+										_p50,
 										size,
 										A2(
 											_elm_lang$core$List$map,
@@ -28447,14 +28645,14 @@ var _jerith666$elbum$Main$navFrom = F5(
 											},
 											newParents)),
 									_elm_lang$core$Maybe$Nothing));
-							size = _v30;
-							root = _v31;
-							parents = _v32;
-							paths = _v33;
-							defcmd = _v34;
+							size = _v45;
+							root = _v46;
+							parents = _v47;
+							paths = _v48;
+							defcmd = _v49;
 							continue navFrom;
 						} else {
-							return A4(_jerith666$elbum$Main$navForAlbum, size, _p33._0, _p35, newParents);
+							return A4(_jerith666$elbum$Main$navForAlbum, size, _p49._0, _p51, newParents);
 						}
 					}
 				}
@@ -28463,28 +28661,25 @@ var _jerith666$elbum$Main$navFrom = F5(
 	});
 var _jerith666$elbum$Main$pathsToCmdImpl = F3(
 	function (size, parents, paths) {
-		var mRoot = A2(
-			_elm_lang$core$Debug$log,
-			'mRoot',
-			_elm_lang$core$List$head(
-				_elm_lang$core$List$reverse(parents)));
-		var _p36 = mRoot;
-		if (_p36.ctor === 'Nothing') {
-			return _elm_lang$core$Platform_Cmd$none;
+		var mRoot = _elm_lang$core$List$head(
+			_elm_lang$core$List$reverse(parents));
+		var _p52 = mRoot;
+		if (_p52.ctor === 'Nothing') {
+			return _elm_lang$core$Maybe$Nothing;
 		} else {
-			var _p37 = _p36._0;
+			var _p53 = _p52._0;
 			return A5(
 				_jerith666$elbum$Main$navFrom,
 				size,
-				_p37,
+				_p53,
 				{ctor: '[]'},
 				paths,
-				_jerith666$elbum$Main$cmdOf(
+				_elm_lang$core$Maybe$Just(
 					A2(
 						_jerith666$elbum$Main$ViewList,
 						A3(
 							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							_p37,
+							_p53,
 							size,
 							{ctor: '[]'}),
 						_elm_lang$core$Maybe$Nothing)));
@@ -28492,129 +28687,109 @@ var _jerith666$elbum$Main$pathsToCmdImpl = F3(
 	});
 var _jerith666$elbum$Main$pathsToCmd = F2(
 	function (model, mPaths) {
-		var _p38 = mPaths;
-		if (_p38.ctor === 'Nothing') {
-			return _elm_lang$core$Platform_Cmd$none;
+		var _p54 = mPaths;
+		if (_p54.ctor === 'Nothing') {
+			return _elm_lang$core$Maybe$Nothing;
 		} else {
-			var _p40 = _p38._0;
-			var _p39 = model;
-			switch (_p39.ctor) {
+			var _p56 = _p54._0;
+			var _p55 = model;
+			switch (_p55.ctor) {
 				case 'Sizing':
-					return _elm_lang$core$Platform_Cmd$none;
+					return _elm_lang$core$Maybe$Nothing;
 				case 'LoadingHomeLink':
-					return _elm_lang$core$Platform_Cmd$none;
+					return _elm_lang$core$Maybe$Nothing;
 				case 'Loading':
-					return _elm_lang$core$Platform_Cmd$none;
+					return _elm_lang$core$Maybe$Nothing;
 				case 'LoadError':
-					return A2(_elm_lang$core$Debug$log, 'pathsToCmd LoadError, ignore', _elm_lang$core$Platform_Cmd$none);
-				case 'GettingScrollBootstrap':
-					return A2(_elm_lang$core$Debug$log, 'pathsToCmd GettingScrollBootstrap, ignore', _elm_lang$core$Platform_Cmd$none);
+					return A2(_elm_lang$core$Debug$log, 'pathsToCmd LoadError, ignore', _elm_lang$core$Maybe$Nothing);
 				case 'LoadedList':
 					return A3(
 						_jerith666$elbum$Main$pathsToCmdImpl,
-						_p39._0._1,
+						_p55._0._1,
 						{
 							ctor: '::',
-							_0: _p39._0._0,
-							_1: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p39._0._2)
+							_0: _p55._0._0,
+							_1: A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p55._0._2)
 						},
-						_p40);
+						_p56);
 				default:
 					return A3(
 						_jerith666$elbum$Main$pathsToCmdImpl,
-						_jerith666$elbum$Main$pageSize(_p39._0),
-						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p39._1),
-						_p40);
+						_jerith666$elbum$Main$pageSize(_p55._0),
+						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p55._1),
+						_p56);
 			}
 		}
 	});
 var _jerith666$elbum$Main$view = function (albumBootstrap) {
-	view:
-	while (true) {
-		var _p41 = albumBootstrap;
-		switch (_p41.ctor) {
-			case 'Sizing':
-				return _rtfeldman$elm_css$Html_Styled$text('Album Starting');
-			case 'LoadingHomeLink':
-				return _rtfeldman$elm_css$Html_Styled$text('Home Loading ...');
-			case 'Loading':
-				return _rtfeldman$elm_css$Html_Styled$text('Album Loading ...');
-			case 'LoadError':
-				return _rtfeldman$elm_css$Html_Styled$text(
-					A2(
-						_elm_lang$core$Basics_ops['++'],
-						'Error Loading Album: ',
-						_elm_lang$core$Basics$toString(_p41._1)));
-			case 'GettingScrollBootstrap':
-				var _v39 = _p41._0;
-				albumBootstrap = _v39;
-				continue view;
-			case 'LoadedAlbum':
-				var _p45 = _p41._1;
-				var _p44 = _p41._2;
-				var _p43 = _p41._0;
-				return A3(
-					_jerith666$elbum$Main$withHomeLink,
-					_p41._3,
-					_p44,
-					A5(
-						_jerith666$elbum$AlbumPage$view,
-						_p43,
-						A3(
-							_jerith666$elbum$Main$viewList,
-							albumBootstrap,
-							_jerith666$elbum$Main$pageSize(_p43),
-							function (_p42) {
-								return _p45;
-							}),
-						_jerith666$elbum$Main$PageMsg,
-						A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p45),
-						_p44));
-			default:
-				var _p49 = _p41._0._1;
-				var _p48 = _p41._0._2;
-				var _p47 = _p41._1;
-				var _p46 = _p41._0._0;
-				return A3(
-					_jerith666$elbum$Main$withHomeLink,
-					_p41._2,
-					_p47,
-					A4(
-						_jerith666$elbum$AlbumListPage$view,
-						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p46, _p49, _p48),
-						A3(
-							_jerith666$elbum$Main$viewList,
-							albumBootstrap,
-							_p49,
-							function (maybeScroll) {
-								return {
-									ctor: '::',
-									_0: {ctor: '_Tuple2', _0: _p46, _1: maybeScroll},
-									_1: _p48
-								};
-							}),
-						function (album) {
-							return A2(
-								_jerith666$elbum$Main$GetScroll,
-								albumBootstrap,
-								F2(
-									function (maybeScroll, oldModel) {
-										return {
-											ctor: '_Tuple2',
-											_0: oldModel,
-											_1: A2(
-												_jerith666$elbum$Main$ViewAlbum,
-												A4(_jerith666$elbum$AlbumPage$Thumbs, album, _p49, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
-												{
-													ctor: '::',
-													_0: {ctor: '_Tuple2', _0: _p46, _1: maybeScroll},
-													_1: _p48
-												})
-										};
-									}));
-						},
-						_p47));
-		}
+	var _p57 = albumBootstrap;
+	switch (_p57.ctor) {
+		case 'Sizing':
+			return _rtfeldman$elm_css$Html_Styled$text('Album Starting');
+		case 'LoadingHomeLink':
+			return _rtfeldman$elm_css$Html_Styled$text('Home Loading ...');
+		case 'Loading':
+			return _rtfeldman$elm_css$Html_Styled$text('Album Loading ...');
+		case 'LoadError':
+			return _rtfeldman$elm_css$Html_Styled$text(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'Error Loading Album: ',
+					_elm_lang$core$Basics$toString(_p57._1)));
+		case 'LoadedAlbum':
+			var _p60 = _p57._1;
+			var _p59 = _p57._2;
+			var _p58 = _p57._0;
+			return A3(
+				_jerith666$elbum$Main$withHomeLink,
+				_p57._3,
+				_p59,
+				A6(
+					_jerith666$elbum$AlbumPage$view,
+					_p58,
+					_jerith666$elbum$Main$ScrolledTo,
+					A3(
+						_jerith666$elbum$Main$viewList,
+						albumBootstrap,
+						_jerith666$elbum$Main$pageSize(_p58),
+						_p60),
+					_jerith666$elbum$Main$PageMsg,
+					A2(_elm_lang$core$List$map, _elm_lang$core$Tuple$first, _p60),
+					_p59));
+		default:
+			var _p65 = _p57._0._1;
+			var _p64 = _p57._4;
+			var _p63 = _p57._0._2;
+			var _p62 = _p57._1;
+			var _p61 = _p57._0._0;
+			return A3(
+				_jerith666$elbum$Main$withHomeLink,
+				_p57._2,
+				_p62,
+				A5(
+					_jerith666$elbum$AlbumListPage$view,
+					A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p61, _p65, _p63),
+					A3(
+						_jerith666$elbum$Main$viewList,
+						albumBootstrap,
+						_p65,
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: _p61, _1: _p64},
+							_1: _p63
+						}),
+					function (album) {
+						return A2(
+							_jerith666$elbum$Main$ViewAlbum,
+							A4(_jerith666$elbum$AlbumPage$Thumbs, album, _p65, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty),
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: _p61, _1: _p64},
+								_1: _p63
+							});
+					},
+					_jerith666$elbum$Main$ScrolledTo,
+					_p62));
 	}
 };
 var _jerith666$elbum$Main$NoAlbum = function (a) {
@@ -28624,18 +28799,18 @@ var _jerith666$elbum$Main$YesAlbum = function (a) {
 	return {ctor: 'YesAlbum', _0: a};
 };
 var _jerith666$elbum$Main$decodeAlbumRequest = function (r) {
-	var _p50 = r;
-	if (_p50.ctor === 'Ok') {
-		return _jerith666$elbum$Main$YesAlbum(_p50._0);
+	var _p66 = r;
+	if (_p66.ctor === 'Ok') {
+		return _jerith666$elbum$Main$YesAlbum(_p66._0);
 	} else {
-		return _jerith666$elbum$Main$NoAlbum(_p50._0);
+		return _jerith666$elbum$Main$NoAlbum(_p66._0);
 	}
 };
-var _jerith666$elbum$Main$gotHome = F4(
-	function (size, flags, paths, home) {
+var _jerith666$elbum$Main$gotHome = F5(
+	function (size, flags, paths, scroll, home) {
 		return {
 			ctor: '_Tuple2',
-			_0: A4(_jerith666$elbum$Main$Loading, size, flags, home, paths),
+			_0: A5(_jerith666$elbum$Main$Loading, size, flags, home, paths, scroll),
 			_1: A2(
 				_elm_lang$core$Task$attempt,
 				_jerith666$elbum$Main$decodeAlbumRequest,
@@ -28651,377 +28826,511 @@ var _jerith666$elbum$Main$YesHome = function (a) {
 };
 var _jerith666$elbum$Main$update = F2(
 	function (msg, model) {
-		update:
-		while (true) {
-			var _p51 = msg;
-			switch (_p51.ctor) {
-				case 'Resize':
-					var _p59 = _p51._0;
-					var _p52 = model;
-					switch (_p52.ctor) {
-						case 'Sizing':
-							return {
-								ctor: '_Tuple2',
-								_0: A3(
-									_jerith666$elbum$Main$LoadingHomeLink,
-									A2(_elm_lang$core$Debug$log, 'window size set', _p59),
-									_p52._0,
-									_p52._1),
-								_1: A2(
-									_elm_lang$http$Http$send,
-									A2(_jerith666$elbum$ResultUtils$either, _jerith666$elbum$Main$NoHome, _jerith666$elbum$Main$YesHome),
-									_elm_lang$http$Http$getString('home'))
-							};
-						case 'LoadingHomeLink':
-							return {
-								ctor: '_Tuple2',
-								_0: A3(_jerith666$elbum$Main$LoadingHomeLink, _p59, _p52._1, _p52._2),
-								_1: _elm_lang$core$Platform_Cmd$none
-							};
-						case 'Loading':
-							return {
-								ctor: '_Tuple2',
-								_0: A4(
-									_jerith666$elbum$Main$Loading,
-									A2(_elm_lang$core$Debug$log, 'window size updated during load', _p59),
-									_p52._1,
-									_p52._2,
-									_p52._3),
-								_1: _elm_lang$core$Platform_Cmd$none
-							};
-						case 'LoadError':
-							return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-						case 'GettingScrollBootstrap':
-							var _p53 = A2(_jerith666$elbum$Main$update, msg, _p52._0);
-							var newPrevModel = _p53._0;
-							return {
-								ctor: '_Tuple2',
-								_0: A2(_jerith666$elbum$Main$GettingScrollBootstrap, newPrevModel, _p52._1),
-								_1: _elm_lang$core$Platform_Cmd$none
-							};
-						case 'LoadedAlbum':
-							var _p58 = _p52._4;
-							var _p57 = _p52._1;
-							var _p56 = _p52._3;
-							var _p55 = _p52._2;
-							var _p54 = _p52._0;
-							switch (_p54.ctor) {
-								case 'GettingScroll':
-									var _v44 = msg,
-										_v45 = A5(_jerith666$elbum$Main$LoadedAlbum, _p54._5, _p57, _p55, _p56, _p58);
-									msg = _v44;
-									model = _v45;
-									continue update;
-								case 'Thumbs':
-									var model = A4(
-										_jerith666$elbum$AlbumPage$Thumbs,
-										_p54._0,
-										A2(_elm_lang$core$Debug$log, 'window size updated for thumbs', _p59),
-										_p54._2,
-										_p54._3);
-									var urls = _jerith666$elbum$AlbumPage$urlsToGet(model);
-									return {
-										ctor: '_Tuple2',
-										_0: A5(
-											_jerith666$elbum$Main$LoadedAlbum,
-											model,
-											_p57,
-											_p55,
-											_p56,
-											A2(
-												_elm_lang$core$Dict$union,
-												_p58,
-												A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested))),
-										_1: A2(_jerith666$elbum$Main$getUrls, _p58, urls)
-									};
-								default:
-									return {
-										ctor: '_Tuple2',
-										_0: A5(
-											_jerith666$elbum$Main$LoadedAlbum,
-											A6(
-												_jerith666$elbum$AlbumPage$FullImage,
-												_p54._0,
-												_p54._1,
-												_p54._2,
-												A2(_elm_lang$core$Debug$log, 'window size updated for full', _p59),
-												_p54._4,
-												_p54._5),
-											_p57,
-											_p55,
-											_p56,
-											_p58),
-										_1: _elm_lang$core$Platform_Cmd$none
-									};
-							}
-						default:
-							return {
-								ctor: '_Tuple2',
-								_0: A4(
-									_jerith666$elbum$Main$LoadedList,
-									A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p52._0._0, _p59, _p52._0._2),
-									_p52._1,
-									_p52._2,
-									_p52._3),
-								_1: _elm_lang$core$Platform_Cmd$none
-							};
-					}
-				case 'YesHome':
-					var _p60 = model;
-					if (_p60.ctor === 'LoadingHomeLink') {
-						return A4(
-							_jerith666$elbum$Main$gotHome,
-							_p60._0,
-							_p60._1,
-							_p60._2,
-							_elm_lang$core$Maybe$Just(_p51._0));
-					} else {
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-					}
-				case 'NoHome':
-					var _p61 = model;
-					if (_p61.ctor === 'LoadingHomeLink') {
-						return A4(_jerith666$elbum$Main$gotHome, _p61._0, _p61._1, _p61._2, _elm_lang$core$Maybe$Nothing);
-					} else {
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-					}
-				case 'YesAlbum':
-					var _p62 = model;
-					if (_p62.ctor === 'Loading') {
-						var _p69 = _p62._0;
-						var _p68 = _p62._3;
-						var _p67 = _p62._2;
-						var _p66 = _p62._1;
-						var _p63 = _p51._0;
-						if (_p63.ctor === 'List') {
-							var _p64 = _p63._0;
-							var newModel = A4(
-								_jerith666$elbum$Main$LoadedList,
-								A3(
-									_jerith666$elbum$AlbumListPage$AlbumListPage,
-									_p64,
-									_p69,
-									{ctor: '[]'}),
-								_p66,
-								_p67,
-								_elm_lang$core$Dict$empty);
-							return {
-								ctor: '_Tuple2',
-								_0: newModel,
-								_1: _elm_lang$core$Platform_Cmd$batch(
-									{
-										ctor: '::',
-										_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p68),
-										_1: {
-											ctor: '::',
-											_0: _jerith666$elbum$Title$setTitle(_p64.listTitle),
-											_1: {ctor: '[]'}
-										}
-									})
-							};
-						} else {
-							var _p65 = _p63._0;
-							var albumPage = A4(_jerith666$elbum$AlbumPage$Thumbs, _p65, _p69, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty);
-							var urls = _jerith666$elbum$AlbumPage$urlsToGet(albumPage);
-							var newModel = A5(
-								_jerith666$elbum$Main$LoadedAlbum,
-								albumPage,
-								{ctor: '[]'},
-								_p66,
-								_p67,
-								A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested));
-							return {
-								ctor: '_Tuple2',
-								_0: newModel,
-								_1: _elm_lang$core$Platform_Cmd$batch(
-									{
-										ctor: '::',
-										_0: A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p68),
-										_1: {
-											ctor: '::',
-											_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
-											_1: {
-												ctor: '::',
-												_0: _jerith666$elbum$Title$setTitle(_p65.title),
-												_1: {ctor: '[]'}
-											}
-										}
-									})
-							};
-						}
-					} else {
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-					}
-				case 'NoAlbum':
-					return {
-						ctor: '_Tuple2',
-						_0: A2(
-							_jerith666$elbum$Main$LoadError,
-							_jerith666$elbum$Main$flagsOf(model),
-							_p51._0),
-						_1: _elm_lang$core$Platform_Cmd$none
-					};
-				case 'PageMsg':
-					var _p72 = _p51._0;
-					var _p70 = model;
-					if (_p70.ctor === 'LoadedAlbum') {
-						var newPendingUrls = _jerith666$elbum$AlbumPage$resetUrls(_p72) ? _elm_lang$core$Dict$empty : _p70._4;
-						var _p71 = A2(_jerith666$elbum$AlbumPage$update, _p72, _p70._0);
-						var newPage = _p71._0;
-						var newPageCmd = _p71._1;
-						var urls = _jerith666$elbum$AlbumPage$urlsToGet(newPage);
+		var _p67 = A2(_elm_lang$core$Debug$log, 'update msg', msg);
+		switch (_p67.ctor) {
+			case 'Resize':
+				var _p76 = _p67._0;
+				var _p68 = model;
+				switch (_p68.ctor) {
+					case 'Sizing':
+						return {
+							ctor: '_Tuple2',
+							_0: A4(
+								_jerith666$elbum$Main$LoadingHomeLink,
+								A2(_elm_lang$core$Debug$log, 'window size set', _p76),
+								_p68._0,
+								_p68._1,
+								_p68._2),
+							_1: A2(
+								_elm_lang$http$Http$send,
+								A2(_jerith666$elbum$ResultUtils$either, _jerith666$elbum$Main$NoHome, _jerith666$elbum$Main$YesHome),
+								_elm_lang$http$Http$getString('home'))
+						};
+					case 'LoadingHomeLink':
+						return {
+							ctor: '_Tuple2',
+							_0: A4(_jerith666$elbum$Main$LoadingHomeLink, _p76, _p68._1, _p68._2, _p68._3),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					case 'Loading':
 						return {
 							ctor: '_Tuple2',
 							_0: A5(
-								_jerith666$elbum$Main$LoadedAlbum,
-								newPage,
-								_p70._1,
-								_p70._2,
-								_p70._3,
-								A2(
-									_elm_lang$core$Dict$union,
-									newPendingUrls,
-									A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested))),
+								_jerith666$elbum$Main$Loading,
+								A2(_elm_lang$core$Debug$log, 'window size updated during load', _p76),
+								_p68._1,
+								_p68._2,
+								_p68._3,
+								_p68._4),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					case 'LoadError':
+						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+					case 'LoadedAlbum':
+						var _p75 = _p68._5;
+						var _p74 = _p68._6;
+						var _p73 = _p68._4;
+						var _p72 = _p68._1;
+						var _p71 = _p68._3;
+						var _p70 = _p68._2;
+						var _p69 = _p68._0;
+						if (_p69.ctor === 'Thumbs') {
+							var model = A4(
+								_jerith666$elbum$AlbumPage$Thumbs,
+								_p69._0,
+								A2(_elm_lang$core$Debug$log, 'window size updated for thumbs', _p76),
+								_p69._2,
+								_p69._3);
+							var urls = _jerith666$elbum$AlbumPage$urlsToGet(model);
+							return {
+								ctor: '_Tuple2',
+								_0: A7(
+									_jerith666$elbum$Main$LoadedAlbum,
+									model,
+									_p72,
+									_p70,
+									_p71,
+									A2(
+										_elm_lang$core$Dict$union,
+										_p73,
+										A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested)),
+									_p75,
+									_p74),
+								_1: A2(_jerith666$elbum$Main$getUrls, _p73, urls)
+							};
+						} else {
+							return {
+								ctor: '_Tuple2',
+								_0: A7(
+									_jerith666$elbum$Main$LoadedAlbum,
+									A6(
+										_jerith666$elbum$AlbumPage$FullImage,
+										_p69._0,
+										_p69._1,
+										_p69._2,
+										A2(_elm_lang$core$Debug$log, 'window size updated for full', _p76),
+										_p69._4,
+										_p69._5),
+									_p72,
+									_p70,
+									_p71,
+									_p73,
+									_p75,
+									_p74),
+								_1: _elm_lang$core$Platform_Cmd$none
+							};
+						}
+					default:
+						return {
+							ctor: '_Tuple2',
+							_0: A6(
+								_jerith666$elbum$Main$LoadedList,
+								A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p68._0._0, _p76, _p68._0._2),
+								_p68._1,
+								_p68._2,
+								_p68._3,
+								_p68._4,
+								_p68._5),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+				}
+			case 'YesHome':
+				var _p77 = model;
+				if (_p77.ctor === 'LoadingHomeLink') {
+					return A5(
+						_jerith666$elbum$Main$gotHome,
+						_p77._0,
+						_p77._1,
+						_p77._2,
+						_p77._3,
+						_elm_lang$core$Maybe$Just(_p67._0));
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'NoHome':
+				var _p78 = model;
+				if (_p78.ctor === 'LoadingHomeLink') {
+					return A5(_jerith666$elbum$Main$gotHome, _p78._0, _p78._1, _p78._2, _p78._3, _elm_lang$core$Maybe$Nothing);
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'YesAlbum':
+				var _p79 = model;
+				if (_p79.ctor === 'Loading') {
+					var _p87 = _p79._0;
+					var _p86 = _p79._4;
+					var _p85 = _p79._3;
+					var _p84 = _p79._2;
+					var _p83 = _p79._1;
+					var _p80 = _p67._0;
+					if (_p80.ctor === 'List') {
+						var _p81 = _p80._0;
+						var newModel = A6(
+							_jerith666$elbum$Main$LoadedList,
+							A3(
+								_jerith666$elbum$AlbumListPage$AlbumListPage,
+								_p81,
+								_p87,
+								{ctor: '[]'}),
+							_p83,
+							_p84,
+							_elm_lang$core$Dict$empty,
+							_elm_lang$core$Maybe$Nothing,
+							_jerith666$elbum$Main$NavInactive);
+						var pathsThenScroll = _jerith666$elbum$ResultUtils$toCmd(
+							A2(
+								_jerith666$elbum$Main$sequence,
+								A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p85),
+								_jerith666$elbum$ListUtils$fromMaybe(
+									A2(_jerith666$elbum$Main$scrollToCmd, newModel, _p86))));
+						return {
+							ctor: '_Tuple2',
+							_0: newModel,
 							_1: _elm_lang$core$Platform_Cmd$batch(
 								{
 									ctor: '::',
-									_0: A2(_jerith666$elbum$Main$getUrls, newPendingUrls, urls),
+									_0: _jerith666$elbum$Title$setTitle(_p81.listTitle),
 									_1: {
 										ctor: '::',
-										_0: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$Main$PageMsg, newPageCmd),
+										_0: pathsThenScroll,
+										_1: {ctor: '[]'}
+									}
+								})
+						};
+					} else {
+						var _p82 = _p80._0;
+						var albumPage = A4(_jerith666$elbum$AlbumPage$Thumbs, _p82, _p87, _elm_lang$core$Set$empty, _elm_lang$core$Set$empty);
+						var urls = _jerith666$elbum$AlbumPage$urlsToGet(albumPage);
+						var newModel = A7(
+							_jerith666$elbum$Main$LoadedAlbum,
+							albumPage,
+							{ctor: '[]'},
+							_p83,
+							_p84,
+							A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested),
+							_elm_lang$core$Maybe$Nothing,
+							_jerith666$elbum$Main$NavInactive);
+						var pathsThenScroll = _jerith666$elbum$ResultUtils$toCmd(
+							A2(
+								_jerith666$elbum$Main$sequence,
+								A2(_jerith666$elbum$Main$pathsToCmd, newModel, _p85),
+								_jerith666$elbum$ListUtils$fromMaybe(
+									A2(_jerith666$elbum$Main$scrollToCmd, newModel, _p86))));
+						return {
+							ctor: '_Tuple2',
+							_0: newModel,
+							_1: _elm_lang$core$Platform_Cmd$batch(
+								{
+									ctor: '::',
+									_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
+									_1: {
+										ctor: '::',
+										_0: _jerith666$elbum$Title$setTitle(_p82.title),
 										_1: {
 											ctor: '::',
-											_0: _jerith666$elbum$Title$setTitle(
-												_jerith666$elbum$AlbumPage$titleOf(newPage)),
+											_0: pathsThenScroll,
 											_1: {ctor: '[]'}
 										}
 									}
 								})
 						};
-					} else {
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 					}
-				case 'ImageLoaded':
-					return A3(_jerith666$elbum$Main$updateImageResult, model, _p51._0, _jerith666$elbum$Main$JustCompleted);
-				case 'ImageReadyToDisplay':
-					return A3(_jerith666$elbum$Main$updateImageResult, model, _p51._0, _jerith666$elbum$Main$ReadyToDisplay);
-				case 'ImageFailed':
-					return A3(
-						_jerith666$elbum$Main$updateImageResult,
-						model,
-						_p51._0,
-						_jerith666$elbum$Main$Failed(_p51._1));
-				case 'ViewList':
-					var _p76 = _p51._0;
-					var title = function () {
-						var _p73 = _p76;
-						return _p73._0.listTitle;
-					}();
-					var scrollCmd = function () {
-						var _p74 = _p51._1;
-						if (_p74.ctor === 'Just') {
-							return A2(
-								_elm_lang$core$Task$attempt,
-								function (_p75) {
-									return _jerith666$elbum$Main$NoBootstrap;
-								},
-								A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p74._0));
-						} else {
-							return _jerith666$elbum$Main$scrollToTop;
-						}
-					}();
-					var newModel = A4(
-						_jerith666$elbum$Main$LoadedList,
-						_p76,
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'NoAlbum':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(
+						_jerith666$elbum$Main$LoadError,
 						_jerith666$elbum$Main$flagsOf(model),
-						_jerith666$elbum$Main$homeOf(model),
-						_elm_lang$core$Dict$empty);
+						_p67._0),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'PageMsg':
+				var _p91 = _p67._0;
+				var _p88 = model;
+				if (_p88.ctor === 'LoadedAlbum') {
+					var _p90 = _p88._5;
+					var newPendingUrls = _jerith666$elbum$AlbumPage$resetUrls(_p91) ? _elm_lang$core$Dict$empty : _p88._4;
+					var _p89 = A3(_jerith666$elbum$AlbumPage$update, _p91, _p88._0, _p90);
+					var newPage = _p89._0;
+					var newPageCmd = _p89._1;
+					var urls = _jerith666$elbum$AlbumPage$urlsToGet(newPage);
 					return {
 						ctor: '_Tuple2',
-						_0: newModel,
+						_0: A7(
+							_jerith666$elbum$Main$LoadedAlbum,
+							newPage,
+							_p88._1,
+							_p88._2,
+							_p88._3,
+							A2(
+								_elm_lang$core$Dict$union,
+								newPendingUrls,
+								A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested)),
+							_p90,
+							_p88._6),
 						_1: _elm_lang$core$Platform_Cmd$batch(
 							{
 								ctor: '::',
-								_0: scrollCmd,
+								_0: A2(_jerith666$elbum$Main$getUrls, newPendingUrls, urls),
 								_1: {
 									ctor: '::',
-									_0: _jerith666$elbum$Title$setTitle(title),
-									_1: {ctor: '[]'}
-								}
-							})
-					};
-				case 'ViewAlbum':
-					var _p77 = _p51._0;
-					var urls = _jerith666$elbum$AlbumPage$urlsToGet(_p77);
-					var newModel = A5(
-						_jerith666$elbum$Main$LoadedAlbum,
-						_p77,
-						_p51._1,
-						_jerith666$elbum$Main$flagsOf(model),
-						_jerith666$elbum$Main$homeOf(model),
-						A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested));
-					return {
-						ctor: '_Tuple2',
-						_0: newModel,
-						_1: _elm_lang$core$Platform_Cmd$batch(
-							{
-								ctor: '::',
-								_0: _jerith666$elbum$Main$scrollToTop,
-								_1: {
-									ctor: '::',
-									_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
+									_0: A2(_elm_lang$core$Platform_Cmd$map, _jerith666$elbum$Main$PageMsg, newPageCmd),
 									_1: {
 										ctor: '::',
 										_0: _jerith666$elbum$Title$setTitle(
-											_jerith666$elbum$AlbumPage$titleOf(_p77)),
+											_jerith666$elbum$AlbumPage$titleOf(newPage)),
 										_1: {ctor: '[]'}
 									}
 								}
 							})
 					};
-				case 'GetScroll':
-					return {
-						ctor: '_Tuple2',
-						_0: A2(_jerith666$elbum$Main$GettingScrollBootstrap, _p51._0, _p51._1),
-						_1: A2(
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'ImageLoaded':
+				return A3(_jerith666$elbum$Main$updateImageResult, model, _p67._0, _jerith666$elbum$Main$JustCompleted);
+			case 'ImageReadyToDisplay':
+				return A3(_jerith666$elbum$Main$updateImageResult, model, _p67._0, _jerith666$elbum$Main$ReadyToDisplay);
+			case 'ImageFailed':
+				return A3(
+					_jerith666$elbum$Main$updateImageResult,
+					model,
+					_p67._0,
+					_jerith666$elbum$Main$Failed(_p67._1));
+			case 'ViewList':
+				var _p95 = _p67._0;
+				var title = function () {
+					var _p92 = _p95;
+					return _p92._0.listTitle;
+				}();
+				var scrollCmd = function () {
+					var _p93 = _p67._1;
+					if (_p93.ctor === 'Just') {
+						return A2(
 							_elm_lang$core$Task$attempt,
-							function (_p78) {
-								return _jerith666$elbum$Main$GotScroll(
-									_elm_lang$core$Result$toMaybe(_p78));
+							function (_p94) {
+								return _jerith666$elbum$Main$NoBootstrap;
 							},
-							_elm_lang$dom$Dom_Scroll$y(_jerith666$elbum$AlbumStyles$rootDivId))
-					};
-				case 'GotScroll':
-					var _p79 = model;
-					if (_p79.ctor === 'GettingScrollBootstrap') {
-						var _p80 = A2(_p79._1, _p51._0, _p79._0);
-						var model = _p80._0;
-						var msg = _p80._1;
-						return {
-							ctor: '_Tuple2',
-							_0: model,
-							_1: _jerith666$elbum$Main$cmdOf(msg)
-						};
+							A2(_elm_lang$dom$Dom_Scroll$toY, _jerith666$elbum$AlbumStyles$rootDivId, _p93._0));
 					} else {
-						return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+						return _jerith666$elbum$Main$scrollToTop;
 					}
-				case 'ScrollSucceeded':
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				case 'ScrollFailed':
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-				case 'Nav':
-					var _p81 = _p51._0;
+				}();
+				var newModel = A6(
+					_jerith666$elbum$Main$LoadedList,
+					_p95,
+					_jerith666$elbum$Main$flagsOf(model),
+					_jerith666$elbum$Main$homeOf(model),
+					_elm_lang$core$Dict$empty,
+					_elm_lang$core$Maybe$Nothing,
+					_jerith666$elbum$Main$NavInactive);
+				return {
+					ctor: '_Tuple2',
+					_0: newModel,
+					_1: _elm_lang$core$Platform_Cmd$batch(
+						{
+							ctor: '::',
+							_0: scrollCmd,
+							_1: {
+								ctor: '::',
+								_0: _jerith666$elbum$Title$setTitle(title),
+								_1: {ctor: '[]'}
+							}
+						})
+				};
+			case 'ViewAlbum':
+				var _p96 = _p67._0;
+				var urls = _jerith666$elbum$AlbumPage$urlsToGet(_p96);
+				var newModel = A7(
+					_jerith666$elbum$Main$LoadedAlbum,
+					_p96,
+					_p67._1,
+					_jerith666$elbum$Main$flagsOf(model),
+					_jerith666$elbum$Main$homeOf(model),
+					A2(_jerith666$elbum$ListUtils$dictWithValues, urls, _jerith666$elbum$Main$UrlRequested),
+					_elm_lang$core$Maybe$Nothing,
+					_jerith666$elbum$Main$NavInactive);
+				return {
+					ctor: '_Tuple2',
+					_0: newModel,
+					_1: _elm_lang$core$Platform_Cmd$batch(
+						{
+							ctor: '::',
+							_0: _jerith666$elbum$Main$scrollToTop,
+							_1: {
+								ctor: '::',
+								_0: A2(_jerith666$elbum$Main$getUrls, _elm_lang$core$Dict$empty, urls),
+								_1: {
+									ctor: '::',
+									_0: _jerith666$elbum$Title$setTitle(
+										_jerith666$elbum$AlbumPage$titleOf(_p96)),
+									_1: {ctor: '[]'}
+								}
+							}
+						})
+				};
+			case 'ScrolledTo':
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_jerith666$elbum$Main$withScrollPos, _p67._0, model),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'ScheduleScroll':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: A2(
+						_elm_lang$core$Maybe$withDefault,
+						_elm_lang$core$Platform_Cmd$none,
+						A2(
+							_elm_lang$core$Maybe$map,
+							function (s) {
+								return A2(
+									_elm_lang$core$Task$attempt,
+									function (_p97) {
+										return _jerith666$elbum$Main$NoBootstrap;
+									},
+									A2(
+										_elm_lang$dom$Dom_Scroll$toY,
+										_jerith666$elbum$AlbumStyles$rootDivId,
+										A2(_elm_lang$core$Debug$log, 'startup scroll to', s)));
+							},
+							_p67._0))
+				};
+			case 'ScrollSucceeded':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'ScrollFailed':
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'Scroll':
+				var _p98 = _p67._0;
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_jerith666$elbum$Main$withScroll, model, _p98),
+					_1: _jerith666$elbum$ResultUtils$toCmd(
+						A2(
+							_elm_lang$core$Maybe$withDefault,
+							_jerith666$elbum$Main$NoBootstrap,
+							A2(
+								_jerith666$elbum$Main$scrollToCmd,
+								model,
+								_elm_lang$core$Maybe$Just(_p98))))
+				};
+			case 'Nav':
+				var _p99 = _p67._0;
+				return {
+					ctor: '_Tuple2',
+					_0: A2(_jerith666$elbum$Main$withPaths, model, _p99),
+					_1: _jerith666$elbum$ResultUtils$toCmd(
+						A2(
+							_elm_lang$core$Maybe$withDefault,
+							_jerith666$elbum$Main$NoBootstrap,
+							A2(
+								_jerith666$elbum$Main$pathsToCmd,
+								model,
+								_elm_lang$core$Maybe$Just(_p99))))
+				};
+			case 'Sequence':
+				var _p106 = _p67._0;
+				var _p100 = A2(_jerith666$elbum$Main$update, _p106, model);
+				var nextModel = _p100._0;
+				var nextCmd = _p100._1;
+				var _p101 = _p67._1;
+				if (_p101.ctor === '[]') {
 					return {
 						ctor: '_Tuple2',
-						_0: A2(_jerith666$elbum$Main$withPaths, model, _p81),
+						_0: nextModel,
 						_1: A2(
-							_jerith666$elbum$Main$pathsToCmd,
-							model,
-							_elm_lang$core$Maybe$Just(_p81))
+							_elm_lang$core$Debug$log,
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'sequence msg ',
+								A2(
+									_elm_lang$core$Basics_ops['++'],
+									_elm_lang$core$Basics$toString(_p106),
+									' (last) produces cmd')),
+							nextCmd)
 					};
-				default:
-					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
-			}
+				} else {
+					var _p102 = A2(_jerith666$elbum$Main$update, _p101._0, nextModel);
+					var r1Model = _p102._0;
+					var r1Cmds = _p102._1;
+					var _p103 = function () {
+						var _p104 = _p101._1;
+						if (_p104.ctor === '[]') {
+							return {ctor: '_Tuple2', _0: r1Model, _1: r1Cmds};
+						} else {
+							var _p105 = A2(
+								_jerith666$elbum$Main$update,
+								A2(_jerith666$elbum$Main$Sequence, _p104._0, _p104._1),
+								r1Model);
+							var rsModel = _p105._0;
+							var rsCmds = _p105._1;
+							return {
+								ctor: '_Tuple2',
+								_0: rsModel,
+								_1: _jerith666$elbum$ResultUtils$toCmd(
+									A2(
+										_jerith666$elbum$Main$SequenceCmd,
+										r1Cmds,
+										{
+											ctor: '::',
+											_0: rsCmds,
+											_1: {ctor: '[]'}
+										}))
+							};
+						}
+					}();
+					var rModel = _p103._0;
+					var rCmds = _p103._1;
+					return {
+						ctor: '_Tuple2',
+						_0: rModel,
+						_1: _jerith666$elbum$ResultUtils$toCmd(
+							A2(
+								_jerith666$elbum$Main$SequenceCmd,
+								A2(
+									_elm_lang$core$Debug$log,
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										'sequence msg ',
+										A2(
+											_elm_lang$core$Basics_ops['++'],
+											_elm_lang$core$Basics$toString(_p106),
+											' (cont\'d) produces cmd')),
+									nextCmd),
+								{
+									ctor: '::',
+									_0: rCmds,
+									_1: {ctor: '[]'}
+								}))
+					};
+				}
+			case 'SequenceCmd':
+				var _p108 = _p67._0;
+				var cmds = function () {
+					var _p107 = _p67._1;
+					if (_p107.ctor === '[]') {
+						return A2(_elm_lang$core$Debug$log, 'sequenced cmd: last', _p108);
+					} else {
+						return _elm_lang$core$Platform_Cmd$batch(
+							{
+								ctor: '::',
+								_0: A2(_elm_lang$core$Debug$log, 'sequenced cmd: next', _p108),
+								_1: {
+									ctor: '::',
+									_0: _jerith666$elbum$ResultUtils$toCmd(
+										A2(_jerith666$elbum$Main$SequenceCmd, _p107._0, _p107._1)),
+									_1: {ctor: '[]'}
+								}
+							});
+					}
+				}();
+				return {ctor: '_Tuple2', _0: model, _1: cmds};
+			default:
+				return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 		}
 	});
 var _jerith666$elbum$Main$Resize = function (a) {
@@ -29030,34 +29339,34 @@ var _jerith666$elbum$Main$Resize = function (a) {
 var _jerith666$elbum$Main$init = function (flags) {
 	return {
 		ctor: '_Tuple2',
-		_0: A2(_jerith666$elbum$Main$Sizing, flags, _elm_lang$core$Maybe$Nothing),
+		_0: A3(_jerith666$elbum$Main$Sizing, flags, _elm_lang$core$Maybe$Nothing, _elm_lang$core$Maybe$Nothing),
 		_1: A2(_elm_lang$core$Task$perform, _jerith666$elbum$Main$Resize, _elm_lang$window$Window$size)
 	};
 };
 var _jerith666$elbum$Main$subscriptions = function (model) {
-	var _p82 = model;
-	switch (_p82.ctor) {
+	var _p109 = model;
+	switch (_p109.ctor) {
 		case 'LoadedAlbum':
-			var _p84 = _p82._0;
+			var _p111 = _p109._0;
 			var showParent = function () {
-				var _p83 = _p82._1;
-				if (_p83.ctor === '[]') {
+				var _p110 = _p109._1;
+				if (_p110.ctor === '[]') {
 					return _jerith666$elbum$Main$NoBootstrap;
 				} else {
 					return A2(
 						_jerith666$elbum$Main$ViewList,
 						A3(
 							_jerith666$elbum$AlbumListPage$AlbumListPage,
-							_p83._0._0,
-							_jerith666$elbum$Main$pageSize(_p84),
-							_p83._1),
-						_p83._0._1);
+							_p110._0._0,
+							_jerith666$elbum$Main$pageSize(_p111),
+							_p110._1),
+						_p110._0._1);
 				}
 			}();
 			return _elm_lang$core$Platform_Sub$batch(
 				{
 					ctor: '::',
-					_0: A3(_jerith666$elbum$AlbumPage$subscriptions, _p84, _jerith666$elbum$Main$PageMsg, showParent),
+					_0: A3(_jerith666$elbum$AlbumPage$subscriptions, _p111, _jerith666$elbum$Main$PageMsg, showParent),
 					_1: {
 						ctor: '::',
 						_0: _elm_lang$window$Window$resizes(_jerith666$elbum$Main$Resize),
@@ -29065,16 +29374,16 @@ var _jerith666$elbum$Main$subscriptions = function (model) {
 					}
 				});
 		case 'LoadedList':
-			var _p85 = _p82._0._2;
-			if (_p85.ctor === '[]') {
+			var _p112 = _p109._0._2;
+			if (_p112.ctor === '[]') {
 				return _elm_lang$window$Window$resizes(_jerith666$elbum$Main$Resize);
 			} else {
 				var upParent = A2(
 					_jerith666$elbum$KeyboardUtils$onEscape,
 					A2(
 						_jerith666$elbum$Main$ViewList,
-						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p85._0._0, _p82._0._1, _p85._1),
-						_p85._0._1),
+						A3(_jerith666$elbum$AlbumListPage$AlbumListPage, _p112._0._0, _p109._0._1, _p112._1),
+						_p112._0._1),
 					_jerith666$elbum$Main$NoBootstrap);
 				return _elm_lang$core$Platform_Sub$batch(
 					{
@@ -29094,15 +29403,13 @@ var _jerith666$elbum$Main$subscriptions = function (model) {
 var _jerith666$elbum$Main$main = _rgrempel$elm_route_url$RouteUrl$programWithFlags(
 	{
 		init: _jerith666$elbum$Main$init,
-		view: function (_p86) {
+		view: function (_p113) {
 			return _rtfeldman$elm_css$Html_Styled$toUnstyled(
-				_jerith666$elbum$Main$view(_p86));
+				_jerith666$elbum$Main$view(_p113));
 		},
 		update: _jerith666$elbum$Main$update,
 		subscriptions: _jerith666$elbum$Main$subscriptions,
-		delta2url: function (_p87) {
-			return _jerith666$elbum$Main$locFor;
-		},
+		delta2url: _jerith666$elbum$Main$locFor,
 		location2messages: _jerith666$elbum$Main$navToMsg
 	})(
 	A2(
