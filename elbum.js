@@ -15115,7 +15115,13 @@ var author$project$FullImagePage$navEltIf = F4(
 	function (lst, navMsg, navTxt, navAlign) {
 		return elm$core$List$isEmpty(lst) ? _List_Nil : _List_fromArray(
 			[
-				A3(author$project$AlbumStyles$navElement, navMsg, navTxt, navAlign)
+				A3(
+				author$project$AlbumStyles$navElement,
+				navMsg,
+				navTxt(
+					elm$core$String$fromInt(
+						elm$core$List$length(lst))),
+				navAlign)
 			]);
 	});
 var elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
@@ -16050,9 +16056,23 @@ var author$project$FullImagePage$view = F7(
 						A4(author$project$FullImagePage$viewImg, navMsgs.dx, touchMsgs, wrapProgMsg, fullImagePageModel)
 					]),
 				_Utils_ap(
-					A4(author$project$FullImagePage$navEltIf, fullImagePageModel.ag, navMsgs.dG, '<', rtfeldman$elm_css$Css$left),
+					A4(
+						author$project$FullImagePage$navEltIf,
+						fullImagePageModel.ag,
+						navMsgs.dG,
+						function (l) {
+							return '< ' + l;
+						},
+						rtfeldman$elm_css$Css$left),
 					_Utils_ap(
-						A4(author$project$FullImagePage$navEltIf, fullImagePageModel.f.bI, navMsgs.dx, '>', rtfeldman$elm_css$Css$right),
+						A4(
+							author$project$FullImagePage$navEltIf,
+							fullImagePageModel.f.bI,
+							navMsgs.dx,
+							function (l) {
+								return l + ' >';
+							},
+							rtfeldman$elm_css$Css$right),
 						_List_fromArray(
 							[
 								A2(
