@@ -7045,16 +7045,77 @@ var $elm$core$Maybe$map = F2(
 			return $elm$core$Maybe$Nothing;
 		}
 	});
+var $author$project$Main$NotFullyLoaded = 0;
+var $author$project$Main$ViewingChild = 2;
+var $author$project$Main$ViewingRoot = 1;
+var $author$project$Main$rootViewStateOf = function (model) {
+	switch (model.$) {
+		case 0:
+			return 0;
+		case 1:
+			return 0;
+		case 2:
+			return 0;
+		case 3:
+			return 0;
+		case 4:
+			return 0;
+		case 5:
+			var ll = model.a;
+			var _v1 = ll.x;
+			var alp = _v1;
+			var _v2 = alp.bB;
+			if (!_v2.b) {
+				return 1;
+			} else {
+				return 2;
+			}
+		default:
+			var la = model.a;
+			var _v3 = la.bB;
+			if (!_v3.b) {
+				return 1;
+			} else {
+				return 2;
+			}
+	}
+};
 var $author$project$Main$locFor = F2(
 	function (oldModel, newModel) {
+		var noChangeRootToRoot = function (rf) {
+			var _v7 = $author$project$Main$rootViewStateOf(newModel);
+			switch (_v7) {
+				case 1:
+					var emptyRfToNothing = function () {
+						if (rf === '') {
+							return $elm$core$Maybe$Nothing;
+						} else {
+							return $elm$core$Maybe$Just(rf);
+						}
+					}();
+					var _v8 = $author$project$Main$rootViewStateOf(oldModel);
+					switch (_v8) {
+						case 1:
+							return emptyRfToNothing;
+						case 0:
+							return emptyRfToNothing;
+						default:
+							return $elm$core$Maybe$Just(rf);
+					}
+				case 0:
+					return $elm$core$Maybe$Just(rf);
+				default:
+					return $elm$core$Maybe$Just(rf);
+			}
+		};
 		var entry = function () {
 			switch (oldModel.$) {
 				case 5:
 					var ll = oldModel.a;
 					if (newModel.$ === 5) {
 						var ll2 = newModel.a;
-						var _v5 = _Utils_eq(ll.y, ll2.y);
-						if (_v5) {
+						var _v4 = _Utils_eq(ll.x, ll2.x);
+						if (_v4) {
 							return A2($author$project$Utils$DebugSupport$log, 'locFor LoadedList same', 1);
 						} else {
 							return A2($author$project$Utils$DebugSupport$log, 'locFor LoadedList dift', 0);
@@ -7066,8 +7127,8 @@ var $author$project$Main$locFor = F2(
 					var la = oldModel.a;
 					if (newModel.$ === 6) {
 						var la2 = newModel.a;
-						var _v7 = A2($author$project$AlbumPage$eqIgnoringVpInfo, la.j, la2.j) && _Utils_eq(la.bB, la2.bB);
-						if (_v7) {
+						var _v6 = A2($author$project$AlbumPage$eqIgnoringVpInfo, la.j, la2.j) && _Utils_eq(la.bB, la2.bB);
+						if (_v6) {
 							return A2($author$project$Utils$DebugSupport$log, 'locFor LoadedAlbum same', 1);
 						} else {
 							return A2($author$project$Utils$DebugSupport$log, 'locFor LoadedAlbum dift', 0);
@@ -7081,11 +7142,11 @@ var $author$project$Main$locFor = F2(
 		}();
 		var checkNavState = F2(
 			function (state, nav) {
-				var _v2 = A2($author$project$Utils$DebugSupport$log, 'checkNavState', state);
-				if (!_v2) {
+				var _v1 = A2($author$project$Utils$DebugSupport$log, 'checkNavState', state);
+				if (!_v1) {
 					return $elm$core$Maybe$Nothing;
 				} else {
-					return nav;
+					return $elm$core$Maybe$Just(nav);
 				}
 			});
 		var rawFragment = A2(
@@ -7098,18 +7159,16 @@ var $author$project$Main$locFor = F2(
 						return A2(
 							checkNavState,
 							la.Q,
-							$elm$core$Maybe$Just(
-								A2(
-									$author$project$AlbumPage$hashForAlbum,
-									la.j,
-									A2($elm$core$List$map, $elm$core$Tuple$first, la.bB))));
+							A2(
+								$author$project$AlbumPage$hashForAlbum,
+								la.j,
+								A2($elm$core$List$map, $elm$core$Tuple$first, la.bB)));
 					case 5:
 						var ll = newModel.a;
 						return A2(
 							checkNavState,
 							ll.Q,
-							$elm$core$Maybe$Just(
-								$author$project$AlbumListPage$hashForList(ll.y)));
+							$author$project$AlbumListPage$hashForList(ll.x));
 					default:
 						return $elm$core$Maybe$Nothing;
 				}
@@ -7120,16 +7179,7 @@ var $author$project$Main$locFor = F2(
 			A2(
 				$elm$core$Maybe$map,
 				$author$project$RouteUrl$NewFragment(entry),
-				A2(
-					$elm$core$Maybe$andThen,
-					function (rf) {
-						if (rf === '') {
-							return $elm$core$Maybe$Nothing;
-						} else {
-							return $elm$core$Maybe$Just(rf);
-						}
-					},
-					rawFragment)));
+				A2($elm$core$Maybe$andThen, noChangeRootToRoot, rawFragment)));
 	});
 var $rtfeldman$elm_css$VirtualDom$Styled$Node = F3(
 	function (a, b, c) {
@@ -8509,7 +8559,7 @@ var $author$project$ProgressiveImage$subscriptions = function (_v0) {
 				$mdgriffith$elm_style_animation$Animation$subscription,
 				$author$project$ProgressiveImage$AnimatePlaceholder,
 				_List_fromArray(
-					[piModel.f.x])),
+					[piModel.f.y])),
 				A2(
 				$mdgriffith$elm_style_animation$Animation$subscription,
 				$author$project$ProgressiveImage$AnimateMain,
@@ -8652,7 +8702,7 @@ var $author$project$Main$subscriptions = function (model) {
 					]));
 		case 5:
 			var ll = model.a;
-			var _v3 = ll.y;
+			var _v3 = ll.x;
 			var alp = _v3;
 			var _v4 = alp.bB;
 			if (!_v4.b) {
@@ -10400,7 +10450,7 @@ var $author$project$ProgressiveImage$updateCmd = function (_v0) {
 var $author$project$ProgressiveImage$init = function (data) {
 	var animState = {
 		_: $mdgriffith$elm_style_animation$Animation$style($author$project$ProgressiveImage$hidden),
-		x: $mdgriffith$elm_style_animation$Animation$style($author$project$ProgressiveImage$hidden)
+		y: $mdgriffith$elm_style_animation$Animation$style($author$project$ProgressiveImage$hidden)
 	};
 	var model = function () {
 		var _v0 = data.ev;
@@ -10466,7 +10516,7 @@ var $author$project$Main$navForAlbum = F6(
 			switch (model.$) {
 				case 5:
 					var ll = model.a;
-					var _v3 = ll.y;
+					var _v3 = ll.x;
 					var alp = _v3;
 					var _v4 = A2(
 						$elm$core$List$member,
@@ -10691,7 +10741,7 @@ var $author$project$Main$navFrom = F7(
 									switch (model.$) {
 										case 5:
 											var ll = model.a;
-											var _v5 = ll.y;
+											var _v5 = ll.x;
 											var alp = _v5;
 											var localNavWithScroll = function (scroll) {
 												return $author$project$Main$Meta(
@@ -10807,7 +10857,7 @@ var $author$project$Main$pathsToCmdImpl = F5(
 				switch (model.$) {
 					case 5:
 						var ll = model.a;
-						var _v2 = ll.y;
+						var _v2 = ll.x;
 						var alp = _v2;
 						return alp.bB;
 					case 6:
@@ -10858,7 +10908,7 @@ var $author$project$Main$pathsToCmd = F2(
 					return A2($author$project$Utils$DebugSupport$log, 'pathsToCmd LoadError, ignore', $elm$core$Maybe$Nothing);
 				case 5:
 					var ll = model.a;
-					var _v2 = ll.y;
+					var _v2 = ll.x;
 					var alp = _v2;
 					return A2(
 						$author$project$Utils$DebugSupport$log,
@@ -12857,7 +12907,7 @@ var $author$project$ProgressiveImage$updateModel = F2(
 									f: _Utils_update(
 										oldAnimState,
 										{
-											x: $author$project$ProgressiveImage$show(piModel.f.x)
+											y: $author$project$ProgressiveImage$show(piModel.f.y)
 										}),
 									t: A2($author$project$ProgressiveImage$LoadingMain, trying, loadingModel)
 								});
@@ -12881,7 +12931,7 @@ var $author$project$ProgressiveImage$updateModel = F2(
 									f: _Utils_update(
 										oldAnimState,
 										{
-											x: $author$project$ProgressiveImage$show(piModel.f.x)
+											y: $author$project$ProgressiveImage$show(piModel.f.y)
 										}),
 									t: A2($author$project$ProgressiveImage$LoadingMain, piModel.q.d_, loadingModel)
 								});
@@ -12951,7 +13001,7 @@ var $author$project$ProgressiveImage$updateModel = F2(
 								f: _Utils_update(
 									oldAnimState,
 									{
-										x: $author$project$ProgressiveImage$hide(piModel.f.x)
+										y: $author$project$ProgressiveImage$hide(piModel.f.y)
 									}),
 								aG: 1,
 								t: $author$project$ProgressiveImage$MainOnly
@@ -12976,7 +13026,7 @@ var $author$project$ProgressiveImage$updateModel = F2(
 						f: _Utils_update(
 							oldAnimState,
 							{
-								x: A2($mdgriffith$elm_style_animation$Animation$update, animMsg, piModel.f.x)
+								y: A2($mdgriffith$elm_style_animation$Animation$update, animMsg, piModel.f.y)
 							})
 					});
 			default:
@@ -13768,7 +13818,7 @@ var $author$project$Main$updateAlbum = F2(
 							i: $author$project$Main$flagsOf(model),
 							K: $author$project$Main$homeOf(model),
 							o: $author$project$Main$keyOf(model),
-							y: albumListPage,
+							x: albumListPage,
 							Q: 1,
 							aT: $elm$core$Maybe$Nothing
 						});
@@ -14870,7 +14920,7 @@ var $author$project$Main$updateBootstrap = F2(
 								i: ld.i,
 								K: ld.K,
 								o: ld.o,
-								y: {a_: albumList, dI: ld.dI, bB: _List_Nil},
+								x: {a_: albumList, dI: ld.dI, bB: _List_Nil},
 								Q: 1,
 								aT: $elm$core$Maybe$Nothing
 							});
@@ -15103,14 +15153,14 @@ var $author$project$Main$updateGeneral = F2(
 						}
 					default:
 						var ll = model.a;
-						var _v4 = ll.y;
+						var _v4 = ll.x;
 						var alp = _v4;
 						return _Utils_Tuple2(
 							$author$project$Main$LoadedList(
 								_Utils_update(
 									ll,
 									{
-										y: _Utils_update(
+										x: _Utils_update(
 											alp,
 											{dI: viewport})
 									})),
@@ -19239,7 +19289,7 @@ var $author$project$ProgressiveImage$view = function (_v0) {
 					$author$project$ProgressiveImage$viewImg,
 					trying,
 					piModel.q,
-					$author$project$ProgressiveImage$styledAnimation(piModel.f.x),
+					$author$project$ProgressiveImage$styledAnimation(piModel.f.y),
 					_List_Nil),
 				$elm$core$Maybe$Nothing);
 		case 1:
@@ -19248,7 +19298,7 @@ var $author$project$ProgressiveImage$view = function (_v0) {
 					$author$project$ProgressiveImage$viewImg,
 					piModel.q.d_,
 					piModel.q,
-					$author$project$ProgressiveImage$styledAnimation(piModel.f.x),
+					$author$project$ProgressiveImage$styledAnimation(piModel.f.y),
 					_List_Nil),
 				$elm$core$Maybe$Nothing);
 		case 2:
@@ -19259,13 +19309,13 @@ var $author$project$ProgressiveImage$view = function (_v0) {
 					$author$project$ProgressiveImage$viewImg,
 					placeholder,
 					piModel.q,
-					$author$project$ProgressiveImage$styledAnimation(piModel.f.x),
+					$author$project$ProgressiveImage$styledAnimation(piModel.f.y),
 					_List_Nil),
 				$author$project$ProgressiveImage$getProgress(loadingState));
 		case 3:
 			var oldPlaceholder = _v1.a;
 			return _Utils_Tuple2(
-				A4($author$project$ProgressiveImage$viewMainLoaded, piModel.q, oldPlaceholder, piModel.f.x, piModel.f._),
+				A4($author$project$ProgressiveImage$viewMainLoaded, piModel.q, oldPlaceholder, piModel.f.y, piModel.f._),
 				$elm$core$Maybe$Nothing);
 		default:
 			return _Utils_Tuple2(
@@ -20405,7 +20455,7 @@ var $author$project$Main$viewImpl = F2(
 						la.i));
 			default:
 				var ll = albumBootstrap.a;
-				var _v2 = ll.y;
+				var _v2 = ll.x;
 				var alp = _v2;
 				return A3(
 					$author$project$Main$withHomeLink,
@@ -20461,7 +20511,7 @@ var $author$project$Main$view = F2(
 					return 'Error Loading Album';
 				case 5:
 					var ll = albumBootstrap.a;
-					var _v1 = ll.y;
+					var _v1 = ll.x;
 					var alp = _v1;
 					return alp.a_.bZ;
 				default:
