@@ -14753,37 +14753,13 @@ var $author$project$Main$navToMsgInternal = function (loc) {
 		'parsedHash from ' + A2($elm$core$Maybe$withDefault, '<no fragment>', loc.dm),
 		$author$project$Utils$LocationUtils$parseHash(
 			A2($elm$core$Maybe$withDefault, '', loc.dm)));
-	var hashMsgs = function () {
-		if (parsedHash.$ === 1) {
-			return _List_Nil;
-		} else {
-			var paths = parsedHash.a;
-			return _List_fromArray(
-				[
-					$author$project$Main$Album_(
-					$author$project$Main$SetAlbumPathFromUrl(paths))
-				]);
-		}
-	}();
-	if (!hashMsgs.b) {
+	if (parsedHash.$ === 1) {
 		return $elm$core$Platform$Cmd$none;
 	} else {
-		if (!hashMsgs.b.b) {
-			var c = hashMsgs.a;
-			return A2(
-				$elm$core$Task$perform,
-				$elm$core$Basics$identity,
-				$elm$core$Task$succeed(c));
-		} else {
-			var c1 = hashMsgs.a;
-			var cs = hashMsgs.b;
-			return A2(
-				$elm$core$Task$perform,
-				$elm$core$Basics$identity,
-				$elm$core$Task$succeed(
-					$author$project$Main$Meta(
-						A2($author$project$Main$Sequence, c1, cs))));
-		}
+		var paths = parsedHash.a;
+		return $author$project$Utils$ResultUtils$toCmd(
+			$author$project$Main$Album_(
+				$author$project$Main$SetAlbumPathFromUrl(paths)));
 	}
 };
 var $author$project$Utils$LocationUtils$parseOriginRelativeUrl = F2(
@@ -14813,12 +14789,9 @@ var $author$project$Utils$LocationUtils$parseOriginRelativeUrl = F2(
 var $author$project$Main$navToMsg = F2(
 	function (model, loc) {
 		if (!model.$) {
-			return A2(
-				$elm$core$Task$perform,
-				$elm$core$Basics$identity,
-				$elm$core$Task$succeed(
-					$author$project$Main$Bootstrap(
-						$author$project$Main$GotBaseUrl(loc))));
+			return $author$project$Utils$ResultUtils$toCmd(
+				$author$project$Main$Bootstrap(
+					$author$project$Main$GotBaseUrl(loc)));
 		} else {
 			var parseUrl = function () {
 				var _v2 = $author$project$Main$baseUrlOf(model);
