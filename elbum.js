@@ -7664,8 +7664,8 @@ var $elm$core$List$filterMap = F2(
 	});
 var $elm$browser$Browser$Events$onSelfMsg = F3(
 	function (router, _v0, state) {
-		var key = _v0.aw;
 		var event = _v0.dg;
+		var key = _v0.aw;
 		var toMessage = function (_v2) {
 			var subKey = _v2.a;
 			var _v3 = _v2.b;
@@ -7798,8 +7798,8 @@ var $elm$browser$Browser$AnimationManager$rAF = _Browser_rAF(0);
 var $elm$core$Process$spawn = _Scheduler_spawn;
 var $elm$browser$Browser$AnimationManager$onEffects = F3(
 	function (router, subs, _v0) {
-		var request = _v0.eb;
 		var oldTime = _v0.cC;
+		var request = _v0.eb;
 		var _v1 = _Utils_Tuple2(request, subs);
 		if (_v1.a.$ === 1) {
 			if (!_v1.b.b) {
@@ -7847,8 +7847,8 @@ var $elm$time$Time$Posix = $elm$core$Basics$identity;
 var $elm$time$Time$millisToPosix = $elm$core$Basics$identity;
 var $elm$browser$Browser$AnimationManager$onSelfMsg = F3(
 	function (router, newTime, _v0) {
-		var subs = _v0.eq;
 		var oldTime = _v0.cC;
+		var subs = _v0.eq;
 		var send = function (sub) {
 			if (!sub.$) {
 				var tagger = sub.a;
@@ -10019,9 +10019,9 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 				return $mdgriffith$elm_style_animation$Animation$Model$VerticalTo(
 					fn(motion));
 			case 8:
-				var control1 = cmd.a.bn;
-				var control2 = cmd.a.bo;
 				var point = cmd.a.ah;
+				var control2 = cmd.a.bo;
+				var control1 = cmd.a.bn;
 				return $mdgriffith$elm_style_animation$Animation$Model$Curve(
 					{
 						bn: _Utils_Tuple2(
@@ -10035,9 +10035,9 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 							fn(point.b))
 					});
 			case 9:
-				var control1 = cmd.a.bn;
-				var control2 = cmd.a.bo;
 				var point = cmd.a.ah;
+				var control2 = cmd.a.bo;
+				var control1 = cmd.a.bn;
 				return $mdgriffith$elm_style_animation$Animation$Model$CurveTo(
 					{
 						bn: _Utils_Tuple2(
@@ -10051,8 +10051,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 							fn(point.b))
 					});
 			case 10:
-				var control = cmd.a.bm;
 				var point = cmd.a.ah;
+				var control = cmd.a.bm;
 				return $mdgriffith$elm_style_animation$Animation$Model$Quadratic(
 					{
 						bm: _Utils_Tuple2(
@@ -10063,8 +10063,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 							fn(point.b))
 					});
 			case 11:
-				var control = cmd.a.bm;
 				var point = cmd.a.ah;
+				var control = cmd.a.bm;
 				return $mdgriffith$elm_style_animation$Animation$Model$QuadraticTo(
 					{
 						bm: _Utils_Tuple2(
@@ -11255,22 +11255,22 @@ var $mdgriffith$elm_style_animation$Animation$Model$isCmdDone = function (cmd) {
 			var motion = cmd.a;
 			return motionDone(motion);
 		case 8:
-			var control1 = cmd.a.bn;
-			var control2 = cmd.a.bo;
 			var point = cmd.a.ah;
+			var control2 = cmd.a.bo;
+			var control1 = cmd.a.bn;
 			return motionDone(control1.a) && (motionDone(control1.b) && (motionDone(control2.a) && (motionDone(control2.b) && (motionDone(point.a) && motionDone(point.b)))));
 		case 9:
-			var control1 = cmd.a.bn;
-			var control2 = cmd.a.bo;
 			var point = cmd.a.ah;
+			var control2 = cmd.a.bo;
+			var control1 = cmd.a.bn;
 			return motionDone(control1.a) && (motionDone(control1.b) && (motionDone(control2.a) && (motionDone(control2.b) && (motionDone(point.a) && motionDone(point.b)))));
 		case 10:
-			var control = cmd.a.bm;
 			var point = cmd.a.ah;
+			var control = cmd.a.bm;
 			return motionDone(control.a) && (motionDone(control.b) && (motionDone(point.a) && motionDone(point.b)));
 		case 11:
-			var control = cmd.a.bm;
 			var point = cmd.a.ah;
+			var control = cmd.a.bm;
 			return motionDone(control.a) && (motionDone(control.b) && (motionDone(point.a) && motionDone(point.b)));
 		case 12:
 			var coords = cmd.a;
@@ -12099,8 +12099,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 					motion,
 					{fU: newPos, gB: perSecond * 1000});
 			case 0:
-				var stiffness = interpolationToUse.a.em;
 				var damping = interpolationToUse.a.da;
+				var stiffness = interpolationToUse.a.em;
 				var fspring = stiffness * (motion.gm - motion.fU);
 				var fdamper = ((-1) * damping) * motion.gB;
 				var dt = dtms / 1000;
@@ -12116,10 +12116,10 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 					motion,
 					{fU: newPos, gB: newVelocity});
 			default:
-				var progress = interpolationToUse.a.b2;
-				var duration = interpolationToUse.a.cn;
-				var ease = interpolationToUse.a.co;
 				var start = interpolationToUse.a.ge;
+				var ease = interpolationToUse.a.co;
+				var duration = interpolationToUse.a.cn;
+				var progress = interpolationToUse.a.b2;
 				var durationMs = $elm$time$Time$posixToMillis(duration);
 				var newProgress = (((dtms / durationMs) + progress) < 1) ? ((dtms / durationMs) + progress) : 1;
 				var eased = ease(newProgress);
@@ -12210,9 +12210,9 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepPath = F2(
 				return $mdgriffith$elm_style_animation$Animation$Model$VerticalTo(
 					A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, motion));
 			case 8:
-				var control1 = cmd.a.bn;
-				var control2 = cmd.a.bo;
 				var point = cmd.a.ah;
+				var control2 = cmd.a.bo;
+				var control1 = cmd.a.bn;
 				return $mdgriffith$elm_style_animation$Animation$Model$Curve(
 					{
 						bn: _Utils_Tuple2(
@@ -12226,9 +12226,9 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepPath = F2(
 							A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, point.b))
 					});
 			case 9:
-				var control1 = cmd.a.bn;
-				var control2 = cmd.a.bo;
 				var point = cmd.a.ah;
+				var control2 = cmd.a.bo;
+				var control1 = cmd.a.bn;
 				return $mdgriffith$elm_style_animation$Animation$Model$CurveTo(
 					{
 						bn: _Utils_Tuple2(
@@ -12242,8 +12242,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepPath = F2(
 							A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, point.b))
 					});
 			case 10:
-				var control = cmd.a.bm;
 				var point = cmd.a.ah;
+				var control = cmd.a.bm;
 				return $mdgriffith$elm_style_animation$Animation$Model$Quadratic(
 					{
 						bm: _Utils_Tuple2(
@@ -12254,8 +12254,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepPath = F2(
 							A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, point.b))
 					});
 			case 11:
-				var control = cmd.a.bm;
 				var point = cmd.a.ah;
+				var control = cmd.a.bm;
 				return $mdgriffith$elm_style_animation$Animation$Model$QuadraticTo(
 					{
 						bm: _Utils_Tuple2(
@@ -14786,6 +14786,30 @@ var $author$project$Main$navToMsgInternal = function (loc) {
 		}
 	}
 };
+var $author$project$Utils$LocationUtils$parseOriginRelativeUrl = F2(
+	function (baseUrl, urlStr) {
+		var _v0 = $elm$url$Url$fromString(urlStr);
+		if (!_v0.$) {
+			var url = _v0.a;
+			return $elm$core$Maybe$Just(url);
+		} else {
+			var _v1 = A2($elm$core$String$startsWith, '/', urlStr);
+			if (_v1) {
+				var _v2 = $elm$url$Url$fromString('https://example.com' + urlStr);
+				if (!_v2.$) {
+					var url = _v2.a;
+					return $elm$core$Maybe$Just(
+						_Utils_update(
+							baseUrl,
+							{dm: url.dm, by: url.by, a9: url.a9}));
+				} else {
+					return $elm$core$Maybe$Nothing;
+				}
+			} else {
+				return $elm$core$Maybe$Nothing;
+			}
+		}
+	});
 var $author$project$Main$navToMsg = F2(
 	function (model, loc) {
 		if (!model.$) {
@@ -14796,9 +14820,18 @@ var $author$project$Main$navToMsg = F2(
 					$author$project$Main$Bootstrap(
 						$author$project$Main$GotBaseUrl(loc))));
 		} else {
+			var parseUrl = function () {
+				var _v2 = $author$project$Main$baseUrlOf(model);
+				if (!_v2.$) {
+					var bUrl = _v2.a;
+					return $author$project$Utils$LocationUtils$parseOriginRelativeUrl(bUrl);
+				} else {
+					return $elm$url$Url$fromString;
+				}
+			}();
 			var hUrl = A2(
 				$elm$core$Maybe$andThen,
-				$elm$url$Url$fromString,
+				parseUrl,
 				$author$project$Main$homeOf(model));
 			var locIsHome = A2(
 				$elm$core$Maybe$withDefault,
@@ -16168,10 +16201,10 @@ var $rtfeldman$elm_css$Css$Structure$compactDeclarations = function (declaration
 	return A2($rtfeldman$elm_css$Css$Structure$withKeyframeDeclarations, keyframesByName, compactedDeclarations);
 };
 var $rtfeldman$elm_css$Css$Structure$compactStylesheet = function (_v0) {
-	var charset = _v0.c4;
-	var imports = _v0.ds;
-	var namespaces = _v0.dT;
 	var declarations = _v0.eX;
+	var namespaces = _v0.dT;
+	var imports = _v0.ds;
+	var charset = _v0.c4;
 	return {
 		c4: charset,
 		eX: $rtfeldman$elm_css$Css$Structure$compactDeclarations(declarations),
@@ -16400,8 +16433,8 @@ var $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration = function (d
 		case 5:
 			return 'TODO';
 		case 6:
-			var name = decl.a.fz;
 			var declaration = decl.a.eW;
+			var name = decl.a.fz;
 			return '@keyframes ' + (name + ('{' + (declaration + '}')));
 		case 7:
 			return 'TODO';
@@ -16412,10 +16445,10 @@ var $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration = function (d
 	}
 };
 var $rtfeldman$elm_css$Css$Structure$Output$prettyPrint = function (_v0) {
-	var charset = _v0.c4;
-	var imports = _v0.ds;
-	var namespaces = _v0.dT;
 	var declarations = _v0.eX;
+	var namespaces = _v0.dT;
+	var imports = _v0.ds;
+	var charset = _v0.c4;
 	return $rtfeldman$elm_css$Css$Structure$Output$charsetToString(charset) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$importToString, '\n', imports) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$namespaceToString, '\n', namespaces) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration, '\n', declarations) + '')));
 };
 var $rtfeldman$elm_css$Css$Structure$CounterStyle = function (a) {
@@ -17307,10 +17340,10 @@ var $rtfeldman$elm_css$Css$Preprocess$Resolve$toDeclarations = function (snippet
 	}
 };
 var $rtfeldman$elm_css$Css$Preprocess$Resolve$toStructure = function (_v0) {
-	var charset = _v0.c4;
-	var imports = _v0.ds;
-	var namespaces = _v0.dT;
 	var snippets = _v0.ek;
+	var namespaces = _v0.dT;
+	var imports = _v0.ds;
+	var charset = _v0.c4;
 	var declarations = $rtfeldman$elm_css$Css$Preprocess$Resolve$extract(
 		A2($elm$core$List$concatMap, $rtfeldman$elm_css$Css$Preprocess$unwrapSnippet, snippets));
 	return {c4: charset, eX: declarations, ds: imports, dT: namespaces};
@@ -18777,9 +18810,9 @@ var $mdgriffith$elm_style_animation$Animation$Render$pathCmdValue = function (cm
 			var a = cmd.a;
 			return 'V ' + $elm$core$String$fromFloat(a.fU);
 		case 8:
-			var control1 = cmd.a.bn;
-			var control2 = cmd.a.bo;
 			var point = cmd.a.ah;
+			var control2 = cmd.a.bo;
+			var control1 = cmd.a.bn;
 			var _v1 = point;
 			var p1x = _v1.a;
 			var p1y = _v1.b;
@@ -18791,9 +18824,9 @@ var $mdgriffith$elm_style_animation$Animation$Render$pathCmdValue = function (cm
 			var c1y = _v3.b;
 			return 'c ' + ($elm$core$String$fromFloat(c1x.fU) + (' ' + ($elm$core$String$fromFloat(c1y.fU) + (', ' + ($elm$core$String$fromFloat(c2x.fU) + (' ' + ($elm$core$String$fromFloat(c2y.fU) + (', ' + ($elm$core$String$fromFloat(p1x.fU) + (' ' + $elm$core$String$fromFloat(p1y.fU)))))))))));
 		case 9:
-			var control1 = cmd.a.bn;
-			var control2 = cmd.a.bo;
 			var point = cmd.a.ah;
+			var control2 = cmd.a.bo;
+			var control1 = cmd.a.bn;
 			var _v4 = point;
 			var p1x = _v4.a;
 			var p1y = _v4.b;
@@ -18805,8 +18838,8 @@ var $mdgriffith$elm_style_animation$Animation$Render$pathCmdValue = function (cm
 			var c1y = _v6.b;
 			return 'C ' + ($elm$core$String$fromFloat(c1x.fU) + (' ' + ($elm$core$String$fromFloat(c1y.fU) + (', ' + ($elm$core$String$fromFloat(c2x.fU) + (' ' + ($elm$core$String$fromFloat(c2y.fU) + (', ' + ($elm$core$String$fromFloat(p1x.fU) + (' ' + $elm$core$String$fromFloat(p1y.fU)))))))))));
 		case 10:
-			var control = cmd.a.bm;
 			var point = cmd.a.ah;
+			var control = cmd.a.bm;
 			var _v7 = point;
 			var p1x = _v7.a;
 			var p1y = _v7.b;
@@ -18815,8 +18848,8 @@ var $mdgriffith$elm_style_animation$Animation$Render$pathCmdValue = function (cm
 			var c1y = _v8.b;
 			return 'q ' + ($elm$core$String$fromFloat(c1x.fU) + (' ' + ($elm$core$String$fromFloat(c1y.fU) + (', ' + ($elm$core$String$fromFloat(p1x.fU) + (' ' + $elm$core$String$fromFloat(p1y.fU)))))));
 		case 11:
-			var control = cmd.a.bm;
 			var point = cmd.a.ah;
+			var control = cmd.a.bm;
 			var _v9 = point;
 			var p1x = _v9.a;
 			var p1y = _v9.b;
@@ -20020,10 +20053,10 @@ var $rtfeldman$elm_css$Css$Transitions$transition = function (options) {
 			$elm$core$List$foldl,
 			F2(
 				function (_v0, s) {
-					var animation = _v0.bJ;
-					var duration = _v0.cn;
-					var delay = _v0.bL;
 					var timing = _v0.et;
+					var delay = _v0.bL;
+					var duration = _v0.cn;
+					var animation = _v0.bJ;
 					return s + ($rtfeldman$elm_css$Css$Transitions$propToString(animation) + (' ' + ($rtfeldman$elm_css$Css$Transitions$timeToString(duration) + (' ' + (A2(
 						$elm$core$Maybe$withDefault,
 						'',
