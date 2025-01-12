@@ -15169,6 +15169,7 @@ var $author$project$Utils$HttpUtils$parentUrlPath = function (url) {
 					f0: $elm$core$Maybe$Nothing
 				})));
 };
+var $elm$core$String$trim = _String_trim;
 var $author$project$Main$updateBootstrap = F2(
 	function (bootstrapMsg, model) {
 		switch (bootstrapMsg.$) {
@@ -15203,7 +15204,8 @@ var $author$project$Main$updateBootstrap = F2(
 								_Utils_update(
 									l,
 									{
-										C: $elm$core$Maybe$Just(home)
+										C: $elm$core$Maybe$Just(
+											$elm$core$String$trim(home))
 									})),
 							$elm$core$Platform$Cmd$none);
 					case 4:
@@ -15213,7 +15215,8 @@ var $author$project$Main$updateBootstrap = F2(
 								_Utils_update(
 									ll,
 									{
-										C: $elm$core$Maybe$Just(home)
+										C: $elm$core$Maybe$Just(
+											$elm$core$String$trim(home))
 									})),
 							$elm$core$Platform$Cmd$none);
 					case 5:
@@ -15223,7 +15226,8 @@ var $author$project$Main$updateBootstrap = F2(
 								_Utils_update(
 									la,
 									{
-										C: $elm$core$Maybe$Just(home)
+										C: $elm$core$Maybe$Just(
+											$elm$core$String$trim(home))
 									})),
 							$elm$core$Platform$Cmd$none);
 					default:
