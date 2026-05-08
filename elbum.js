@@ -3991,7 +3991,7 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 		impl.gF,
 		impl.gp,
 		function(sendToApp, initialModel) {
-			var divertHrefToApp = impl.cC && impl.cC(sendToApp)
+			var divertHrefToApp = impl.cv && impl.cv(sendToApp)
 			var view = impl.gI;
 			var title = _VirtualDom_doc.title;
 			var bodyNode = _VirtualDom_doc.body;
@@ -4000,12 +4000,12 @@ var _Browser_document = _Debugger_document || F4(function(impl, flagDecoder, deb
 			{
 				_VirtualDom_divertHrefToApp = divertHrefToApp;
 				var doc = view(model);
-				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.cZ);
+				var nextNode = _VirtualDom_node('body')(_List_Nil)(doc.cM);
 				var patches = _VirtualDom_diff(currNode, nextNode);
 				bodyNode = _VirtualDom_applyPatches(bodyNode, currNode, patches, sendToApp);
 				currNode = nextNode;
 				_VirtualDom_divertHrefToApp = 0;
-				(title !== doc.cK) && (_VirtualDom_doc.title = title = doc.cK);
+				(title !== doc.ep) && (_VirtualDom_doc.title = title = doc.ep);
 			});
 		}
 	);
@@ -4066,7 +4066,7 @@ function _Browser_application(impl)
 	var key = function() { key.a(onUrlChange(_Browser_getUrl())); };
 
 	return _Browser_document({
-		cC: function(sendToApp)
+		cv: function(sendToApp)
 		{
 			key.a = sendToApp;
 			_Browser_window.addEventListener('popstate', key);
@@ -4082,9 +4082,9 @@ function _Browser_application(impl)
 					var next = $elm$url$Url$fromString(href).a;
 					sendToApp(onUrlRequest(
 						(next
-							&& curr.d5 === next.d5
-							&& curr.dp === next.dp
-							&& curr.d1.a === next.d1.a
+							&& curr.d_ === next.d_
+							&& curr.de === next.de
+							&& curr.dW.a === next.dW.a
 						)
 							? $elm$browser$Browser$Internal(next)
 							: $elm$browser$Browser$External(href)
@@ -4257,10 +4257,10 @@ function _Browser_getViewport()
 	return {
 		ga: _Browser_getScene(),
 		bE: {
-			cN: _Browser_window.pageXOffset,
-			cO: _Browser_window.pageYOffset,
-			cM: _Browser_doc.documentElement.clientWidth,
-			cq: _Browser_doc.documentElement.clientHeight
+			ew: _Browser_window.pageXOffset,
+			ex: _Browser_window.pageYOffset,
+			cA: _Browser_doc.documentElement.clientWidth,
+			cn: _Browser_doc.documentElement.clientHeight
 		}
 	};
 }
@@ -4270,8 +4270,8 @@ function _Browser_getScene()
 	var body = _Browser_doc.body;
 	var elem = _Browser_doc.documentElement;
 	return {
-		cM: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
-		cq: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
+		cA: Math.max(body.scrollWidth, body.offsetWidth, elem.scrollWidth, elem.offsetWidth, elem.clientWidth),
+		cn: Math.max(body.scrollHeight, body.offsetHeight, elem.scrollHeight, elem.offsetHeight, elem.clientHeight)
 	};
 }
 
@@ -4295,14 +4295,14 @@ function _Browser_getViewportOf(id)
 	{
 		return {
 			ga: {
-				cM: node.scrollWidth,
-				cq: node.scrollHeight
+				cA: node.scrollWidth,
+				cn: node.scrollHeight
 			},
 			bE: {
-				cN: node.scrollLeft,
-				cO: node.scrollTop,
-				cM: node.clientWidth,
-				cq: node.clientHeight
+				ew: node.scrollLeft,
+				ex: node.scrollTop,
+				cA: node.clientWidth,
+				cn: node.clientHeight
 			}
 		};
 	});
@@ -4334,16 +4334,16 @@ function _Browser_getElement(id)
 		return {
 			ga: _Browser_getScene(),
 			bE: {
-				cN: x,
-				cO: y,
-				cM: _Browser_doc.documentElement.clientWidth,
-				cq: _Browser_doc.documentElement.clientHeight
+				ew: x,
+				ex: y,
+				cA: _Browser_doc.documentElement.clientWidth,
+				cn: _Browser_doc.documentElement.clientHeight
 			},
-			dc: {
-				cN: x + rect.left,
-				cO: y + rect.top,
-				cM: rect.width,
-				cq: rect.height
+			c1: {
+				ew: x + rect.left,
+				ex: y + rect.top,
+				cA: rect.width,
+				cn: rect.height
 			}
 		};
 	});
@@ -4405,25 +4405,25 @@ var _Http_toTask = F3(function(router, toTask, request)
 	return _Scheduler_binding(function(callback)
 	{
 		function done(response) {
-			callback(toTask(request.df.a(response)));
+			callback(toTask(request.c4.a(response)));
 		}
 
 		var xhr = new XMLHttpRequest();
 		xhr.addEventListener('error', function() { done($elm$http$Http$NetworkError_); });
 		xhr.addEventListener('timeout', function() { done($elm$http$Http$Timeout_); });
-		xhr.addEventListener('load', function() { done(_Http_toResponse(request.df.b, xhr)); });
+		xhr.addEventListener('load', function() { done(_Http_toResponse(request.c4.b, xhr)); });
 		$elm$core$Maybe$isJust(request.gB) && _Http_track(router, xhr, request.gB.a);
 
 		try {
-			xhr.open(request.fw, request.cL, true);
+			xhr.open(request.fw, request.et, true);
 		} catch (e) {
-			return done($elm$http$Http$BadUrl_(request.cL));
+			return done($elm$http$Http$BadUrl_(request.et));
 		}
 
 		_Http_configureRequest(xhr, request);
 
-		request.cZ.a && xhr.setRequestHeader('Content-Type', request.cZ.a);
-		xhr.send(request.cZ.b);
+		request.cM.a && xhr.setRequestHeader('Content-Type', request.cM.a);
+		xhr.send(request.cM.b);
 
 		return function() { xhr.c = true; xhr.abort(); };
 	});
@@ -4439,7 +4439,7 @@ function _Http_configureRequest(xhr, request)
 		xhr.setRequestHeader(headers.a.a, headers.a.b);
 	}
 	xhr.timeout = request.gw.a || 0;
-	xhr.responseType = request.df.d;
+	xhr.responseType = request.c4.d;
 	xhr.withCredentials = request.eB;
 }
 
@@ -4461,7 +4461,7 @@ function _Http_toResponse(toBody, xhr)
 function _Http_toMetadata(xhr)
 {
 	return {
-		cL: xhr.responseURL,
+		et: xhr.responseURL,
 		gk: xhr.status,
 		gl: xhr.statusText,
 		fc: _Http_parseHeaders(xhr.getAllResponseHeaders())
@@ -4891,11 +4891,11 @@ var _MJS_v2setY = F2(function(y, a) {
 });
 
 var _MJS_v2toRecord = function(a) {
-    return { cN: a[0], cO: a[1] };
+    return { ew: a[0], ex: a[1] };
 };
 
 var _MJS_v2fromRecord = function(r) {
-    return new Float64Array([r.cN, r.cO]);
+    return new Float64Array([r.ew, r.ex]);
 };
 
 var _MJS_v2add = F2(function(a, b) {
@@ -5004,11 +5004,11 @@ var _MJS_v3setZ = F2(function(z, a) {
 });
 
 var _MJS_v3toRecord = function(a) {
-    return { cN: a[0], cO: a[1], cb: a[2] };
+    return { ew: a[0], ex: a[1], cb: a[2] };
 };
 
 var _MJS_v3fromRecord = function(r) {
-    return new Float64Array([r.cN, r.cO, r.cb]);
+    return new Float64Array([r.ew, r.ex, r.cb]);
 };
 
 var _MJS_v3add = F2(function(a, b) {
@@ -5164,11 +5164,11 @@ var _MJS_v4setW = F2(function(w, a) {
 });
 
 var _MJS_v4toRecord = function(a) {
-    return { cN: a[0], cO: a[1], cb: a[2], ew: a[3] };
+    return { ew: a[0], ex: a[1], cb: a[2], eu: a[3] };
 };
 
 var _MJS_v4fromRecord = function(r) {
-    return new Float64Array([r.cN, r.cO, r.cb, r.ew]);
+    return new Float64Array([r.ew, r.ex, r.cb, r.eu]);
 };
 
 var _MJS_v4add = F2(function(a, b) {
@@ -5274,31 +5274,31 @@ var _MJS_m4x4identity = new Float64Array([
 
 var _MJS_m4x4fromRecord = function(r) {
     var m = new Float64Array(16);
-    m[0] = r.dz;
-    m[1] = r.dD;
-    m[2] = r.dH;
-    m[3] = r.dL;
-    m[4] = r.dA;
-    m[5] = r.dE;
-    m[6] = r.dI;
-    m[7] = r.dM;
-    m[8] = r.dB;
-    m[9] = r.dF;
-    m[10] = r.dJ;
-    m[11] = r.dN;
-    m[12] = r.dC;
-    m[13] = r.dG;
-    m[14] = r.dK;
-    m[15] = r.dO;
+    m[0] = r.ds;
+    m[1] = r.dw;
+    m[2] = r.dA;
+    m[3] = r.dE;
+    m[4] = r.dt;
+    m[5] = r.dx;
+    m[6] = r.dB;
+    m[7] = r.dF;
+    m[8] = r.du;
+    m[9] = r.dy;
+    m[10] = r.dC;
+    m[11] = r.dG;
+    m[12] = r.dv;
+    m[13] = r.dz;
+    m[14] = r.dD;
+    m[15] = r.dH;
     return m;
 };
 
 var _MJS_m4x4toRecord = function(m) {
     return {
-        dz: m[0], dD: m[1], dH: m[2], dL: m[3],
-        dA: m[4], dE: m[5], dI: m[6], dM: m[7],
-        dB: m[8], dF: m[9], dJ: m[10], dN: m[11],
-        dC: m[12], dG: m[13], dK: m[14], dO: m[15]
+        ds: m[0], dw: m[1], dA: m[2], dE: m[3],
+        dt: m[4], dx: m[5], dB: m[6], dF: m[7],
+        du: m[8], dy: m[9], dC: m[10], dG: m[11],
+        dv: m[12], dz: m[13], dD: m[14], dH: m[15]
     };
 };
 
@@ -5982,11 +5982,11 @@ var $author$project$RouteUrl$changeToString = function (change) {
 			return A3(
 				$author$project$RouteUrl$addPrefixed,
 				'#',
-				data.dk,
+				data.c9,
 				A3($author$project$RouteUrl$addPrefixed, '?', data.f2, data.bw));
 		case 1:
 			var data = change.b;
-			return A3($author$project$RouteUrl$addPrefixed, '#', data.dk, '?' + data.f2);
+			return A3($author$project$RouteUrl$addPrefixed, '#', data.c9, '?' + data.f2);
 		default:
 			var fragment = change.b;
 			return '#' + fragment;
@@ -6463,11 +6463,11 @@ var $elm$core$List$map = F2(
 var $author$project$RouteUrl$docMap = F2(
 	function (fn, doc) {
 		return {
-			cZ: A2(
+			cM: A2(
 				$elm$core$List$map,
 				$elm$html$Html$map(fn),
-				doc.cZ),
-			cK: doc.cK
+				doc.cM),
+			ep: doc.ep
 		};
 	});
 var $elm$core$Platform$Cmd$map = _Platform_map;
@@ -6549,7 +6549,7 @@ var $elm$url$Url$addPrefixed = F3(
 	});
 var $elm$url$Url$toString = function (url) {
 	var http = function () {
-		var _v0 = url.d5;
+		var _v0 = url.d_;
 		if (!_v0) {
 			return 'http://';
 		} else {
@@ -6559,7 +6559,7 @@ var $elm$url$Url$toString = function (url) {
 	return A3(
 		$elm$url$Url$addPrefixed,
 		'#',
-		url.dk,
+		url.c9,
 		A3(
 			$elm$url$Url$addPrefixed,
 			'?',
@@ -6567,8 +6567,8 @@ var $elm$url$Url$toString = function (url) {
 			_Utils_ap(
 				A2(
 					$elm$url$Url$addPort,
-					url.d1,
-					_Utils_ap(http, url.dp)),
+					url.dW,
+					_Utils_ap(http, url.de)),
 				url.bw)));
 };
 var $elm$core$Maybe$andThen = F2(
@@ -6596,13 +6596,13 @@ var $author$project$RouteUrl$apply = F2(
 				}();
 				return _Utils_update(
 					url,
-					{dk: c.dk, bw: absolutePath, f2: c.f2});
+					{c9: c.c9, bw: absolutePath, f2: c.f2});
 			case 1:
 				var c = change.b;
 				return _Utils_update(
 					url,
 					{
-						dk: c.dk,
+						c9: c.c9,
 						f2: $elm$core$Maybe$Just(c.f2)
 					});
 			default:
@@ -6610,7 +6610,7 @@ var $author$project$RouteUrl$apply = F2(
 				return _Utils_update(
 					url,
 					{
-						dk: $elm$core$Maybe$Just(c)
+						c9: $elm$core$Maybe$Just(c)
 					});
 		}
 	});
@@ -6639,7 +6639,7 @@ var $elm$url$Url$Http = 0;
 var $elm$url$Url$Https = 1;
 var $elm$url$Url$Url = F6(
 	function (protocol, host, port_, path, query, fragment) {
-		return {dk: fragment, dp: host, bw: path, d1: port_, d5: protocol, f2: query};
+		return {c9: fragment, de: host, bw: path, dW: port_, d_: protocol, f2: query};
 	});
 var $elm$core$String$contains = _String_contains;
 var $elm$core$String$length = _String_length;
@@ -7067,7 +7067,7 @@ var $author$project$Utils$HttpUtils$appendPath = F2(
 			_Utils_ap(sep, relPath));
 		return _Utils_update(
 			baseUrl,
-			{dk: $elm$core$Maybe$Nothing, bw: newPath, f2: $elm$core$Maybe$Nothing});
+			{c9: $elm$core$Maybe$Nothing, bw: newPath, f2: $elm$core$Maybe$Nothing});
 	});
 var $author$project$Main$baseUrlOf = function (model) {
 	switch (model.$) {
@@ -7190,7 +7190,7 @@ var $author$project$Utils$AlbumUtils$pathFromAlbumPath = F2(
 				A2(
 					$elm$core$List$map,
 					function (p) {
-						return p.cw;
+						return p.dr;
 					},
 					A2(
 						$elm$core$List$drop,
@@ -7204,11 +7204,11 @@ var $author$project$AlbumPage$pathForAlbum = F2(
 			if (!albumPage.$) {
 				var th = albumPage.a;
 				return _List_fromArray(
-					[th.i.cK]);
+					[th.i.ep]);
 			} else {
 				var fi = albumPage.a;
 				return _List_fromArray(
-					[fi.i.cK, fi.i.cr.cc]);
+					[fi.i.ep, fi.i.df.cF]);
 			}
 		}();
 		return A2($author$project$Utils$AlbumUtils$pathFromAlbumPath, titles, parents);
@@ -7229,7 +7229,7 @@ var $author$project$AlbumListPage$pathForList = function (_v0) {
 		_List_Nil) : A2(
 		$author$project$Utils$AlbumUtils$pathFromAlbumPath,
 		_List_fromArray(
-			[alp.bG.cw]),
+			[alp.bG.dr]),
 		A2($elm$core$List$map, $elm$core$Tuple$first, alp.b_));
 };
 var $author$project$Main$NotFullyLoaded = 0;
@@ -7388,7 +7388,7 @@ var $author$project$Main$locFor = F2(
 					return A2(
 						$author$project$RouteUrl$NewPath,
 						entry,
-						{dk: $elm$core$Maybe$Nothing, bw: p, f2: $elm$core$Maybe$Nothing});
+						{c9: $elm$core$Maybe$Nothing, bw: p, f2: $elm$core$Maybe$Nothing});
 				},
 				A2(
 					$elm$core$Maybe$andThen,
@@ -7506,7 +7506,7 @@ var $author$project$Utils$ViewportUtils$viewportWithNewSize = F3(
 		var ov = oldViewport.bE;
 		var newViewport = _Utils_update(
 			ov,
-			{cq: newHeight, cM: newWidth});
+			{cn: newHeight, cA: newWidth});
 		return _Utils_update(
 			oldViewport,
 			{bE: newViewport});
@@ -7525,7 +7525,7 @@ var $elm$browser$Browser$Events$MySub = F3(
 	});
 var $elm$browser$Browser$Events$State = F2(
 	function (subs, pids) {
-		return {d0: pids, ep: subs};
+		return {dV: pids, ek: subs};
 	});
 var $elm$core$Dict$RBEmpty_elm_builtin = {$: -2};
 var $elm$core$Dict$empty = $elm$core$Dict$RBEmpty_elm_builtin;
@@ -7757,7 +7757,7 @@ var $elm$core$Dict$merge = F6(
 	});
 var $elm$browser$Browser$Events$Event = F2(
 	function (key, event) {
-		return {de: event, aw: key};
+		return {c3: event, aw: key};
 	});
 var $elm$core$Platform$sendToSelf = _Platform_sendToSelf;
 var $elm$browser$Browser$Events$spawn = F3(
@@ -7832,7 +7832,7 @@ var $elm$browser$Browser$Events$onEffects = F3(
 			stepLeft,
 			stepBoth,
 			stepRight,
-			state.d0,
+			state.dV,
 			$elm$core$Dict$fromList(newSubs),
 			_Utils_Tuple3(_List_Nil, $elm$core$Dict$empty, _List_Nil));
 		var deadPids = _v0.a;
@@ -7878,7 +7878,7 @@ var $elm$core$List$filterMap = F2(
 	});
 var $elm$browser$Browser$Events$onSelfMsg = F3(
 	function (router, _v0, state) {
-		var event = _v0.de;
+		var event = _v0.c3;
 		var key = _v0.aw;
 		var toMessage = function (_v2) {
 			var subKey = _v2.a;
@@ -7888,7 +7888,7 @@ var $elm$browser$Browser$Events$onSelfMsg = F3(
 			var decoder = _v3.c;
 			return _Utils_eq(subKey, key) ? A2(_Browser_decodeEvent, decoder, event) : $elm$core$Maybe$Nothing;
 		};
-		var messages = A2($elm$core$List$filterMap, toMessage, state.ep);
+		var messages = A2($elm$core$List$filterMap, toMessage, state.ek);
 		return A2(
 			$elm$core$Task$andThen,
 			function (_v1) {
@@ -8003,7 +8003,7 @@ var $elm$browser$Browser$AnimationManager$Time = function (a) {
 };
 var $elm$browser$Browser$AnimationManager$State = F3(
 	function (subs, request, oldTime) {
-		return {cA: oldTime, d9: request, ep: subs};
+		return {ct: oldTime, d2: request, ek: subs};
 	});
 var $elm$browser$Browser$AnimationManager$init = $elm$core$Task$succeed(
 	A3($elm$browser$Browser$AnimationManager$State, _List_Nil, $elm$core$Maybe$Nothing, 0));
@@ -8012,8 +8012,8 @@ var $elm$browser$Browser$AnimationManager$rAF = _Browser_rAF(0);
 var $elm$core$Process$spawn = _Scheduler_spawn;
 var $elm$browser$Browser$AnimationManager$onEffects = F3(
 	function (router, subs, _v0) {
-		var oldTime = _v0.cA;
-		var request = _v0.d9;
+		var oldTime = _v0.ct;
+		var request = _v0.d2;
 		var _v1 = _Utils_Tuple2(request, subs);
 		if (_v1.a.$ === 1) {
 			if (!_v1.b.b) {
@@ -8061,8 +8061,8 @@ var $elm$time$Time$Posix = $elm$core$Basics$identity;
 var $elm$time$Time$millisToPosix = $elm$core$Basics$identity;
 var $elm$browser$Browser$AnimationManager$onSelfMsg = F3(
 	function (router, newTime, _v0) {
-		var oldTime = _v0.cA;
-		var subs = _v0.ep;
+		var oldTime = _v0.ct;
+		var subs = _v0.ek;
 		var send = function (sub) {
 			if (!sub.$) {
 				var tagger = sub.a;
@@ -8139,7 +8139,7 @@ var $elm$http$Http$MySub = F2(
 	});
 var $elm$http$Http$State = F2(
 	function (reqs, subs) {
-		return {d8: reqs, ep: subs};
+		return {d1: reqs, ek: subs};
 	});
 var $elm$http$Http$init = $elm$core$Task$succeed(
 	A2($elm$http$Http$State, $elm$core$Dict$empty, _List_Nil));
@@ -8641,7 +8641,7 @@ var $elm$http$Http$onEffects = F4(
 				return $elm$core$Task$succeed(
 					A2($elm$http$Http$State, reqs, subs));
 			},
-			A3($elm$http$Http$updateReqs, router, cmds, state.d8));
+			A3($elm$http$Http$updateReqs, router, cmds, state.d1));
 	});
 var $elm$http$Http$maybeSend = F4(
 	function (router, desiredTracker, progress, _v0) {
@@ -8666,7 +8666,7 @@ var $elm$http$Http$onSelfMsg = F3(
 				A2(
 					$elm$core$List$filterMap,
 					A3($elm$http$Http$maybeSend, router, tracker, progress),
-					state.ep)));
+					state.ek)));
 	});
 var $elm$http$Http$Cancel = function (a) {
 	return {$: 0, a: a};
@@ -8684,13 +8684,13 @@ var $elm$http$Http$cmdMap = F2(
 			return $elm$http$Http$Request(
 				{
 					eB: r.eB,
-					cZ: r.cZ,
-					df: A2(_Http_mapExpect, func, r.df),
+					cM: r.cM,
+					c4: A2(_Http_mapExpect, func, r.c4),
 					fc: r.fc,
 					fw: r.fw,
 					gw: r.gw,
 					gB: r.gB,
-					cL: r.cL
+					et: r.et
 				});
 		}
 	});
@@ -9167,7 +9167,7 @@ var $elm$http$Http$expectWhatever = function (toMsg) {
 var $elm$http$Http$request = function (r) {
 	return $elm$http$Http$command(
 		$elm$http$Http$Request(
-			{eB: false, cZ: r.cZ, df: r.df, fc: r.fc, fw: r.fw, gw: r.gw, gB: r.gB, cL: r.cL}));
+			{eB: false, cM: r.cM, c4: r.c4, fc: r.fc, fw: r.fw, gw: r.gw, gB: r.gB, et: r.et}));
 };
 var $author$project$Utils$Loading$cmdFor = function (_v0) {
 	var m = _v0.a;
@@ -9186,13 +9186,13 @@ var $author$project$Utils$Loading$cmdFor = function (_v0) {
 	};
 	var get = $elm$http$Http$request(
 		{
-			cZ: $elm$http$Http$emptyBody,
-			df: $elm$http$Http$expectWhatever(handle),
+			cM: $elm$http$Http$emptyBody,
+			c4: $elm$http$Http$expectWhatever(handle),
 			fc: _List_Nil,
 			fw: 'GET',
 			gw: $elm$core$Maybe$Nothing,
 			gB: $elm$core$Maybe$Just(m.gB),
-			cL: $elm$url$Url$toString(m.cL)
+			et: $elm$url$Url$toString(m.et)
 		});
 	var cmdForImpl = function (state) {
 		cmdForImpl:
@@ -9374,21 +9374,21 @@ var $author$project$Utils$AlbumUtils$findChild = F2(
 				var albumList = albumOrList.a;
 				return A2(
 					$author$project$Utils$DebugSupport$log,
-					'findChild list ' + (albumList.cw + (' =?= ' + name)),
-					_Utils_eq(albumList.cw, name));
+					'findChild list ' + (albumList.dr + (' =?= ' + name)),
+					_Utils_eq(albumList.dr, name));
 			} else {
 				var album = albumOrList.a;
 				return A2(
 					$author$project$Utils$DebugSupport$log,
-					'findChild leaf ' + (album.cK + (' =?= ' + album.cK)),
-					_Utils_eq(album.cK, name));
+					'findChild leaf ' + (album.ep + (' =?= ' + album.ep)),
+					_Utils_eq(album.ep, name));
 			}
 		};
 		return $elm$core$List$head(
 			A2(
 				$elm$core$List$filter,
 				titleIsName,
-				A2($elm$core$List$cons, containingList.ci, containingList.cj)));
+				A2($elm$core$List$cons, containingList.cS, containingList.cT)));
 	});
 var $elm$core$List$member = F2(
 	function (x, xs) {
@@ -9436,21 +9436,21 @@ var $author$project$AlbumPage$baseAlbumOf = function (ap) {
 		return t.i;
 	} else {
 		var fi = ap.a;
-		var _v1 = A3($author$project$Utils$ListUtils$shiftToBeginning, fi.a8, fi.i.cr, fi.i.cs);
+		var _v1 = A3($author$project$Utils$ListUtils$shiftToBeginning, fi.a8, fi.i.df, fi.i.dg);
 		var newFirst = _v1.a;
 		var newRest = _v1.b;
-		return {cr: newFirst, cs: newRest, cJ: fi.i.cJ, cK: fi.i.cK};
+		return {df: newFirst, dg: newRest, en: fi.i.en, ep: fi.i.ep};
 	}
 };
 var $author$project$Utils$AlbumUtils$findImg = F3(
 	function (prevs, album, img) {
 		findImg:
 		while (true) {
-			if (_Utils_eq(album.cr.cc, img)) {
+			if (_Utils_eq(album.df.cF, img)) {
 				return $elm$core$Maybe$Just(
 					_Utils_Tuple2(prevs, album));
 			} else {
-				var _v0 = album.cs;
+				var _v0 = album.dg;
 				if (!_v0.b) {
 					return $elm$core$Maybe$Nothing;
 				} else {
@@ -9459,10 +9459,10 @@ var $author$project$Utils$AlbumUtils$findImg = F3(
 					var $temp$prevs = _Utils_ap(
 						prevs,
 						_List_fromArray(
-							[album.cr])),
+							[album.df])),
 						$temp$album = _Utils_update(
 						album,
-						{cr: imageNext, cs: imageRest}),
+						{df: imageNext, dg: imageRest}),
 						$temp$img = img;
 					prevs = $temp$prevs;
 					album = $temp$album;
@@ -9476,11 +9476,11 @@ var $elm$core$Basics$round = _Basics_round;
 var $author$project$FullImagePage$fitImage = F3(
 	function (is, winWidth, winHeight) {
 		var winAspect = winWidth / winHeight;
-		var imgAspect = is.cN / is.cO;
-		var scale = (_Utils_cmp(winAspect, imgAspect) < 1) ? (winWidth / is.cN) : (winHeight / is.cO);
+		var imgAspect = is.ew / is.ex;
+		var scale = (_Utils_cmp(winAspect, imgAspect) < 1) ? (winWidth / is.ew) : (winHeight / is.ex);
 		return _Utils_Tuple2(
-			$elm$core$Basics$round(is.cN * scale),
-			$elm$core$Basics$round(is.cO * scale));
+			$elm$core$Basics$round(is.ew * scale),
+			$elm$core$Basics$round(is.ex * scale));
 	});
 var $author$project$Utils$TouchUtils$NoState = {$: 0};
 var $author$project$Utils$TouchUtils$init = $author$project$Utils$TouchUtils$NoState;
@@ -9495,7 +9495,7 @@ var $author$project$Utils$Loading$init = F2(
 		var tracker = 'LoadingTracker:' + $elm$url$Url$toString(url);
 		var model = A2(
 			$author$project$Utils$Loading$OneModel,
-			{s: $author$project$Utils$Loading$NotRequested, gB: tracker, cL: url},
+			{s: $author$project$Utils$Loading$NotRequested, gB: tracker, et: url},
 			wrap);
 		return _Utils_Tuple2(
 			model,
@@ -9581,23 +9581,23 @@ var $author$project$ThumbPage$scrollPad = 20;
 var $author$project$ThumbPage$colsWidth = function (viewport) {
 	var maxCols = A2(
 		$elm$core$Basics$max,
-		($elm$core$Basics$floor(viewport.bE.cM) / $author$project$ThumbPage$maxThumbWidth) | 0,
+		($elm$core$Basics$floor(viewport.bE.cA) / $author$project$ThumbPage$maxThumbWidth) | 0,
 		2);
-	var thumbWidth = (($elm$core$Basics$floor(viewport.bE.cM) - $author$project$ThumbPage$scrollPad) / maxCols) | 0;
+	var thumbWidth = (($elm$core$Basics$floor(viewport.bE.cA) - $author$project$ThumbPage$scrollPad) / maxCols) | 0;
 	return _Utils_Tuple2(maxCols, thumbWidth);
 };
 var $author$project$ThumbPage$sizeForScaler = F2(
 	function (scaler, img) {
-		var is1 = img.cD;
+		var is1 = img.ed;
 		var scale = scaler(is1);
-		var xScaled = $elm$core$Basics$round(scale * is1.cN);
-		var yScaled = $elm$core$Basics$round(scale * is1.cO);
+		var xScaled = $elm$core$Basics$round(scale * is1.ew);
+		var yScaled = $elm$core$Basics$round(scale * is1.ex);
 		return _Utils_Tuple2(xScaled, yScaled);
 	});
 var $author$project$ThumbPage$sizeForWidth = function (width) {
 	return $author$project$ThumbPage$sizeForScaler(
 		function (is1) {
-			return width / is1.cN;
+			return width / is1.ew;
 		});
 };
 var $elm$core$Basics$ge = _Utils_ge;
@@ -9608,12 +9608,12 @@ var $author$project$ImageViews$smallestImageBiggerThan = F4(
 			A2(
 				$elm$core$List$sortBy,
 				function ($) {
-					return $.cN;
+					return $.ew;
 				},
 				A2(
 					$elm$core$List$filter,
 					function (is) {
-						return (_Utils_cmp(is.cN, w) > -1) && (_Utils_cmp(is.cO, h) > -1);
+						return (_Utils_cmp(is.ew, w) > -1) && (_Utils_cmp(is.ex, h) > -1);
 					},
 					A2($elm$core$List$cons, i, iRest))));
 		if (_v0.$ === 1) {
@@ -9628,7 +9628,7 @@ var $author$project$ThumbPage$srcForWidth = F2(
 		var _v0 = A2($author$project$ThumbPage$sizeForWidth, width, img);
 		var xScaled = _v0.a;
 		var yScaled = _v0.b;
-		return A4($author$project$ImageViews$smallestImageBiggerThan, xScaled, yScaled, img.cD, img.cE);
+		return A4($author$project$ImageViews$smallestImageBiggerThan, xScaled, yScaled, img.ed, img.ee);
 	});
 var $author$project$ThumbPage$allImgSrcs = function (thumbPageModel) {
 	var _v0 = $author$project$ThumbPage$colsWidth(thumbPageModel.eJ);
@@ -9636,12 +9636,12 @@ var $author$project$ThumbPage$allImgSrcs = function (thumbPageModel) {
 	return A2(
 		$elm$core$List$map,
 		$author$project$ThumbPage$srcForWidth(thumbWidth),
-		A2($elm$core$List$cons, thumbPageModel.i.cr, thumbPageModel.i.cs));
+		A2($elm$core$List$cons, thumbPageModel.i.df, thumbPageModel.i.dg));
 };
 var $author$project$Utils$HttpUtils$encodeImgUrl = A2(
 	$elm$core$Basics$composeR,
 	function ($) {
-		return $.cL;
+		return $.et;
 	},
 	A2(
 		$elm$core$Basics$composeR,
@@ -9829,11 +9829,11 @@ var $author$project$ThumbPage$urlsToGet = function (thumbPageModel) {
 		A2(
 			$elm$core$Maybe$map,
 			function (vp) {
-				var _v3 = !vp.bE.cO;
+				var _v3 = !vp.bE.ex;
 				if (_v3) {
 					return 0;
 				} else {
-					return (vp.bE.cO + (vp.bE.cq / 2)) / vp.ga.cq;
+					return (vp.bE.ex + (vp.bE.cn / 2)) / vp.ga.cn;
 				}
 			},
 			vPort));
@@ -9946,7 +9946,7 @@ var $mdgriffith$elm_style_animation$Animation$initMotion = F2(
 	function (position, unit) {
 		return {
 			a2: $mdgriffith$elm_style_animation$Animation$Model$Spring(
-				{c8: 26, el: 170}),
+				{cZ: 26, eg: 170}),
 			fj: $elm$core$Maybe$Nothing,
 			fY: position,
 			gs: position,
@@ -9971,11 +9971,11 @@ var $author$project$ProgressiveImage$hidden = _List_fromArray(
 var $mdgriffith$elm_style_animation$Animation$Model$Animation = $elm$core$Basics$identity;
 var $mdgriffith$elm_style_animation$Animation$initialState = function (current) {
 	return {
-		ct: _List_Nil,
+		co: _List_Nil,
 		b4: false,
-		cF: _List_Nil,
-		en: current,
-		es: {
+		cw: _List_Nil,
+		ei: current,
+		eo: {
 			X: $elm$time$Time$millisToPosix(0),
 			e3: $elm$time$Time$millisToPosix(0)
 		}
@@ -9994,10 +9994,10 @@ var $mdgriffith$elm_style_animation$Animation$speed = function (speedValue) {
 var $mdgriffith$elm_style_animation$Animation$defaultInterpolationByProperty = function (prop) {
 	var linear = function (duration) {
 		return $mdgriffith$elm_style_animation$Animation$Model$Easing(
-			{cl: duration, cm: $elm$core$Basics$identity, b0: 1, gj: 0});
+			{ci: duration, cj: $elm$core$Basics$identity, b0: 1, gj: 0});
 	};
 	var defaultSpring = $mdgriffith$elm_style_animation$Animation$Model$Spring(
-		{c8: 26, el: 170});
+		{cZ: 26, eg: 170});
 	switch (prop.$) {
 		case 0:
 			return defaultSpring;
@@ -10013,12 +10013,12 @@ var $mdgriffith$elm_style_animation$Animation$defaultInterpolationByProperty = f
 		case 5:
 			var name = prop.a;
 			return (name === 'rotate3d') ? $mdgriffith$elm_style_animation$Animation$speed(
-				{d$: $elm$core$Basics$pi}) : defaultSpring;
+				{dU: $elm$core$Basics$pi}) : defaultSpring;
 		case 6:
 			return defaultSpring;
 		case 7:
 			return $mdgriffith$elm_style_animation$Animation$speed(
-				{d$: $elm$core$Basics$pi});
+				{dU: $elm$core$Basics$pi});
 		case 8:
 			return defaultSpring;
 		default:
@@ -10253,8 +10253,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 				var arc = cmd.a;
 				return $mdgriffith$elm_style_animation$Animation$Model$ClockwiseArc(
 					function () {
-						var y = arc.cO;
-						var x = arc.cN;
+						var y = arc.ex;
+						var x = arc.ew;
 						var startAngle = arc.by;
 						var radius = arc.f3;
 						var endAngle = arc.bp;
@@ -10264,16 +10264,16 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 								bp: fn(endAngle),
 								f3: fn(radius),
 								by: fn(startAngle),
-								cN: fn(x),
-								cO: fn(y)
+								ew: fn(x),
+								ex: fn(y)
 							});
 					}());
 			case 17:
 				var arc = cmd.a;
 				return $mdgriffith$elm_style_animation$Animation$Model$AntiClockwiseArc(
 					function () {
-						var y = arc.cO;
-						var x = arc.cN;
+						var y = arc.ex;
+						var x = arc.ew;
 						var startAngle = arc.by;
 						var radius = arc.f3;
 						var endAngle = arc.bp;
@@ -10283,8 +10283,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$mapPathMotion = F2(
 								bp: fn(endAngle),
 								f3: fn(radius),
 								by: fn(startAngle),
-								cN: fn(x),
-								cO: fn(y)
+								ew: fn(x),
+								ex: fn(y)
 							});
 					}());
 			default:
@@ -10614,7 +10614,7 @@ var $author$project$AlbumPage$progInit = F5(
 	function (viewport, baseUrl, i, w, h) {
 		var smBiggerThan = F2(
 			function (wMax, hMax) {
-				return A4($author$project$ImageViews$smallestImageBiggerThan, wMax, hMax, i.cD, i.cE);
+				return A4($author$project$ImageViews$smallestImageBiggerThan, wMax, hMax, i.ed, i.ee);
 			});
 		var _v0 = $author$project$ThumbPage$colsWidth(viewport);
 		var thumbWidth = _v0.b;
@@ -10622,17 +10622,17 @@ var $author$project$AlbumPage$progInit = F5(
 			{
 				H: baseUrl,
 				fa: A2(smBiggerThan, 1, 1),
-				cq: h,
+				cn: h,
 				fs: A2(smBiggerThan, w, h),
 				fZ: _List_fromArray(
 					[
 						A2(smBiggerThan, thumbWidth, 1)
 					]),
-				cM: w
+				cA: w
 			});
 	});
 var $author$project$Utils$ViewportUtils$scrollPosOf = function (viewport) {
-	return viewport.bE.cO;
+	return viewport.bE.ex;
 };
 var $author$project$Main$navForAlbum = F6(
 	function (baseUrl, model, vpInfo, album, ps, newParents) {
@@ -10660,7 +10660,7 @@ var $author$project$Main$navForAlbum = F6(
 					var _v4 = A2(
 						$elm$core$List$member,
 						$author$project$Album$Leaf(album),
-						A2($elm$core$List$cons, alp.bG.ci, alp.bG.cj));
+						A2($elm$core$List$cons, alp.bG.cS, alp.bG.cT));
 					if (_v4) {
 						return makeViewAlbumThumbsMsg(
 							A2(
@@ -10712,12 +10712,12 @@ var $author$project$Main$navForAlbum = F6(
 				var nAlbum = _v8.b;
 				var _v9 = A3(
 					$author$project$FullImagePage$fitImage,
-					nAlbum.cr.cD,
-					$elm$core$Basics$floor(vpInfo.eJ.bE.cM),
-					$elm$core$Basics$floor(vpInfo.eJ.bE.cq));
+					nAlbum.df.ed,
+					$elm$core$Basics$floor(vpInfo.eJ.bE.cA),
+					$elm$core$Basics$floor(vpInfo.eJ.bE.cn));
 				var w = _v9.a;
 				var h = _v9.b;
-				var _v10 = A5($author$project$AlbumPage$progInit, vpInfo.eJ, baseUrl, nAlbum.cr, w, h);
+				var _v10 = A5($author$project$AlbumPage$progInit, vpInfo.eJ, baseUrl, nAlbum.df, w, h);
 				var progModel = _v10.a;
 				var progMsg = _v10.b;
 				var nonLocalMsg = $elm$core$Maybe$Just(
@@ -10736,7 +10736,7 @@ var $author$project$Main$navForAlbum = F6(
 												bN: $elm$core$Maybe$Nothing,
 												a8: prevs,
 												ap: progModel,
-												ee: $elm$core$Maybe$Nothing,
+												d7: $elm$core$Maybe$Nothing,
 												ak: $author$project$Utils$TouchUtils$init,
 												q: vpInfo
 											}),
@@ -10767,7 +10767,7 @@ var $author$project$Main$navForAlbum = F6(
 											$author$project$Main$Sequence,
 											$author$project$Main$Album_(
 												$author$project$Main$PageMsg(
-													A3($author$project$AlbumPage$View, prevs, nAlbum.cr, nAlbum.cs))),
+													A3($author$project$AlbumPage$View, prevs, nAlbum.df, nAlbum.dg))),
 											_List_fromArray(
 												[
 													$author$project$Main$Album_($author$project$Main$NavCompletedLocally)
@@ -10787,7 +10787,7 @@ var $author$project$Main$navForAlbum = F6(
 										return $elm$core$Maybe$Nothing;
 									} else {
 										var matchingImage = possibleMatchingImage.a;
-										var _v18 = _Utils_eq(nAlbum.cr, matchingImage);
+										var _v18 = _Utils_eq(nAlbum.df, matchingImage);
 										if (_v18) {
 											return $elm$core$Maybe$Just(
 												$author$project$Main$Meta(
@@ -10806,7 +10806,7 @@ var $author$project$Main$navForAlbum = F6(
 								});
 							var nextMsg = A2(
 								matchImgMsg,
-								$elm$core$List$head(fi.i.cs),
+								$elm$core$List$head(fi.i.dg),
 								$author$project$AlbumPage$Next);
 							var prevMsg = A2(
 								matchImgMsg,
@@ -10917,7 +10917,7 @@ var $author$project$Main$navFrom = F7(
 												A2(
 													$elm$core$List$member,
 													$author$project$Album$List(albumList),
-													A2($elm$core$List$cons, alp.bG.ci, alp.bG.cj)));
+													A2($elm$core$List$cons, alp.bG.cS, alp.bG.cT)));
 											if (destIsChild) {
 												return A2(
 													localNavWithScroll,
@@ -11135,8 +11135,8 @@ var $author$project$Utils$TouchUtils$cumScale = function (z) {
 };
 var $author$project$Utils$TouchUtils$ZoomOffset = $elm$core$Basics$identity;
 var $author$project$Utils$TouchUtils$coords = function (t) {
-	var y = t.c3.b;
-	var x = t.c3.a;
+	var y = t.cU.b;
+	var x = t.cU.a;
 	return _Utils_Tuple2(x, y);
 };
 var $author$project$Utils$TouchUtils$center = F2(
@@ -11212,7 +11212,7 @@ var $author$project$Utils$TouchUtils$getZoomOffset = function (zoomData) {
 		fN: _Utils_Tuple2(endX - startX, endY - startY),
 		aC: prevOffset,
 		bx: scale,
-		ek: _Utils_Tuple2(startX, startY)
+		ef: _Utils_Tuple2(startX, startY)
 	};
 };
 var $author$project$Utils$TouchUtils$endZoom = function (oldState) {
@@ -11471,10 +11471,10 @@ var $mdgriffith$elm_style_animation$Animation$Model$isCmdDone = function (cmd) {
 				coords);
 		case 16:
 			var arc = cmd.a;
-			return motionDone(arc.cN) && (motionDone(arc.cO) && (motionDone(arc.f3) && (motionDone(arc.by) && motionDone(arc.bp))));
+			return motionDone(arc.ew) && (motionDone(arc.ex) && (motionDone(arc.f3) && (motionDone(arc.by) && motionDone(arc.bp))));
 		case 17:
 			var arc = cmd.a;
-			return motionDone(arc.cN) && (motionDone(arc.cO) && (motionDone(arc.f3) && (motionDone(arc.by) && motionDone(arc.bp))));
+			return motionDone(arc.ew) && (motionDone(arc.ex) && (motionDone(arc.f3) && (motionDone(arc.by) && motionDone(arc.bp))));
 		default:
 			return true;
 	}
@@ -11894,8 +11894,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$setPathTarget = F2(
 					var target = targetCmd.a;
 					return $mdgriffith$elm_style_animation$Animation$Model$ClockwiseArc(
 						function () {
-							var y = arc.cO;
-							var x = arc.cN;
+							var y = arc.ex;
+							var x = arc.ew;
 							var startAngle = arc.by;
 							var radius = arc.f3;
 							var endAngle = arc.bp;
@@ -11905,8 +11905,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$setPathTarget = F2(
 									bp: A2(setMotionTarget, endAngle, target.bp),
 									f3: A2(setMotionTarget, radius, target.f3),
 									by: A2(setMotionTarget, startAngle, target.by),
-									cN: A2(setMotionTarget, x, target.cN),
-									cO: A2(setMotionTarget, y, target.cO)
+									ew: A2(setMotionTarget, x, target.ew),
+									ex: A2(setMotionTarget, y, target.ex)
 								});
 						}());
 				} else {
@@ -11918,8 +11918,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$setPathTarget = F2(
 					var target = targetCmd.a;
 					return $mdgriffith$elm_style_animation$Animation$Model$AntiClockwiseArc(
 						function () {
-							var y = arc.cO;
-							var x = arc.cN;
+							var y = arc.ex;
+							var x = arc.ew;
 							var startAngle = arc.by;
 							var radius = arc.f3;
 							var endAngle = arc.bp;
@@ -11929,8 +11929,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$setPathTarget = F2(
 									bp: A2(setMotionTarget, endAngle, target.bp),
 									f3: A2(setMotionTarget, radius, target.f3),
 									by: A2(setMotionTarget, startAngle, target.by),
-									cN: A2(setMotionTarget, x, target.cN),
-									cO: A2(setMotionTarget, y, target.cO)
+									ew: A2(setMotionTarget, x, target.ew),
+									ex: A2(setMotionTarget, y, target.ex)
 								});
 						}());
 				} else {
@@ -12234,7 +12234,7 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 		var dtms = $elm$time$Time$posixToMillis(posix);
 		switch (interpolationToUse.$) {
 			case 2:
-				var perSecond = interpolationToUse.a.d$;
+				var perSecond = interpolationToUse.a.dU;
 				var _v1 = function () {
 					if (_Utils_cmp(motion.fY, motion.gs) < 0) {
 						var _new = motion.fY + (perSecond * (dtms / 1000));
@@ -12256,8 +12256,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 					motion,
 					{fY: newPos, gH: perSecond * 1000});
 			case 0:
-				var damping = interpolationToUse.a.c8;
-				var stiffness = interpolationToUse.a.el;
+				var damping = interpolationToUse.a.cZ;
+				var stiffness = interpolationToUse.a.eg;
 				var fspring = stiffness * (motion.gs - motion.fY);
 				var fdamper = ((-1) * damping) * motion.gH;
 				var dt = dtms / 1000;
@@ -12274,8 +12274,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 					{fY: newPos, gH: newVelocity});
 			default:
 				var start = interpolationToUse.a.gj;
-				var ease = interpolationToUse.a.cm;
-				var duration = interpolationToUse.a.cl;
+				var ease = interpolationToUse.a.cj;
+				var duration = interpolationToUse.a.ci;
 				var progress = interpolationToUse.a.b0;
 				var durationMs = $elm$time$Time$posixToMillis(duration);
 				var newProgress = (((dtms / durationMs) + progress) < 1) ? ((dtms / durationMs) + progress) : 1;
@@ -12289,7 +12289,7 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 						motion,
 						{
 							a2: $mdgriffith$elm_style_animation$Animation$Model$Easing(
-								{cl: duration, cm: ease, b0: newProgress, gj: start}),
+								{ci: duration, cj: ease, b0: newProgress, gj: start}),
 							fY: newPos,
 							gH: newVelocity
 						});
@@ -12300,7 +12300,7 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepInterpolation = F2(
 						{
 							fj: $elm$core$Maybe$Just(
 								$mdgriffith$elm_style_animation$Animation$Model$Easing(
-									{cl: duration, cm: ease, b0: newProgress, gj: start})),
+									{ci: duration, cj: ease, b0: newProgress, gj: start})),
 							fY: newPos,
 							gH: newVelocity
 						});
@@ -12447,8 +12447,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepPath = F2(
 							bp: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.bp),
 							f3: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.f3),
 							by: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.by),
-							cN: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.cN),
-							cO: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.cO)
+							ew: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.ew),
+							ex: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.ex)
 						}));
 			case 17:
 				var arc = cmd.a;
@@ -12459,8 +12459,8 @@ var $mdgriffith$elm_style_animation$Animation$Model$stepPath = F2(
 							bp: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.bp),
 							f3: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.f3),
 							by: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.by),
-							cN: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.cN),
-							cO: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.cO)
+							ew: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.ew),
+							ex: A2($mdgriffith$elm_style_animation$Animation$Model$stepInterpolation, dt, arc.ex)
 						}));
 			default:
 				return $mdgriffith$elm_style_animation$Animation$Model$Close;
@@ -12755,7 +12755,7 @@ var $mdgriffith$elm_style_animation$Animation$Model$updateAnimation = F2(
 	function (_v0, _v1) {
 		var now = _v0;
 		var model = _v1;
-		var timing = A2($mdgriffith$elm_style_animation$Animation$Model$refreshTiming, now, model.es);
+		var timing = A2($mdgriffith$elm_style_animation$Animation$Model$refreshTiming, now, model.eo);
 		var _v2 = A2(
 			$elm$core$List$partition,
 			function (_v4) {
@@ -12773,7 +12773,7 @@ var $mdgriffith$elm_style_animation$Animation$Model$updateAnimation = F2(
 							$elm$time$Time$posixToMillis(wait) - $elm$time$Time$posixToMillis(timing.e3)),
 						mySteps);
 				},
-				model.ct));
+				model.co));
 		var readyInterruption = _v2.a;
 		var queuedInterruptions = _v2.b;
 		var _v5 = function () {
@@ -12792,9 +12792,9 @@ var $mdgriffith$elm_style_animation$Animation$Model$updateAnimation = F2(
 									m,
 									{fj: $elm$core$Maybe$Nothing});
 							}),
-						model.en));
+						model.ei));
 			} else {
-				return _Utils_Tuple2(model.cF, model.en);
+				return _Utils_Tuple2(model.cw, model.ei);
 			}
 		}();
 		var steps = _v5.a;
@@ -12807,11 +12807,11 @@ var $mdgriffith$elm_style_animation$Animation$Model$updateAnimation = F2(
 			_Utils_update(
 				model,
 				{
-					ct: queuedInterruptions,
+					co: queuedInterruptions,
 					b4: (!(!$elm$core$List$length(revisedSteps))) || (!(!$elm$core$List$length(queuedInterruptions))),
-					cF: revisedSteps,
-					en: revisedStyle,
-					es: timing
+					cw: revisedSteps,
+					ei: revisedStyle,
+					eo: timing
 				}),
 			$elm$core$Platform$Cmd$batch(
 				A2(
@@ -12872,10 +12872,10 @@ var $mdgriffith$elm_style_animation$Animation$interrupt = F2(
 		return _Utils_update(
 			model,
 			{
-				ct: A2(
+				co: A2(
 					$elm$core$List$cons,
 					$mdgriffith$elm_style_animation$Animation$extractInitialWait(steps),
-					model.ct),
+					model.co),
 				b4: true
 			});
 	});
@@ -13264,12 +13264,12 @@ var $author$project$Utils$TouchUtils$update = F2(
 							return $author$project$Utils$TouchUtils$SwipeState(
 								{
 									X: t,
-									cB: $elm$core$Maybe$Just(zData),
+									cu: $elm$core$Maybe$Just(zData),
 									gj: t
 								});
 						default:
 							return $author$project$Utils$TouchUtils$SwipeState(
-								{X: t, cB: $elm$core$Maybe$Nothing, gj: t});
+								{X: t, cu: $elm$core$Maybe$Nothing, gj: t});
 					}
 				} else {
 					if (!_v0.b.b.b) {
@@ -13300,7 +13300,7 @@ var $author$project$Utils$TouchUtils$update = F2(
 								}
 							case 1:
 								var ss = oldState.a;
-								var _v5 = ss.cB;
+								var _v5 = ss.cu;
 								if (_v5.$ === 1) {
 									return A2($author$project$Utils$TouchUtils$startZoom, t1, t2);
 								} else {
@@ -13451,7 +13451,7 @@ var $author$project$Utils$Loading$updatePendingImpl = F3(
 					$elm$core$List$map,
 					function (_v2) {
 						var lm = _v2;
-						return lm.cL;
+						return lm.et;
 					},
 					$elm$core$Dict$values(mm.I))));
 		};
@@ -13523,19 +13523,19 @@ var $author$project$AlbumPage$updatePrevNext = F2(
 		if (model.$ === 1) {
 			var fi = model.a;
 			var cancelCmd = $author$project$ProgressiveImage$cancel(fi.ap);
-			var _v1 = A3(shifter, fi.a8, fi.i.cr, fi.i.cs);
+			var _v1 = A3(shifter, fi.a8, fi.i.df, fi.i.dg);
 			var newPrev = _v1.a;
 			var newCur = _v1.b;
 			var newRest = _v1.c;
 			var _v2 = function () {
-				if (_Utils_eq(fi.i.cr, newCur)) {
+				if (_Utils_eq(fi.i.df, newCur)) {
 					return _Utils_Tuple2(fi.ap, $elm$core$Platform$Cmd$none);
 				} else {
 					var _v3 = A3(
 						$author$project$FullImagePage$fitImage,
-						newCur.cD,
-						$elm$core$Basics$floor(fi.q.eJ.bE.cM),
-						$elm$core$Basics$floor(fi.q.eJ.bE.cq));
+						newCur.ed,
+						$elm$core$Basics$floor(fi.q.eJ.bE.cA),
+						$elm$core$Basics$floor(fi.q.eJ.bE.cn));
 					var w = _v3.a;
 					var h = _v3.b;
 					return A5($author$project$AlbumPage$progInit, fi.q.eJ, fi.H, newCur, w, h);
@@ -13548,7 +13548,7 @@ var $author$project$AlbumPage$updatePrevNext = F2(
 					_Utils_update(
 						fi,
 						{
-							i: {cr: newCur, cs: newRest, cJ: fi.i.cJ, cK: fi.i.cK},
+							i: {df: newCur, dg: newRest, en: fi.i.en, ep: fi.i.ep},
 							a8: newPrev,
 							ap: newProgModel,
 							ak: $author$project$Utils$TouchUtils$init
@@ -13584,9 +13584,9 @@ var $author$project$AlbumPage$update = F3(
 					var th = model.a;
 					var _v2 = A3(
 						$author$project$FullImagePage$fitImage,
-						curImg.cD,
-						$elm$core$Basics$floor(th.q.eJ.bE.cM),
-						$elm$core$Basics$floor(th.q.eJ.bE.cq));
+						curImg.ed,
+						$elm$core$Basics$floor(th.q.eJ.bE.cA),
+						$elm$core$Basics$floor(th.q.eJ.bE.cn));
 					var w = _v2.a;
 					var h = _v2.b;
 					var _v3 = A5($author$project$AlbumPage$progInit, th.q.eJ, th.H, curImg, w, h);
@@ -13595,13 +13595,13 @@ var $author$project$AlbumPage$update = F3(
 					return _Utils_Tuple2(
 						$author$project$AlbumPage$FullImage(
 							{
-								i: {cr: curImg, cs: nextImgs, cJ: th.i.cJ, cK: th.i.cK},
+								i: {df: curImg, dg: nextImgs, en: th.i.en, ep: th.i.ep},
 								H: th.H,
 								m: th.m,
 								bN: $elm$core$Maybe$Nothing,
 								a8: prevImgs,
 								ap: progModel,
-								ee: scroll,
+								d7: scroll,
 								ak: $author$project$Utils$TouchUtils$init,
 								q: th.q
 							}),
@@ -13629,7 +13629,7 @@ var $author$project$AlbumPage$update = F3(
 						q: fi.q
 					};
 					var scrollCmd = function () {
-						var _v7 = fi.ee;
+						var _v7 = fi.d7;
 						if (_v7.$ === 1) {
 							return $elm$core$Platform$Cmd$none;
 						} else {
@@ -14039,6 +14039,10 @@ var $elm$http$Http$expectJson = F2(
 						A2($elm$json$Json$Decode$decodeString, decoder, string));
 				}));
 	});
+var $author$project$Album$AlbumList = F4(
+	function (listTitle, childFirst, childRest, listThumbnail) {
+		return {cS: childFirst, cT: childRest, dq: listThumbnail, dr: listTitle};
+	});
 var $elm$json$Json$Decode$fail = _Json_fail;
 var $bartavelle$json_helpers$Json$Helpers$customDecoder = F2(
 	function (decoder, toResult) {
@@ -14096,6 +14100,18 @@ var $bartavelle$json_helpers$Json$Helpers$decodeSumObjectWithSingleField = F2(
 				}
 			});
 	});
+var $author$project$Album$Album = F4(
+	function (title, thumbnail, imageFirst, imageRest) {
+		return {df: imageFirst, dg: imageRest, en: thumbnail, ep: title};
+	});
+var $author$project$Album$Image = F3(
+	function (altText, srcSetFirst, srcSetRest) {
+		return {cF: altText, ed: srcSetFirst, ee: srcSetRest};
+	});
+var $author$project$Album$ImgSrc = F3(
+	function (url, x, y) {
+		return {et: url, ew: x, ex: y};
+	});
 var $bartavelle$json_helpers$Json$Helpers$custom = $elm$json$Json$Decode$map2($elm$core$Basics$apR);
 var $bartavelle$json_helpers$Json$Helpers$required = F3(
 	function (key, valDecoder, decoder) {
@@ -14116,11 +14132,7 @@ var $author$project$Album$jsonDecImgSrc = A3(
 			$bartavelle$json_helpers$Json$Helpers$required,
 			'url',
 			$elm$json$Json$Decode$string,
-			$elm$json$Json$Decode$succeed(
-				F3(
-					function (purl, px, py) {
-						return {cL: purl, cN: px, cO: py};
-					})))));
+			$elm$json$Json$Decode$succeed($author$project$Album$ImgSrc))));
 var $elm$json$Json$Decode$list = _Json_decodeList;
 var $author$project$Album$jsonDecImage = A3(
 	$bartavelle$json_helpers$Json$Helpers$required,
@@ -14134,11 +14146,7 @@ var $author$project$Album$jsonDecImage = A3(
 			$bartavelle$json_helpers$Json$Helpers$required,
 			'altText',
 			$elm$json$Json$Decode$string,
-			$elm$json$Json$Decode$succeed(
-				F3(
-					function (paltText, psrcSetFirst, psrcSetRest) {
-						return {cc: paltText, cD: psrcSetFirst, cE: psrcSetRest};
-					})))));
+			$elm$json$Json$Decode$succeed($author$project$Album$Image))));
 var $author$project$Album$jsonDecAlbum = A3(
 	$bartavelle$json_helpers$Json$Helpers$required,
 	'imageRest',
@@ -14155,11 +14163,7 @@ var $author$project$Album$jsonDecAlbum = A3(
 				$bartavelle$json_helpers$Json$Helpers$required,
 				'title',
 				$elm$json$Json$Decode$string,
-				$elm$json$Json$Decode$succeed(
-					F4(
-						function (ptitle, pthumbnail, pimageFirst, pimageRest) {
-							return {cr: pimageFirst, cs: pimageRest, cJ: pthumbnail, cK: ptitle};
-						}))))));
+				$elm$json$Json$Decode$succeed($author$project$Album$Album)))));
 var $elm$json$Json$Decode$lazy = function (thunk) {
 	return A2(
 		$elm$json$Json$Decode$andThen,
@@ -14184,11 +14188,7 @@ function $author$project$Album$cyclic$jsonDecAlbumList() {
 					$bartavelle$json_helpers$Json$Helpers$required,
 					'listTitle',
 					$elm$json$Json$Decode$string,
-					$elm$json$Json$Decode$succeed(
-						F4(
-							function (plistTitle, pchildFirst, pchildRest, plistThumbnail) {
-								return {ci: pchildFirst, cj: pchildRest, cv: plistThumbnail, cw: plistTitle};
-							}))))));
+					$elm$json$Json$Decode$succeed($author$project$Album$AlbumList)))));
 }
 function $author$project$Album$cyclic$jsonDecAlbumOrList() {
 	var jsonDecDictAlbumOrList = $elm$core$Dict$fromList(
@@ -14226,8 +14226,8 @@ var $author$project$Main$getAlbumDataCmd = function (baseUrl) {
 		$author$project$Main$Bootstrap,
 		$elm$http$Http$request(
 			{
-				cZ: $elm$http$Http$emptyBody,
-				df: A2(
+				cM: $elm$http$Http$emptyBody,
+				c4: A2(
 					$elm$http$Http$expectJson,
 					A2($author$project$Utils$ResultUtils$either, $author$project$Main$NoAlbum, $author$project$Main$YesAlbum),
 					$author$project$Album$jsonDecAlbumOrList),
@@ -14235,7 +14235,7 @@ var $author$project$Main$getAlbumDataCmd = function (baseUrl) {
 				fw: 'GET',
 				gw: $elm$core$Maybe$Nothing,
 				gB: $elm$core$Maybe$Just($author$project$Utils$AlbumUtils$albumJson),
-				cL: $elm$url$Url$toString(
+				et: $elm$url$Url$toString(
 					A2(
 						$author$project$Utils$HttpUtils$appendPath,
 						baseUrl,
@@ -14256,19 +14256,19 @@ var $elm$http$Http$expectString = function (toMsg) {
 };
 var $elm$http$Http$get = function (r) {
 	return $elm$http$Http$request(
-		{cZ: $elm$http$Http$emptyBody, df: r.df, fc: _List_Nil, fw: 'GET', gw: $elm$core$Maybe$Nothing, gB: $elm$core$Maybe$Nothing, cL: r.cL});
+		{cM: $elm$http$Http$emptyBody, c4: r.c4, fc: _List_Nil, fw: 'GET', gw: $elm$core$Maybe$Nothing, gB: $elm$core$Maybe$Nothing, et: r.et});
 };
 var $author$project$Main$getHomeCmd = function (baseUrl) {
 	return $elm$http$Http$get(
 		{
-			df: $elm$http$Http$expectString(
+			c4: $elm$http$Http$expectString(
 				A2(
 					$author$project$Utils$ResultUtils$either,
 					function (_v0) {
 						return $author$project$Main$Meta($author$project$Main$NoBootstrap);
 					},
 					A2($elm$core$Basics$composeL, $author$project$Main$Bootstrap, $author$project$Main$YesHome))),
-			cL: $elm$url$Url$toString(
+			et: $elm$url$Url$toString(
 				A2(
 					$author$project$Utils$HttpUtils$appendPath,
 					baseUrl,
@@ -14298,7 +14298,7 @@ var $author$project$Main$SetAlbumPathFromUrl = function (a) {
 	return {$: 0, a: a};
 };
 var $author$project$Utils$HttpUtils$getFragment = function (url) {
-	var _v0 = url.dk;
+	var _v0 = url.c9;
 	if (_v0.$ === 1) {
 		return $elm$core$Result$Err(_List_Nil);
 	} else {
@@ -14323,7 +14323,7 @@ var $elm$parser$Parser$Advanced$chompWhileHelp = F5(
 					$elm$parser$Parser$Advanced$Good,
 					_Utils_cmp(s0.fN, offset) < 0,
 					0,
-					{c5: col, g: s0.g, j: s0.j, fN: offset, ec: row, b: s0.b});
+					{cW: col, g: s0.g, j: s0.j, fN: offset, d5: row, b: s0.b});
 			} else {
 				if (_Utils_eq(newOffset, -2)) {
 					var $temp$isGood = isGood,
@@ -14355,7 +14355,7 @@ var $elm$parser$Parser$Advanced$chompWhileHelp = F5(
 	});
 var $elm$parser$Parser$Advanced$chompWhile = function (isGood) {
 	return function (s) {
-		return A5($elm$parser$Parser$Advanced$chompWhileHelp, isGood, s.fN, s.ec, s.c5, s);
+		return A5($elm$parser$Parser$Advanced$chompWhileHelp, isGood, s.fN, s.d5, s.cW, s);
 	};
 };
 var $elm$parser$Parser$chompWhile = $elm$parser$Parser$Advanced$chompWhile;
@@ -14370,7 +14370,7 @@ var $elm$parser$Parser$Advanced$AddRight = F2(
 	});
 var $elm$parser$Parser$Advanced$DeadEnd = F4(
 	function (row, col, problem, contextStack) {
-		return {c5: col, eT: contextStack, d2: problem, ec: row};
+		return {cW: col, eT: contextStack, dX: problem, d5: row};
 	});
 var $elm$parser$Parser$Advanced$Empty = {$: 0};
 var $elm$parser$Parser$Advanced$fromState = F2(
@@ -14378,7 +14378,7 @@ var $elm$parser$Parser$Advanced$fromState = F2(
 		return A2(
 			$elm$parser$Parser$Advanced$AddRight,
 			$elm$parser$Parser$Advanced$Empty,
-			A4($elm$parser$Parser$Advanced$DeadEnd, s.ec, s.c5, x, s.g));
+			A4($elm$parser$Parser$Advanced$DeadEnd, s.d5, s.cW, x, s.g));
 	});
 var $elm$parser$Parser$Advanced$end = function (x) {
 	return function (s) {
@@ -14516,10 +14516,10 @@ var $elm$parser$Parser$Advanced$oneOf = function (parsers) {
 var $elm$parser$Parser$oneOf = $elm$parser$Parser$Advanced$oneOf;
 var $elm$parser$Parser$DeadEnd = F3(
 	function (row, col, problem) {
-		return {c5: col, d2: problem, ec: row};
+		return {cW: col, dX: problem, d5: row};
 	});
 var $elm$parser$Parser$problemToDeadEnd = function (p) {
-	return A3($elm$parser$Parser$DeadEnd, p.ec, p.c5, p.d2);
+	return A3($elm$parser$Parser$DeadEnd, p.d5, p.cW, p.dX);
 };
 var $elm$parser$Parser$Advanced$bagToList = F2(
 	function (bag, list) {
@@ -14551,7 +14551,7 @@ var $elm$parser$Parser$Advanced$run = F2(
 	function (_v0, src) {
 		var parse = _v0;
 		var _v1 = parse(
-			{c5: 1, g: _List_Nil, j: 1, fN: 0, ec: 1, b: src});
+			{cW: 1, g: _List_Nil, j: 1, fN: 0, d5: 1, b: src});
 		if (!_v1.$) {
 			var value = _v1.b;
 			return $elm$core$Result$Ok(value);
@@ -14837,7 +14837,7 @@ var $elm$parser$Parser$Advanced$token = function (_v0) {
 	var expecting = _v0.b;
 	var progress = !$elm$core$String$isEmpty(str);
 	return function (s) {
-		var _v1 = A5($elm$parser$Parser$Advanced$isSubString, str, s.fN, s.ec, s.c5, s.b);
+		var _v1 = A5($elm$parser$Parser$Advanced$isSubString, str, s.fN, s.d5, s.cW, s.b);
 		var newOffset = _v1.a;
 		var newRow = _v1.b;
 		var newCol = _v1.c;
@@ -14848,7 +14848,7 @@ var $elm$parser$Parser$Advanced$token = function (_v0) {
 			$elm$parser$Parser$Advanced$Good,
 			progress,
 			0,
-			{c5: newCol, g: s.g, j: s.j, fN: newOffset, ec: newRow, b: s.b});
+			{cW: newCol, g: s.g, j: s.j, fN: newOffset, d5: newRow, b: s.b});
 	};
 };
 var $elm$parser$Parser$Advanced$sequence = function (i) {
@@ -15045,7 +15045,7 @@ var $author$project$Main$navToMsgInternal = F2(
 			'parsedPath from ' + loc.bw,
 			A2($author$project$Utils$HttpUtils$parsePath, subPath, loc));
 		var parsedHash = function () {
-			var _v2 = loc.dk;
+			var _v2 = loc.c9;
 			if (_v2.$ === 1) {
 				return A3($author$project$Utils$DebugSupport$log, 'parsedHash from <no fragment>', $elm$core$Result$Err, _List_Nil);
 			} else {
@@ -15091,7 +15091,7 @@ var $author$project$Utils$LocationUtils$parseOriginRelativeUrl = F2(
 					return $elm$core$Maybe$Just(
 						_Utils_update(
 							baseUrl,
-							{dk: url.dk, bw: url.bw, f2: url.f2}));
+							{c9: url.c9, bw: url.bw, f2: url.f2}));
 				} else {
 					return $elm$core$Maybe$Nothing;
 				}
@@ -15184,7 +15184,7 @@ var $author$project$Utils$HttpUtils$parentUrlPath = function (url) {
 			_Utils_update(
 				url,
 				{
-					dk: $elm$core$Maybe$Nothing,
+					c9: $elm$core$Maybe$Nothing,
 					bw: '/' + A2(
 						$elm$core$String$join,
 						'/',
@@ -15334,7 +15334,7 @@ var $author$project$Main$updateBootstrap = F2(
 				var fatal = _Utils_Tuple2(
 					$author$project$Main$LoadError(
 						{
-							dd: err,
+							c2: err,
 							r: $author$project$Main$flagsOf(model)
 						}),
 					$elm$core$Platform$Cmd$none);
@@ -15671,10 +15671,10 @@ var $author$project$Main$updateMeta = F2(
 var $author$project$AlbumPage$titleOf = function (albumPage) {
 	if (!albumPage.$) {
 		var th = albumPage.a;
-		return th.i.cK;
+		return th.i.ep;
 	} else {
 		var fi = albumPage.a;
-		return fi.i.cr.cc;
+		return fi.i.df.cF;
 	}
 };
 var $rtfeldman$elm_css$VirtualDom$Styled$UnscopedStyles = function (a) {
@@ -15683,7 +15683,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$UnscopedStyles = function (a) {
 var $elm$core$String$cons = _String_cons;
 var $robinheghan$murmur3$Murmur3$HashData = F4(
 	function (shift, seed, hash, charsProcessed) {
-		return {aW: charsProcessed, a1: hash, eg: seed, gf: shift};
+		return {aW: charsProcessed, a1: hash, d9: seed, gf: shift};
 	});
 var $robinheghan$murmur3$Murmur3$c1 = 3432918353;
 var $robinheghan$murmur3$Murmur3$c2 = 461845907;
@@ -15701,13 +15701,13 @@ var $robinheghan$murmur3$Murmur3$rotlBy = F2(
 	});
 var $elm$core$Bitwise$xor = _Bitwise_xor;
 var $robinheghan$murmur3$Murmur3$finalize = function (data) {
-	var acc = (!(!data.a1)) ? (data.eg ^ A2(
+	var acc = (!(!data.a1)) ? (data.d9 ^ A2(
 		$robinheghan$murmur3$Murmur3$multiplyBy,
 		$robinheghan$murmur3$Murmur3$c2,
 		A2(
 			$robinheghan$murmur3$Murmur3$rotlBy,
 			15,
-			A2($robinheghan$murmur3$Murmur3$multiplyBy, $robinheghan$murmur3$Murmur3$c1, data.a1)))) : data.eg;
+			A2($robinheghan$murmur3$Murmur3$multiplyBy, $robinheghan$murmur3$Murmur3$c1, data.a1)))) : data.d9;
 	var h0 = acc ^ data.aW;
 	var h1 = A2($robinheghan$murmur3$Murmur3$multiplyBy, 2246822507, h0 ^ (h0 >>> 16));
 	var h2 = A2($robinheghan$murmur3$Murmur3$multiplyBy, 3266489909, h1 ^ (h1 >>> 13));
@@ -15738,11 +15738,11 @@ var $robinheghan$murmur3$Murmur3$hashFold = F2(
 			return {
 				aW: data.aW + 1,
 				a1: 0,
-				eg: A2($robinheghan$murmur3$Murmur3$mix, data.eg, res),
+				d9: A2($robinheghan$murmur3$Murmur3$mix, data.d9, res),
 				gf: 0
 			};
 		} else {
-			return {aW: data.aW + 1, a1: res, eg: data.eg, gf: data.gf + 8};
+			return {aW: data.aW + 1, a1: res, d9: data.d9, gf: data.gf + 8};
 		}
 	});
 var $robinheghan$murmur3$Murmur3$hashString = F2(
@@ -16450,8 +16450,8 @@ var $elm$core$String$fromFloat = _String_fromNumber;
 var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 	function (units, unitLabel, numericValue) {
 		return {
+			cB: 0,
 			cP: 0,
-			c0: 0,
 			a$: 0,
 			L: 0,
 			w: 0,
@@ -16474,7 +16474,7 @@ var $rtfeldman$elm_css$Css$Internal$lengthConverter = F3(
 	});
 var $rtfeldman$elm_css$Css$em = A2($rtfeldman$elm_css$Css$Internal$lengthConverter, 0, 'em');
 var $rtfeldman$elm_css$Css$Internal$IncompatibleUnits = 0;
-var $rtfeldman$elm_css$Css$initial = {cS: 0, A: 0, bk: 0, cV: 0, aU: 0, cW: 0, aV: 0, as: 0, Q: 0, bI: 0, eR: 0, c: 0, u: 0, a$: 0, co: 0, bq: 0, bM: 0, aG: 0, L: 0, br: 0, l: 0, aH: 0, bO: 0, dv: 0, cu: 0, w: 0, a3: 0, ax: 0, a4: 0, a5: 0, aK: 0, aL: 0, am: 0, a6: 0, bP: 0, e: 0, d: 0, cz: 0, fM: 0, aA: 0, bZ: 0, a7: 0, ai: 0, b8: 0, bb: 0, aO: 0, bc: 0, bd: 0, aP: 0, V: 0, be: '', bD: 0, aq: 'initial', bF: 0, aS: 0};
+var $rtfeldman$elm_css$Css$initial = {cE: 0, A: 0, bk: 0, cI: 0, aU: 0, cJ: 0, aV: 0, as: 0, Q: 0, bI: 0, eR: 0, c: 0, u: 0, a$: 0, cl: 0, bq: 0, bM: 0, aG: 0, L: 0, br: 0, l: 0, aH: 0, bO: 0, dm: 0, cp: 0, w: 0, a3: 0, ax: 0, a4: 0, a5: 0, aK: 0, aL: 0, am: 0, a6: 0, bP: 0, e: 0, d: 0, cs: 0, fM: 0, aA: 0, bZ: 0, a7: 0, ai: 0, b8: 0, bb: 0, aO: 0, bc: 0, bd: 0, aP: 0, V: 0, be: '', bD: 0, aq: 'initial', bF: 0, aS: 0};
 var $rtfeldman$elm_css$Css$inherit = _Utils_update(
 	$rtfeldman$elm_css$Css$initial,
 	{aq: 'inherit'});
@@ -16583,14 +16583,14 @@ var $rtfeldman$elm_css$Css$Structure$compactDeclarations = function (declaration
 };
 var $rtfeldman$elm_css$Css$Structure$compactStylesheet = function (_v0) {
 	var declarations = _v0.eX;
-	var namespaces = _v0.dR;
-	var imports = _v0.dq;
-	var charset = _v0.c2;
+	var namespaces = _v0.dK;
+	var imports = _v0.dh;
+	var charset = _v0.cR;
 	return {
-		c2: charset,
+		cR: charset,
 		eX: $rtfeldman$elm_css$Css$Structure$compactDeclarations(declarations),
-		dq: imports,
-		dR: namespaces
+		dh: imports,
+		dK: namespaces
 	};
 };
 var $rtfeldman$elm_css$Css$Structure$Output$charsetToString = function (charset) {
@@ -16635,7 +16635,7 @@ var $rtfeldman$elm_css$Css$String$mapJoin = F3(
 		return A4($rtfeldman$elm_css$Css$String$mapJoinHelp, map, sep, strs, '');
 	});
 var $rtfeldman$elm_css$Css$Structure$Output$mediaExpressionToString = function (expression) {
-	return '(' + (expression.dh + (A2(
+	return '(' + (expression.c6 + (A2(
 		$elm$core$Maybe$withDefault,
 		'',
 		A2(
@@ -16827,9 +16827,9 @@ var $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration = function (d
 };
 var $rtfeldman$elm_css$Css$Structure$Output$prettyPrint = function (_v0) {
 	var declarations = _v0.eX;
-	var namespaces = _v0.dR;
-	var imports = _v0.dq;
-	var charset = _v0.c2;
+	var namespaces = _v0.dK;
+	var imports = _v0.dh;
+	var charset = _v0.cR;
 	return $rtfeldman$elm_css$Css$Structure$Output$charsetToString(charset) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$importToString, '\n', imports) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$namespaceToString, '\n', namespaces) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration, '\n', declarations) + '')));
 };
 var $rtfeldman$elm_css$Css$Structure$CounterStyle = function (a) {
@@ -17721,13 +17721,13 @@ var $rtfeldman$elm_css$Css$Preprocess$Resolve$toDeclarations = function (snippet
 	}
 };
 var $rtfeldman$elm_css$Css$Preprocess$Resolve$toStructure = function (_v0) {
-	var snippets = _v0.ej;
-	var namespaces = _v0.dR;
-	var imports = _v0.dq;
-	var charset = _v0.c2;
+	var snippets = _v0.ec;
+	var namespaces = _v0.dK;
+	var imports = _v0.dh;
+	var charset = _v0.cR;
 	var declarations = $rtfeldman$elm_css$Css$Preprocess$Resolve$extract(
 		A2($elm$core$List$concatMap, $rtfeldman$elm_css$Css$Preprocess$unwrapSnippet, snippets));
-	return {c2: charset, eX: declarations, dq: imports, dR: namespaces};
+	return {cR: charset, eX: declarations, dh: imports, dK: namespaces};
 };
 var $rtfeldman$elm_css$Css$Preprocess$Resolve$compile = function (sheet) {
 	return $rtfeldman$elm_css$Css$Structure$Output$prettyPrint(
@@ -17752,7 +17752,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$makeSnippet = F2(
 			]);
 	});
 var $rtfeldman$elm_css$Css$Preprocess$stylesheet = function (snippets) {
-	return {c2: $elm$core$Maybe$Nothing, dq: _List_Nil, dR: _List_Nil, ej: snippets};
+	return {cR: $elm$core$Maybe$Nothing, dh: _List_Nil, dK: _List_Nil, ec: snippets};
 };
 var $rtfeldman$elm_css$Css$Structure$ClassSelector = function (a) {
 	return {$: 0, a: a};
@@ -17837,7 +17837,7 @@ var $rtfeldman$elm_css$Css$backgroundColor = function (c) {
 var $rtfeldman$elm_css$Css$center = $rtfeldman$elm_css$Css$prop1('center');
 var $rtfeldman$elm_css$Html$Styled$div = $rtfeldman$elm_css$Html$Styled$node('div');
 var $author$project$ThumbPage$getAlbumListTitle = function (a) {
-	return a.cw;
+	return a.dr;
 };
 var $rtfeldman$elm_css$Css$padding = $rtfeldman$elm_css$Css$prop1('padding');
 var $rtfeldman$elm_css$Css$PxUnits = 0;
@@ -18001,7 +18001,7 @@ var $author$project$ThumbPage$albumTitle = F6(
 								]))
 						]))));
 	});
-var $rtfeldman$elm_css$Css$row = {co: 0, bq: 0, aq: 'row'};
+var $rtfeldman$elm_css$Css$row = {cl: 0, bq: 0, aq: 'row'};
 var $rtfeldman$elm_css$Css$column = _Utils_update(
 	$rtfeldman$elm_css$Css$row,
 	{aq: 'column'});
@@ -18022,7 +18022,7 @@ var $rtfeldman$elm_css$Css$overflowX = $rtfeldman$elm_css$Css$prop1('overflow-x'
 var $rtfeldman$elm_css$Css$overflowY = $rtfeldman$elm_css$Css$prop1('overflow-y');
 var $rtfeldman$elm_css$Css$absolute = {fY: 0, aq: 'absolute'};
 var $author$project$AlbumStyles$rootPos = function (flags) {
-	return flags.ef ? $rtfeldman$elm_css$Css$position($rtfeldman$elm_css$Css$fixed) : $rtfeldman$elm_css$Css$position($rtfeldman$elm_css$Css$absolute);
+	return flags.d8 ? $rtfeldman$elm_css$Css$position($rtfeldman$elm_css$Css$fixed) : $rtfeldman$elm_css$Css$position($rtfeldman$elm_css$Css$absolute);
 };
 var $elm$json$Json$Decode$float = _Json_decodeFloat;
 var $elm$json$Json$Decode$map6 = _Json_map6;
@@ -18035,8 +18035,8 @@ var $author$project$AlbumStyles$viewportDecoder = A7(
 					return function (vwidth) {
 						return function (vheight) {
 							return {
-								ga: {cq: height, cM: width},
-								bE: {cq: vheight, cM: vwidth, cN: x, cO: y}
+								ga: {cn: height, cA: width},
+								bE: {cn: vheight, cA: vwidth, ew: x, ex: y}
 							};
 						};
 					};
@@ -18062,7 +18062,7 @@ var $author$project$AlbumStyles$rootDiv = F4(
 								[
 									$author$project$AlbumStyles$rootPos(flags),
 									$rtfeldman$elm_css$Css$height(
-									$rtfeldman$elm_css$Css$px(viewport.bE.cq)),
+									$rtfeldman$elm_css$Css$px(viewport.bE.cn)),
 									$rtfeldman$elm_css$Css$width(
 									$rtfeldman$elm_css$Css$vw(100)),
 									$rtfeldman$elm_css$Css$overflowX($rtfeldman$elm_css$Css$hidden),
@@ -18139,7 +18139,7 @@ var $rtfeldman$elm_css$Css$int = function (val) {
 		aq: $elm$core$String$fromInt(val)
 	};
 };
-var $rtfeldman$elm_css$Css$none = {aU: 0, cY: 0, Q: 0, c: 0, u: 0, fe: 0, ds: 0, cu: 0, a5: 0, aK: 0, am: 0, e: 0, d: 0, cz: 0, bZ: 0, fV: 0, ai: 0, b1: 0, gc: 0, bb: 0, aP: 0, V: 0, o: 0, gG: 0, aq: 'none'};
+var $rtfeldman$elm_css$Css$none = {aU: 0, cL: 0, Q: 0, c: 0, u: 0, fe: 0, dj: 0, cp: 0, a5: 0, aK: 0, am: 0, e: 0, d: 0, cs: 0, bZ: 0, fV: 0, ai: 0, b1: 0, gc: 0, bb: 0, aP: 0, V: 0, o: 0, gG: 0, aq: 'none'};
 var $rtfeldman$elm_css$Css$marginLeft = $rtfeldman$elm_css$Css$prop1('margin-left');
 var $rtfeldman$elm_css$Css$marginRight = $rtfeldman$elm_css$Css$prop1('margin-right');
 var $rtfeldman$elm_css$Css$middle = $rtfeldman$elm_css$Css$prop1('middle');
@@ -18159,7 +18159,7 @@ var $author$project$ImageViews$encodeSrc = F2(
 			A2(
 				$author$project$Utils$HttpUtils$appendPath,
 				baseUrl,
-				$author$project$Utils$HttpUtils$encodeImgUrl(is))) + (' ' + ($elm$core$String$fromInt(is.cN) + 'w'));
+				$author$project$Utils$HttpUtils$encodeImgUrl(is))) + (' ' + ($elm$core$String$fromInt(is.ew) + 'w'));
 	});
 var $author$project$ImageViews$encodeSrcSet = F2(
 	function (baseUrl, is) {
@@ -18211,8 +18211,8 @@ var $author$project$ImageViews$render = F5(
 						$author$project$Utils$HttpUtils$appendPath,
 						baseUrl,
 						$author$project$Utils$HttpUtils$encodeImgUrl(idefault)))),
-				$rtfeldman$elm_css$Html$Styled$Attributes$width(idefault.cN),
-				$rtfeldman$elm_css$Html$Styled$Attributes$height(idefault.cO)
+				$rtfeldman$elm_css$Html$Styled$Attributes$width(idefault.ew),
+				$rtfeldman$elm_css$Html$Styled$Attributes$height(idefault.ex)
 			]);
 		return A2(
 			$rtfeldman$elm_css$Html$Styled$img,
@@ -18244,7 +18244,7 @@ var $author$project$ImageViews$renderPresized = F8(
 var $author$project$ThumbPage$sizeForHeight = function (height) {
 	return $author$project$ThumbPage$sizeForScaler(
 		function (is1) {
-			return height / is1.cO;
+			return height / is1.ex;
 		});
 };
 var $rtfeldman$elm_css$Css$borderRadius = $rtfeldman$elm_css$Css$prop1('border-radius');
@@ -18276,7 +18276,7 @@ var $rtfeldman$elm_css$Css$verticalAlign = function (fn) {
 };
 var $author$project$AlbumListPage$renderListImage = F2(
 	function (baseUrl, img) {
-		var _v0 = (_Utils_cmp(img.cD.cN, img.cD.cO) > 0) ? A2($author$project$ThumbPage$sizeForWidth, 200, img) : A2($author$project$ThumbPage$sizeForHeight, 200, img);
+		var _v0 = (_Utils_cmp(img.ed.ew, img.ed.ex) > 0) ? A2($author$project$ThumbPage$sizeForWidth, 200, img) : A2($author$project$ThumbPage$sizeForHeight, 200, img);
 		var xScaled = _v0.a;
 		var yScaled = _v0.b;
 		var sideMargin = 10 + A2($elm$core$Basics$max, 0, (yScaled - xScaled) / 2);
@@ -18286,8 +18286,8 @@ var $author$project$AlbumListPage$renderListImage = F2(
 			10,
 			xScaled,
 			yScaled,
-			img.cD,
-			img.cE,
+			img.ed,
+			img.ee,
 			_Utils_ap(
 				$author$project$ThumbPage$thumbStyles,
 				_List_fromArray(
@@ -18317,7 +18317,7 @@ var $author$project$AlbumListPage$viewAlbumOrList = F5(
 		if (!albumOrList.$) {
 			var albumList = albumOrList.a;
 			return _Utils_Tuple2(
-				albumList.cv.cD.cL,
+				albumList.dq.ed.et,
 				A3(
 					a,
 					viewList(albumList),
@@ -18337,7 +18337,7 @@ var $author$project$AlbumListPage$viewAlbumOrList = F5(
 								[childStyles]),
 							_List_fromArray(
 								[
-									A2($author$project$AlbumListPage$renderListImage, baseUrl, albumList.cv),
+									A2($author$project$AlbumListPage$renderListImage, baseUrl, albumList.dq),
 									A2(
 									$rtfeldman$elm_css$Html$Styled$span,
 									_List_fromArray(
@@ -18351,14 +18351,14 @@ var $author$project$AlbumListPage$viewAlbumOrList = F5(
 										]),
 									_List_fromArray(
 										[
-											$rtfeldman$elm_css$Html$Styled$text(albumList.cw)
+											$rtfeldman$elm_css$Html$Styled$text(albumList.dr)
 										]))
 								]))
 						])));
 		} else {
 			var album = albumOrList.a;
 			return _Utils_Tuple2(
-				album.cJ.cD.cL,
+				album.en.ed.et,
 				A3(
 					a,
 					viewAlbum(album),
@@ -18378,7 +18378,7 @@ var $author$project$AlbumListPage$viewAlbumOrList = F5(
 								[childStyles]),
 							_List_fromArray(
 								[
-									A2($author$project$AlbumListPage$renderListImage, baseUrl, album.cJ),
+									A2($author$project$AlbumListPage$renderListImage, baseUrl, album.en),
 									A2(
 									$rtfeldman$elm_css$Html$Styled$span,
 									_List_fromArray(
@@ -18392,7 +18392,7 @@ var $author$project$AlbumListPage$viewAlbumOrList = F5(
 										]),
 									_List_fromArray(
 										[
-											$rtfeldman$elm_css$Html$Styled$text(album.cK)
+											$rtfeldman$elm_css$Html$Styled$text(album.ep)
 										]))
 								]))
 						])));
@@ -18408,12 +18408,12 @@ var $author$project$AlbumListPage$viewAlbumOrLists = F5(
 				_Utils_ap(
 					_List_fromArray(
 						[
-							A5($author$project$AlbumListPage$viewAlbumOrList, a, viewList, viewAlbum, baseUrl, albumList.ci)
+							A5($author$project$AlbumListPage$viewAlbumOrList, a, viewList, viewAlbum, baseUrl, albumList.cS)
 						]),
 					A2(
 						$elm$core$List$map,
 						A4($author$project$AlbumListPage$viewAlbumOrList, a, viewList, viewAlbum, baseUrl),
-						albumList.cj))));
+						albumList.cT))));
 	});
 var $rtfeldman$elm_css$Css$visibility = $rtfeldman$elm_css$Css$prop1('visibility');
 var $author$project$AlbumListPage$view = F7(
@@ -18431,7 +18431,7 @@ var $author$project$AlbumListPage$view = F7(
 					A6(
 					$author$project$ThumbPage$albumTitle,
 					a,
-					alp.bG.cw,
+					alp.bG.dr,
 					A2($elm$core$List$map, $elm$core$Tuple$first, alp.b_),
 					viewList,
 					_List_Nil,
@@ -18442,7 +18442,7 @@ var $author$project$AlbumListPage$view = F7(
 					A6(
 					$author$project$ThumbPage$albumTitle,
 					a,
-					alp.bG.cw,
+					alp.bG.dr,
 					A2($elm$core$List$map, $elm$core$Tuple$first, alp.b_),
 					viewList,
 					_List_Nil,
@@ -18538,7 +18538,7 @@ var $author$project$AlbumPage$touchPrevNext = F2(
 		}
 	});
 var $author$project$FullImagePage$getAlbumTitle = function (a) {
-	return a.cK;
+	return a.ep;
 };
 var $author$project$FullImagePage$imgTitleHeight = 5;
 var $rtfeldman$elm_css$Css$justifyContent = function (fn) {
@@ -18799,7 +18799,7 @@ var $author$project$Utils$TouchUtils$applyOffset = F2(
 				return A2($author$project$Utils$TouchUtils$applyOffset, pz, origLoc);
 			}
 		}();
-		var _v1 = z.ek;
+		var _v1 = z.ef;
 		var startX = _v1.a;
 		var startY = _v1.b;
 		var _v2 = z.fN;
@@ -18924,7 +18924,7 @@ var $author$project$FullImagePage$offsetStyles = F3(
 					} else {
 						var imgPos = imgPosition.a;
 						var sc = $author$project$Utils$TouchUtils$cumScale(z);
-						var _v2 = _Utils_Tuple2(imgPos.dc.cN - imgPos.bE.cN, imgPos.dc.cO - imgPos.bE.cO);
+						var _v2 = _Utils_Tuple2(imgPos.c1.ew - imgPos.bE.ew, imgPos.c1.ex - imgPos.bE.ex);
 						var imgVpPosX = _v2.a;
 						var imgVpPosY = _v2.b;
 						var _v3 = A2(
@@ -18989,7 +18989,7 @@ var $mpizenberg$elm_pointer_events$Internal$Decode$keys = A5(
 	A2($elm$json$Json$Decode$field, 'shiftKey', $elm$json$Json$Decode$bool));
 var $mpizenberg$elm_pointer_events$Html$Events$Extra$Touch$Touch = F4(
 	function (identifier, clientPos, pagePos, screenPos) {
-		return {c3: clientPos, ff: identifier, fT: pagePos, gb: screenPos};
+		return {cU: clientPos, ff: identifier, fT: pagePos, gb: screenPos};
 	});
 var $mpizenberg$elm_pointer_events$Internal$Decode$clientPos = A3(
 	$elm$json$Json$Decode$map2,
@@ -19274,12 +19274,12 @@ var $mdgriffith$elm_style_animation$Animation$Render$pathCmdValue = function (cm
 					$elm$core$Basics$degrees(arc.by.fY));
 				var dx = arc.f3.fY * $elm$core$Basics$cos(
 					$elm$core$Basics$degrees(arc.by.fY));
-				return 'A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,1,' + ($elm$core$String$fromFloat(arc.cN.fY - dx) + (',' + ($elm$core$String$fromFloat(arc.cO.fY - dy) + (' A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,1,' + ($elm$core$String$fromFloat(arc.cN.fY + dx) + (',' + $elm$core$String$fromFloat(arc.cO.fY + dy)))))))))))))));
+				return 'A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,1,' + ($elm$core$String$fromFloat(arc.ew.fY - dx) + (',' + ($elm$core$String$fromFloat(arc.ex.fY - dy) + (' A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,1,' + ($elm$core$String$fromFloat(arc.ew.fY + dx) + (',' + $elm$core$String$fromFloat(arc.ex.fY + dy)))))))))))))));
 			} else {
 				return 'A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (' 0 ' + (((deltaAngle >= 180) ? '1' : '0') + (' ' + ('1' + (' ' + ($elm$core$String$fromFloat(
-					arc.cN.fY + (arc.f3.fY * $elm$core$Basics$cos(
+					arc.ew.fY + (arc.f3.fY * $elm$core$Basics$cos(
 						$elm$core$Basics$degrees(arc.bp.fY)))) + (',' + $elm$core$String$fromFloat(
-					arc.cO.fY + (arc.f3.fY * $elm$core$Basics$sin(
+					arc.ex.fY + (arc.f3.fY * $elm$core$Basics$sin(
 						$elm$core$Basics$degrees(arc.bp.fY))))))))))))));
 			}
 		case 17:
@@ -19290,11 +19290,11 @@ var $mdgriffith$elm_style_animation$Animation$Render$pathCmdValue = function (cm
 					$elm$core$Basics$degrees(arc.by.fY));
 				var dx = arc.f3.fY * $elm$core$Basics$cos(
 					$elm$core$Basics$degrees(arc.by.fY));
-				return 'A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,0,' + ($elm$core$String$fromFloat(arc.cN.fY - dx) + (',' + ($elm$core$String$fromFloat(arc.cO.fY - dy) + (' A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,1,' + ($elm$core$String$fromFloat(arc.cN.fY + dx) + (',' + $elm$core$String$fromFloat(arc.cO.fY + dy)))))))))))))));
+				return 'A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,0,' + ($elm$core$String$fromFloat(arc.ew.fY - dx) + (',' + ($elm$core$String$fromFloat(arc.ex.fY - dy) + (' A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (',0,1,1,' + ($elm$core$String$fromFloat(arc.ew.fY + dx) + (',' + $elm$core$String$fromFloat(arc.ex.fY + dy)))))))))))))));
 			} else {
 				return 'A ' + ($elm$core$String$fromFloat(arc.f3.fY) + (',' + ($elm$core$String$fromFloat(arc.f3.fY) + (' 0 ' + ((((arc.by.fY - arc.bp.fY) >= 180) ? '1' : '0') + (' ' + ('0' + (' ' + ($elm$core$String$fromFloat(
-					arc.cN.fY + (arc.f3.fY * $elm$core$Basics$cos(arc.bp.fY))) + (',' + $elm$core$String$fromFloat(
-					arc.cO.fY + (arc.f3.fY * $elm$core$Basics$sin(arc.bp.fY)))))))))))));
+					arc.ew.fY + (arc.f3.fY * $elm$core$Basics$cos(arc.bp.fY))) + (',' + $elm$core$String$fromFloat(
+					arc.ex.fY + (arc.f3.fY * $elm$core$Basics$sin(arc.bp.fY)))))))))))));
 			}
 		default:
 			return 'z';
@@ -19535,7 +19535,7 @@ var $mdgriffith$elm_style_animation$Animation$Render$render3dRotation = function
 };
 var $mdgriffith$elm_style_animation$Animation$Render$renderValues = function (_v0) {
 	var model = _v0;
-	var _v1 = A2($elm$core$List$partition, $mdgriffith$elm_style_animation$Animation$Render$isAttr, model.en);
+	var _v1 = A2($elm$core$List$partition, $mdgriffith$elm_style_animation$Animation$Render$isAttr, model.ei);
 	var attrProps = _v1.a;
 	var styleProps = _v1.b;
 	var _v2 = A3(
@@ -19652,8 +19652,8 @@ var $author$project$ProgressiveImage$viewImg = F5(
 			$author$project$ImageViews$renderPresized,
 			baseUrl,
 			0,
-			data.cM,
-			data.cq,
+			data.cA,
+			data.cn,
 			imgSrc,
 			_List_Nil,
 			styles,
@@ -19771,23 +19771,23 @@ var $author$project$ProgressiveImage$withWidthHeight = F3(
 			{
 				t: _Utils_update(
 					dataOldWH,
-					{cq: h, cM: w})
+					{cn: h, cA: w})
 			});
 	});
 var $author$project$FullImagePage$viewImg = F6(
 	function (baseUrl, a, clickMsg, touchMsgs, wrapProgMsg, fullImagePageModel) {
-		var img = fullImagePageModel.i.cr;
+		var img = fullImagePageModel.i.df;
 		var edgeBehaviour = function () {
 			var _v2 = fullImagePageModel.a8;
 			if (!_v2.b) {
-				var _v3 = fullImagePageModel.i.cs;
+				var _v3 = fullImagePageModel.i.dg;
 				if (!_v3.b) {
 					return 2;
 				} else {
 					return 1;
 				}
 			} else {
-				var _v4 = fullImagePageModel.i.cs;
+				var _v4 = fullImagePageModel.i.dg;
 				if (!_v4.b) {
 					return 0;
 				} else {
@@ -19797,9 +19797,9 @@ var $author$project$FullImagePage$viewImg = F6(
 		}();
 		var _v0 = A3(
 			$author$project$FullImagePage$fitImage,
-			img.cD,
-			$elm$core$Basics$floor(fullImagePageModel.bE.bE.cM),
-			$elm$core$Basics$round(fullImagePageModel.bE.bE.cq * (1 - ($author$project$FullImagePage$imgTitleHeight / 100))));
+			img.ed,
+			$elm$core$Basics$floor(fullImagePageModel.bE.bE.cA),
+			$elm$core$Basics$round(fullImagePageModel.bE.bE.cn * (1 - ($author$project$FullImagePage$imgTitleHeight / 100))));
 		var w = _v0.a;
 		var h = _v0.b;
 		var _v1 = A2(
@@ -19834,7 +19834,7 @@ var $author$project$FullImagePage$view = F8(
 	function (a, navMsgs, touchMsgs, wrapProgMsg, fullImagePageModel, baseUrl, parents, flags) {
 		var xOfY = ' (' + ($elm$core$String$fromInt(
 			1 + $elm$core$List$length(fullImagePageModel.a8)) + (' of ' + ($elm$core$String$fromInt(
-			($elm$core$List$length(fullImagePageModel.a8) + 1) + $elm$core$List$length(fullImagePageModel.i.cs)) + ')')));
+			($elm$core$List$length(fullImagePageModel.a8) + 1) + $elm$core$List$length(fullImagePageModel.i.dg)) + ')')));
 		var _v0 = A6($author$project$FullImagePage$viewImg, baseUrl, a, navMsgs.fE, touchMsgs, wrapProgMsg, fullImagePageModel);
 		var imgView = _v0.a;
 		var progress = _v0.b;
@@ -19865,7 +19865,7 @@ var $author$project$FullImagePage$view = F8(
 										$rtfeldman$elm_css$Css$height(
 										$rtfeldman$elm_css$Css$pct($author$project$FullImagePage$imgTitleHeight)),
 										$rtfeldman$elm_css$Css$lineHeight(
-										$rtfeldman$elm_css$Css$px(($author$project$FullImagePage$imgTitleHeight / 100) * fullImagePageModel.bE.bE.cq))
+										$rtfeldman$elm_css$Css$px(($author$project$FullImagePage$imgTitleHeight / 100) * fullImagePageModel.bE.bE.cn))
 									]))
 							]),
 						_List_fromArray(
@@ -19873,7 +19873,7 @@ var $author$project$FullImagePage$view = F8(
 								A6(
 								$author$project$ThumbPage$albumTitle,
 								a,
-								_Utils_ap(fullImagePageModel.i.cr.cc, xOfY),
+								_Utils_ap(fullImagePageModel.i.df.cF, xOfY),
 								parents,
 								navMsgs.gg,
 								_List_fromArray(
@@ -19893,7 +19893,7 @@ var $author$project$FullImagePage$view = F8(
 				_Utils_ap(
 					A5($author$project$FullImagePage$navEltIf, a, fullImagePageModel.a8, navMsgs.f$, '<', $rtfeldman$elm_css$Css$left),
 					_Utils_ap(
-						A5($author$project$FullImagePage$navEltIf, a, fullImagePageModel.i.cs, navMsgs.fE, '>', $rtfeldman$elm_css$Css$right),
+						A5($author$project$FullImagePage$navEltIf, a, fullImagePageModel.i.dg, navMsgs.fE, '>', $rtfeldman$elm_css$Css$right),
 						_List_fromArray(
 							[
 								A3(
@@ -19926,7 +19926,7 @@ var $author$project$FullImagePage$view = F8(
 											_List_fromArray(
 												[
 													$rtfeldman$elm_css$Css$top(
-													$rtfeldman$elm_css$Css$px((fullImagePageModel.bE.bE.cq - $author$project$AlbumStyles$navEltSize) - 5)),
+													$rtfeldman$elm_css$Css$px((fullImagePageModel.bE.bE.cn - $author$project$AlbumStyles$navEltSize) - 5)),
 													$rtfeldman$elm_css$Css$right(
 													$rtfeldman$elm_css$Css$px(5)),
 													$rtfeldman$elm_css$Css$textDecoration($rtfeldman$elm_css$Css$none)
@@ -19936,7 +19936,7 @@ var $author$project$FullImagePage$view = F8(
 											A2(
 												$author$project$Utils$HttpUtils$appendPath,
 												baseUrl,
-												$author$project$Utils$HttpUtils$encodeImgUrl(fullImagePageModel.i.cr.cD)))),
+												$author$project$Utils$HttpUtils$encodeImgUrl(fullImagePageModel.i.df.ed)))),
 										$rtfeldman$elm_css$Html$Styled$Attributes$target('_blank')
 									]),
 								_List_fromArray(
@@ -19978,8 +19978,8 @@ var $author$project$ThumbPage$convertImgChosenMsgr = F3(
 		};
 	});
 var $author$project$ThumbPage$imgHeight = function (img) {
-	var is1 = img.cD;
-	return $elm$core$Basics$round(is1.cO * (1000 / is1.cN));
+	var is1 = img.ed;
+	return $elm$core$Basics$round(is1.ex * (1000 / is1.ew));
 };
 var $author$project$ThumbPage$shorter = F2(
 	function (_v0, _v1) {
@@ -20226,8 +20226,8 @@ var $rtfeldman$elm_css$Css$Transitions$fullTransition = F4(
 		return {
 			bH: animation,
 			bJ: $elm$core$Maybe$Just(delay),
-			cl: duration,
-			es: $elm$core$Maybe$Just(timing)
+			ci: duration,
+			eo: $elm$core$Maybe$Just(timing)
 		};
 	});
 var $rtfeldman$elm_css$Css$Transitions$opacity3 = $rtfeldman$elm_css$Css$Transitions$fullTransition(73);
@@ -20464,9 +20464,9 @@ var $rtfeldman$elm_css$Css$Transitions$transition = function (options) {
 			$elm$core$List$foldl,
 			F2(
 				function (_v0, s) {
-					var timing = _v0.es;
+					var timing = _v0.eo;
 					var delay = _v0.bJ;
-					var duration = _v0.cl;
+					var duration = _v0.ci;
 					var animation = _v0.bH;
 					return s + ($rtfeldman$elm_css$Css$Transitions$propToString(animation) + (' ' + ($rtfeldman$elm_css$Css$Transitions$timeToString(duration) + (' ' + (A2(
 						$elm$core$Maybe$withDefault,
@@ -20533,8 +20533,8 @@ var $author$project$ThumbPage$viewThumb = F8(
 					10,
 					xScaled,
 					yScaled,
-					img.cD,
-					img.cE,
+					img.ed,
+					img.ee,
 					_Utils_ap(
 						$author$project$ThumbPage$thumbStyles,
 						_Utils_ap(
@@ -20609,7 +20609,7 @@ var $author$project$ThumbPage$viewThumbColumn = F7(
 	});
 var $author$project$ThumbPage$viewThumbs = F4(
 	function (a, imgChosenMsgr, loadedMsg, thumbPageModel) {
-		var imgs = A2($elm$core$List$cons, thumbPageModel.i.cr, thumbPageModel.i.cs);
+		var imgs = A2($elm$core$List$cons, thumbPageModel.i.df, thumbPageModel.i.dg);
 		var _v0 = $author$project$ThumbPage$colsWidth(thumbPageModel.eJ);
 		var maxCols = _v0.a;
 		var thumbWidth = _v0.b;
@@ -20619,7 +20619,7 @@ var $author$project$ThumbPage$viewThumbs = F4(
 				$author$project$ThumbPage$viewThumbColumn,
 				a,
 				thumbWidth,
-				A3($author$project$ThumbPage$convertImgChosenMsgr, thumbPageModel.i.cr, imgs, imgChosenMsgr),
+				A3($author$project$ThumbPage$convertImgChosenMsgr, thumbPageModel.i.df, imgs, imgChosenMsgr),
 				loadedMsg,
 				thumbPageModel.m,
 				thumbPageModel.H),
@@ -20642,7 +20642,7 @@ var $author$project$ThumbPage$view = F7(
 					A6(
 					$author$project$ThumbPage$albumTitle,
 					a,
-					thumbPageModel.i.cK,
+					thumbPageModel.i.ep,
 					thumbPageModel.b_,
 					showList,
 					_List_Nil,
@@ -20653,7 +20653,7 @@ var $author$project$ThumbPage$view = F7(
 					A6(
 					$author$project$ThumbPage$albumTitle,
 					a,
-					thumbPageModel.i.cK,
+					thumbPageModel.i.ep,
 					thumbPageModel.b_,
 					showList,
 					_List_Nil,
@@ -20850,7 +20850,7 @@ var $author$project$Main$viewImpl = F2(
 			case 3:
 				var le = albumBootstrap.a;
 				var eStr = function () {
-					var _v1 = le.dd;
+					var _v1 = le.c2;
 					switch (_v1.$) {
 						case 0:
 							var s = _v1.a;
@@ -20945,19 +20945,19 @@ var $author$project$Main$view = F2(
 					var ll = albumBootstrap.a;
 					var _v1 = ll.E;
 					var alp = _v1;
-					return alp.bG.cw;
+					return alp.bG.dr;
 				default:
 					var la = albumBootstrap.a;
 					return $author$project$AlbumPage$titleOf(la.k);
 			}
 		}();
 		return {
-			cZ: _List_fromArray(
+			cM: _List_fromArray(
 				[
 					$rtfeldman$elm_css$Html$Styled$toUnstyled(
 					A2($author$project$Main$viewImpl, albumBootstrap, a))
 				]),
-			cK: title
+			ep: title
 		};
 	});
 var $author$project$Main$main = $author$project$RouteUrl$anchorManagedProgram(
@@ -20982,6 +20982,6 @@ _Platform_export({'Main':{'init':$author$project$Main$main(
 		$elm$json$Json$Decode$andThen,
 		function (scrollSupport) {
 			return $elm$json$Json$Decode$succeed(
-				{ef: scrollSupport});
+				{d8: scrollSupport});
 		},
 		A2($elm$json$Json$Decode$field, 'scrollSupport', $elm$json$Json$Decode$bool)))(0)}});}(this));
