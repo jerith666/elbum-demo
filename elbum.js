@@ -6034,8 +6034,8 @@ var $elm$core$String$split = F2(
 var $elm$json$Json$Decode$indent = function (str) {
 	return A2(
 		$elm$core$String$join,
-		'\n    ',
-		A2($elm$core$String$split, '\n', str));
+		'\u000A    ',
+		A2($elm$core$String$split, '\u000A', str));
 };
 var $elm$core$List$foldl = F3(
 	function (func, acc, list) {
@@ -6127,7 +6127,7 @@ var $elm$core$List$reverse = function (list) {
 var $elm$core$String$uncons = _String_uncons;
 var $elm$json$Json$Decode$errorOneOf = F2(
 	function (i, error) {
-		return '\n\n(' + ($elm$core$String$fromInt(i + 1) + (') ' + $elm$json$Json$Decode$indent(
+		return '\u000A\u000A(' + ($elm$core$String$fromInt(i + 1) + (') ' + $elm$json$Json$Decode$indent(
 			$elm$json$Json$Decode$errorToString(error))));
 	});
 var $elm$json$Json$Decode$errorToString = function (error) {
@@ -6152,7 +6152,7 @@ var $elm$json$Json$Decode$errorToStringHelp = F2(
 							return $elm$core$Char$isAlpha(_char) && A2($elm$core$String$all, $elm$core$Char$isAlphaNum, rest);
 						}
 					}();
-					var fieldName = isSimple ? ('.' + f) : ('[\'' + (f + '\']'));
+					var fieldName = isSimple ? ('.' + f) : ('[\u0027' + (f + '\u0027]'));
 					var $temp$error = err,
 						$temp$context = A2($elm$core$List$cons, fieldName, context);
 					error = $temp$error;
@@ -6203,7 +6203,7 @@ var $elm$json$Json$Decode$errorToStringHelp = F2(
 								$elm$core$List$length(errors)) + ' ways:'));
 							return A2(
 								$elm$core$String$join,
-								'\n\n',
+								'\u000A\u000A',
 								A2(
 									$elm$core$List$cons,
 									introduction,
@@ -6215,16 +6215,16 @@ var $elm$json$Json$Decode$errorToStringHelp = F2(
 					var json = error.b;
 					var introduction = function () {
 						if (!context.b) {
-							return 'Problem with the given value:\n\n';
+							return 'Problem with the given value:\u000A\u000A';
 						} else {
 							return 'Problem with the value at json' + (A2(
 								$elm$core$String$join,
 								'',
-								$elm$core$List$reverse(context)) + ':\n\n    ');
+								$elm$core$List$reverse(context)) + ':\u000A\u000A    ');
 						}
 					}();
 					return introduction + ($elm$json$Json$Decode$indent(
-						A2($elm$json$Json$Encode$encode, 4, json)) + ('\n\n' + msg));
+						A2($elm$json$Json$Encode$encode, 4, json)) + ('\u000A\u000A' + msg));
 			}
 		}
 	});
@@ -10705,7 +10705,7 @@ var $author$project$Main$navForAlbum = F6(
 			var i = _v0.a;
 			var _v7 = A3($author$project$Utils$AlbumUtils$findImg, _List_Nil, album, i);
 			if (_v7.$ === 1) {
-				return A2($author$project$Utils$DebugSupport$log, 'navForAlbum can\'t find image ' + i, $elm$core$Maybe$Nothing);
+				return A2($author$project$Utils$DebugSupport$log, 'navForAlbum can\u0027t find image ' + i, $elm$core$Maybe$Nothing);
 			} else {
 				var _v8 = _v7.a;
 				var prevs = _v8.a;
@@ -10859,7 +10859,7 @@ var $author$project$Main$navFrom = F7(
 					'navFrom first path ' + p1,
 					function () {
 						if (mChild.$ === 1) {
-							return A2($author$project$Utils$DebugSupport$log, 'navFrom can\'t find child ' + p1, defMsg);
+							return A2($author$project$Utils$DebugSupport$log, 'navFrom can\u0027t find child ' + p1, defMsg);
 						} else {
 							var pChild = mChild.a;
 							if (!pChild.$) {
@@ -14084,7 +14084,7 @@ var $bartavelle$json_helpers$Json$Helpers$decodeSumObjectWithSingleField = F2(
 			function (lst) {
 				if (!lst.b) {
 					return $elm$core$Result$Err(
-						A2($elm$json$Json$Decode$Failure, 'Can\'t decode ' + (name + ': object has too few keys'), $elm$json$Json$Encode$null));
+						A2($elm$json$Json$Decode$Failure, 'Can\u0027t decode ' + (name + ': object has too few keys'), $elm$json$Json$Encode$null));
 				} else {
 					if (!lst.b.b) {
 						var _v1 = lst.a;
@@ -14095,7 +14095,7 @@ var $bartavelle$json_helpers$Json$Helpers$decodeSumObjectWithSingleField = F2(
 						var kv = lst.a;
 						var kvs = lst.b;
 						return $elm$core$Result$Err(
-							A2($elm$json$Json$Decode$Failure, 'Can\'t decode ' + (name + ': object has too many keys'), kv.b));
+							A2($elm$json$Json$Decode$Failure, 'Can\u0027t decode ' + (name + ': object has too many keys'), kv.b));
 					}
 				}
 			});
@@ -15009,10 +15009,10 @@ var $elm_community$string_extra$String$Extra$regexFromString = A2(
 var $elm$regex$Regex$replace = _Regex_replaceAtMost(_Regex_infinity);
 var $elm_community$string_extra$String$Extra$regexEscape = A2(
 	$elm$regex$Regex$replace,
-	$elm_community$string_extra$String$Extra$regexFromString('[-/\\^$*+?.()|[\\]{}]'),
+	$elm_community$string_extra$String$Extra$regexFromString('[-/\u005C^$*+?.()|[\u005C]{}]'),
 	function (_v0) {
 		var match = _v0.fu;
-		return '\\' + match;
+		return '\u005C' + match;
 	});
 var $elm_community$string_extra$String$Extra$rightOf = F2(
 	function (pattern, string) {
@@ -15639,7 +15639,7 @@ var $author$project$Main$updateMeta = F2(
 									$author$project$Main$SequenceCmd,
 									A2(
 										$author$project$Utils$DebugSupport$log,
-										'sequence msg ' + ($author$project$Utils$DebugSupport$debugString(next) + ' (cont\'d) produces cmd'),
+										'sequence msg ' + ($author$project$Utils$DebugSupport$debugString(next) + ' (cont\u0027d) produces cmd'),
 										nextCmd),
 									_List_fromArray(
 										[rCmds])))));
@@ -16172,7 +16172,7 @@ var $elm$core$String$replace = F3(
 	});
 var $rtfeldman$elm_css$VirtualDom$Styled$styleToDeclaration = F3(
 	function (template, classname, declaration) {
-		return declaration + ('\n' + A3($elm$core$String$replace, $rtfeldman$elm_css$VirtualDom$Styled$classnameStandin, classname, template));
+		return declaration + ('\u000A' + A3($elm$core$String$replace, $rtfeldman$elm_css$VirtualDom$Styled$classnameStandin, classname, template));
 	});
 var $rtfeldman$elm_css$VirtualDom$Styled$toDeclaration = function (dict) {
 	return A3($elm$core$Dict$foldl, $rtfeldman$elm_css$VirtualDom$Styled$styleToDeclaration, '', dict);
@@ -16183,7 +16183,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$toScopedDeclaration = F2(
 			$elm$core$Dict$foldl,
 			F3(
 				function (template, classname, declaration) {
-					return declaration + ('\n' + A3($elm$core$String$replace, '.' + $rtfeldman$elm_css$VirtualDom$Styled$classnameStandin, '#' + (scopingPrefix + ('.' + classname)), template));
+					return declaration + ('\u000A' + A3($elm$core$String$replace, '.' + $rtfeldman$elm_css$VirtualDom$Styled$classnameStandin, '#' + (scopingPrefix + ('.' + classname)), template));
 				}),
 			'',
 			dict);
@@ -16198,7 +16198,7 @@ var $rtfeldman$elm_css$VirtualDom$Styled$toStyleNode = F2(
 				var scope = accumulatedStyles.a;
 				var rootStyles = accumulatedStyles.b;
 				var descendantStyles = accumulatedStyles.c;
-				return A2($rtfeldman$elm_css$VirtualDom$Styled$toScopedDeclaration, scope, rootStyles) + ('\n' + A2($rtfeldman$elm_css$VirtualDom$Styled$toScopedDeclaration, scope + ' ', descendantStyles));
+				return A2($rtfeldman$elm_css$VirtualDom$Styled$toScopedDeclaration, scope, rootStyles) + ('\u000A' + A2($rtfeldman$elm_css$VirtualDom$Styled$toScopedDeclaration, scope + ' ', descendantStyles));
 			}
 		}();
 		return A3(
@@ -16600,7 +16600,7 @@ var $rtfeldman$elm_css$Css$Structure$Output$charsetToString = function (charset)
 		A2(
 			$elm$core$Maybe$map,
 			function (str) {
-				return '@charset \"' + (str + '\"');
+				return '@charset \u0022' + (str + '\u0022');
 			},
 			charset));
 };
@@ -16683,7 +16683,7 @@ var $rtfeldman$elm_css$Css$Structure$Output$mediaQueryToString = function (media
 };
 var $rtfeldman$elm_css$Css$Structure$Output$importMediaQueryToString = F2(
 	function (name, mediaQuery) {
-		return '@import \"' + (name + ($rtfeldman$elm_css$Css$Structure$Output$mediaQueryToString(mediaQuery) + '\"'));
+		return '@import \u0022' + (name + ($rtfeldman$elm_css$Css$Structure$Output$mediaQueryToString(mediaQuery) + '\u0022'));
 	});
 var $rtfeldman$elm_css$Css$Structure$Output$importToString = function (_v0) {
 	var name = _v0.a;
@@ -16691,13 +16691,13 @@ var $rtfeldman$elm_css$Css$Structure$Output$importToString = function (_v0) {
 	return A3(
 		$rtfeldman$elm_css$Css$String$mapJoin,
 		$rtfeldman$elm_css$Css$Structure$Output$importMediaQueryToString(name),
-		'\n',
+		'\u000A',
 		mediaQueries);
 };
 var $rtfeldman$elm_css$Css$Structure$Output$namespaceToString = function (_v0) {
 	var prefix = _v0.a;
 	var str = _v0.b;
-	return '@namespace ' + (prefix + ('\"' + (str + '\"')));
+	return '@namespace ' + (prefix + ('\u0022' + (str + '\u0022')));
 };
 var $rtfeldman$elm_css$Css$Structure$Output$emitProperties = function (properties) {
 	return A3(
@@ -16803,7 +16803,7 @@ var $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration = function (d
 			var mediaQueries = decl.a;
 			var styleBlocks = decl.b;
 			var query = A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$mediaQueryToString, ', ', mediaQueries);
-			var blocks = A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$prettyPrintStyleBlock, '\n', styleBlocks);
+			var blocks = A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$prettyPrintStyleBlock, '\u000A', styleBlocks);
 			return '@media ' + (query + ('{' + (blocks + '}')));
 		case 2:
 			return 'TODO';
@@ -16830,7 +16830,7 @@ var $rtfeldman$elm_css$Css$Structure$Output$prettyPrint = function (_v0) {
 	var namespaces = _v0.dK;
 	var imports = _v0.dh;
 	var charset = _v0.cR;
-	return $rtfeldman$elm_css$Css$Structure$Output$charsetToString(charset) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$importToString, '\n', imports) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$namespaceToString, '\n', namespaces) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration, '\n', declarations) + '')));
+	return $rtfeldman$elm_css$Css$Structure$Output$charsetToString(charset) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$importToString, '\u000A', imports) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$namespaceToString, '\u000A', namespaces) + (A3($rtfeldman$elm_css$Css$String$mapJoin, $rtfeldman$elm_css$Css$Structure$Output$prettyPrintDeclaration, '\u000A', declarations) + '')));
 };
 var $rtfeldman$elm_css$Css$Structure$CounterStyle = function (a) {
 	return {$: 8, a: a};
@@ -19581,7 +19581,7 @@ var $mdgriffith$elm_style_animation$Animation$Render$renderValues = function (_v
 					$elm$core$List$map,
 					function (prop) {
 						var name = $mdgriffith$elm_style_animation$Animation$Model$propertyName(prop);
-						return (name === 'filter-url') ? ('url(\"' + (A2($mdgriffith$elm_style_animation$Animation$Render$propertyValue, prop, ', ') + '\")')) : ($mdgriffith$elm_style_animation$Animation$Model$propertyName(prop) + ('(' + (A2($mdgriffith$elm_style_animation$Animation$Render$propertyValue, prop, ', ') + ')')));
+						return (name === 'filter-url') ? ('url(\u0022' + (A2($mdgriffith$elm_style_animation$Animation$Render$propertyValue, prop, ', ') + '\u0022)')) : ($mdgriffith$elm_style_animation$Animation$Model$propertyName(prop) + ('(' + (A2($mdgriffith$elm_style_animation$Animation$Render$propertyValue, prop, ', ') + ')')));
 					},
 					filters)))
 		]);
